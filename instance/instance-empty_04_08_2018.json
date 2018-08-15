@@ -1,0 +1,91 @@
+{
+  "MMR_PAMs" : {
+    "@xmlns:xsi" : "http://www.w3.org/2001/XMLSchema-instance",
+    "@xsi:noNamespaceSchemaLocation" : "http://dd.eionet.europa.eu/schemas/mmr-pams/MMR_PAMs.xsd",
+    "MMR_PAM" : {
+      "id" : 1,
+      "Title" : null,
+      "TitleLocal" : null,
+      "Table1" : {
+        "isGroup" : "single",
+        "PolicyGroup" : null,
+        "Sectors" : null,
+        "Pollutants" : null,
+        "Objective" : null,
+        "ObjectiveQuantified" : null,
+        "Description" : null,
+        "PolicyInstrument" : null,
+        "UnionPolicy" : null,
+        "UnionPolicyRelated" : "yes",
+        "Implementation" : {
+          "Status" : null,
+          "Start" : null,
+          "Finish" : null
+        },
+        "ProjectionsScenario" : {
+          "Type" : null
+        },
+        "Entities" : {
+          "Type" : null,
+          "Name" : null
+        },
+        "Indicators" : {
+          "Description" : null,
+          "Unit" : null,
+          "Year1" : null,
+          "Value1" : null,
+          "Year2" : null,
+          "Value2" : null,
+          "Year3" : null,
+          "Value3" : null,
+          "Year4" : null,
+          "Value4" : null
+        },
+        "Reference" : {
+          "Text" : null,
+          "Url" : null
+        },
+        "Comments" : null,
+        "Agriculture": {
+          "AgriculturalRelated": "no",
+
+          "MeasuresControlAmmoniaEmissions": "no",
+          "AmmoniaEmissions": "no",
+          "AmmoniaEmissionsPage": "",
+          "AmmoniaEmissionsExactly": "yes",
+          "AmmoniaEmissionsExactlyReason": "",
+          
+          "NationalNitrogenBudgetPage": "",
+          "NationalNitrogenBudgetExactly": "yes",
+          "NationalNitrogenBudgetExactlyReason": "",
+          
+          "AmmoniumCarbonateFertilisers": {},
+          "AmmoniumCarbonateFertilisersPage": "",
+          "AmmoniumCarbonateFertilisersExactly": "yes",
+          "AmmoniumCarbonateFertilisersExactlyReason": "",
+          
+          "AmmoniaEmissionsLivestock": {},
+          "AmmoniaEmissionsLivestockPage": "",
+          "AmmoniaEmissionsLivestockExactly": "yes",
+          "AmmoniaEmissionsLivestockExactlyReason": "",
+          
+          "FineParticulateMatterEmissions": "no",
+          "OpenFieldBurning": {},
+          "OpenFieldBurningPage": "",
+          "OpenFieldBurningExactly": "yes",
+          "OpenFieldBurningExactlyReason": "",
+          
+          "NationalAdvisoryCodePage": "",
+          "NationalAdvisoryCodeExactly": "yes",
+          "NationalAdvisoryCodeExactlyReason": "",
+
+          
+          "PreventingImpactsSmallFarms": "no",
+          "ExemptSmallMicroFarmsPage": "",
+          "ExemptSmallMicroFarmsPageExactly": "yes",
+          "ExemptSmallMicroFarmsPageExactlyReason": ""
+        }
+      }
+    }
+  }
+}

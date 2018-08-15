@@ -1,0 +1,170 @@
+[
+    {
+       "id":"SO2",
+       "parent":"#",
+       "text":"Sulfur dioxide (SO2)",
+       "mandatory": 1
+    },
+    {
+       "id":"NOX",
+       "parent":"#",
+       "text":"Nitrogen oxides (NOx)",
+       "mandatory": 1
+    },
+    {
+       "id":"NMVOC",
+       "parent":"#",
+       "text":"Non-methane volatile organic compound (NMVOC)",
+       "mandatory": 1
+    },
+    {
+       "id":"NH3",
+       "parent":"#",
+       "text":"Ammonia (NH3)",
+       "mandatory": 1
+    },
+    {
+       "id":"PM2.5",
+       "parent":"#",
+       "text":"Particulates (PM2.5)",
+       "mandatory": 1
+    },
+    {
+       "id":"BC",
+       "parent":"#",
+       "text":"BC as a component of PM2.5 (BC)",
+       "mandatory": 0
+    },
+    {
+       "id":"Other",
+       "parent":"#",
+       "text":"Other pollutants",
+       "mandatory": 0
+    },
+    {
+       "id":"CD",
+       "parent":"Other",
+       "text":"Cadmium",
+       "mandatory": 0
+    },
+    {
+       "id":"HG",
+       "parent":"Other",
+       "text":"Mercury",
+       "mandatory": 0
+    },
+    {
+       "id":"PB",
+       "parent":"Other",
+       "text":"Lead",
+       "mandatory": 0
+    },
+    {
+       "id":"PAHS",
+       "parent":"Other",
+       "text":"Polycyclic aromatic hydrocarbon",
+       "mandatory": 0
+    },
+    {
+       "id":"PCBS",
+       "parent":"Other",
+       "text":"Polychlorinated biphenyl",
+       "mandatory": 0
+    },
+    {
+       "id":"HCB",
+       "parent":"Other",
+       "text":"Hexachlorobenzene",
+       "mandatory": 0
+    },
+    {
+       "id":"PM10",
+       "parent":"Other",
+       "text":"Particulates (PM10)",
+       "mandatory": 0
+    },
+    {
+       "id":"AS",
+       "parent":"Other",
+       "text":"Arsenic",
+       "mandatory": 0
+    },
+    {
+       "id":"CR",
+       "parent":"Other",
+       "text":"Chromium",
+       "mandatory": 0
+    },
+    {
+       "id":"CU",
+       "parent":"Other",
+       "text":"Copper",
+       "mandatory": 0
+    },
+    {
+       "id":"NI",
+       "parent":"Other",
+       "text":"Nikel",
+       "mandatory": 0
+    },
+    {
+       "id":"SE",
+       "parent":"Other",
+       "text":"Selenium",
+       "mandatory": 0
+    },
+    {
+       "id":"ZN",
+       "parent":"Other",
+       "text":"Zinc",
+       "mandatory": 0
+    },
+    {
+       "id":"GHG",
+       "parent":"Other",
+       "text":"Greenhouse gases",
+       "mandatory": 0
+    },
+    {
+       "id":"CO2",
+       "parent":"GHG",
+       "text":"Carbon dioxide",
+       "mandatory": 0
+    },
+    {
+       "id":"CH4",
+       "parent":"GHG",
+       "text":"Methane",
+       "mandatory": 0
+    },
+    {
+       "id":"N2O",
+       "parent":"GHG",
+       "text":"Ntrous oxide",
+       "mandatory": 0
+    },
+    {
+       "id":"HFC",
+       "parent":"GHG",
+       "text":"Hydrofluorocarbons",
+       "mandatory": 0
+    },
+    {
+       "id":"PFC",
+       "parent":"GHG",
+       "text":"Perfluorocarbons",
+       "mandatory": 0
+    },
+    {
+       "id":"SF6",
+       "parent":"GHG",
+       "text":"Sulphur hexaflouride",
+       "mandatory": 0
+    },
+    {
+       "id":"NF3",
+       "parent":"GHG",
+       "text":"Nitrogen trifluoride",
+       "mandatory": 0
+    }
+ ]

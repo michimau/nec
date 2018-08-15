@@ -1,0 +1,22 @@
+[
+    {
+       "id":"Planned",
+       "parent":"#",
+       "text":"Planned"
+    },
+    {
+       "id":"Adopted",
+       "parent":"#",
+       "text":"Adopted"
+    },
+    {
+       "id":"Implemented",
+       "parent":"#",
+       "text":"Implemented"
+    },
+    {
+       "id":"Expired",
+       "parent":"#",
+       "text":"Expired (only if the policy or measure has an effect, or is expected to continue to have an effect on greenhouse gas emissions)"
+    }
+]

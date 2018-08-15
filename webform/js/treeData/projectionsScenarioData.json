@@ -1,0 +1,22 @@
+[
+    {
+       "id":"WEM",
+       "parent":"#",
+       "text":"With existing measures"
+    },
+    {
+       "id":"WAM",
+       "parent":"#",
+       "text":"With additional measures"
+    },
+    {
+       "id":"WOM",
+       "parent":"#",
+       "text":"Without measures scenario"
+    },
+    {
+       "id":"NIP",
+       "parent":"#",
+       "text":"Not included in a projection scenario"
+    }
+]

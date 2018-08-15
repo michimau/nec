@@ -1,0 +1,52 @@
+[
+    {
+       "id":"reducing_emissions_slurry",
+       "parent":"#",
+       "text":"reducing emissions from slurry and solid manure application to arable land and grassland, by using methods that reduce emissions by at least 30 % compared with the reference method described in the Ammonia Guidance Document and on the following conditions"
+    },
+    {
+        "id":"spreading",
+        "parent":"reducing_emissions_slurry",
+        "text":"only spreading manures and slurries in line with the foreseeable nutrient requirement of the receiving crop or grassland with respect to nitrogen and phosphorous, also taking into account the existing nutrient content in the soil and the nutrients from other fertilisers"
+     },
+     {
+        "id":"not_spreading",
+        "parent":"reducing_emissions_slurry",
+        "text":"not spreading manures and slurries when the receiving land is water saturated, flooded, frozen or snow covered"
+     },
+     {
+        "id":"incorporating_manures",
+        "parent":"reducing_emissions_slurry",
+        "text":"incorporating manures and slurries spread to arable land within the soil within four hours of spreading"
+     },
+     {
+        "id":"reducing_emissions_manure_storage",
+        "parent":"#",
+        "text":"reducing emissions from manure storage outside of animal houses, by using the following approaches"
+     },
+     {
+        "id":"low_emission_storage_systems",
+        "parent":"reducing_emissions_manure_storage",
+        "text":"for slurry stores constructed after 1 January 2022, using low emission storage systems or techniques which have been shown to reduce ammonia emissions by at least 60 % compared with the reference method described in the Ammonia Guidance Document, and for existing slurry stores at least 40 %"
+     },
+     {
+        "id":"covering_stores",
+        "parent":"reducing_emissions_manure_storage",
+        "text":"covering stores for solid manure"
+     },
+     {
+        "id":"sufficient_manure_storage",
+        "parent":"reducing_emissions_manure_storage",
+        "text":"ensuring farms have sufficient manure storage capacity to spread manure only during periods that are suitable for crop growth"
+     },
+    {
+       "id":"reducing_emissions_animal_housing",
+       "parent":"#",
+       "text":"reducing emissions from animal housing, by using systems which have been shown to reduce ammonia emissions by at least 20 % compared with the reference method described in the Ammonia Guidance Document"
+    },
+    {
+       "id":"reducing_emissions_manure",
+       "parent":"#",
+       "text":"reducing emissions from manure, by using low protein feeding strategies which have been shown to reduce ammonia emissions by at least 10 % compared with the reference method described in the Ammonia Guidance Document"
+    }
+ ]

@@ -1,0 +1,149 @@
+{
+      "MMR_PAMs": {
+        "Table1": {
+          "Pollutants": [],
+          "Sectors": [            
+            "Energy_Supply",
+            "Energy_Consumption",
+            "Transport",
+            "Industrial_Processes",
+            "Agriculture",
+            "LULUCF",
+            "Waste",
+            "Cross-cutting",
+            "Other"
+          ],
+
+          "Objective": [
+            "ES_renewable",
+            "ES_Fuels_witch",
+            "ES_nuclear",
+            "ES_loss_reduction",
+            "ES_efficiency",
+            "ES_CSS",
+            "ES_fugitive_emissions",
+            "ES_other",
+            
+            "EC_efficiency_buildings",
+            "EC_efficiency_appliances",
+            "EC_efficiency_services",
+            "EC_efficiency_industry",
+            "EC_demand_reduction",            
+            "EC_other",
+            
+            "TR_vehicle_efficiency",
+            "TR_modal_shift",
+            "TR_electric_cars",
+            "TR_demand_reduction",
+            "TR_improved_behaviour",
+            "TR_improved_infrastructure",
+            "TR_other",
+            
+            "IP_abatement_technologies",
+            "IP_F-gas_reduction",
+            "IP_F-gas_replacement",
+            "IP_fugitive_emissions_control",
+            "IP_other",
+            
+            "WA_demand_reduction",
+            "WA_Recycling",
+            "WA_Methane_collection",
+            "WA_improved_treatment",
+            "WA_improved_landfill_management",
+            "WA_waste_to_energy",
+            "WA_wastewater",
+            "WA_reduced_landfilling",
+            "WA_other",
+            
+            "AG_Fertilizer_use",
+            "AG_cropland_management",
+            "AG_livestock_management",
+            "AG_animal_waste",
+            "AG_grazing_land_or_grassland",
+            "AG_organic_soils",
+            "AG_other",
+            
+            "LULUCF_afforestation_reforestation",
+            "LULUCF_carbon_conservation",
+            "LULUCF_forest_production",
+            "LULUCF_hwp_pool",
+            "LULUCF_forest_management",
+            "LULUCF_deforestation_prevention",
+            "LULUCF_protection_against_natural_disturbances",
+            "LULUCF_substitution_with_HWP",
+            "LULUCF_wetlands",
+            "LULUCF_degraded_lands",
+            "LULUCF_other",
+            
+            "CC_framework",
+            "CC_multi-sectoral",
+            "CC_other"
+          ],
+          "PolicyInstrument": [
+            "Economic",
+            "Fiscal",
+            "Voluntary",
+            "Regulatory",
+            "Information",
+            "Education",
+            "Research",
+            "Planning",
+            "Other"
+          ],
+          "UnionPolicy": [
+            { "value":"Effort_Sharing_Decision", "group": "CC_" },
+            { "value":"ESD_ANNUAL_EMISSION_ALLOCATION", "group": "CC_" },
+            { "value":"ETS_directive", "group": "CC_" },
+            { "value":"Cogeneration_Directive", "group": "ES_" },
+            { "value":"Internal_energy_market", "group": "ES_" },
+            { "value":"Geological_storage", "group": "ES_" },
+            { "value":"Energy_Taxation_Directive", "group": "ES_" },
+            { "value":"RES_directive", "group": "ES_" },
+            { "value":"End-use_and_energy_services", "group": "EC_" },
+            { "value":"Eco-design_Labelling_directives", "group": "EC_" },
+            { "value":"Energy_Efficiency_Directive", "group": "EC_" },
+            { "value":"Energy_Star_Program", "group": "EC_" },
+            { "value":"Recast_of_EPBD", "group": "EC_" },
+            { "value":"Biofuels_directive", "group": "TR_" },
+            { "value":"Clean_and_Energy_Efficient_Vehicles", "group": "TR_" },
+            { "value":"Eurovignette_Directive", "group": "TR_" },
+            { "value":"FQD", "group": "TR_" },
+            { "value":"Motor_Vehicles_Directive", "group": "TR_" },
+            { "value":"EURO_5_and_6", "group": "TR_" },
+            { "value":"Euro_6_for_HDV", "group": "TR_" },
+            { "value":"CO2_and_cars_and_vans_regulations", "group": "TR_" },
+            { "value":"Fgas_regulation", "group": "IP_" },
+            { "value":"F-gas_Regulation", "group": "IP_" },
+            { "value":"MACs_Directive", "group": "IP_" },
+            { "value":"CAP_Health_Check_and_Set_aside", "group": "AG_" },
+            { "value":"Cap_reform", "group": "AG_" },
+            { "value":"CAP_Reform", "group": "AG_" },
+            { "value":"Nitrate_Directive", "group": "AG_" },
+            { "value":"Landfill_Directive", "group": "WA_" },
+            { "value":"Waste_Directive", "group": "WA_" },
+            { "value":"Waste_incineration_Directive", "group": "WA_" },
+            { "value":"Waste_Management_Framework_Directive", "group": "WA_" },
+            { "value":"LULUCF_Decision", "group": "LULUCF_" },
+            { "value":"NEC", "group": "OT_" },
+            { "value":"IED", "group": "OT_" },
+            { "value":"Water_Framework", "group": "OT_" },
+            { "value":"Other_EU", "group": "OT_" }
+          ],
+          "ImplementationStatus": [
+            "Planned", "Adopted", "Implemented", "Expired"
+          ],
+          "ProjectionsScenario": [
+           "WEM","WAM","WOM","NIP" 
+          ],
+          "Entities": [
+            "Government","Regional","Local","Companies","Research","Other"
+          ],
+          "Agriculture": null
+        },
+        "Table2": {
+          "PolicyImpact": [
+            "EU_ETS","ESD","LULUCF"
+          ]
+        }
+      }
+    }

@@ -1,0 +1,22 @@
+[
+    {
+       "id":"improvement_soil_structure",
+       "parent":"#",
+       "text":"improvement of soil structure through incorporation of harvest residue"
+    },
+    {
+       "id":"improved_techniques",
+       "parent":"#",
+       "text":"improved techniques for incorporation of harvest residue"
+    },
+    {
+       "id":"low_protein_feeding",
+       "parent":"#",
+       "text":"reducing emissions from manure, by using low protein feeding strategies which have been shown to reduce ammonia emissions by at least 10 % compared with the reference method described in the Ammonia Guidance Document"
+    },
+    {
+        "id":"avoiding_burning_manure",
+        "parent":"#",
+        "text":"Improvement of the nutrient status and soil structure through incorporation of manure as required for optimal plant growth, thereby avoiding burning of manure (farmyard manure, deep-straw bedding)"
+    }
+]

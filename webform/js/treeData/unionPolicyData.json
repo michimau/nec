@@ -1,0 +1,232 @@
+[
+    {
+       "id":"CC",
+       "parent":"#",
+       "text":"Cross-cutting"
+    },
+    {
+       "id":"Effort_Sharing_Decision",
+       "parent":"CC",
+       "text":"Effort Sharing Decision 406/2009/EC"
+    },
+    {
+       "id":"ESD_ANNUAL_EMISSION_ALLOCATION",
+       "parent":"CC",
+       "text":"ESD Annual Emission Allocation (AEA) Decision 2013/634/EU"
+    },
+    {
+       "id":"ETS_directive",
+       "parent":"CC",
+       "text":"EU ETS directive 2003/87/EC as amended by Directive 2008/101/EC and Directive 2009/29/EC and implementing legislation, in particular 2010/2/EU, 2011/278/EU, 2011/638/EU, 176/2014/EU, and Decision (EU) 2015/1814"
+    },
+    {
+       "id":"ES",
+       "parent":"#",
+       "text":"Energy supply"
+    },
+    {
+       "id":"Cogeneration_Directive",
+       "parent":"ES",
+       "text":"Cogeneration Directive 2004/8/EC"
+    },
+    {
+       "id":"Internal_energy_market",
+       "parent":"ES",
+       "text":"Completion of the internal energy market (including provisions of the 3d package)"
+    },
+    {
+       "id":"Geological_storage",
+       "parent":"ES",
+       "text":"Directive on the geological storage of CO2 2009/31/EC"
+    },
+    {
+       "id":"Energy_Taxation_Directive",
+       "parent":"ES",
+       "text":"Energy Taxation Directive 2003/96/EC"
+    },
+    {
+       "id":"RES_directive",
+       "parent":"ES",
+       "text":"RES directive 2009/28/EC"
+    },
+    {
+       "id":"EC",
+       "parent":"#",
+       "text":"Energy consumption"
+    },
+    {
+       "id":"End-use_and_energy_services",
+       "parent":"EC",
+       "text":"Directive 2006/32/EC on end-use energy efficiency and energy services"
+    },
+    {
+       "id":"Eco-design_Labelling_directives",
+       "parent":"EC",
+       "text":"Eco-design framework Directive 2009/125/EC, 2008/28/EC and its implementing Regulations, combined with Labelling Directive 2003/66/EC and 2010/30/EC"
+    },
+    {
+       "id":"Energy_Efficiency_Directive",
+       "parent":"EC",
+       "text":"Energy Efficiency Directive 2012/27/EU"
+    },
+    {
+       "id":"Energy_Star_Program",
+       "parent":"EC",
+       "text":"Energy Star Program"
+    },
+    {
+       "id":"TR",
+       "parent":"#",
+       "text":"Transport"
+    },
+    {
+       "id":"Biofuels_directive",
+       "parent":"TR",
+       "text":"Biofuels directive 2003/30/EC"
+    },
+    {
+       "id":"Clean_and_Energy_Efficient_Vehicles",
+       "parent":"TR",
+       "text":"Directive on the Promotion of Clean and Energy Efficient Road Transport Vehicles 2009/33/EC"
+    },
+    {
+       "id":"Eurovignette_Directive",
+       "parent":"TR",
+       "text":"Eurovignette Directive on road infrastructure charging 2011/76/EU"
+    },
+    {
+       "id":"FQD",
+       "parent":"TR",
+       "text":"Fuel Quality Directive 2009/30/EC"
+    },
+    {
+       "id":"Motor_Vehicles_Directive",
+       "parent":"TR",
+       "text":"Motor Vehicles Directive 2006/40/EC (Deprecated)"
+    },
+    {
+       "id":"EURO_5_and_6",
+       "parent":"TR",
+       "text":"Regulation EURO 5 and 6 2007/715/EC"
+    },
+    {
+       "id":"Euro_6_for_HDV",
+       "parent":"TR",
+       "text":"Regulation Euro VI for heavy duty vehicles 2009/595/EC"
+    },
+    {
+       "id":"CO2_and_cars_and_vans_regulations",
+       "parent":"TR",
+       "text":"Regulation on CO2 from cars and vans (2009/443/EC, (EU) No 510/2011, (EU) No 397/2013, (EU) No 333/2014, (EU) No 253/2014, 2013/128/EU, (EU) No 396/2013, (EU) No 114/2013)"
+    },
+    {
+       "id":"IP",
+       "parent":"#",
+       "text":"Industrial processes"
+    },
+    {
+       "id":"Fgas_regulation",
+       "parent":"IP",
+       "text":"F-gas Regulation 517/2014"
+    },
+    {
+       "id":"F-gas_Regulation",
+       "parent":"IP",
+       "text":"F-gas Regulation 2006/842/EC"
+    },
+    {
+       "id":"MACs_Directive",
+       "parent":"IP",
+       "text":"Mobile Air-conditioning system (MACs) Directive 2006/40/EC"
+    },
+    {
+       "id":"Recast_of_EPBD",
+       "parent":"IP",
+       "text":"Recast of the Energy Performance of Buildings Directive (Directive 2010/31/EU)"
+    },
+    {
+       "id":"AG",
+       "parent":"#",
+       "text":"Agriculture"
+    },
+    {
+       "id":"CAP_Health_Check_and_Set_aside",
+       "parent":"AG",
+       "text":"CAP “Health Check” 2008 and the “Set aside” regulation 73/2009"
+    },
+    {
+       "id":"CAP_reform_2013",
+       "parent":"AG",
+       "text":"CAP Reform 2013 regulations Rural Development (1305/2013), 'Horizontal' issues (1306/2013), Direct payments (1307/2013) and Market measures (1308/2013)"
+    },
+    {
+       "id":"CAP_Reform_2014_2020",
+       "parent":"AG",
+       "text":"CAP Reform 2014-2020 Regulation 1305/2013; Regulation 1306/2013; Regulation 1307/2013 and Regulation 1308/2013, and their transitory measures for 2014 (Regulation 1310/2013, 2006/144/EC)"
+    },
+    {
+       "id":"Nitrate_Directive",
+       "parent":"AG",
+       "text":"Nitrate Directive 1991/676/EEC"
+    },
+    {
+       "id":"WS",
+       "parent":"#",
+       "text":"Waste management/waste"
+    },
+    {
+       "id":"Landfill_Directive",
+       "parent":"WS",
+       "text":"Landfill Directive 1999/31/EC"
+    },
+    {
+       "id":"Waste_Directive",
+       "parent":"WS",
+       "text":"Waste Directive 2006/12/EC"
+    },
+    {
+       "id":"Waste_incineration_Directive",
+       "parent":"WS",
+       "text":"Waste incineration Directive 2000/76/EC 2000/76/EC"
+    },
+    {
+       "id":"Waste_Management_Framework_Directive",
+       "parent":"WS",
+       "text":"Waste Management Framework Directive 2008/98/EC"
+    },
+    {
+       "id":"LU",
+       "parent":"#",
+       "text":"Land use,land-use change and forestry"
+    },
+    {
+       "id":"LULUCF_Decision",
+       "parent":"LU",
+       "text":"LULUCF Decision No 529/2013/EU"
+    },
+    {
+       "id":"OS",
+       "parent":"#",
+       "text":"Other Sectors"
+    },
+    {
+       "id":"NEC",
+       "parent":"OS",
+       "text":"Directive on national emissions' ceilings for certain pollutants 2001/81/EC"
+    },
+    {
+       "id":"IED",
+       "parent":"OS",
+       "text":"Industrial emissions Directive 2010/75/EU (Recast of IPPC Directive 2008/1/EC and Large Combustion Plant Directive 2001/80/EC)"
+    },
+    {
+       "id":"Water_Framework",
+       "parent":"OS",
+       "text":"Water Framework Directive 2000/60/EC"
+    },
+    {
+       "id":"EU_other",
+       "parent":"OS",
+       "text":"Other (Union policy not listed above or additional Union policy)"
+    }
+ ]

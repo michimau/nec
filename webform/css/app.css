@@ -1,0 +1,1309 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important; }
+
+.rcorners {
+    border-radius: 15px;
+    border: 1px solid #00446a;
+    padding: 15px; 
+    width: 95%;
+    align-content: center;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.rcorners h1{
+  text-align: left;
+  margin-top: -25px;
+  margin-bottom: 10px;  
+  height: 20px;
+  line-height: 20px;
+  font-size: 15px;
+}
+
+.rcorners h1 span{
+  background-color: white;
+}
+
+.rcorners-inner {
+  border-radius: 15px;
+  border: 1px solid #00446a;
+  padding-left: 15px;
+  padding-bottom: 10px; 
+  width: 99%;
+  align-content: center;
+  margin: auto;
+  margin-bottom: 7px;
+  margin-top: 7px;
+}
+
+.rcorners-inner h1{
+  text-align: left;
+  margin-top: -10px;
+  margin-bottom: 10px;  
+  height: 20px;
+  line-height: 20px;
+  font-size: 15px;
+}
+
+.rcorners-inner h1 span{
+  background-color: Inherit;
+}
+
+.jstree-default a { 
+  white-space:normal !important; height: auto; 
+}
+.jstree-anchor {
+  height: auto !important;
+}
+.jstree-default li > ins { 
+  vertical-align:top; 
+}
+.jstree-leaf {
+  height: auto;
+}
+.jstree-leaf a{
+  height: auto !important;
+}
+
+/* line 7, ../scss/webform.scss */
+.loadingTracker {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(overlay.png) repeat;
+  text-align: center;
+  z-index: 1000; }
+
+/* line 17, ../scss/webform.scss */
+.loadingTracker p {
+  text-align: right;
+  color: #fff;
+  margin-right: 20px;
+  font-size: 13px; }
+
+/* line 23, ../scss/webform.scss */
+table {
+  width: 100%;
+  font-size: 13px; }
+
+/* @group IMPORTED */
+/* line 29, ../scss/webform.scss */
+#container {
+  background-color: #fff;
+  color: #333;
+  margin: 0 auto;
+  position: relative;
+  width: 100%; }
+
+/* line 36, ../scss/webform.scss */
+#tool-ribbon {
+  background-color: #ffffff;
+  border-bottom: 4px solid #6f7072;
+  color: #315076;
+  font-size: 80%;
+  height: 30px;
+  width: 100%; }
+
+#tool-ribbon a {
+  display: inline-block;
+  height: 16px;
+  color: #315076;
+  background-color: #ffffff;
+  text-decoration: none;
+  vertical-align: middle;
+  padding: 3px 0.5em 1px 0.5em;
+}
+
+/* line 44, ../scss/webform.scss */
+#left-tools {
+  float: left;
+  height: 20px;
+  padding: 4px 0.5em;
+  text-align: left;
+  vertical-align: middle; }
+
+/* line 51, ../scss/webform.scss */
+a#eealink {
+  background: url("http://www.eionet.europa.eu/styles/eionet2007/eeaicon.gif") no-repeat scroll left center transparent;
+  padding-left: 18px; }
+
+
+/* line 55, ../scss/webform.scss */
+#right-tools {
+  float: right;
+  text-align: right;
+  width: 60%;
+  font-size: 0.75rem; }
+
+@font-face {
+  font-family: 'icomoon';
+  src: url("icomoon.eot?-1aa17p");
+  src: url("icomoon.eot?#iefix-1aa17p") format("embedded-opentype"), url("icomoon.woff?-1aa17p") format("woff"), url("icomoon.ttf?-1aa17p") format("truetype"), url("icomoon.svg?-1aa17p#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+/* line 71, ../scss/webform.scss */
+[class^="icon-"], [class*=" icon-"] {
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+/* line 81, ../scss/webform.scss */
+[class^="icon-"] span, [class*=" icon-"] span {
+  font-size: 0; }
+
+.icon-new-tab:before {
+  content: "\ea7f";
+  font-family: "icomoon" !important; }
+
+/* line 84, ../scss/webform.scss */
+.icon-info-with-circle:before {
+  content: "\e60e";
+  font-family: "icomoon" !important; }
+
+/* line 88, ../scss/webform.scss */
+.icon-eye-icon:before {
+  content: "\e60a";
+  font-family: "icomoon" !important; }
+
+/* line 92, ../scss/webform.scss */
+.icon-bin:before {
+  content: "\e600";
+  font-family: "icomoon" !important; }
+
+/* line 96, ../scss/webform.scss */
+.icon-binreverse:before {
+  content: "\e601";
+  font-family: "icomoon" !important; }
+
+/* line 100, ../scss/webform.scss */
+.icon-pen:before {
+  content: "\e602";
+  font-family: "icomoon" !important; }
+
+/* line 104, ../scss/webform.scss */
+.icon-penreverse:before {
+  content: "\e603";
+  font-family: "icomoon" !important; }
+
+/* line 108, ../scss/webform.scss */
+.icon-plus:before {
+  content: "\e604";
+  font-family: "icomoon" !important; }
+
+/* line 112, ../scss/webform.scss */
+.icon-plusrev:before {
+  content: "\e605";
+  font-family: "icomoon" !important; }
+
+/* line 116, ../scss/webform.scss */
+.icon-triangle:before {
+  content: "\e606";
+  font-family: "icomoon" !important; }
+
+/* line 120, ../scss/webform.scss */
+.icon-trianglerev:before {
+  content: "\e607";
+  font-family: "icomoon" !important; }
+
+/* line 124, ../scss/webform.scss */
+.icon-x:before {
+  content: "\e608";
+  font-family: "icomoon" !important; }
+
+/* line 128, ../scss/webform.scss */
+.icon-xrev:before {
+  content: "\e609";
+  font-family: "icomoon" !important; }
+
+/* line 132, ../scss/webform.scss */
+.icon-checkmark:before {
+  content: "\e60b";
+  font-family: "icomoon" !important; }
+
+/* line 136, ../scss/webform.scss */
+.icon-checkmarkrev:before {
+  content: "\e604";
+  font-family: "icomoon" !important; }
+
+/* line 140, ../scss/webform.scss */
+.icon-grid:before {
+  content: "\e601";
+  font-family: "icomoon" !important; }
+
+/* line 144, ../scss/webform.scss */
+.activelink {
+  color: white;
+  display: block;
+  background-color: #497a95;
+  padding: 11px; }
+  /* line 149, ../scss/webform.scss */
+  .activelink:hover {
+    color: white; }
+  /* line 152, ../scss/webform.scss */
+  .activelink:visited {
+    color: white; }
+
+/* line 156, ../scss/webform.scss */
+.currentlink:after, .activetab:after {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  position: absolute;
+  pointer-events: none;
+  border-top-color: #497a95;
+  border-width: 15px;
+  margin-left: -15px; }
+
+/* line 168, ../scss/webform.scss */
+.tabs li.activetab {
+  position: relative;
+  background-color: #497a95;
+  color: white; }
+
+/* line 179, ../scss/webform.scss */
+.select2-container-multi .select2-choices .select2-search-field input {
+  font-size: 13px;
+  margin: 0; }
+
+/* line 183, ../scss/webform.scss */
+.select2-results .select2-result-label {
+  font-size: 13px;
+  padding: 8px; }
+
+/* line 187, ../scss/webform.scss */
+#single-page {
+  margin-left: 0;
+  margin-bottom: 0px;
+  text-align: left;
+  background: #00446a;
+  border: 8px;
+  border-radius: 4px;
+  min-height: 41px; }
+  /* line 195, ../scss/webform.scss */
+  #single-page li {
+    display: inline-block;
+    font-size: 13px;
+    position: relative;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    width: 30px;
+    line-height: inherit; }
+    /* line 204, ../scss/webform.scss */
+    #single-page li:hover {
+      position: relative;
+      background-color: #497a95;
+      color: white;
+      width: 30px;
+      vertical-align: middle; }
+  /* line 212, ../scss/webform.scss */
+  #single-page a {
+    text-decoration: none;
+    line-height: inherit;
+    vertical-align: middle;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 10px;
+    padding-bottom: 11px;
+    display: block;
+    color: white;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+  /* line 227, ../scss/webform.scss */
+  #single-page li a:hover {
+    color: white;
+    display: block;
+    width: 30px; }
+
+/* line 233, ../scss/webform.scss */
+#group-page {
+  margin: 0;
+  text-align: left;
+  background: #00446a;
+  border: 8px;
+  border-radius: 4px;
+  min-height: 41px; }
+  /* line 240, ../scss/webform.scss */
+  #group-page li {
+    display: inline-block;
+    font-size: 13px;
+    position: relative;
+    color: black;
+    text-align: center;
+    vertical-align: middle;
+    width: 30px;
+    line-height: inherit; }
+    /* line 249, ../scss/webform.scss */
+    #group-page li:hover {
+      position: relative;
+      background-color: #497a95;
+      color: white;
+      width: 30px;
+      vertical-align: middle; }
+    /* line 256, ../scss/webform.scss */
+    #group-page li a {
+      text-decoration: none;
+      line-height: inherit;
+      vertical-align: middle;
+      padding-left: 4px;
+      padding-right: 4px;
+      padding-top: 10px;
+      padding-bottom: 11px;
+      display: block;
+      color: white;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none; }
+      /* line 270, ../scss/webform.scss */
+      #group-page li a:hover {
+        color: white;
+        display: block;
+        width: 30px; }
+
+/* line 279, ../scss/webform.scss */
+#groups {
+  background: #1d5777;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 7px;
+  border-right: 1px solid white;
+  display: inline-block;
+  padding: 7px;
+  padding-left: 49px;
+  color: white;
+  padding-right: 49px;
+  padding-bottom: 9px;
+  margin-right: 2%; }
+  /* line 291, ../scss/webform.scss */
+  #groups:before {
+    content: "\e601";
+    font-family: 'icomoon'; }
+
+/* line 297, ../scss/webform.scss */
+#singles {
+  background: #1d5777;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 7px;
+  border-right: 1px solid white;
+  display: inline-block;
+  padding: 7px;
+  padding-left: 51px;
+  color: white;
+  padding-right: 51px;
+  padding-bottom: 9px;
+  margin-right: 2%; }
+  /* line 309, ../scss/webform.scss */
+  #singles:before {
+    content: "\e601";
+    font-family: 'icomoon'; }
+
+/* line 315, ../scss/webform.scss */
+.tabs dd a.active {
+  display: block;
+  text-align: center;
+  position: relative;
+  background-color: #497a95;
+  color: white;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+
+/* line 323, webform.scss */
+/* line 328, ../scss/webform.scss */
+.tabs dd a.active:after {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  position: absolute;
+  pointer-events: none;
+  border-top-color: #497a95;
+  border-width: 15px;
+  margin-left: -15px; }
+
+/* line 341, ../scss/webform.scss */
+.tabs dd a {
+  border-radius: 7px;
+  margin: 10px; }
+
+/* line 346, ../scss/webform.scss */
+.tabs dd a.disabled {
+  color: #AAAAAA;
+  cursor: default;
+  pointer-events: none;
+  text-decoration: none; }
+
+/* line 353, ../scss/webform.scss */
+#tab-pams-table1 {
+  visibility: hidden;
+  position: absolute; }
+
+/* line 358, ../scss/webform.scss */
+#tab-pams-table2 {
+  visibility: hidden;
+  position: absolute; }
+
+/* line 363, ../scss/webform.scss */
+#tab-pams-table3 {
+  visibility: hidden;
+  position: absolute; }
+
+/* line 368, ../scss/webform.scss */
+.my-tabs {
+  visibility: visible; }
+
+/* line 372, ../scss/webform.scss */
+#tab-pams { 
+  /*visibility: hidden; */
+}
+
+/* line 376, ../scss/webform.scss */
+#tab-overview {
+  /*visibility: hidden; */
+}
+.select2-container {
+  width: 80px;
+}
+
+
+/* line 380, ../scss/webform.scss */
+.select2-container .select2-choice .select2-arrow b {
+  margin-top: 5px !important; }
+
+/* line 383, ../scss/webform.scss */
+.select2-container .select2-choice {
+  height: 36px !important;
+  border: 0px !important;
+  padding-top: 5px;
+  border-radius: 9px; }
+
+/* line 389, ../scss/webform.scss */
+.select2-container-multi .select2-choices {
+  border: none !important;
+  border-radius: 4px !important;
+  border: 0px !important;
+  min-height: 37px; }
+
+/* line 395, ../scss/webform.scss */
+.select2-drop-active {
+  border: 0px !important;
+  margin-top: -4px; }
+
+/* line 399, ../scss/webform.scss */
+.select2-container .select2-choice .select2-arrow {
+  background-image: -webkit-linear-gradient(bottom, #e9e9e9 0%, #f7f7f7 60%) !important;
+  background-image: linear-gradient(to top, #e9e9e9 0%, #f7f7f7 60%) !important;
+  border-left: 1px solid #E0E0E0 !important; }
+
+/* line 404, ../scss/webform.scss */
+.select2-container.select2-allowclear .select2-choice abbr {
+  margin-top: 4px !important; }
+
+/* line 407, ../scss/webform.scss */
+.select2-container-multi .select2-choices .select2-search-choice {
+  margin: 9px 0 3px 5px !important;
+  padding: 3px 5px 3px 18px;
+  position: relative;
+  line-height: 13px;
+  color: #808080;
+  cursor: default;
+  background-clip: padding-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  font-size: 13px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-color: #FFFFFF;
+  border: none;
+  background-image: none;
+  box-shadow: none; }
+
+/* line 426, ../scss/webform.scss */
+.small-add-button {
+  border-width: 0;
+  cursor: pointer;
+  font-weight: normal;
+  line-height: normal;
+  position: relative;
+  text-align: center;
+  -webkit-appearance: none;
+  display: block;
+  padding-top: 0.47rem;
+  padding-bottom: 0.47rem;
+  font-size: 1rem;
+  background-color: #43ac6a;
+  color: #FFFFFF;
+  border-radius: 4px;
+  -webkit-transition: background-color 300ms ease-out;
+          transition: background-color 300ms ease-out; }
+  /* line 443, ../scss/webform.scss */
+  .small-add-button:hover {
+    background-color: #497a95;
+    color: #FFFFFF;
+    -webkit-transition: background-color 300ms ease-out;
+            transition: background-color 300ms ease-out; }
+
+/* line 449, ../scss/webform.scss */
+.column, .columns {
+  padding: 10px; }
+
+/* line 452, ../scss/webform.scss */
+#lista {
+  background-color: #00446a;
+  border-radius: 5px;
+  text-align: center;
+  position: relative; }
+
+/* line 458, ../scss/webform.scss */
+#listone {
+  padding: 0; }
+
+/* line 461, ../scss/webform.scss */
+.listtwo {
+  padding-top: 0;
+  padding-bottom: 0; }
+
+/* line 465, ../scss/webform.scss */
+#listthree {
+  padding: 0;
+  float: right; }
+
+/* line 469, ../scss/webform.scss */
+#plusicon {
+  float: right;
+  background-color: #43ac6a;
+  border-radius: 0px 4px 4px 0px; }
+
+/* line 474, ../scss/webform.scss */
+#over {
+  margin: 0px;
+  color: white;
+  padding: 11px 0px 9px 0px;
+  display: block;
+  font-size: 15px;
+  border-radius: 4px;
+  text-align: center;
+  background-color: #43ac6a; }
+  /* line 483, ../scss/webform.scss */
+  #over:hover {
+    background-color: #497a95; }
+
+/* line 487, ../scss/webform.scss */
+.icontop {
+  padding: 10px;
+  padding-right: 94px;
+  display: block;
+  border-radius: 4px;
+  font-size: 15px;
+  margin-left: -35px;
+  text-align: right;
+  background-color: #43ac6a;
+  white-space: nowrap;
+  margin-bottom: 0px;
+  color: white;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; 
+  height: 44px; }
+  /* line 504, ../scss/webform.scss */
+  .icontop:before {
+    content: "\e605";
+    font-family: "icomoon" !important;
+    margin-right: 11px; }
+  /* line 509, ../scss/webform.scss */
+  .icontop:hover {
+    background-color: #497a95;
+    color: white; }
+
+/* line 514, ../scss/webform.scss */
+li {
+  font-size: 13px; }
+
+/* line 517, ../scss/webform.scss */
+#tab-active {
+  background-color: #497a95; }
+
+/* line 520, ../scss/webform.scss */
+.tabs li {
+  display: inline-block;
+  background-color: #d5e0e7;
+  border-radius: 7px;
+  padding: 9px;
+  height: 34px;
+  width: 95px;
+  text-align: center;
+  margin-bottom: 20px; }
+  /* line 529, ../scss/webform.scss */
+  .tabs li:hover {
+    background-color: #497a95;
+    color: white; }
+  /* line 533, ../scss/webform.scss */
+  .tabs li a {
+    color: #497a95; }
+    /* line 535, ../scss/webform.scss */
+    .tabs li a:hover {
+      color: white; }
+
+/* line 540, ../scss/webform.scss */
+#savebutton {
+  background-color: #43ac6a;
+  border-radius: 10px;
+  font-size: 16px;
+  height: 46px;
+  width: 89px;
+  vertical-align: top; }
+
+/* line 548, ../scss/webform.scss */
+.deleticon {
+  background-color: transparent;
+  color: #c1272d;
+  text-align: center;
+  font-size: 24px;
+  float: left; }
+
+/* line 555, ../scss/webform.scss */
+.addicon {
+  background-color: transparent;
+  color: #43ac6a;
+  text-align: center;
+  font-size: 24px;
+  float: right; }
+
+/* line 562, ../scss/webform.scss */
+#page-number li {
+  display: inline-block; }
+
+/* line 565, ../scss/webform.scss */
+#number {
+  font-weight: 800;
+  font-size: 27px;
+  padding-top: 30px; }
+
+/* line 570, ../scss/webform.scss */
+#pamtitle {
+  font-weight: 400;
+  border-radius: 4px;
+  border-width: 1px;
+  width: 362px;
+  border-style: solid;
+  border-color: #d4d4d4;
+  padding-bottom: 0; }
+
+/* line 579, ../scss/webform.scss */
+#first {
+  border-radius: 5px;
+  width: 25%;
+  margin-left: 1.5%; }
+
+/* line 584, ../scss/webform.scss */
+.eight {
+  border-radius: 5px; }
+
+/* line 587, ../scss/webform.scss */
+#comments {
+  border-radius: 5px;
+  height: 125px; }
+
+/* line 591, ../scss/webform.scss */
+#reference {
+  border-radius: 5px;
+  height: 80px; }
+
+/* line 595, ../scss/webform.scss */
+.sixty {
+  border-radius: 5px;
+  height: 65px; }
+
+/* line 599, ../scss/webform.scss */
+#short {
+  width: 25%;
+  border-radius: 5px; }
+
+/* line 603, ../scss/webform.scss */
+.pamname {
+  font-weight: 700;
+  font-size: 13px;
+  color: black;
+  margin-bottom: 0; }
+
+/* line 610, ../scss/webform.scss */
+.ui-select-container {
+  min-width: 100%; }
+  /* line 612, ../scss/webform.scss */
+  .ui-select-container li {
+    min-width: 100%; }
+    /* line 614, ../scss/webform.scss */
+    .ui-select-container li input {
+      min-width: 100%; }
+
+/* line 620, ../scss/webform.scss */
+.validation .ui-select-container.ng-invalid {
+  font-size: 13px;
+  border: 1px solid #F15A24;
+  box-shadow: 0px 0px 26px -5px #F15A24;
+  border-radius: 5px; }
+/* line 629, ../scss/webform.scss */
+.validation .overview-validation {
+  font-size: 13px;
+  border: 1px solid #F15A24;
+  box-shadow: 0px 0px 26px -5px  #F15A24; }
+/* line 637, ../scss/webform.scss */
+.validation textarea.ng-invalid {
+  font-size: 13px;
+  border: 1px solid  #F15A24;
+  box-shadow: 0px 0px 26px -5px  #F15A24;
+  border-radius: 9px; }
+/* line 646, ../scss/webform.scss */
+.validation input.ng-invalid {
+  font-size: 13px;
+  border: 1px solid  #F15A24;
+  box-shadow: 0px 0px 26px -5px  #F15A24; }
+
+/* line 656, ../scss/webform.scss */
+.validation .invalid-wrap {
+  color: white;
+  text-align: left;
+  margin-top: 20px;
+  vertical-align: middle;
+  white-space: nowrap; }
+
+/* line 664, ../scss/webform.scss */
+.validation .invalid-wrap > span:before {
+  content: "\e606  ";
+  font-family: "icomoon" !important; }
+
+/* line 669, ../scss/webform.scss */
+.validation .invalid-wrap > span {
+  background-color: #F15A24;
+  padding: 5px 10px 5px 10px;
+  border-radius: 7px; }
+
+/* line 676, ../scss/webform.scss */
+.penicon {
+  color: #43ac6a;
+  font-size: 15px;
+  text-align: center; }
+
+/* line 683, ../scss/webform.scss */
+.add {
+  background-color: #43ac6a; }
+  /* line 685, ../scss/webform.scss */
+  .add:before {
+    content: "\e605";
+    font-family: "icomoon" !important; }
+
+/* line 691, ../scss/webform.scss */
+.info:before {
+  content: "\e60e";
+  font-family: "icomoon" !important;
+  margin-left: 5px;
+  font-weight: normal !important; }
+h4#overview {
+  padding-left: 20px;
+}
+
+/* line 698, ../scss/webform.scss */
+.notes {
+  font-size: 11px; }
+
+/* line 702, ../scss/webform.scss */
+.tabletop {
+  background-color: #00446a;
+  text-align: left;
+  color: white;
+  line-height: 9px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  vertical-align: middle; }
+
+/* line 711, ../scss/webform.scss */
+p {
+  margin-bottom: 0;
+  font-size: 13px;
+ }
+
+/* line 716, ../scss/webform.scss */
+.titles {
+  font-size: 13px;
+  padding: 0;
+  font-weight: 600;
+  margin-bottom: 0; }
+
+/* line 722, ../scss/webform.scss */
+.pams td {
+   }
+  /* line 724, ../scss/webform.scss */
+  .pams td a {
+    color: #43ac6a; }
+
+/* line 729, ../scss/webform.scss */
+.loadingTracker-active {
+  background: rgba(0, 0, 0, 0.4);
+  cursor: default; }
+
+/* line 735, ../scss/webform.scss */
+.loading {
+  top: 50%;
+  margin-left: -31px;
+  position: absolute;
+  margin-top: 64px;
+  color: white; }
+
+/* line 743, ../scss/webform.scss */
+a#printlink {
+  background: url("http://www.eionet.europa.eu/styles/eionet2007/print_icon.gif") no-repeat scroll left center transparent;
+  padding: 3px 0.5em 1px 16px;
+  display: inline-block;
+  margin-left: 1.25rem; }
+
+/* line 749, ../scss/webform.scss */
+#page-head {
+  background: url("http://www.eionet.europa.eu/styles/eionet2007/top_01.png") repeat-y scroll 0 0 #a5ced1;
+  border-top: 1px solid #4b5257;
+  clear: both;
+  height: 102px; }
+  /* line 754, ../scss/webform.scss */
+  #page-head a {
+    background: url("http://www.eionet.europa.eu/styles/eionet2007/top_graphic.gif") no-repeat scroll left center transparent;
+    height: 101px;
+    position: absolute;
+    right: 40px;
+    top: 31px;
+    width: 36px;
+    width: 323px; }
+
+/* line 764, ../scss/webform.scss */
+#network-title {
+  color: white;
+  font-size: 200%;
+  font-variant: small-caps;
+  font-weight: bold;
+  padding-left: 25px;
+  padding-top: 20px; }
+
+/* line 772, ../scss/webform.scss */
+#site-title {
+  color: white;
+  font-size: 120%;
+  font-weight: bold;
+  padding-left: 25px; }
+
+/* line 778, ../scss/webform.scss */
+#menu-ribbon {
+  background: none repeat scroll 0 0 #00446a;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  font: 80% Helvetica, Verdana, Geneva, Arial, sans-serif;
+  height: 1.3em;
+  padding: 0;
+  width: 100%; }
+
+/* line 787, ../scss/webform.scss */
+.breadcrumbtrail {
+  border-bottom: 1px dotted #8fa771;
+  clear: left;
+  color: #7d7d7d;
+  font-size: 0.75em;
+  line-height: 2;
+  padding: 3px 0 1px 10px;
+  margin-bottom: 1.875rem; }
+
+/* line 796, ../scss/webform.scss */
+.breadcrumbhead {
+  float: left;
+  margin-right: 3px; }
+
+/* line 800, ../scss/webform.scss */
+.breadcrumbitem {
+  background-image: url("http://www.eionet.europa.eu/styles/eionet2007/arrow-normal.png");
+  background-position: 100% 7px;
+  background-repeat: no-repeat;
+  float: left;
+  margin-right: 3px;
+  padding-right: 11px; }
+
+/* line 808, ../scss/webform.scss */
+#pagefoot {
+  color: #666;
+  font-size: 13px;
+  background-color: rgba(242, 242, 242, 0.9);
+  border-top: 1px solid #E6E6E6;
+  width: 100%;
+  max-width: 100%;
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  display: table; }
+
+/* line 820, ../scss/webform.scss */
+#pagefoot > div.columns {
+  display: table-cell;
+  height: 100%;
+  vertical-align: middle;
+  float: none; }
+
+/* line 826, ../scss/webform.scss */
+#pagefoot button {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: 1.25rem 50%;
+  padding-left: 3.125rem;
+  color: #00446A;
+  margin: 0; }
+
+/* line 834, ../scss/webform.scss */
+#pagefoot button[ng-click="saveInstance()"] {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxOHB4IiBoZWlnaHQ9IjE4cHgiIHZpZXdCb3g9IjAgMCAxOCAxOCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTggMTgiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwYXRoIGZpbGw9IiMwMDQ0NkEiIGQ9Ik0xLjIyOCwxOGgxNS41NDhjMC42NzcsMCwxLjIyNy0wLjU1LDEuMjI3LTEuMjI3VjQuOTU0YzAtMC40ODctMC4xOTUtMC45NTctMC41NC0xLjNMMTMuODA3LDBoLTAuMDA0djYuODE4SDQuMDY3VjBoLTIuODRDMC41NTEsMCwwLDAuNTQ5LDAsMS4yMjZ2MTEuNTAzdjQuMDQ1QzAsMTcuNDUsMC41NTEsMTgsMS4yMjgsMTh6IE05LjcwNSwwaDIuNjExdjUuNDkxSDkuNzA1VjB6Ii8+PC9zdmc+); }
+
+/* line 837, ../scss/webform.scss */
+#pagefoot button[ng-click="printPreview()"] {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIyMC41OHB4IiBoZWlnaHQ9IjE4cHgiIHZpZXdCb3g9IjAgMCAyMC41OCAxOCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMjAuNTggMTgiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwYXRoIGZpbGw9IiMwMDQ0NkEiIGQ9Ik01LjE0NiwwaDEwLjI4OXYyLjU3Mkg1LjE0NlYweiBNMTkuMjk0LDMuODUxSDEuMjg2QzAuNTc5LDMuODUxLDAsNC40MzgsMCw1LjE0NXY2LjQzMmMwLDAuNzA3LDAuNTc5LDEuMjc4LDEuMjg2LDEuMjc4aDMuODU5VjE4aDEwLjI4OXYtNS4xNDZoMy44NTljMC43MDcsMCwxLjI4Ni0wLjU3MSwxLjI4Ni0xLjI3OFY1LjE0NUMyMC41OCw0LjQzOCwyMC4wMDEsMy44NTEsMTkuMjk0LDMuODUxeiBNMTQuMDI5LDEzLjQzOWMtMC4zMzEsMC4zMy0wLjgwNiwwLjM5MS0xLjA2NCwwLjEzMmwtMS40MjgtMS40M2MtMC40NTMsMC4xOTEtMC45NSwwLjI5Ni0xLjQ3LDAuMjk2Yy0yLjEwNCwwLTMuODA5LTEuNzA1LTMuODA5LTMuODA3YzAtMi4xMDMsMS43MDUtMy44MDgsMy44MDktMy44MDhjMi4xMDMsMCwzLjgwOCwxLjcwNSwzLjgwOCwzLjgwOGMwLDAuOTYyLTAuMzY5LDEuODMtMC45NTgsMi41bDEuMjQ0LDEuMjQ1QzE0LjQyMSwxMi42MzMsMTQuMzU5LDEzLjEwOCwxNC4wMjksMTMuNDM5eiBNMTguNjUsNi43MjFjLTAuNTE1LDAtMC45MzMtMC40MTgtMC45MzMtMC45MzRjMC0wLjUxNSwwLjQxOC0wLjkzMiwwLjkzMy0wLjkzMmMwLjUxNiwwLDAuOTMzLDAuNDE3LDAuOTMzLDAuOTMyQzE5LjU4Myw2LjMwMywxOS4xNjYsNi43MjEsMTguNjUsNi43MjF6IE0xMC4wNjcsNi40NmMtMS4xOTksMC0yLjE3MiwwLjk3Mi0yLjE3MiwyLjE3MXMwLjk3MywyLjE3LDIuMTcyLDIuMTdzMi4xNzEtMC45NzEsMi4xNzEtMi4xN1MxMS4yNjcsNi40NiwxMC4wNjcsNi40NnoiLz48L3N2Zz4=); }
+
+/* line 840, ../scss/webform.scss */
+#pagefoot button[ng-click="close()"] {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxOHB4IiBoZWlnaHQ9IjE4cHgiIHZpZXdCb3g9IjAgMCAxOCAxOCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTggMTgiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIGZpbGw9IiMwMDQ0NkEiIHBvaW50cz0iMTgsMTUuMjI0IDExLjc3Nyw5LjAwMSAxOCwyLjc3NyAxNS4yMjMsMCA5LDYuMjIzIDIuNzc3LDAuMDAxIDAsMi43NzcgNi4yMjMsOSAwLDE1LjIyNCAyLjc3NywxOCA5LDExLjc3NyAxNS4yMjMsMTggIi8+PC9zdmc+); }
+
+/* line 843, ../scss/webform.scss */
+#pagefoot button:hover {
+  background-color: #ccd9e1; }
+
+/* line 846, ../scss/webform.scss */
+#pagefoot p {
+  margin: 0 0.5em;
+  padding: 0.1em; }
+
+/* line 850, ../scss/webform.scss */
+#pagefoot .switch {
+  display: table; }
+
+/* line 853, ../scss/webform.scss */
+#pagefoot .switch > span {
+  display: table-cell;
+  height: 100%;
+  padding: 0 1.25rem;
+  vertical-align: middle; }
+
+/* line 859, ../scss/webform.scss */
+#pagefoot .switch label {
+  display: table-cell;
+  min-width: 3rem; }
+
+/* line 863, ../scss/webform.scss */
+.switch input:checked + label {
+  background: #006837; }
+
+#pagefoot .columns {
+  padding: 3px;
+}
+/* @group GENERAL */
+/* line 869, ../scss/webform.scss */
+body {
+  font-family: "Nimbus sans L", Helvetica, Arial, Verdana, sans-serif;
+  padding-bottom: 6.25rem;
+  height: auto; 
+  font-size: 90%;
+  line-height: 1.2;
+}
+
+/* line 874, ../scss/webform.scss */
+.row {
+  max-width: 96%; }
+
+h1, h2, h3, h4 {
+  font-family: "Nimbus sans L", Helvetica, Arial, Verdana, sans-serif;
+}
+
+h1 {
+  padding: 1.1em 0em;
+  margin: 0;
+  font-size: 135%;
+  font-weight: 700;
+  color: #315076;
+}
+/* line 877, ../scss/webform.scss */
+h2 {
+  padding: .8em 0em;
+  font-size: 125%;
+}
+
+/* line 883, ../scss/webform.scss */
+h3 {
+  font-size: 115%;
+  padding: 0.6em 0em;
+}
+
+h4 {
+  font-size: 105%;
+  padding: 0.6em 0em;
+}
+
+/* @group FORM */
+/* line 890, ../scss/webform.scss */
+fieldset {
+  padding: 0;
+  border: 0;
+  margin: 2em 0 2rem 0 !important; }
+  /* line 894, ../scss/webform.scss */
+  td fieldset:last-child {
+    margin-bottom: 0 !important; }
+  /* line 897, ../scss/webform.scss */
+  fieldset legend {
+    font-weight: bold;
+    background: transparent;
+    padding: 0 0;
+    margin: 0 0 0.5rem 0rem;
+    font-size: 1rem; }
+    /* line 903, ../scss/webform.scss */
+    fieldset legend label {
+      font-size: inherit;
+      color: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+      display: inline; }
+
+/* line 913, ../scss/webform.scss */
+#form-header {
+  font-weight: 700;
+  font-size: 1.1875rem;
+  margin: 0; }
+
+/* line 919, ../scss/webform.scss */
+span.prefix, label.prefix {
+  border: 0;
+  border-right: 1px solid #ccc;
+  background: #fff;
+  border-radius: 4px 0 0 4px; }
+
+/* line 925, ../scss/webform.scss */
+form .row .row.collapse input {
+  border-radius: 4px; }
+
+/* line 936, ../scss/webform.scss */
+.actions .button {
+  margin-bottom: 0;
+  font-size: 0;
+  text-align: center;
+  padding-left: 12px;
+  padding-right: 12px; }
+  /* line 942, ../scss/webform.scss */
+  .actions .button:before {
+    font-size: 1.05rem; }
+
+/* @group TABLE */
+/* line 950, ../scss/webform.scss */
+table {
+  background: #C9E2E4;
+  margin: 0; }
+
+/* line 954, ../scss/webform.scss */
+table thead {
+  background: #00446A; }
+
+/* line 957, ../scss/webform.scss */
+table thead tr th {
+  vertical-align: top;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 0.625rem 1.4375rem; }
+
+/* line 964, ../scss/webform.scss */
+table thead tr th:first-child {
+  background: #497A95;
+  text-align: center;
+  font-style: italic; }
+
+/* line 969, ../scss/webform.scss */
+table tbody tr td {
+  vertical-align: middle;
+  padding: 1.25rem 1.4375rem;
+  font-size: 13px;
+  position: relative;
+  overflow: visible; }
+
+/* line 976, ../scss/webform.scss */
+table tr.even, table tr.alt, table tr:nth-of-type(even) {
+  background: #D7E9EB; }
+
+/* line 979, ../scss/webform.scss */
+.transfer-field {
+  font-weight: 600;
+  font-size: 13px; }
+
+/* line 983, ../scss/webform.scss */
+input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="color"], select, textarea {
+  border: 0;
+  border-radius: 4px;
+  box-shadow: none;
+  padding: 5px; }
+
+/* line 990, ../scss/webform.scss */
+label {
+  font-size: 13px;
+  padding-bottom: 5px;
+  padding-top: 5px; }
+
+/* line 995, ../scss/webform.scss */
+.required:after {
+  content: " *"; }
+
+/* line 998, ../scss/webform.scss */
+.select2-result-single {
+  margin-left: 0px; }
+
+/* line 1001, ../scss/webform.scss */
+.ng-pristine {
+  width: 100%;
+  border: none;
+  border-radius: 4px; 
+}
+
+/* line 1006, ../scss/webform.scss */
+select {
+  background-position: 84% center;
+  border: 0;
+  padding-right: 1.5625rem;
+  background-color: #fff;
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIyMS44NzVweCIgaGVpZ2h0PSI4cHgiIHZpZXdCb3g9IjAgMCAyMS44NzUgOCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMjEuODc1IDgiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwYXRoIGZpbGw9IiMwMDQ0NkEiIGQ9Ik02LjIzNiw4TDAuMzY2LDIuMTI5Yy0wLjQ4OC0wLjQ4NS0wLjQ4OC0xLjI3NiwwLTEuNzY0YzAuNDg2LTAuNDg3LDEuMjc2LTAuNDg3LDEuNzYzLDBsNC4xMDYsNC4xMDdsNC4xMDYtNC4xMDdjMC40ODYtMC40ODcsMS4yNzctMC40ODcsMS43NjQsMGMwLjQ4OCwwLjQ4NywwLjQ4OCwxLjI3NywwLDEuNzY0TDYuMjM1LDhINi4yMzZ6Ii8+PC9zdmc+); }
+
+/* line 1014, ../scss/webform.scss */
+.button, button {
+ }
+
+/* line 1017, ../scss/webform.scss */
+.button.radius, button.radius {
+  border-radius: 4px; }
+
+/* line 1020, ../scss/webform.scss */
+[ng-model="Language"] {
+  position: absolute;
+  top: 11.875rem;
+  right: 2.5%;
+  width: 10.625rem;
+  border: 1px solid #ccd9e1; }
+
+/* line 1027, ../scss/webform.scss */
+input[type="radio"] {
+  background-color: #ffffff;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-block;
+  height: 21px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 0;
+  position: relative;
+  width: 21px;
+  -webkit-appearance: none;
+  box-shadow: none;
+  text-align: center; }
+
+/* line 1042, ../scss/webform.scss */
+input[type="radio"]:after {
+  background-color: #FFF;
+  border-radius: 50%;
+  content: '';
+  display: inline-block;
+  height: 11px;
+  vertical-align: middle;
+  position: relative;
+  width: 11px;
+  border-style: solid;
+  border-width: 0.5px;
+  border-color: #507a96; }
+
+/* line 1055, ../scss/webform.scss */
+input[type="radio"]:checked:after {
+  background-color: #507a96;
+  box-shadow: none; }
+
+/* line 1059, ../scss/webform.scss */
+
+input[type="radio"]:focus {
+  border: none !important;
+  box-shadow: none !important; }
+
+/* line 1068, ../scss/webform.scss */
+.no-padding {
+  padding-bottom: 0px; }
+
+/* line 1071, ../scss/webform.scss */
+.small-padding {
+  padding-bottom: 20px; }
+
+/* line 1074, ../scss/webform.scss */
+.remove {
+  background: #00446a;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+/* line 1081, ../scss/webform.scss */
+.remove:before {
+  content: "\e600";
+  font-family: "icomoon"; }
+
+/* line 1085, ../scss/webform.scss */
+.remove:hover {
+  background: rgba(0, 68, 106, 0.8);
+  color: white; }
+
+/* line 1089, ../scss/webform.scss */
+input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="color"], textarea {
+  margin-bottom: 0; }
+
+/* line 1094, ../scss/webform.scss */
+.tooltip {
+  background-color: #F8F9F9;
+  border: 1px solid #DFE5E9;
+  border-radius: 4px;
+  color: #1d5777;
+  min-width: 200px; }
+
+/* line 1102, ../scss/webform.scss */
+.tooltip > .nub {
+  border-color: transparent transparent #939fa3 transparent;
+  top: -10px; }
+
+/* line 1105, ../scss/webform.scss */
+.tooltip.tip-top > .nub {
+  border-color: #939fa3 transparent transparent transparent;
+  top: auto;
+  bottom: -10px; }
+
+/* line 1111, ../scss/webform.scss */
+label.my-inline {
+  display: inline-block; }
+
+/* line 1115, ../scss/webform.scss */
+.disabled-tabs {
+  background-color: red; }
+
+a.guidelines {
+  color: #3B975D;
+  font-size: 16px;
+}
+a.guidelines:hover, a.guidelines:active {
+  color: #277b46;
+}

@@ -1,0 +1,48 @@
+
+[
+    {
+       "id":"Economic",
+       "parent":"#",
+       "text":"Economic"
+    },
+    {
+       "id":"Fiscal",
+       "parent":"#",
+       "text":"Fiscal"
+    },
+    {
+       "id":"Voluntary",
+       "parent":"#",
+       "text":"Voluntary/negotiated agreements"
+    },
+    {
+       "id":"Regulatory",
+       "parent":"#",
+       "text":"Regulatory"
+    },
+    {
+       "id":"Information",
+       "parent":"#",
+       "text":"Information"
+    },
+    {
+       "id":"Education",
+       "parent":"#",
+       "text":"Education"
+    },
+    {
+       "id":"Research",
+       "parent":"#",
+       "text":"Research"
+    },
+    {
+       "id":"Planning",
+       "parent":"#",
+       "text":"Planning"
+    },
+    {
+       "id":"Other",
+       "parent":"#",
+       "text":"Other"
+    }
+]

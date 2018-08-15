@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="mmr-pam">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>National Emission Ceiling Directive (NECD) - National air pollution control programmes questionnaire</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/css/foundation.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.19.7/select.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.min.css">
+    <link rel="stylesheet" href="app.css">
+    <!--[if lt IE 9 ]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>    
+    <![endif]-->
+</head>
+
+<body ng-controller="NECsCtrl">
+    <div ng-class="{loadingTracker: $parent.loadingTracker.active()}" ng-show="$parent.loadingTracker.active()">
+        <span us-spinner></span>
+        <span class="loading" translate="Labels.Webform.Loading"></span>
+    </div>
+    <div id="container" ng-class="{'validation' : ValidationEnabled}" ng-model-options="{ allowInvalid: true }" ng-cloak>
+        <!-- Page Header -->
+        <div id="tool-ribbon">
+            <div id="left-tools">
+                <a id="eealink" href="http://www.eea.europa.eu/">EEA</a>
+            </div>
+            <div id="right-tools">
+            </div>
+        </div>
+        <div id="page-head">
+            <a accesskey="1" href="/"></a>
+            <div id="network-title">Eionet</div>
+            <div id="site-title">European Environment Information and Observation Network</div>
+        </div>
+        <div id="menu-ribbon"></div>
+        <!-- Select Language -->
+        <!--<div language-changer></div>-->
+        <div class="row collapse">
+            <h1>{{ 'Labels.Webform.Title' | translate }} <span class="info" tooltip="{{'Labels.Tooltip.MMR' | translate}}"></span></h1>
+
+            <!-- Webform Toolbar -->
+            <div class="row">
+                <div class="small-2 small-centered columns">
+                    <a id="over" ng-click="goOverview()" translate="Labels.Overview.label"></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-10 columns">
+                    <ul id="single-page">
+                        <span id="singles" translate='Labels.Webform.Single'></span>
+                        <li ng-repeat="pam in getGroupList(true) | orderBy:'id'">
+                            <a ng-class="{currentlink: isCurrentPam(pam.internalId), activelink: isCurrentPam(pam.internalId) }" ng-click="editTable(pam.internalId,1)">{{pam.id}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="small-2 columns">
+                    <a class="icontop" ng-click="addSingle(false)">{{'Labels.Webform.AddSingle' | translate}}</a>
+                </div>
+                <div class="row">
+                    <div class="small-10 columns">
+                        <ul id="group-page">
+                            <span id="groups" translate='Labels.Webform.Group'></span>
+                            <li ng-repeat="pam in getGroupList(false) | orderBy:'id'">
+                                <a ng-class="{currentlink: isCurrentPam(pam.internalId), activelink: isCurrentPam(pam.internalId) }" ng-click="editTable(pam.internalId,1)">{{pam.id}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="small-2 columns">
+                        <a class="icontop" ng-click="addGroup(false)">{{'Labels.Webform.AddGroup' | translate}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-form="Webform" novalidate>
+            <tabset>
+                <tab id="tab-overview" active="tabs[0].active">
+                    <h4 id="overview">{{'Labels.Overview.heading' | translate}}<span class="info" tooltip="{{'Labels.Tooltip.Overview' | translate}}"></span></h4>
+                    <table>
+                        <tbody>
+                            <tr class="tabletop row">
+                                <th class="tabletop small-1 columns">
+                                    <p class="titles" translate="Labels.Overview.PamNumber"></p>
+                                </th>
+                                <th class="tabletop small-3 columns">
+                                    <p class="titles" translate="Labels.Overview.Title"></p>
+                                </th>
+                                <th class="tabletop small-2 columns">
+                                    <p class="titles">{{'Labels.Overview.Group' | translate}}<span class="info" tooltip="{{'Labels.Tooltip.Group' | translate}}"></span></p>
+                                </th>
+                                <th class="tabletop small-2 columns">
+                                    <p class="titles" translate="Labels.Overview.Table1"></p>
+                                </th>
+                                <th class="tabletop small-2 columns">
+                                    <p class="titles" translate="Labels.Overview.Table2"></p>
+                                </th>
+                                <th class="tabletop small-2 columns">
+                                    <p class="titles" translate="Labels.Overview.Table3"></p>
+                                </th>
+                            </tr>
+                            <tr ng-repeat="pam in instance.MMR_PAMs.MMR_PAM | orderBy: 'id'" class="pams row">
+                                <td class="small-1 columns">
+                                    <span class="pamname" ng-bind="pam.id"></span>
+                                    <a ng-click="deletePAM(pam.internalId)" class="icon-bin">{{'Labels.Overview.delete_nec' | translate}}</a>
+                                </td>
+                                <td class="small-3 columns">
+                                    <p class="pamname" ng-bind="pam.Title"></p>
+                                </td>
+                                <td class="small-2 columns">
+                                    <p class="pamname"> {{'Labels.Table1.isGroup.list.' + pam.Table1.isGroup | translate}}</p>
+                                </td>
+                                <td class="small-2 columns text-center" ng-class='{"overview-validation": temp.Validation["ID" + pam.internalId]["Table1"] === false}'><a ng-click="editTable(pam.internalId,1)" ng-class='{"icon-plusrev": Overview.Table.empty1[$index], "icon-pen": !Overview.Table.empty1[$index]}'> {{Overview.Table.text1[$index] | translate}}</a></td>
+                                <td class="small-2 columns text-center" ng-class='{"overview-validation": temp.Validation["ID" + pam.internalId]["Table2"] === false}'><a ng-click="editTable(pam.internalId,2)" ng-class='{"icon-plusrev": Overview.Table.empty2[$index], "icon-pen": !Overview.Table.empty2[$index]}'> {{Overview.Table.text2[$index] | translate}}</a></td>
+                                <td class="small-2 columns text-center" ng-class='{"overview-validation": temp.Validation["ID" + pam.internalId]["Table3"] === false}'><a ng-click="editTable(pam.internalId,3)" ng-class='{"icon-plusrev": Overview.Table.empty3[$index], "icon-pen": !Overview.Table.empty3[$index]}'> {{Overview.Table.text3[$index] | translate}}</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="row">
+                        <div class="small-4 small-centered columns">
+                            <p class="text-center">
+                                <a class="button radius small add" ng-click="addSingle(false)"> {{'Labels.Webform.AddSingle' | translate}}</a>
+                                <a class="button radius small add" ng-click="addGroup(false)"> {{'Labels.Webform.AddGroup' | translate}}</a>
+                            </p>
+                        </div>
+                    </div>
+                </tab>
+
+                <tab id="tab-pams" active="!tabs[0].active">
+                    <!-- Button for Form Completion -->
+                    <!-- Removed until further notice 
+    <div class="small-3 columns right"><a class="button round-centered-red" ng-show="Webform.$dirty" ng-click="setPristine()">{{'Labels.Webform.Complete' | translate}}</a></div>
+    -->
+                    <tabset>
+                        <div class="tabs">
+                            <dd>
+                                <a ng-click="setActiveTab(1)" ng-class="{'active': tabs[1].active,'disabled': false}" translate="Labels.Webform.Table1"></a>
+                            </dd>
+                            <dd>
+                                <a ng-click="setActiveTab(2)" ng-class="{'active': tabs[2].active, 'disabled': isDisabledTable1()}" translate="Labels.Webform.Table2"></a>
+                            </dd>
+                            <dd>
+                                <a ng-click="setActiveTab(3)" ng-class="{'active': tabs[3].active, 'disabled': isDisabledTable1()}" translate="Labels.Webform.Table3"></a>
+                            </dd>
+                        </div>
+                        <tab id="tab-pams-table1" heading="Table1" active="tabs[1].active">
+                            <form name="Table1" class="my-tabs">
+                                <table>
+                                    <tbody>
+                                        <!-- PAM Id -->
+                                        <tr class="row">
+                                            <td class="small-3 collapse columns">
+                                                <label for="table1_id" class="required my-inline" translate="Labels.Table1.Id"></label><span class="info" tooltip="{{'Labels.Tooltip.Table1.ID' | translate}}"></span>
+                                            </td>
+                                            <td class="small-9 columns">
+                                                <ui-select name="table1_id" ng-model="current.PAM.id" ng-change="updateId(current.PAM.id, '{{current.PAM.id}}')" ng-required="true">
+                                                    <ui-select-match>{{$select.selected}}</ui-select-match>
+                                                    <ui-select-choices repeat="item as item in getAvailableIDs() | filter: $select.search">
+                                                        <div ng-bind-html="item | highlight: $select.search"></div>
+                                                    </ui-select-choices>
+                                                </ui-select>
+                                                <div class="invalid-wrap" ng-show="ValidationEnabled && (Table1.table1_id.$error.required)"><span translate="Labels.Validation.positive"></span></div>
+                                                <div class="invalid-wrap" ng-show="ValidationEnabled && (Table1.table1_id.$error.number || Table1.table1_id.$error.min || Table1.table1_id.$error.max)"><span translate="Labels.Validation.range_number" translate-values="{'min': 1, 'max': 999}"></span></div>
+                                                <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_id.$error.uniqueId"><span translate="Labels.Validation.unique"></span></div>
+                                            </td>
+                                        </tr>
+                                        <!-- PAM Title -->
+                                        <tr class="row">
+                                            <td class="small-3 collapse columns">
+                                                <label for="table1_title" class="required my-inline" translate="Labels.Table1.Title"></label><span class="info" tooltip="{{'Labels.Tooltip.Group' | translate}}"></span>
+                                            </td>
+                                            <td class="small-9 columns">
+                                                <input id="table1_title" name="table1_title" type="text" placeholder="{{'Labels.Webform.TitlePlaceholder' | translate}}" ng-model="current.PAM.Title" required/>
+                                                <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_title.$error.required"><span translate="Labels.Validation.empty"></span></div>
+                                            </td>
+                                        </tr>
+                                        <!-- PAM Title local -->
+                                        <tr class="row">
+                                            <td class="small-3 collapse columns">
+                                                <label for="table1_titleLocal" class="my-inline" translate="Labels.Table1.TitleLocal"></label>
+                                            </td>
+                                            <td class="small-9 columns">
+                                                <input id="table1_titleLocal" name="table1_titleLocal" type="text" ng-model="current.PAM.TitleLocal" />
+                                            </td>
+                                        </tr>
+                                        <!-- Select Box for Policy Group -->
+                                        <tr class="row">
+                                            <td class="small-3 columns"><label translate="Labels.Table1.isGroup.label"></label></td>
+                                            <td class="small-9 columns">
+                                                <input type='radio' name="isGroup" ng-model='current.PAM.Table1.isGroup' value='single' ng-required='!current.PAM.Table1.isGroup' /> <span translate="Labels.Table1.isGroup.list.single"></span>
+                                                <input type='radio' name="isGroup" ng-model='current.PAM.Table1.isGroup' value='group' ng-required='!current.PAM.Table1.isGroup' /> <span translate="Labels.Table1.isGroup.list.group"></span>
+                                            </td>
+                                        </tr>
+                                        <!-- PAMs List for Group -->
+                                        <tr class="row" ng-show="temp.isGroup">
+                                            <td class="small-3 columns"><label class="required my-inline" translate="Labels.Table1.PolicyGroup.label"></label><span class="info" tooltip="{{'Labels.Tooltip.Table1.PolicyGroup' | translate}}"></span></td>
+                                            <td class="small-9 columns">
+                                                <ui-select multiple ng-model="current.PAM.Table1.PolicyGroup" ng-required="temp.isGroup">
+                                                    <ui-select-match placeholder="">#{{$item.id}} - {{$item.Title}}</ui-select-match>
+                                                    <ui-select-choices repeat="pam.id as pam in instance.MMR_PAMs.MMR_PAM | filter: $select.search | individualPAM">
+                                                        <div ng-bind-html="''+pam.id+' '+pam.Title | highlight: $select.search"></div>
+                                                    </ui-select-choices>
+                                                </ui-select>
+                                            </td>
+                                        </tr>
+                                        <!-- Short Description -->
+                                        <tr class="row">
+                                            <td class="small-3 columns"><label class="required" for="table1_Description" translate="Labels.Table1.Description.label"></label></td>
+                                            <td class="small-9 columns">
+                                                <textarea rows="5" ng-model="current.PAM.Table1.Description" id="table1_Description" name="table1_Description" type="text" required></textarea>
+                                                <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_Description.$error.required"><span translate="Labels.Validation.empty"></span></div>
+                                            </td>
+                                        </tr>
+                                        <!-- Is the Policy envisaged? -->
+                                        <tr class="row">
+                                            <td class="small-3 columns"><label class="required" translate="Labels.Table1.isEnvisaged.label"></label></td>
+                                            <td class="small-9 columns" ng-hide="temp.isGroup">
+                                                <input name="isEnvisaged" type='radio' ng-model='current.PAM.Table1.isEnvisaged' value='yes' ng-required='!current.PAM.Table1.isEnvisaged'>{{'Labels.Webform.Yes' | translate}}
+                                                <input name="isEnvisaged" type='radio' ng-model='current.PAM.Table1.isEnvisaged' value='no' ng-required='!current.PAM.Table1.isEnvisaged'>{{'Labels.Webform.No' | translate}}
+                                                <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.isEnvisaged.$error.required"><span translate="Labels.Validation.empty"></span></div>
+                                            </td>
+                                            <td class="small-9 columns" ng-show="temp.isGroup">
+                                                <p ng-show="current.PAM.Table1.isEnvisaged === 'yes'" translate="Labels.Webform.Yes"></p>
+                                                <p ng-show="current.PAM.Table1.isEnvisaged === 'no'" translate="Labels.Webform.No"></p>
+                                            </td>
+                                        </tr>
+                                        <!-- Sectors -->
+                                        <tr class="row">
+                                            <td class="small-3 columns"><label class="required my-inline" translate="Labels.Table1.Sectors.label"></label><span class="info" tooltip="{{'Labels.Tooltip.Table1.Sectors' | translate}}"></span></td>
+                                            <td class="small-9 columns" ng-hide="temp.isGroup">
+                                                <ui-select name="table1_Sectors" multiple ng-model="current.PAM.Table1.Sectors" ng-change="UpdateSectorRelations()" ng-required="true">
+                                                    <ui-select-match placeholder="{{'Labels.Table1.Sectors.placeholder' | translate}}">{{'Labels.Table1.Sectors.list.' + $item | translate}}</ui-select-match>
+                                                    <ui-select-choices repeat="item as item in model.MMR_PAMs.Table1.Sectors">
+                                                        <div ng-bind-html="'Labels.Table1.Sectors.shortlist.' + item | translate"></div>
+                                                    </ui-select-choices>
+                                                </ui-select>
+                                                <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_Sectors.$error.required"><span translate="Labels.Validation.empty"></span></div>
+                                            </td>
+                                            <td class="small-9 columns" ng-show="temp.isGroup">
+                                                <ul>
+                                                    <li ng-repeat="i in current.PAM.Table1.Sectors track by $index">{{'Labels.Table1.Sectors.list.' + current.PAM.Table1.Sectors[$index] | translate}}</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <!-- Greenhouse Gases -->
+                                        <tr class="row">
+                                            <td class="small-3 columns"><label class="required my-inline" translate="Labels.Table1.GreenhouseGases.label"></label><span class="info" tooltip="{{'Labels.Tooltip.Table1.GreenhouseGases' | translate}}"></span></td>
+                                            <td class="small-9 columns" ng-hide="temp.isGroup">
+                                                <ui-select multiple id="table1_GreenhouseGases" name="table1_GreenhouseGases" ng-model="current.PAM.Table1.GreenhouseGases" ng-required="true">
+                                                    <ui-select-match placeholder="{{'Labels.Table1.GreenhouseGases.placeholder' | translate}}">{{'Labels.Table1.GreenhouseGases.list.' + $item | translate}}</ui-select-match>
+                                                    <ui-select-choices repeat="item as item in model.MMR_PAMs.Table1.GreenhouseGases">
+                                                        <div ng-bind-html="'Labels.Table1.GreenhouseGases.list.' + item | translate"></div>
+                                                    </ui-select-choices>
+                                                </ui-select>
+                                                <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_GreenhouseGases.$error.required"><span translate="Labels.Validation.empty"></span></div>
+                                            </td>
+                                            <td class="small-9 columns" ng-show="temp.isGroup">
+                                                <ul>
+                                                    <li ng-repeat="i in current.PAM.Table1.GreenhouseGases track by $index">{{'Labels.Table1.GreenhouseGases.list.' + current.PAM.Table1.GreenhouseGases[$index] | translate}}</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <!-- Objective -->
+                                        <tr class="row">
+                                            <td class="small-3 columns"><label class="required my-inline" translate="Labels.Table1.Objective.label"></label><span class="info" tooltip="{{'Labels.Tooltip.Table1.Objective' | translate}}"></span></td>
+                                            <td class="small-9 columns" ng-hide="current.PAM.Table1.Sectors.length || temp.isGroup">
+                                                <p translate="Labels.Table1.Objective.emptySectors"></p>
+                                            </td>
+                                            <td class="small-9 columns" ng-hide="temp.isGroup || !current.PAM.Table1.Sectors.length">
+                                                <fieldset>
+                                                    <legend translate="Labels.Table1.Objective.select"></legend>
+                                                    <ui-select multiple id="table1_Objective" name="table1_Objective" ng-model="current.PAM.Table1.Objective" ng-change="UpdateObjectiveRelations()" ng-required="true">
+                                                        <ui-select-match placeholder="{{'Labels.Table1.Objective.placeholder' | translate}}">{{'Labels.Table1.Objective.list_with_sectors.' + $item | translate}}</ui-select-match>
+                                                        <ui-select-choices group-by="sectorsFind" repeat="item as item in model.MMR_PAMs.Table1.Objective | sectorFilter:current.PAM.Table1.Sectors">
+                                                            <div ng-bind-html="'Labels.Table1.Objective.list.' + item | translate"></div>
+                                                        </ui-select-choices>
+                                                    </ui-select>
+                                                    <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_Objective.$error.required"><span translate="Labels.Validation.empty"></span></div>
+                                                </fieldset>
+                                                <!--  Other Objectives -->
+                                                <!-- Energy Supply -->
+                                                <fieldset class="row" ng-show="hasObjective('ES_other')">
+                                                    <legend><span translate='Labels.Table1.ObjectiveOther.label'></span> - <span translate='Labels.Table1.Sectors.shortlist.Energy_Supply'></span></legend>
+                                                    <div class="row" ng-repeat="entry in current.PAM.Table1.ObjectiveOther.ES">
+                                                        <div class="row">
+                                                            <div class="small-9 columns end">
+                                                                <label translate="Labels.Webform.Name"></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="small-9 columns">
+                                                                <input type="text" name="table1_OtherObjective_ES{{$index}}" ng-model="entry.Name" ng-required="current.PAM.Table1.Objective.indexOf('ES_other') !== -1">
+                                                                <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_OtherObjective_ES{{$index}}.$error.required"><span translate="Labels.Validation.empty"></span></div>
+                                                            </div>
+                                                            <div class="small-3 actions columns">
+                                                                <a ng-hide="$first" ng-click="removeItem('Table1.ObjectiveOther.ES',$index)" class="remove button radius tiny">{{'Labels.Webform.Remove' | translate}}</a>
+                                                                <a ng-show="$last" ng-click="addItem('Table1.ObjectiveOther.ES')" class="add button radius tiny"><span translate="Labels.Webform.Add"></span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                                <!-- Energy Consumption -->
+                                                <fieldset class="row" ng-show="hasObjective('EC_other')">
+                                                    <legend><span translate='Labels.Table1.ObjectiveOther.label'></span> - <span translate='Labels.Table1.Sectors.shortlist.Energy_Consumption'></span></legend>
+                                                    <div class="row" ng-repeat="entry in current.PAM.Table1.ObjectiveOther.EC">
+                                                        <div class="row">
+                                                            <div class="small-9 columns end">
+                                                                <label translate="Labels.Webform.Name"></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="small-9 columns">
+                                                                <input type="text" name="table1_OtherObjective_EC{{$index}}" ng-model="entry.Name" ng-required="current.PAM.Table1.Objective.indexOf('EC_other') !== -1">
+                                                                <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_OtherObjective_EC{{$index}}.$error.required"><span translate="Labels.Validation.empty"></span></div>
+                                                            </div>
+                                                            <div class="small-3 actions columns">
+                                                                <a ng-hide="$first" ng-click="removeItem('Table1.ObjectiveOther.EC',$index)" class="remove button radius tiny">{{'Labels.Webform.Remove' | translate}}</a>
+                                                                <a ng-show="$last" ng-click="addItem('Table1.ObjectiveOther.EC')" class="add button radius tiny"><span translate="Labels.Webform.Add"></span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                                <!-- Transport -->
+                                                <fieldset class="row" ng-show="hasObjective('TR_other')">
+                                                    <legend><span translate='Labels.Table1.ObjectiveOther.label'></span> - <span translate='Labels.Table1.Sectors.shortlist.Transport'></span></legend>
+                                                    <div class="row" ng-repeat="entry in current.PAM.Table1.ObjectiveOther.TR">
+                                                        <div class="row">
+                                                            <div class="small-9 columns end">
+                                                                <label translate="Labels.Webform.Name"></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="small-9 columns">
+                                                                <input type="text" name="table1_OtherObjective_TR{{$index}}" ng-model="entry.Name" ng-required="current.PAM.Table1.Objective.indexOf('TR_other') !== -1">
+                                                                <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_OtherObjective_TR{{$index}}.$error.required"><span translate="Labels.Validation.empty"></span></div>
+                                                            </div>
+                                                            <div class="small-3 actions columns">
+                                                                <a ng-hide="$first" ng-click="removeItem('Table1.ObjectiveOther.TR',$index)" class="remove button radius tiny">{{'Labels.Webform.Remove' | translate}}</a>
+                                                                <a ng-show="$last" ng-click="addItem('Table1.ObjectiveOther.TR')" class="add button radius tiny"><span translate="Labels.Webform.Add"></span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                                <!-- Industrial Processes -->
+                                                <fieldset class="row" ng-show="hasObjective('IP_other')">
+                                                    <legend><span translate='Labels.Table1.ObjectiveOther.label'></span> - <span translate='Labels.Table1.Sectors.shortlist.Industrial_Processes'></span></legend>
+                                                    <div class="row" ng-repeat="entry in current.PAM.Table1.ObjectiveOther.IP">
+                                                        <div class="row">
+                                                            <div class="small-9 columns end">
+                                                                <label translate="Labels.Webform.Name"></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="small-9 columns">
+                                                                <input type="text" name="table1_OtherObjective_IP{{$index}}" ng-model="entry.Name" ng-required="current.PAM.Table1.Objective.indexOf('IP_other') !== -1">
+                                                                <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_OtherObjective_IP{{$index}}.$error.required"><span translate="Labels.Validation.empty"></span></div>
+                                                            </div>
+                                                            <div class="small-3 actions columns">
+                                                                <a ng-hide="$first" ng-click="removeItem('Table1.ObjectiveOther.IP',$index)" class="remove button radius tiny">{{'Labels.Webform.Remove' | translate}}</a>
+                                                                <a ng-show="$last" ng-click="addItem('Table1.ObjectiveOther.IP')" class="add button radius tiny"><span translate="Labels.Webform.Add"></span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                                <!-- Agriculture -->
+                                                <fieldset class="row" ng-show="hasObjective('AG_other')">
+                                                    <legend><span translate='Labels.Table1.ObjectiveOther.label'></span> - <span translate='Labels.Table1.Sectors.shortlist.Agriculture'></span></legend>
+                                                    <div class="row" ng-repeat="entry in current.PAM.Table1.ObjectiveOther.AG">
+                                                        <div class="row">
+                                                            <div class="small-9 columns end">
+                                                                <label translate="Labels.Webform.Name"></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="small-9 columns">
+                                                                <input type="text" name="table1_OtherObjective_AG{{$index}}" ng-model="entry.Name" ng-required="current.PAM.Table1.Objective.indexOf('AG_other') !== -1">
+                                                                <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_OtherObjective_AG{{$index}}.$error.required"><span translate="Labels.Validation.empty"></span></div>
+                                                            </div>
+                                                            <div class="small-3 actions columns">
+                                                                <a ng-hide="$first" ng-click="removeItem('Table1.ObjectiveOther.AG',$index)" class="remove button radius tiny">{{'Labels.Webform.Remove' | translate}}</a>
+                                                                <a ng-show="$last" ng-click="addItem('Table1.ObjectiveOther.AG')" class="add button radius tiny"><span translate="Labels.Webform.Add"></span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                                <!-- LULUCF -->
+                                                <fieldset class="row" ng-show="hasObjective('LULUCF_other')">
+                                                    <legend><span translate='Labels.Table1.ObjectiveOther.label'></span> - <span translate='Labels.Table1.Sectors.shortlist.LULUCF'></span></legend>
+                                                    <div class="row" ng-repeat="entry in current.PAM.Table1.ObjectiveOther.LULUCF">
+                                                        <div class="row">
+                                                            <div class="small-9 columns end">
+                                                                <label translate="Labels.Webform.Name"></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="small-9 columns">
+                                                                <input type="text" name="table1_OtherObjective_LULUCF{{$index}}" ng-model="entry.Name" ng-required="current.PAM.Table1.Objective.indexOf('LULUCF_other') !== -1">
+                                                                <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_OtherObjective_LULUCF{{$index}}.$error.required"><span translate="Labels.Validation.empty"></span></div>
+                                                            </div>
+                                                            <div class="small-3 actions columns">
+                                                                <a ng-hide="$first" ng-click="removeItem('Table1.ObjectiveOther.LULUCF',$index)" class="remove button radius tiny">{{'Labels.Webform.Remove' | translate}}</a>
+                                                                <a ng-show="$last" ng-click="addItem('Table1.ObjectiveOther.LULUCF')" class="add button radius tiny"><span translate="Labels.Webform.Add"></span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                                <!-- Waste -->
+                                                <fieldset class="row" ng-show="hasObjective('WA_other')">
+                                                    <legend><span translate='Labels.Table1.ObjectiveOther.label'></span> - <span translate='Labels.Table1.Sectors.shortlist.Waste'></span></legend>
+                                                    <div class="row" ng-repeat="entry in current.PAM.Table1.ObjectiveOther.WA">
+                                                        <div class="row">
+                                                            <div class="small-9 columns end">
+                                                                <label translate="Labels.Webform.Name"></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="small-9 columns">
+                                                                <input type="text" name="table1_OtherObjective_WA{{$index}}" ng-model="entry.Name" ng-required="current.PAM.Table1.Objective.indexOf('WA_other') !== -1">
+                                                                <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_OtherObjective_WA{{$index}}.$error.required"><span translate="Labels.Validation.empty"></span></div>
+                                                            </div>
+                                                            <div class="small-3 actions columns">
+                                                                <a ng-hide="$first" ng-click="removeItem('Table1.ObjectiveOther.WA',$index)" class="remove button radius tiny">{{'Labels.Webform.Remove' | translate}}</a>
+                                                                <a ng-show="$last" ng-click="addItem('Table1.ObjectiveOther.WA')" class="add button radius tiny"><span translate="Labels.Webform.Add"></span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                                <!-- Cross-cutting -->
+                                                <fieldset class="row" ng-show="hasObjective('CC_other')">
+                                                    <legend><span translate='Labels.Table1.ObjectiveOther.label'></span> - <span translate='Labels.Table1.Sectors.shortlist.Cross-cutting'></span></legend>
+                                                    <div class="row" ng-repeat="entry in current.PAM.Table1.ObjectiveOther.CC">
+                                                        <div class="row">
+                                                            <div class="small-9 columns end">
+                                                                <label translate="Labels.Webform.Name"></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="small-9 columns">
+                                                                <input type="text" name="table1_OtherObjective_CC{{$index}}" ng-model="entry.Name" ng-required="current.PAM.Table1.Objective.indexOf('CC_other') !== -1">
+                                                                <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_OtherObjective_CC{{$index}}.$error.required"><span translate="Labels.Validation.empty"></span></div>
+                                                            </div>
+                                                            <div class="small-3 actions columns">
+                                                                <a ng-hide="$first" ng-click="removeItem('Table1.ObjectiveOther.CC',$index)" class="remove button radius tiny">{{'Labels.Webform.Remove' | translate}}</a>
+                                                                <a ng-show="$last" ng-click="addItem('Table1.ObjectiveOther.CC')" class="add button radius tiny"><span translate="Labels.Webform.Add"></span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </td>
+                                            <td class="small-9 columns" ng-show="temp.isGroup">
+                                                <table>
+                                                    <tbody>
+                                                        <tr class="row">
+                                                            <th class="small-6 columns" translate="Labels.Webform.Sector"></th>
+                                                            <th class="small-6 columns" translate="Labels.Webform.Name"></th>
+                                                        </tr>
+                                                        <tr class="row" ng-repeat="i in current.PAM.Table1.Objective track by $index">
+                                                            <td class="small-6 columns">{{Group.shortSectorsFind(current.PAM.Table1.Objective[$index])}}</td>
+                                                            <td class="small-6 columns">{{'Labels.Table1.Objective.list.' + current.PAM.Table1.Objective[$index] | translate}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <p translate="Labels.Table1.ObjectiveOther.label"></p>
+                                                <table>
+                                                    <tbody>
+                                                        <tr class="row">
+                                                            <th class="small-6 columns" translate="Labels.Webform.Sector"></th>
+                                                            <th class="small-6 columns" translate="Labels.Webform.Name"></th>
+                                                        </tr>
+                                                        <tr class="row" ng-hide="!current.PAM.Table1.ObjectiveOther.ES[$index].Name" ng-repeat="i in current.PAM.Table1.ObjectiveOther.ES track by $index">
+                                                            <td class="small-6 columns">{{'Labels.Table1.Sectors.shortlist.Energy_Supply' | translate}}</td>
+                                                            <td class="small-6 columns">{{current.PAM.Table1.ObjectiveOther.ES[$index].Name}}</td>
+                                                        </tr>
+                                                        <tr class="row" ng-hide="!current.PAM.Table1.ObjectiveOther.EC[$index].Name" ng-repeat="i in current.PAM.Table1.ObjectiveOther.EC track by $index">
+                                                            <td class="small-6 columns">{{'Labels.Table1.Sectors.shortlist.Energy_Consumption' | translate}}</td>
+                                                            <td class="small-6 columns">{{current.PAM.Table1.ObjectiveOther.EC[$index].Name}}</td>
+                                                        </tr>
+                                                        <tr class="row" ng-hide="!current.PAM.Table1.ObjectiveOther.TR[$index].Name" ng-repeat="i in current.PAM.Table1.ObjectiveOther.TR track by $index">
+                                                            <td class="small-6 columns">{{'Labels.Table1.Sectors.shortlist.Transport' | translate}}</td>
+                                                            <td class="small-6 columns">{{current.PAM.Table1.ObjectiveOther.TR[$index].Name}}</td>
+                                                        </tr>
+                                                        <tr class="row" ng-hide="!current.PAM.Table1.ObjectiveOther.IP[$index].Name" ng-repeat="i in current.PAM.Table1.ObjectiveOther.IP track by $index">
+                                                            <td class="small-6 columns">{{'Labels.Table1.Sectors.shortlist.Industrial_Processes' | translate}}</td>
+                                                            <td class="small-6 columns">{{current.PAM.Table1.ObjectiveOther.IP[$index].Name}}</td>
+                                                        </tr>
+                                                        <tr class="row" ng-hide="!current.PAM.Table1.ObjectiveOther.AG[$index].Name" ng-repeat="i in current.PAM.Table1.ObjectiveOther.AG track by $index">
+                                                            <td class="small-6 columns">{{'Labels.Table1.Sectors.shortlist.Agriculture' | translate}}</td>
+                                                            <td class="small-6 columns">{{current.PAM.Table1.ObjectiveOther.AG[$index].Name}}</td>
+                                                        </tr>
+                                                        <tr class="row" ng-hide="!current.PAM.Table1.ObjectiveOther.LULUCF[$index].Name" ng-repeat="i in current.PAM.Table1.ObjectiveOther.LULUCF track by $index">
+                                                            <td class="small-6 columns">{{'Labels.Table1.Sectors.shortlist.LULUCF' | translate}}</td>
+                                                            <td class="small-6 columns">{{current.PAM.Table1.ObjectiveOther.LULUCF[$index].Name}}</td>
+                                                        </tr>
+                                                        <tr class="row" ng-hide="!current.PAM.Table1.ObjectiveOther.WA[$index].Name" ng-repeat="i in current.PAM.Table1.ObjectiveOther.WA track by $index">
+                                                            <td class="small-6 columns">{{'Labels.Table1.Sectors.shortlist.Waste' | translate}}</td>
+                                                            <td class="small-6 columns">{{current.PAM.Table1.ObjectiveOther.WA[$index].Name}}</td>
+                                                        </tr>
+                                                        <tr class="row" ng-hide="!current.PAM.Table1.ObjectiveOther.CC[$index].Name" ng-repeat="i in current.PAM.Table1.ObjectiveOther.CC track by $index">
+                                                            <td class="small-6 columns">{{'Labels.Table1.Sectors.shortlist.Cross-cutting' | translate}}</td>
+                                                            <td class="small-6 columns">{{current.PAM.Table1.ObjectiveOther.CC[$index].Name}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <!-- Quantified Objective -->
+                                        <tr class="row">
+                                            <td class="small-3 columns"><label class="my-inline" translate="Labels.Table1.ObjectiveQuantified.label"></label><span class="info" tooltip="{{'Labels.Tooltip.Table1.QuantifiedObjective' | translate}}"></span></td>
+                                            <td class="small-9 columns"><input ng-model="current.PAM.Table1.ObjectiveQuantified" type="text" /></td>
+                                        </tr>
+                                        <!-- Policy Instrument Type -->
+                                        <tr class="row">
+                                            <td class="small-3 columns"><label class="required" translate="Labels.Table1.PolicyInstrument.label"></label></td>
+                                            <td class="small-9 columns" ng-hide="temp.isGroup">
+                                                <ui-select multiple id="table1_PolicyInstrument" name="table1_PolicyInstrument" ng-model="current.PAM.Table1.PolicyInstrument" ng-required="true">
+                                                    <ui-select-match placeholder="{{'Labels.Table1.PolicyInstrument.placeholder' | translate}}">{{'Labels.Table1.PolicyInstrument.list.' + $item | translate}}</ui-select-match>
+                                                    <ui-select-choices repeat="item as item in model.MMR_PAMs.Table1.PolicyInstrument">
+                                                        <div ng-bind-html="'Labels.Table1.PolicyInstrument.list.' + item | translate"></div>
+                                                    </ui-select-choices>
+                                                </ui-select>
+                                                <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_PolicyInstrument.$error.required"><span translate="Labels.Validation.empty"></span></div>
+                                            </td>
+                                            <td class="small-9 columns" ng-show="temp.isGroup">
+                                                <ul>
+                                                    <li ng-repeat="i in current.PAM.Table1.PolicyInstrument track by $index">{{'Labels.Table1.PolicyInstrument.list.' + current.PAM.Table1.PolicyInstrument[$index] | translate}}</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <!-- Union Policy -->
+                                        <tr class="row">
+                                            <td class="small-3 columns"><label class="required my-inline" translate="Labels.Table1.UnionPolicy.label"></label><span class="info" tooltip="{{'Labels.Tooltip.Table1.UnionPolicy' | translate}}"></span></td>
+                                            <td class="small-9 columns" ng-hide="temp.isGroup">
+                                                <div class="row small-padding">
+                                                    <div class="small-12 columns">
+                                                        <input id="UnionPolicy1" name="UnionPolicy" type="radio" ng-model="current.PAM.Table1.UnionPolicyRelated" value="yes" ng-change="Table1ClearUnionPolicy()" ng-required="!current.PAM.UnionPolicy" />
+                                                        <label for="UnionPolicy1">{{'Labels.Table1.UnionPolicy.related' | translate}}</label>
+                                                        <input id="UnionPolicy2" name="UnionPolicy" type="radio" ng-model="current.PAM.Table1.UnionPolicyRelated" value="no" ng-change="Table1ClearUnionPolicy()" ng-required="!current.PAM.UnionPolicy" />
+                                                        <label for="UnionPolicy2">{{'Labels.Table1.UnionPolicy.not_related' | translate}}</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="small-12 columns">
+                                                        <ui-select multiple id="table1_UnionPolicy" name="table1_UnionPolicy" ng-show="current.PAM.Table1.UnionPolicyRelated === 'yes'" ng-model="current.PAM.Table1.UnionPolicy" ng-change="UpdateOtherPolicies()" ng-required="current.PAM.Table1.UnionPolicyRelated === 'yes'">
+                                                            <ui-select-match allow-clear placeholder="{{'Labels.Table1.UnionPolicy.placeholder' | translate}}">{{'Labels.Table1.UnionPolicy.list.' + $item.value | translate}}</ui-select-match>
+                                                            <ui-select-choices group-by="sectorsFindPolicies" repeat="item.value as item in model.MMR_PAMs.Table1.UnionPolicy">
+                                                                <div ng-bind-html="'Labels.Table1.UnionPolicy.list.' + item.value | translate"></div>
+                                                            </ui-select-choices>
+                                                        </ui-select>
+                                                        <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_UnionPolicy.$error.required"><span translate="Labels.Validation.empty"></span></div>
+                                                    </div>
+                                                </div>
+                                                <!-- Other Union Policy -->
+                                                <div ng-show="current.PAM.Table1.UnionPolicyRelated === 'yes' && current.PAM.Table1.UnionPolicy.indexOf('Other_EU') !== -1">
+                                                    <fieldset class="row" ng-repeat="unionpolicy in current.PAM.Table1.UnionPolicyOther track by $index">
+                                                        <legend>{{'Labels.Table1.UnionPolicy.other' | translate}} {{$index+1}}</legend>
+                                                        <div class="small-9 columns">
+                                                            <input type="text" name="table1_OtherUnionPolicy{{$index}}" ng-model="unionpolicy.Name" ng-required="current.PAM.Table1.UnionPolicy.indexOf('Other_EU') !== -1" />
+                                                            <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_OtherUnionPolicy{{$index}}.$error.required"><span translate="Labels.Validation.empty"></span></div>
+                                                        </div>
+                                                        <div class="small-3 actions columns">
+                                                            <a ng-hide="$first" class="remove button radius tiny" ng-click="removeItem('Table1.UnionPolicyOther',$index)">{{'Labels.Webform.Remove' | translate}}</a>
+                                                            <a ng-show="$last" class="add button radius tiny" ng-click="addItem('Table1.UnionPolicyOther')">{{'Labels.Webform.Add' | translate}}</a>
+                                                        </div>
+                                                    </fieldset>
+                                                </div>
+                                            </td>
+                                            <td class="small-9 columns" ng-show="temp.isGroup">
+                                                <ul>
+                                                    <li ng-repeat="i in current.PAM.Table1.UnionPolicy track by $index">{{'Labels.Table1.UnionPolicy.list.' + current.PAM.Table1.UnionPolicy[$index] | translate}}</li>
+                                                </ul>
+                                                <div ng-show="current.PAM.Table1.UnionPolicy.indexOf('Other_EU') !== -1">
+                                                    <p translate="Labels.Table1.UnionPolicy.otherCurrent"></p>
+                                                    <ul>
+                                                        <li ng-repeat="policy in current.PAM.Table1.UnionPolicyOther">{{policy.Name}}</li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Status of implementation -->
+                                        <tr class="row" ng-hide="temp.isGroup">
+                                            <td class="small-3 columns"><label class="required my-inline" translate="Labels.Table1.ImplementationStatus.label"></label><span class="info" tooltip="{{'Labels.Tooltip.Table1.ImplementationStatus' | translate}}"></span></td>
+                                            <td class="small-9 columns" ng-hide="temp.isGroup">
+                                                <ui-select name="table1_ImplemenationStatus" search-enabled="searchEnabled" ng-model="current.PAM.Table1.Implementation[0].Status" ng-required="true">
+                                                    <ui-select-match allow-clear placeholder="">{{$select.selected}}</ui-select-match>
+                                                    <ui-select-choices repeat="item as item in model.MMR_PAMs.Table1.ImplementationStatus">
+                                                        <div ng-bind-html="item | translate"></div>
+                                                    </ui-select-choices>
+                                                </ui-select>
+                                                <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_ImplemenationStatus.$error.required"><span translate="Labels.Validation.empty"></span></div>
+                                            </td>
+                                        </tr>
+                                        <!-- Implementation Period -->
+                                        <tr class="row" ng-hide="temp.isGroup">
+                                            <td class="small-3 columns"><label translate="Labels.Table1.ImplementationPeriod.label"></label></td>
+                                            <td class="small-9 columns" ng-hide="temp.isGroup">
+                                                <div class="row">
+                                                    <div class="small-6 columns">
+                                                        <label class="required" translate="Labels.Table1.ImplementationPeriod.start"></label>
+                                                        <input name="table1_ImplementationPeriodStart" type="number" min="1950" max="2040" ng-required="true" ng-model="current.PAM.Table1.Implementation[0].Start" matches-planned-status="{{current.PAM.Table1.Implementation[0].Status}}" />
+                                                        <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_ImplementationPeriodStart.$error.required"><span translate="Labels.Validation.empty"></span></div>
+                                                        <div class="invalid-wrap" ng-show="ValidationEnabled && (Table1.table1_ImplementationPeriodStart.$error.min || Table1.table1_ImplementationPeriodStart.$error.max)"><span translate="Labels.Validation.range_year" translate-values="{ min: '1950', max: '2040'}"></span></div>
+                                                        <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_ImplementationPeriodStart.$error.matchesPlannedStatus"><span translate="Labels.Validation.match_value" translate-values="{ value: '{{'Labels.Table1.ImplementationStatus.label' | translate}}'}"></span></div>
+                                                    </div>
+                                                    <div class="small-6 columns">
+                                                        <label translate="Labels.Table1.ImplementationPeriod.finish"></label>
+                                                        <input placeholder="" name="table1_ImplementationPeriodFinish" type="number" min="2000" max="2040" ng-model="current.PAM.Table1.Implementation[0].Finish" greater-equal-than="{{current.PAM.Table1.Implementation[0].Start}}" matches-planned-status="{{current.PAM.Table1.Implementation[0].Status}}" />
+                                                        <div class="invalid-wrap" ng-show="ValidationEnabled && (Table1.table1_ImplementationPeriodFinish.$error.min || Table1.table1_ImplementationPeriodFinish.$error.max)"><span translate="Labels.Validation.range_year" translate-values="{ min: '2000', max: '2040'}"></span></div>
+                                                        <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_ImplementationPeriodFinish.$error.greaterEqualThan"><span translate="Labels.Validation.greater_equal_than" translate-values="{ field:'{{'Labels.Table1.ImplementationPeriod.start' | translate}}'}"></span></div>
+                                                        <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_ImplementationPeriodFinish.$error.matchesPlannedStatus"><span translate="Labels.Validation.match_value" translate-values="{ value: '{{'Labels.Table1.ImplementationStatus.label' | translate}}'}"></span></div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="small-12 columns">
+                                                        <label class="my-inline" translate="Labels.Table1.ImplementationPeriod.comments"></label>
+                                                        <span class="info" tooltip="{{'Labels.Tooltip.Table1.ImplementationComments' | translate}}"></span>
+                                                        <textarea rows="3" ng-model="current.PAM.Table1.Implementation[0].Comments"></textarea>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Implementation Status and Period for Groups  -->
+                                        <tr class="row" ng-show="temp.isGroup">
+                                            <td class="small-3 columns"><label class="required" translate="Labels.Table1.ImplementationStatus.label"></label></td>
+                                            <td class="small-9 columns" ng-show="!current.PAM.Table1.Implementation[0].Status && current.PAM.Table1.Implementation.length === 0"><label translate="Labels.Webform.PleaseUpdate"></label></td>
+                                            <td class="small-9 columns" ng-hide="!current.PAM.Table1.Implementation[0].Status && current.PAM.Table1.Implementation.length === 0">
+                                                <table>
+                                                    <tbody>
+                                                        <tr class="row">
+                                                            <th class="small-2 columns" translate="Labels.Webform.PamNumber"></th>
+                                                            <th class="small-3 columns" translate="Labels.Table1.ImplementationStatus.label"></th>
+                                                            <th class="small-1 columns" translate="Labels.Table1.ImplementationPeriod.start"></th>
+                                                            <th class="small-1 columns" translate="Labels.Table1.ImplementationPeriod.finish"></th>
+                                                            <th class="small-5 columns end" translate="Labels.Table1.ImplementationPeriod.comments"></th>
+                                                        </tr>
+                                                        <tr class="row" ng-repeat="entry in current.PAM.Table1.Implementation">
+                                                            <td class="small-2 columns">{{entry.id}}</td>
+                                                            <td class="small-3 columns">{{'Labels.Table1.ImplementationStatus.shortlist.' + entry.Status | translate}}</td>
+                                                            <td class="small-1 columns">{{entry.Start}}</td>
+                                                            <td class="small-1 columns">{{entry.Finish}}</td>
+                                                            <td class="small-5 columns end">{{entry.Comments}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <!-- Projections Scenario -->
+                                        <tr class="row">
+                                            <td class="small-3 columns"><label class="required" translate="Labels.Table1.ProjectionsScenario.label"></label></td>
+                                            <td class="small-9 columns" ng-hide="temp.isGroup">
+                                                <ui-select name="table1_ProjectionsScenario" search-enabled="searchEnabled" ng-model="current.PAM.Table1.ProjectionsScenario[0].Type" ng-required="true">
+                                                    <ui-select-match allow-clear placeholder="">{{'Labels.Table1.ProjectionsScenario.list.' + $select.selected | translate}}</ui-select-match>
+                                                    <ui-select-choices repeat="item as item in model.MMR_PAMs.Table1.ProjectionsScenario">
+                                                        <div ng-bind-html="'Labels.Table1.ProjectionsScenario.list.' + item | translate"></div>
+                                                    </ui-select-choices>
+                                                </ui-select>
+                                                <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_ProjectionsScenario.$error.required"><span translate="Labels.Validation.empty"></span></div>
+                                            </td>
+                                            <td class="small-9 columns" ng-show="temp.isGroup">
+                                                <table>
+                                                    <tbody>
+                                                        <tr class="row">
+                                                            <th class="small-2 columns" translate="Labels.Webform.PamNumber"></th>
+                                                            <th class="small-10 columns" translate="Labels.Webform.Type"></th>
+                                                        </tr>
+                                                        <tr class="row" ng-repeat="item in current.PAM.Table1.ProjectionsScenario">
+                                                            <td class="small-2 columns">{{item.id}}</td>
+                                                            <td class="small-10 columns">{{'Labels.Table1.ProjectionsScenario.list.' + item.Type | translate}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <!-- Entities Responsible for Implementing the policy -->
+                                        <tr class="row">
+                                            <td class="small-3 columns">
+                                                <label class="required" translate="Labels.Table1.Entities.label"></label>
+                                            </td>
+                                            <td class="small-9 columns" ng-hide="temp.isGroup">
+                                                <fieldset class="row" ng-repeat="entity in current.PAM.Table1.Entities track by $index">
+                                                    <legend>Entity {{$index + 1}}</legend>
+                                                    <div class="row">
+                                                        <div class="small-5 columns">
+                                                            <label translate="Labels.Webform.Type"></label>
+                                                        </div>
+                                                        <div class="small-4 columns end">
+                                                            <label translate="Labels.Webform.Name"></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="small-5 columns">
+                                                            <ui-select name="table1_EntityType{{$index}}" ng-disabled="temp.isGroup" search-enabled="searchEnabled" ng-model="entity.Type" ng-required="true">
+                                                                <ui-select-match allow-clear placeholder="{{'Labels.Table1.Entities.placeholder' | translate}}">{{'Labels.Table1.Entities.list.' + $select.selected | translate}}</ui-select-match>
+                                                                <ui-select-choices repeat="item as item in model.MMR_PAMs.Table1.Entities">
+                                                                    <div ng-bind-html="'Labels.Table1.Entities.list.' + item | translate"></div>
+                                                                </ui-select-choices>
+                                                            </ui-select>
+                                                            <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_EntityType{{$index}}.$error.required"><span translate="Labels.Validation.empty"></span></div>
+                                                        </div>
+                                                        <div class="small-4 columns">
+                                                            <input ng-required="!temp.isGroup" name="table1_EntityName{{$index}}" ng-disabled="temp.isGroup" type="text" ng-model="entity.Name" />
+                                                            <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_EntityName{{$index}}.$error.required"><span translate="Labels.Validation.empty"></span></div>
+                                                        </div>
+                                                        <div class="small-3 actions columns">
+                                                            <a ng-hide="$first" ng-click="removeItem('Table1.Entities',$index)" class="remove button radius tiny">{{'Labels.Webform.Remove' | translate}}</a>
+                                                            <a ng-show="$last" ng-click="addItem('Table1.Entities')" class="add button radius tiny">{{'Labels.Webform.Add' | translate}}</a>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </td>
+                                            <td class="small-9 columns" ng-show="temp.isGroup">
+                                                <table>
+                                                    <tbody>
+                                                        <tr class="row">
+                                                            <th class="small-6 columns" translate="Labels.Webform.Type"></th>
+                                                            <th class="small-6 columns" translate="Labels.Webform.Name"></th>
+                                                        </tr>
+                                                        <tr class="row" ng-repeat="i in current.PAM.Table1.Entities track by $index">
+                                                            <td class="small-6 columns">{{'Labels.Table1.Entities.list.' + current.PAM.Table1.Entities[$index].Type | translate}}</td>
+                                                            <td class="small-6 columns">{{current.PAM.Table1.Entities[$index].Name}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <!-- Indicators used to monitor -->
+                                        <tr class="row">
+                                            <td class="small-3 columns">
+                                                <label translate="Labels.Table1.Indicators.label"></label>
+                                            </td>
+                                            <td class="small-9 columns">
+                                                <fieldset class="row" ng-repeat="indicator in current.PAM.Table1.Indicators track by $index">
+                                                    <legend><label for="table1_Indicator{{$index}}">Indicator {{$index + 1}}</label></legend>
+                                                    <div class="row">
+                                                        <div class="small-5 columns">
+                                                            <label translate="Labels.Table1.Indicators.desc"></label>
+                                                        </div>
+                                                        <div class="small-4 columns end">
+                                                            <label translate="Labels.Table1.Indicators.unit"></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="small-5 columns">
+                                                            <input type="text" id="table1_Indicator{{$index}}" ng-model="indicator.Description" />
+                                                        </div>
+                                                        <div class="small-4 columns">
+                                                            <input type="text" ng-model="indicator.Unit" />
+                                                        </div>
+                                                        <div class="small-3 actions columns">
+                                                            <a ng-hide="$first" class="remove button radius tiny" ng-click="removeItem('Table1.Indicators',$index)">{{'Labels.Webform.Remove' | translate}}</a>
+                                                            <a ng-show="$last" class="add button radius tiny" ng-click="addItem('Table1.Indicators')"><span translate="Labels.Webform.Add"></span></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="small-2 columns">
+                                                            <label translate="Labels.Table1.Indicators.Year" translate-values="{ num: '#1:'}"></label>
+                                                            <input type="number" name="table1_IndicatorYear{{$index}}_1" ng-model="indicator.Year1" min="1990" max="2040" />
+                                                        </div>
+                                                        <div class="small-2 columns">
+                                                            <label translate="Labels.Table1.Indicators.Year" translate-values="{ num: '#2:'}"></label>
+                                                            <input type="number" name="table1_IndicatorYear{{$index}}_2" ng-model="indicator.Year2" min="1990" max="2040" />
+                                                        </div>
+                                                        <div class="small-2 columns">
+                                                            <label translate="Labels.Table1.Indicators.Year" translate-values="{ num: '#3:'}"></label>
+                                                            <input type="number" name="table1_IndicatorYear{{$index}}_3" ng-model="indicator.Year3" min="1990" max="2040" />
+                                                        </div>
+                                                        <div class="small-2 columns end">
+                                                            <label translate="Labels.Table1.Indicators.Year" translate-values="{ num: '#4:'}"></label>
+                                                            <input type="number" name="table1_IndicatorYear{{$index}}_4" ng-model="indicator.Year4" min="1990" max="2040" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="small-2 columns">
+                                                            <label translate="Labels.Table1.Indicators.Value" translate-values="{ num: '#1:'}"></label>
+                                                            <input type="text" ng-model="indicator.Value1" />
+                                                        </div>
+                                                        <div class="small-2 columns">
+                                                            <label translate="Labels.Table1.Indicators.Value" translate-values="{ num: '#2:'}"></label>
+                                                            <input type="text" ng-model="indicator.Value2" />
+                                                        </div>
+                                                        <div class="small-2 columns">
+                                                            <label translate="Labels.Table1.Indicators.Value" translate-values="{ num: '#3:'}"></label>
+                                                            <input type="text" ng-model="indicator.Value3" />
+                                                        </div>
+                                                        <div class="small-2 columns end">
+                                                            <label translate="Labels.Table1.Indicators.Value" translate-values="{ num: '#4:'}"></label>
+                                                            <input type="text" ng-model="indicator.Value4" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="invalid-wrap" ng-show="ValidationEnabled && hasIndicatorYearError({{$index}})"><span translate="Labels.Validation.range_year" translate-values="{ min: '1990', max: '2040'}"></span></div>
+                                                    </div>
+                                                </fieldset>
+                                            </td>
+                                        </tr>
+                                        <!-- Reference to assessments -->
+                                        <tr class="row">
+                                            <td class="small-3 columns"><label translate="Labels.Table1.Reference.label"></label>
+                                                <td class="small-9 columns">
+
+                                                    <fieldset class="row" ng-repeat="reference in current.PAM.Table1.Reference track by $index">
+                                                        <legend><label for="table1_Reference{{$index}}">Reference {{$index + 1}}</label></legend>
+                                                        <div class="row">
+                                                            <div class="small-5 columns">
+                                                                <label translate='Labels.Table1.Reference.Text'></label>
+                                                            </div>
+                                                            <div class="small-7 columns">
+                                                                <label translate='Labels.Table1.Reference.Url'></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="small-5 columns">
+                                                                <input type="text" ng-model="reference.Text" />
+                                                            </div>
+                                                            <div class="small-5 columns">
+                                                                <input type="text" name="table1_Reference_Weblink{{$index}}" ng-model="reference.Url" />
+                                                                <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_Reference_Weblink{{$index}}.$error.pattern"><span translate="Labels.Validation.url"></span></div>
+                                                            </div>
+                                                            <div class="small-2 actions columns">
+                                                                <a ng-hide="$first" class="remove button radius tiny" ng-click="removeItem('Table1.Reference',$index)">{{'Labels.Webform.Remove' | translate}}</a>
+                                                                <a ng-show="$last" class="add button radius tiny" ng-click="addItem('Table1.Reference')"><span translate="Labels.Webform.Add"></span></a>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                </td>
+                                        </tr>
+                                        <!-- General Comments -->
+                                        <tr class="row">
+                                            <td class="small-3 columns"><label translate="Labels.Table1.Comments.label"></label></td>
+                                            <td class="small-9 columns"><textarea rows="5" ng-model="current.PAM.Table1.Comments"></textarea></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p class="notes" translate="Labels.Webform.Notes"></p>
+                                <ol>
+                                    <li translate="Labels.Table1.Asterisk"></li>
+                                </ol>
+                            </form>
+                        </tab>
+                        <tab id="tab-pams-table2" heading="Table2" ng-click="setActiveTab(2)" active="tabs[2].active">
+                            <form name="Table2" class="my-tabs">
+                                <table>
+                                    <tbody>
+                                        <!-- PAM Title -->
+                                        <tr class="row">
+                                            <td class="small-3 columns">
+                                                <label class="my-inline" translate="Labels.Table1.Title"></label><span class="info" tooltip="{{'Labels.Tooltip.Table2.Title' | translate}}"></span>
+                                            </td>
+                                            <td class="small-9 columns">
+                                                <p ng-bind="current.PAM.Title"></p>
+                                            </td>
+                                        </tr>
+                                        <!-- Show PAM from Table1 -->
+                                        <tr class="row" ng-show="temp.isGroup">
+                                            <td class="small-3 columns">
+                                                <p translate="Labels.Table2.PAM.label"></p>
+                                            </td>
+                                            <td class="small-9 columns">
+                                                <ul>
+                                                    <li ng-repeat="pam in current.PAM.Table1.PolicyGroup track by $index">
+                                                        <p>{{instance.MMR_PAMs.MMR_PAM[pam-1].id}} - {{instance.MMR_PAMs.MMR_PAM[pam-1].Title}}</p>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <!-- Policy impacting -->
+                                        <tr class="row">
+                                            <td class="small-3 columns"><label class="required my-inline" translate="Labels.Table2.PolicyImpact.label"></label><span class="info" tooltip="{{'Labels.Tooltip.Table2.PolicyImpacting' | translate}}"></span></td>
+                                            <td class="small-9 columns" ng-hide="temp.isGroup">
+                                                <ui-select name="table2_PolicyImpact" multiple ng-required="true" ng-model="current.PAM.Table2.PolicyImpact">
+                                                    <ui-select-match placeholder="{{'Labels.Table2.PolicyImpact.placeholder' | translate}}">{{'Labels.Table2.PolicyImpact.' + $item | translate}}</ui-select-match>
+                                                    <ui-select-choices repeat="item as item in model.MMR_PAMs.Table2.PolicyImpact">
+                                                        <div ng-bind-html="'Labels.Table2.PolicyImpact.' + item | translate"></div>
+                                                    </ui-select-choices>
+                                                </ui-select>
+                                                <div class="invalid-wrap" ng-show="ValidationEnabled && Table2.table2_PolicyImpact.$error.required"><span translate="Labels.Validation.empty"></span></div>
+                                            </td>
+                                            <td class="small-9 columns" ng-show="temp.isGroup">
+                                                <ul>
+                                                    <li ng-repeat="i in current.PAM.Table2.PolicyImpact track by $index">{{'Labels.Table2.PolicyImpact.' + current.PAM.Table2.PolicyImpact[$index] | translate}}</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <!-- Ex-ante assessment -->
+                                        <tr class="row">
+                                            <td class="small-3 columns">
+                                                <label translate="Labels.Table2.Exante.Title"></label>
+                                            </td>
+                                            <td class="small-9 columns">
+                                                <fieldset class="row" ng-repeat="i in [1,2,3,4]">
+                                                    <legend translate="Labels.Table2.ExanteEmissions.label" translate-values="{ year: {{getFutureYear(i-1)}}}"></legend>
+                                                    <div class="row">
+                                                        <div class="small-4 columns">
+                                                            <label translate="Labels.Table2.PolicyImpact.EU_ETS"></label>
+                                                        </div>
+                                                        <div class="small-4 columns">
+                                                            <label translate="Labels.Table2.PolicyImpact.ESD"></label>
+                                                        </div>
+                                                        <div class="small-4 columns">
+                                                            <label translate="Labels.Table2.PolicyImpact.Total"></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="small-4 columns">
+                                                            <input type="number" step="0.01" name="table2_ExanteEmission{{i}}_EU_ETS" ng-model="current.PAM.Table2['ExanteEmissions' + i].EU_ETS" />
+                                                            <div class="invalid-wrap" ng-show="ValidationEnabled && Table2.table2_ExanteEmission{{i}}_EU_ETS.$error.number"><span translate="Labels.Validation.number"></span></div>
+                                                        </div>
+                                                        <div class="small-4 columns">
+                                                            <input type="number" step="0.01" name="table2_ExanteEmission{{i}}_ESD" ng-model="current.PAM.Table2['ExanteEmissions' + i].ESD" />
+                                                            <div class="invalid-wrap" ng-show="ValidationEnabled && Table2.table2_ExanteEmission{{i}}_ESD.$error.number"><span translate="Labels.Validation.number"></span></div>
+                                                        </div>
+                                                        <div class="small-4 columns">
+                                                            <input type="number" step="0.01" name="table2_ExanteEmission{{i}}_Total" ng-model="current.PAM.Table2['ExanteEmissions' + i].Total" />
+                                                            <div class="invalid-wrap" ng-show="ValidationEnabled && Table2.table2_ExanteEmission{{i}}_Total.$error.number"><span translate="Labels.Validation.number"></span></div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                                <!-- Ex-ante Documentation -->
+                                                <fieldset class="row">
+                                                    <legend translate="Labels.Table2.Documentation.label"></legend>
+                                                    <div ng-repeat="entry in current.PAM.Table2.ExanteDocumentation">
+                                                        <div class="row">
+                                                            <div class="small-5 columns">
+                                                                <label translate="Labels.Table2.Documentation.Reference"></label>
+                                                            </div>
+                                                            <div class="small-5 columns end">
+                                                                <label translate="Labels.Table2.Documentation.Weblink"></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="small-5 columns">
+                                                                <input type="text" ng-model="entry.Reference" />
+                                                            </div>
+                                                            <div class="small-4 columns">
+                                                                <input type="text" name="table2_ExanteWeblink{{$index}}" ng-model="entry.Weblink" />
+                                                                <div class="invalid-wrap" ng-show="ValidationEnabled && Table2.table2_ExanteWeblink{{$index}}.$error.pattern"><span translate="Labels.Validation.url"></span></div>
+                                                            </div>
+                                                            <div class="small-3 actions columns">
+                                                                <a ng-hide="$first" ng-click="removeItem('Table2.ExanteDocumentation',$index)" class="remove button radius tiny">{{'Labels.Webform.Remove' | translate}}</a>
+                                                                <a ng-show="$last" class="add button radius tiny" ng-click="addItem('Table2.ExanteDocumentation')">{{'Labels.Webform.Add' | translate}}</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </td>
+                                        </tr>
+                                        <!-- Ex-post assesment -->
+                                        <tr class="row">
+                                            <td class="small-3 columns"><label translate="Labels.Table2.Expost.Title"></label></td>
+                                            <td class="small-9 columns">
+                                                <fieldset class="row">
+                                                    <legend translate="Labels.Table2.ExpostEmissions.label"></legend>
+                                                    <div ng-repeat="entry in current.PAM.Table2.Expost">
+                                                        <div class="row">
+                                                            <div class="small-5 columns">
+                                                                <label translate="Labels.Table2.Expost.Year"></label>
+                                                            </div>
+                                                            <div class="small-5 columns end">
+                                                                <label translate="Labels.Table2.Expost.Average"></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="small-5 columns">
+                                                                <input ng-model="entry.Year" name="table2_Expost{{$index}}_Year" type="number" min="1990" max="2016" />
+                                                                <div class="invalid-wrap" ng-show="ValidationEnabled && (Table2.table2_Expost{{$index}}_Year.$error.number || Table2.table2_Expost{{$index}}_Year.$error.min || Table2.table2_Expost{{$index}}_Year.$error.max)"><span translate="Labels.Validation.range_year" translate-values="{'min': 1990, 'max': 2016}"></span></div>
+                                                            </div>
+                                                            <div class="small-4 columns">
+                                                                <input ng-model="entry.Average" name="table2_Expost{{$index}}_Average" type="number" step="0.01" />
+                                                                <div class="invalid-wrap" ng-show="ValidationEnabled && Table2.table2_Expost{{$index}}_Average.$error.number"><span translate="Labels.Validation.positive"></span></div>
+                                                            </div>
+                                                            <div class="small-3 columns actions">
+                                                                <a ng-hide="$first" ng-click="removeItem('Table2.Expost',$index)" class="remove button radius tiny">{{'Labels.Webform.Remove' | translate}}</a>
+                                                                <a ng-show="$last" class="add button radius tiny" ng-click="addItem('Table2.Expost')">{{'Labels.Webform.Add' | translate}}</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                                <!-- Explanation of Basis -->
+                                                <fieldset class="row collapse">
+                                                    <legend class="required"><label translate="Labels.Table2.BasisExplanation.label"></label></legend>
+                                                    <div class="small-12 columns">
+                                                        <textarea rows="5" type="text" ng-model="current.PAM.Table2.BasisExplanation"></textarea>
+                                                    </div>
+                                                </fieldset>
+                                                <!-- Affected Factors -->
+                                                <fieldset class="row collapse">
+                                                    <legend class="required"><label translate="Labels.Table2.AffectedFactors.label"></label></legend>
+                                                    <div class="small-12 columns">
+                                                        <input type="text" ng-model="current.PAM.Table2.AffectedFactors" />
+                                                    </div>
+                                                </fieldset>
+                                                <!-- Ex-post Documentation -->
+                                                <fieldset class="row">
+                                                    <legend translate="Labels.Table2.Documentation.label"></legend>
+                                                    <div ng-repeat="entry in current.PAM.Table2.ExpostDocumentation">
+                                                        <div class="row">
+                                                            <div class="small-5 columns">
+                                                                <label translate="Labels.Table2.Documentation.Reference"></label>
+                                                            </div>
+                                                            <div class="small-4 columns end">
+                                                                <label translate="Labels.Table2.Documentation.Weblink"></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="small-5 columns">
+                                                                <input type="text" ng-model="entry.Reference" />
+                                                            </div>
+                                                            <div class="small-4 columns">
+                                                                <input type="text" ng-model="entry.Weblink" name="table2_ExpostWeblink{{$index}}" />
+                                                                <div class="invalid-wrap" ng-show="ValidationEnabled && Table2.table2_ExpostWeblink{{$index}}.$error.pattern"><span translate="Labels.Validation.url"></span></div>
+                                                            </div>
+                                                            <div class="small-3 columns actions">
+                                                                <a ng-hide="$first" ng-click="removeItem('Table2.ExpostDocumentation',$index)" class="remove button radius tiny">{{'Labels.Webform.Remove' | translate}}</a>
+                                                                <a ng-show="$last" class="add button radius tiny" ng-click="addItem('Table2.ExpostDocumentation')">{{'Labels.Webform.Add' | translate}}</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p class="notes" translate="Labels.Webform.Notes"></p>
+                                <ol>
+                                    <li translate="Labels.Table2.Asterisk"></li>
+                                </ol>
+                            </form>
+                        </tab>
+                        <!-- Table3 Starting point -->
+                        <tab id="tab-pams-table3" heading="Table3" ng-click="setActiveTab(3)" active="tabs[3].active">
+                            <form name="Table3" class="my-tabs">
+                                <table>
+                                    <tbody>
+                                        <!-- PAM Title -->
+                                        <tr class="row">
+                                            <td class="small-3 columns">
+                                                <label class="my-inline" translate="Labels.Table1.Title"></label><span class="info" tooltip="{{'Labels.Tooltip.Table3.Title' | translate}}"></span>
+                                            </td>
+                                            <td class="small-9 columns">
+                                                <p ng-bind="current.PAM.Title"></p>
+                                            </td>
+                                        </tr>
+                                        <!-- Show PAM from Table1 -->
+                                        <tr class="row" ng-show="temp.isGroup">
+                                            <td class="small-3 columns"><label translate="Labels.Table3.PAM.label"></label></td>
+                                            <td class="small-9 columns">
+                                                <ul>
+                                                    <li ng-repeat="pam in current.PAM.Table1.PolicyGroup track by $index">
+                                                        <p>{{instance.MMR_PAMs.MMR_PAM[pam-1].id}} - {{instance.MMR_PAMs.MMR_PAM[pam-1].Title}}</p>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <!-- Projected Costs and Benefits -->
+                                        <tr class="row">
+                                            <td class="small-3 columns"><label translate="Labels.Table3.Costs.Projected"></label></td>
+                                            <!-- COST -->
+                                            <td class="small-9 columns">
+                                                <div class="row">
+                                                    <div class="small-4 columns">
+                                                        <fieldset class="row">
+                                                            <legend translate="Labels.Table3.Costs.CostType"></legend>
+                                                            <label translate="Labels.Table3.Costs.CostReduced"></label>
+                                                            <input type="number" name="table3_Projected_CostReduced" min="0" step="any" ng-model="current.PAM.Table3.Projected.CostReduced" />
+                                                            <div class="invalid-wrap" ng-show="ValidationEnabled && (Table3.table3_Projected_CostReduced.$error.number || Table3.table3_Projected_CostReduced.$error.min)"><span translate="Labels.Validation.positive"></span></div>
+                                                            <label translate="Labels.Table3.Costs.CostPerYear"></label>
+                                                            <input type="number" name="table3_Projected_CostPerYear" min="0" step="any" ng-model="current.PAM.Table3.Projected.CostPerYear" />
+                                                            <div class="invalid-wrap" ng-show="ValidationEnabled && (Table3.table3_Projected_CostPerYear.$error.number || Table3.table3_Projected_CostPerYear.$error.min)"><span translate="Labels.Validation.positive"></span></div>
+                                                            <label class="my-inline" translate="Labels.Table3.Costs.CostCalculatedYear"></label><span class="info" tooltip="{{'Labels.Tooltip.Table3.CostCalculatedYear' | translate}}"></span>
+                                                            <input type="text" name="table3_Projected_CostCalculatedYear" ng-pattern="regex.yearOrYears" ng-model="current.PAM.Table3.Projected.CostCalculatedYear" />
+                                                            <div class="invalid-wrap" ng-show="ValidationEnabled && Table3.table3_Projected_CostCalculatedYear.$error.pattern"><span translate="Labels.Validation.range_years" translate-values="{'min': 2000, 'max': 2040}"></span></div>
+                                                            <label translate="Labels.Table3.Costs.CostReferenceYear"></label>
+                                                            <input type="number" name="table3_Projected_CostReferenceYear" min="1995" max="2040" ng-model="current.PAM.Table3.Projected.CostReferenceYear" />
+                                                            <div class="invalid-wrap" ng-show="ValidationEnabled && (Table3.table3_Projected_CostReferenceYear.$error.number || Table3.table3_Projected_CostReferenceYear.$error.min || Table3.table3_Projected_CostReferenceYear.$error.max)"><span translate="Labels.Validation.range_year" translate-values="{'min': 1995, 'max': 2040}"></span></div>
+                                                        </fieldset>
+                                                    </div>
+                                                    <!-- BENEFITS - needs to be negative number -->
+                                                    <div class="small-4 columns">
+                                                        <fieldset class="row">
+                                                            <legend translate="Labels.Table3.Costs.BenefitType"></legend>
+                                                            <label translate="Labels.Table3.Costs.Benefit"></label>
+                                                            <input type="number" name="table3_Projected_BenefitReduced" max="0" step="any" ng-model="current.PAM.Table3.Projected.BenefitReduced" />
+                                                            <div class="invalid-wrap" ng-show="ValidationEnabled && (Table3.table3_Projected_BenefitReduced.$error.number || Table3.table3_Projected_BenefitReduced.$error.min)"><span translate="Labels.Validation.positive"></span></div>
+                                                            <label class="my-inline" translate="Labels.Table3.Costs.BenefitPerYear"></label>
+                                                            <input type="number" name="table3_Projected_BenefitPerYear" max="0" step="any" ng-model="current.PAM.Table3.Projected.BenefitPerYear" />
+                                                            <div class="invalid-wrap" ng-show="ValidationEnabled && (Table3.table3_Projected_BenefitPerYear.$error.number || Table3.table3_Projected_BenefitPerYear.$error.max)"><span translate="Labels.Validation.negative"></span></div>
+                                                            <div ng-show="current.PAM.Table3.Projected.CostCalculatedYear">
+                                                                <label translate="Labels.Table3.Costs.BenefitCalculatedYear"></label>
+                                                                <input disabled ng-model="current.PAM.Table3.Projected.CostCalculatedYear" />
+                                                            </div>
+                                                        </fieldset>
+                                                    </div>
+                                                    <!-- NET COST -->
+                                                    <div class="small-4 columns">
+                                                        <fieldset class="row">
+                                                            <legend translate="Labels.Table3.Costs.NetCostType"></legend>
+                                                            <label translate="Labels.Table3.Costs.NetCost"></label>
+                                                            <input type="number" name="table3_Projected_NetCostReduced" ng-model="current.PAM.Table3.Projected.NetCostReduced" />
+                                                            <div class="invalid-wrap" ng-show="ValidationEnabled && (Table3.table3_Projected_NetCostReduced.$error.number)"><span translate="Labels.Validation.number"></span></div>
+                                                            <label translate="Labels.Table3.Costs.NetCostPerYear"></label>
+                                                            <input type="number" name="table3_Projected_NetCostPerYear" ng-model="current.PAM.Table3.Projected.NetCostPerYear" />
+                                                            <div class="invalid-wrap" ng-show="ValidationEnabled && (Table3.table3_Projected_NetCostPerYear.$error.number)"><span translate="Labels.Validation.number"></span></div>
+                                                            <div ng-show="current.PAM.Table3.Projected.CostCalculatedYear">
+                                                                <label translate="Labels.Table3.Costs.NetCostCalculatedYear"></label>
+                                                                <input disabled ng-model="current.PAM.Table3.Projected.CostCalculatedYear" />
+                                                            </div>
+                                                        </fieldset>
+                                                    </div>
+                                                </div>
+                                                <fieldset class="row collapse">
+                                                    <legend><label class="my-inline" translate="Labels.Table3.Costs.CostDescription"></label><span class="info" tooltip="{{'Labels.Tooltip.Table3.CostDescription' | translate}}"></span></legend>
+                                                    <div class="small-12 columns">
+                                                        <textarea rows="5" type="text" ng-model="current.PAM.Table3.Projected.CostDescription"></textarea>
+                                                    </div>
+                                                </fieldset>
+                                                <fieldset class="row">
+                                                    <legend translate="Labels.Table3.Costs.CostDocumentation.label"></legend>
+                                                    <div ng-repeat="entry in current.PAM.Table3.Projected.CostDocumentation">
+                                                        <div class="row">
+                                                            <div class="small-5 columns">
+                                                                <label translate="Labels.Table3.Costs.CostDocumentation.Reference"></label>
+                                                            </div>
+                                                            <div class="small-4 columns end">
+                                                                <label translate="Labels.Table3.Costs.CostDocumentation.Weblink"></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="small-5 columns">
+                                                                <input type="text" ng-model="entry.Reference" />
+                                                            </div>
+                                                            <div class="small-4 columns">
+                                                                <input name="table3_Projected_DocumentationWeblink{{$index}}" type="text" ng-model="entry.Weblink" />
+                                                                <div class="invalid-wrap" ng-show="ValidationEnabled && (Table3.table3_Projected_DocumentationWeblink{{$index}}.$error.pattern)"><span translate="Labels.Validation.url"></span></div>
+                                                            </div>
+                                                            <div class="small-3 actions columns">
+                                                                <a ng-hide="$first" ng-click="removeItem('Table3.Projected.CostDocumentation',$index)" class="remove button radius tiny">{{'Labels.Webform.Remove' | translate}}</a>
+                                                                <a ng-show="$last" ng-click="addItem('Table3.Projected.CostDocumentation')" class="add button radius tiny"><span translate="Labels.Webform.Add"></span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </td>
+                                        </tr>
+                                        <!-- Realised Costs and Benefits -->
+                                        <tr class="row">
+                                            <td class="small-3 columns"><label translate="Labels.Table3.Costs.Realised"></label></td>
+                                            <!-- COST -->
+                                            <td class="small-9 columns">
+                                                <div class="row">
+                                                    <div class="small-4 columns">
+                                                        <fieldset class="row">
+                                                            <legend translate="Labels.Table3.Costs.CostType"></legend>
+                                                            <label translate="Labels.Table3.Costs.CostReduced"></label>
+                                                            <input type="number" name="table3_Realised_CostReduced" min="0" step="any" ng-model="current.PAM.Table3.Realised.CostReduced" />
+                                                            <div class="invalid-wrap" ng-show="ValidationEnabled && (Table3.table3_Realised_CostReduced.$error.number || Table3.table3_Realised_CostReduced.$error.min)"><span translate="Labels.Validation.positive"></span></div>
+                                                            <label translate="Labels.Table3.Costs.CostPerYear"></label>
+                                                            <input type="number" name="table3_Realised_CostPerYear" min="0" step="any" ng-model="current.PAM.Table3.Realised.CostPerYear" />
+                                                            <div class="invalid-wrap" ng-show="ValidationEnabled && (Table3.table3_Realised_CostPerYear.$error.number || Table3.table3_Realised_CostPerYear.$error.min)"><span translate="Labels.Validation.positive"></span></div>
+                                                            <label class="my-inline" translate="Labels.Table3.Costs.CostCalculatedYear"></label><span class="info" tooltip="{{'Labels.Tooltip.Table3.CostCalculatedYear' | translate}}"></span>
+                                                            <input type="text" name="table3_Realised_CostCalculatedYear" ng-pattern="regex.yearOrYears" ng-model="current.PAM.Table3.Realised.CostCalculatedYear" />
+                                                            <div class="invalid-wrap" ng-show="ValidationEnabled && Table3.table3_Realised_CostCalculatedYear.$error.pattern"><span translate="Labels.Validation.range_years" translate-values="{'min': 2000, 'max': 2040}"></span></div>
+                                                            <label translate="Labels.Table3.Costs.CostReferenceYear"></label>
+                                                            <input type="number" name="table3_Realised_CostReferenceYear" min="1995" max="2040" ng-model="current.PAM.Table3.Realised.CostReferenceYear" />
+                                                            <div class="invalid-wrap" ng-show="ValidationEnabled && (Table3.table3_Realised_CostReferenceYear.$error.number || Table3.table3_Realised_CostReferenceYear.$error.min || Table3.table3_Realised_CostReferenceYear.$error.max)"><span translate="Labels.Validation.range_year" translate-values="{'min': 1995, 'max': 2040}"></span></div>
+                                                        </fieldset>
+                                                    </div>
+                                                    <!-- BENEFITS - needs to be negative number - -->
+                                                    <div class="small-4 columns">
+                                                        <fieldset class="row">
+                                                            <legend translate="Labels.Table3.Costs.BenefitType"></legend>
+                                                            <label translate="Labels.Table3.Costs.Benefit"></label>
+                                                            <input type="number" name="table3_Realised_BenefitReduced" max="0" step="any" ng-model="current.PAM.Table3.Realised.BenefitReduced" />
+                                                            <div class="invalid-wrap" ng-show="ValidationEnabled && (Table3.table3_Realised_BenefitReduced.$error.number || Table3.table3_Realised_BenefitReduced.$error.min)"><span translate="Labels.Validation.positive"></span></div>
+                                                            <label class="my-inline" translate="Labels.Table3.Costs.BenefitPerYear"></label>
+                                                            <input type="number" name="table3_Realised_BenefitPerYear" max="0" step="any" ng-model="current.PAM.Table3.Realised.BenefitPerYear" />
+                                                            <div class="invalid-wrap" ng-show="ValidationEnabled && (Table3.table3_Realised_BenefitPerYear.$error.number || Table3.table3_Realised_BenefitPerYear.$error.max)"><span translate="Labels.Validation.negative"></span></div>
+                                                            <div ng-show="current.PAM.Table3.Realised.CostCalculatedYear">
+                                                                <label translate="Labels.Table3.Costs.BenefitCalculatedYear"></label>
+                                                                <input disabled ng-model="current.PAM.Table3.Realised.CostCalculatedYear" />
+                                                            </div>
+                                                        </fieldset>
+                                                    </div>
+                                                    <!-- NET COST -->
+                                                    <div class="small-4 columns">
+                                                        <fieldset class="row">
+                                                            <legend translate="Labels.Table3.Costs.NetCostType"></legend>
+                                                            <label translate="Labels.Table3.Costs.NetCost"></label>
+                                                            <input type="number" name="table3_Realised_NetCostReduced" ng-model="current.PAM.Table3.Realised.NetCostReduced" />
+                                                            <div class="invalid-wrap" ng-show="ValidationEnabled && (Table3.table3_Realised_NetCostReduced.$error.number)"><span translate="Labels.Validation.number"></span></div>
+                                                            <label translate="Labels.Table3.Costs.NetCostPerYear"></label>
+                                                            <input type="number" name="table3_Realised_NetCostPerYear" ng-model="current.PAM.Table3.Realised.NetCostPerYear" />
+                                                            <div class="invalid-wrap" ng-show="ValidationEnabled && (Table3.table3_Realised_NetCostPerYear.$error.number)"><span translate="Labels.Validation.number"></span></div>
+                                                            <div ng-show="current.PAM.Table3.Realised.CostCalculatedYear">
+                                                                <label translate="Labels.Table3.Costs.NetCostCalculatedYear"></label>
+                                                                <input disabled ng-model="current.PAM.Table3.Realised.CostCalculatedYear" />
+                                                            </div>
+                                                        </fieldset>
+                                                    </div>
+                                                </div>
+                                                <fieldset class="row collapse">
+                                                    <legend><label class="my-inline" translate="Labels.Table3.Costs.CostDescription"></label><span class="info" tooltip="{{'Labels.Tooltip.Table3.CostDescription' | translate}}"></span></legend>
+                                                    <div class="small-12 columns">
+                                                        <textarea rows="5" type="text" ng-model="current.PAM.Table3.Realised.CostDescription"></textarea>
+                                                    </div>
+                                                </fieldset>
+                                                <fieldset class="row">
+                                                    <legend translate="Labels.Table3.Costs.CostDocumentation.label"></legend>
+                                                    <div ng-repeat="entry in current.PAM.Table3.Realised.CostDocumentation">
+                                                        <div class="row">
+                                                            <div class="small-5 columns">
+                                                                <label translate="Labels.Table3.Costs.CostDocumentation.Reference"></label>
+                                                            </div>
+                                                            <div class="small-4 columns end">
+                                                                <label translate="Labels.Table3.Costs.CostDocumentation.Weblink"></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="small-5 columns">
+                                                                <input type="text" ng-model="entry.Reference" />
+                                                            </div>
+                                                            <div class="small-4 columns">
+                                                                <input name="table3_Realised_DocumentationWeblink{{$index}}" type="text" ng-model="entry.Weblink" />
+                                                                <div class="invalid-wrap" ng-show="ValidationEnabled && (Table3.table3_Realised_DocumentationWeblink{{$index}}.$error.pattern)"><span translate="Labels.Validation.url"></span></div>
+                                                            </div>
+                                                            <div class="small-3 actions columns">
+                                                                <a ng-hide="$first" ng-click="removeItem('Table3.Realised.CostDocumentation',$index)" class="remove button radius tiny">{{'Labels.Webform.Remove' | translate}}</a>
+                                                                <a ng-show="$last" ng-click="addItem('Table3.Realised.CostDocumentation')" class="add button radius tiny"><span translate="Labels.Webform.Add"></span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </tab>
+                    </tabset>
+                </tab>
+            </tabset>
+        </div>
+    </div>
+    </div>
+    <!-- Footer Toolbar -->
+    <div id="pagefoot" class="row">
+        <div class="columns small-5 text-left">
+            <div class="switch round tiny">
+                <span>Validation</span>
+                <span ng-hide="ValidationEnabled">Off</span>
+                <span ng-show="ValidationEnabled">On</span>
+                <input id="validationSwitch" type="checkbox" ng-model="ValidationEnabled">
+                <label for="validationSwitch"></label>
+            </div>
+            </span>
+        </div>
+        <div class="columns small-2 text-center">
+            <a href="https://cdr.eionet.europa.eu/help/mmr/mmr/MMR Article 13 Reporting Manual PaMs (2018).pdf" target="_blank" rel="noopener" class="guidelines"><span class="info" aria-hidden="true"></span> <span translate="Labels.Webform.Guidelines"></span></a>
+        </div>
+        <div class="columns small-5 text-right">
+            <button ng-click="saveInstance()" ng-disabled="temp.SaveDisabled" class="radius small"><span translate="Labels.Webform.Save"></span></button>
+            <button ng-click="printPreview()" class="radius small"><span translate="Labels.Webform.Print"></span></button>
+            <button ng-click="close()" class="radius small"><span translate="Labels.Webform.Close"></span></button>
+        </div>
+    </div>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <!--<![endif]-->
+
+
+    <!-- jQuery dependencies -->
+    <!--<script src="https://code.jquery.com/jquery-2.1.3.js"></script>-->
+    <!--<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>-->
+    <!--<script src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>-->
+    <!--<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>-->
+
+    <!-- Angular Dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.10/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.10/angular-animate.min.js"></script>
+
+    <!-- Angular UI Dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.10/angular-sanitize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.19.7/select.js"></script>
+
+    <!-- Language Changer Service -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bower-angular-translate/2.5.2/angular-translate.min.js"></script>
+    <!-- <script src="language-changer.js"></script> -->
+
+    <!-- Promise Tracker Library -->
+    <script src="http://webforms.eionet.europa.eu/js/angular/ui/promise-tracker.js"></script>
+    <script src="http://webforms.eionet.europa.eu/js/angular/ui/promise-tracker-http-interceptor.js"></script>
+
+    <!-- Spinner Plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-spinner/0.6.2/angular-spinner.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-foundation/0.5.1/mm-foundation-tpls.min.js"></script>
+
+    <!-- <script src="filters.js"></script> -->
+    <script src="app.js"></script>
+
+</body>
+
+</html>

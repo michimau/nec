@@ -1,0 +1,18 @@
+[cdr]
+server: http://cdrtest.eionet.europa.eu/
+username: username
+password: secret
+released: 1
+obligation: http://rod.eionet.europa.eu/obligations/696
+
+[location]
+ftpuser: eeaftp
+ftpgroup: ftp
+ftpdirectory: /var/eeaftp/pub/MMR-PAM
+obligation: http://rod.eionet.europa.eu/obligations/696
+
+[notification]
+from : noreply@eionet.europa.eu
+recipients: emailhere
+subject: Aggregation of MMR PAM
+

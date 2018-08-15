@@ -1,0 +1,31 @@
+{
+  "name": "necd_article_13",
+  "version": "1.0.0",
+  "description": "National Emission Ceiling Directive (NECD) - (Article 13)",
+  "main": "",
+  "scripts": {
+    "build-prod": "webpack --progress --env.build=production",
+    "build-test": "webpack --progress --env.build=development",
+    "build-dev": "webpack-dev-server --progress --inline --env.build=hello --port=8085"
+  },
+  "keywords": [],
+  "author": "EEA",
+  "license": "",
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "jstree": "^3.3.5",
+    "ng-js-tree": "0.0.10"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.16",
+    "compression-webpack-plugin": "^1.1.11",
+    "copy-webpack-plugin": "^4.5.2",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.5",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.5.5",
+    "webpack-dev-server": "^2.7.1",
+    "yazl": "^2.4.2"
+  }
+}

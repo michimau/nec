@@ -1,0 +1,2 @@
+! DEPRECATED !
+See: https://taskman.eionet.europa.eu/issues/82087

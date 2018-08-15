@@ -1,0 +1,151 @@
+{
+  "MMR_PAMs" : {
+    "@xmlns:xsi" : "http://www.w3.org/2001/XMLSchema-instance",
+    "@xsi:noNamespaceSchemaLocation" : "http://dd.eionet.europa.eu/schemas/mmr-pams/MMR_PAMs.xsd",
+    "MMR_PAM" : {
+      "id" : 1,
+      "Title" : null,
+      "TitleLocal" : null,
+      "Table1" : {
+        "isGroup" : "single",
+        "PolicyGroup" : null,
+        "Sectors" : null,
+        "GreenhouseGases" : null,
+        "Objective" : null,
+        "ObjectiveOther" : {
+          "ES" : {
+            "Name" : null
+          },
+          "EC" : {
+            "Name" : null
+          },
+          "TR" : {
+            "Name" : null
+          },
+          "IP" : {
+            "Name" : null
+          },
+          "AG" : {
+            "Name" : null
+          },
+          "LULUCF" : {
+            "Name" : null
+          },
+          "WA" : {
+            "Name" : null
+          },
+          "CC" : {
+            "Name" : null
+          }
+        },
+        "ObjectiveQuantified" : null,
+        "Description" : null,
+        "isEnvisaged" : null,
+        "PolicyInstrument" : null,
+        "UnionPolicy" : null,
+        "UnionPolicyRelated" : "yes",
+        "UnionPolicyOther" : {
+          "Name" : null
+        },
+        "Implementation" : {
+          "Status" : null,
+          "Start" : null,
+          "Finish" : null
+        },
+        "ProjectionsScenario" : {
+          "Type" : null
+        },
+        "Entities" : {
+          "Type" : null,
+          "Name" : null
+        },
+        "Indicators" : {
+          "Description" : null,
+          "Unit" : null,
+          "Year1" : null,
+          "Value1" : null,
+          "Year2" : null,
+          "Value2" : null,
+          "Year3" : null,
+          "Value3" : null,
+          "Year4" : null,
+          "Value4" : null
+        },
+        "Reference" : {
+          "Text" : null,
+          "Url" : null
+        },
+        "Comments" : null
+      },
+      "Table2" : {
+        "PolicyImpact" : null,
+        "ExanteEmissions1" : {
+          "EU_ETS" : null,
+          "ESD" : null,
+          "Total" : null
+        },
+        "ExanteEmissions2" : {
+          "EU_ETS" : null,
+          "ESD" : null,
+          "Total" : null
+        },
+        "ExanteEmissions3" : {
+          "EU_ETS" : null,
+          "ESD" : null,
+          "Total" : null
+        },
+        "ExanteEmissions4" : {
+          "EU_ETS" : null,
+          "ESD" : null,
+          "Total" : null
+        },
+        "ExanteDocumentation" : {
+          "Reference" : null,
+          "Weblink" : null
+        },
+        "Expost" : {
+          "Year" : null,
+          "Average" : null
+        },
+        "BasisExplanation" : null,
+        "AffectedFactors" : null,
+        "ExpostDocumentation" : {
+          "Reference" : null,
+          "Weblink" : null
+        }
+      },
+      "Table3" : {
+        "Projected" : {
+          "CostReduced" : null,
+          "CostPerYear" : null,
+          "CostCalculatedYear" : null,
+          "CostReferenceYear" : null,
+          "CostDescription" : null,
+          "CostDocumentation" : {
+            "Reference" : null,
+            "Weblink" : null
+          },
+          "BenefitReduced" : null,
+          "BenefitPerYear" : null,
+          "NetCostReduced" : null,
+          "NetCostPerYear" : null
+        },
+        "Realised" : {
+          "CostReduced" : null,
+          "CostPerYear" : null,
+          "CostCalculatedYear" : null,
+          "CostReferenceYear" : null,
+          "CostDescription" : null,
+          "CostDocumentation" : {
+            "Reference" : null,
+            "Weblink" : null
+          },
+          "BenefitReduced" : null,
+          "BenefitPerYear" : null,
+          "NetCostReduced" : null,
+          "NetCostPerYear" : null
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,305 @@
+[
+   {
+      "id":"ES",
+      "parent":"#",
+      "text":"Energy supply"
+   },
+   {
+      "id":"ES_1",
+      "code":"renewable",
+      "parent":"ES",
+      "text":"Increase in renewable energy"
+   },
+   {
+      "id":"ES_2",
+      "code":"Fuels_witch",
+      "parent":"ES",
+      "text":"Switch to less carbon-intensive fuels"
+   },
+   {
+      "id":"ES_3",
+      "code":"nuclear",
+      "parent":"ES",
+      "text":"Enhanced non-renewable low carbon generation (nuclear)"
+   },
+   {
+      "id":"ES_4",
+      "code":"loss_reduction",
+      "parent":"ES",
+      "text":"Reduction of losses"
+   },
+   {
+      "id":"ES_5",
+      "code":"efficiency",
+      "parent":"ES",
+      "text":"Efficiency improvement in the energy and transformation sector"
+   },
+   {
+      "id":"ES_6",
+      "code":"CSS",
+      "parent":"ES",
+      "text":"Carbon capture and storage"
+   },
+   {
+      "id":"ES_7",
+      "code":"fugitive_emissions",
+      "parent":"ES",
+      "text":"Control of fugitive emissions from energy production"
+   },
+   {
+      "id":"ES_8",
+      "code":"other",
+      "parent":"ES",
+      "text":"Other energy supply (specify)"
+   },
+   {
+      "id":"EC",
+      "code": "EC",
+      "parent":"#",
+      "text":"Energy consumption"
+   },
+   {
+      "id":"EC_1",
+      "code":"efficiency_buildings",
+      "parent":"EC",
+      "text":"Efficiency improvements of buildings"
+   },
+   {
+      "id":"EC_2",
+      "code":"efficiency_appliances",
+      "parent":"EC",
+      "text":"Efficiency improvement of appliances"
+   },
+   {
+      "id":"EC_3",
+      "code":"efficiency_services",
+      "parent":"EC",
+      "text":"Efficiency improvement in services/ tertiary sector"
+   },
+   {
+      "id":"EC_4",
+      "code":"efficiency_industry",
+      "parent":"EC",
+      "text":"Efficiency improvement in industrial end-use sectors"
+   },
+   {
+      "id":"EC_5",
+      "code":"demand_reduction",
+      "parent":"EC",
+      "text":"Demand management/reduction"
+   },
+   {
+      "id":"EC_6",
+      "code":"other",
+      "parent":"EC",
+      "text":"Other energy consumption (specify)"
+   },
+   {
+      "id":"TR",
+      "parent":"#",
+      "text":"Transport"
+   },
+   {
+      "id":"TR_1",
+      "code":"vehicle_efficiency",
+      "parent":"TR",
+      "text":"Efficiency improvements of vehicles"
+   },
+   {
+      "id":"TR_2",
+      "code":"modal_shift",
+      "parent":"TR",
+      "text":"Modal shift to public transport or non-motorized transport"
+   },
+   {
+      "id":"TR_3",
+      "code":"electric_cars",
+      "parent":"TR",
+      "text":"Low carbon fuels/electric cars"
+   },
+   {
+      "id":"TR_4",
+      "code":"demand_reduction",
+      "parent":"TR",
+      "text":"Demand management/reduction"
+   },
+   {
+      "id":"TR_5",
+      "code":"improved_behaviour",
+      "parent":"TR",
+      "text":"Improved behaviour"
+   },
+   {
+      "id":"TR_6",
+      "code":"improved_infrastructure",
+      "parent":"TR",
+      "text":"Improved transport infrastructure"
+   },
+   {
+      "id":"TR_7",
+      "code":"other",
+      "parent":"TR",
+      "text":"Other transport (specify)"
+   },
+   {
+      "id":"IP",
+      "code":"IP",
+      "parent":"#",
+      "text":"Industrial processes"
+   },
+   {
+      "id":"IP_1",
+      "code":"abatement_technologies",
+      "parent":"IP",
+      "text":"Installation of abatement technologies"
+   },
+   {
+      "id":"IP_3",
+      "code":"F-gas_reduction",
+      "parent":"IP",
+      "text":"Reduction of emissions of fluorinated gases"
+   },
+   {
+      "id":"IP_4",
+      "code":"F-gas_replacement",
+      "parent":"IP",
+      "text":"Replacement of fluorinated gases by other substances"
+   },
+   {
+      "id":"IP_5",
+      "code":"fugitive_emissions_control",
+      "parent":"IP",
+      "text":"Improved control of fugitive emissions from industrial processes"
+   },
+   {
+      "id":"IP_6",
+      "code":"other",
+      "parent":"IP",
+      "text":"Other industrial processes (specify)"
+   },
+   {
+      "id":"WA",
+      "code":"WA",
+      "parent":"#",
+      "text":"Waste management/waste"
+   },
+   {
+      "id":"WA_1",
+      "code":"demand_reduction",
+      "parent":"WA",
+      "text":"Demand management / reduction"
+   },
+   {
+      "id":"WA_2",
+      "code":"Recycling",
+      "parent":"WA",
+      "text":"Enhanced recycling"
+   },
+   {
+      "id":"WA_3",
+      "code":"Methane_collection",
+      "parent":"WA",
+      "text":"Enhanced CH4 collection and use"
+   },
+   {
+      "id":"WA_4",
+      "code":"improved_treatment",
+      "parent":"WA",
+      "text":"Improved treatment technologies"
+   },
+   {
+      "id":"WA_5",
+      "code":"improved_landfill_management",
+      "parent":"WA",
+      "text":"Improved landfill management"
+   },
+   {
+      "id":"WA_6",
+      "code":"improved_landfill_management",
+      "parent":"WA",
+      "text":"Waste incineration with energy use"
+   },
+   {
+      "id":"WA_7",
+      "code":"improved_landfill_management",
+      "parent":"WA",
+      "text":"Improved wastewater management systems"
+   },
+   {
+      "id":"WA_8",
+      "code":"improved_landfill_management",
+      "parent":"WA",
+      "text":"Reduced landfilling"
+   },
+   {
+      "id":"WA_9",
+      "code":"improved_landfill_management",
+      "parent":"WA",
+      "text":"Other waste (specify)"
+   },
+   {
+      "id":"AG",
+      "code":"AG",
+      "parent":"#",
+      "text":"Agriculture"
+   },
+   {
+      "id":"AG_1",
+     "code":"Fertilizer_use", "parent":"AG",
+      "text":"Reduction of fertilizer/manure use on cropland"
+   },
+   {
+      "id":"AG_2",
+     "code":"cropland_management", "parent":"AG",
+      "text":"Other activities improving cropland management"
+   },
+   {
+      "id":"AG_3",
+     "code":"livestock_management", "parent":"AG",
+      "text":"Improved livestock management"
+   },
+   {
+      "id":"AG_4",
+     "code":"animal_waste", "parent":"AG",
+      "text":"Improved animal waste management systems"
+   },
+   {
+      "id":"AG_5",
+     "code":"grazing_land_or_grassland", "parent":"AG",
+      "text":"Activities improving grazing land or grassland management"
+   },
+   {
+      "id":"AG_6",
+     "code":"organic_soils", "parent":"AG",
+      "text":"Improved management of organic soils"
+   },
+   {
+      "id":"AG_7",
+     "code":"other", "parent":"AG",
+      "text":"Other agriculture (specify)"
+   },
+   {
+      "id":"CC",
+      "code":"CC",
+      "parent":"#",
+      "text":"Cross-cutting"
+   },
+   {
+      "id":"CC_1",
+      "code":"framework",
+      "parent":"CC",
+      "text":"Framework policy"
+   },
+   {
+      "id":"CC_2",
+      "code":"multi-sectoral",
+      "parent":"CC",
+      "text":"Multi-sectoral policy"
+   },
+   {
+      "id":"CC_3",
+      "code":"other",
+      "parent":"CC",
+      "text":"Other cross-cutting (specify)"
+   }
+]

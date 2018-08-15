@@ -1,0 +1,32 @@
+[
+    {
+       "id":"nitrogen_management",
+       "parent":"#",
+       "text":"Nitrogen management, taking into account the whole nitrogen cycle"
+    },
+    {
+       "id":"livestock_feeding_strategies",
+       "parent":"#",
+       "text":"Livestock feeding strategies"
+    },
+    {
+       "id":"low_emission_spreading_techniques",
+       "parent":"#",
+       "text":"Low-emission manure spreading techniques"
+    },
+    {
+       "id":"low_emission_storage_systems",
+       "parent":"#",
+       "text":"Low-emission manure storage systems"
+    },
+    {
+       "id":"low_emission_housing_systems",
+       "parent":"#",
+       "text":"Low-emission animal housing systems"
+    },
+    {
+       "id":"limiting_ammonia_emissions",
+       "parent":"#",
+       "text":"Possibilities for limiting ammonia emissions from the use of mineral fertilisers"
+    }
+ ]

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<MMR_PAMs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://dd.eionet.europa.eu/schemas/mmr-pams/MMR_PAMs.xsd">
+  <MMR_PAM>
+    <id></id>
+    <Title></Title>
+    <Table1>
+      <isGroup>single</isGroup>
+      <PolicyGroup/>
+      <Sectors/>
+      <Pollutants/>
+      <Objective/>
+      <ObjectiveQuantified />
+      <Description />
+      <isEnvisaged />
+      <PolicyInstrument />
+      <UnionPolicy />              
+      <UnionPolicyRelated>yes</UnionPolicyRelated>
+      <UnionPolicyOther>
+        <Name />
+      </UnionPolicyOther>
+      <Implementation>
+        <Status/>    
+        <Start/>
+        <Finish/>
+      </Implementation>
+      <ProjectionsScenario>
+        <Type/>
+      </ProjectionsScenario>
+      <Entities>
+        <Type/>
+        <Name/>
+      </Entities>
+      <Indicators>              
+        <Description />
+        <Unit />
+        <Year1 />
+        <Value1 />
+        <Year2 />
+        <Value2 />
+        <Year3 />
+        <Value3 />
+        <Year4 />
+        <Value4 />             
+      </Indicators>
+      <Reference>
+        <Text />
+        <Url />
+      </Reference>
+      <Comments />
+    </Table1>
+    <Table2>
+      <PolicyImpact/>
+      <ExanteEmissions1>
+        <EU_ETS />
+        <ESD />
+        <Total />
+      </ExanteEmissions1>
+      <ExanteEmissions2>
+        <EU_ETS />
+        <ESD />
+        <Total />
+      </ExanteEmissions2>
+      <ExanteEmissions3>
+        <EU_ETS />
+        <ESD />
+        <Total />
+      </ExanteEmissions3>
+      <ExanteEmissions4>
+        <EU_ETS />
+        <ESD />
+        <Total />
+      </ExanteEmissions4>
+      <ExanteDocumentation>
+        <Reference />
+        <Weblink />
+      </ExanteDocumentation>
+      <Expost>
+        <Year />
+        <Average />
+      </Expost>
+      <BasisExplanation />
+      <AffectedFactors />
+      <ExpostDocumentation>
+        <Reference />
+        <Weblink />
+      </ExpostDocumentation>
+    </Table2>
+    <Table3>
+      <Projected>
+        <CostReduced />
+        <CostPerYear />
+        <CostCalculatedYear />
+        <CostReferenceYear />
+        <CostDescription />
+        <CostDocumentation>
+          <Reference />
+          <Weblink />
+        </CostDocumentation>
+        <BenefitReduced />
+        <BenefitPerYear />                
+        <NetCostReduced />
+        <NetCostPerYear />
+      </Projected>
+      <Realised>
+        <CostReduced />
+        <CostPerYear />
+        <CostCalculatedYear />
+        <CostReferenceYear />
+        <CostDescription />
+        <CostDocumentation>
+          <Reference />
+          <Weblink />
+        </CostDocumentation>
+        <BenefitReduced />
+        <BenefitPerYear />        
+        <NetCostReduced />
+        <NetCostPerYear />
+      </Realised>
+    </Table3>
+  </MMR_PAM>
+</MMR_PAMs>

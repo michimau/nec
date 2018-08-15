@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+  <Labels xmllang="en">
+    <Webform>
+      <PamNumber>PaM number</PamNumber>
+      <CreatePam>Create new PaM</CreatePam>
+      <Title>Questionnaire for reporting on Policies and Measures under the Monitoring Mechanism Regulation</Title>
+      <FormTitle>Policies and Measures (PaMs)</FormTitle>
+      <TitlePlaceholder>Enter Title</TitlePlaceholder>
+      <Annex>ANNEX XI</Annex>
+      <Add>Add</Add>
+      <Remove>Remove</Remove>
+      <AddSingle>Add Single</AddSingle>
+      <AddGroup>Add Group</AddGroup>
+      <Loading>Loading...</Loading>
+      <Complete>Complete PaM/Group</Complete>
+      <Group>Group</Group>
+      <Single>Single</Single>
+      <PleaseUpdate>Please Update individual PaM field</PleaseUpdate>
+      <Notes>Notes</Notes>
+      <Type>Type</Type>
+      <Name>Name</Name>
+      <Yes>Yes</Yes>
+      <No>No</No>
+      <Sector>Sector</Sector>
+      <Save>Save Webform</Save>
+      <Print>Print Preview</Print>
+      <Close>Close Webform</Close>
+      <Table1>Table 1</Table1>
+      <Table2>Table 2</Table2>
+      <Table3>Table 3</Table3>
+      <Guidelines>Reporting guidelines</Guidelines>
+      <SeeIndividualPaMs>See individual PaMs</SeeIndividualPaMs>
+    </Webform>
+    <Overview>
+      <label>Overview</label>
+      <heading>Overview Table</heading>
+      <PamNumber>PaM number</PamNumber>
+      <Group>PaM or group of PaMs</Group>
+      <Title>Name of policy or measure</Title>
+      <Table1>Table 1: Sectors and gases for reporting on policies and measures and groups of measures, and type of policy instrument</Table1>
+      <Table2>Table 2: Available results of ex-ante and ex-post assessments of the effects of individual or groups of policies and measures on mitigation of climate change</Table2>
+      <Table3>Table 3: Available projected and realised costs and benefits of individual or groups of policies and measures on mitigation of climate change</Table3>
+      <new_table>Create Table</new_table>
+      <edit_table>Edit Table</edit_table>
+      <delete_pam>Delete</delete_pam>
+    </Overview>
+    <Table1>
+      <Tab>Table1</Tab>
+      <Id>PaM ID</Id>
+      <Title>Name of PaM or group of PaMs</Title>
+      <TitleLocal>Name of PaM or group of PaMs in national language</TitleLocal>
+      <Asterisk>* Mandatory reporting requirements.</Asterisk>
+      <isGroup>
+        <label>Is this a single PaM or a group of PaMs?</label>
+        <placeholder></placeholder>
+        <list>
+          <single>Single</single>
+          <group>Group</group>
+        </list>
+      </isGroup>
+      <PolicyGroup>
+        <label>Which policies or measures does it cover?</label>
+        <Single_PAM>Single PaM</Single_PAM>
+      </PolicyGroup>
+      <Sectors>
+        <label>Sector(s) affected</label>
+        <placeholder>Select Sector(s)</placeholder>
+        <list>
+          <Energy_Supply>Energy supply (comprising extraction, transmission, distribution and storage of fuels as well as energy and electricity production)</Energy_Supply>
+          <Energy_Consumption>Energy consumption (comprising consumption of fuels and electricity by end users such as households, services, industry and agriculture)</Energy_Consumption>
+          <Transport>Transport</Transport>
+          <Industrial_Processes>Industrial processes (comprising industrial activities that chemically or physically transform materials leading to greenhouse gas emissions, use of greenhouse gases in products and non-energy uses of fossil fuel carbon)</Industrial_Processes>
+          <Agriculture>Agriculture</Agriculture>
+          <LULUCF>Land use, land-use change and forestry</LULUCF>
+          <Waste>Waste management/waste</Waste>
+          <Cross-cutting>Cross-cutting</Cross-cutting>
+          <Other>Other Sectors</Other>
+        </list>
+        <shortlist>
+          <Energy_Supply>Energy supply</Energy_Supply>
+          <Energy_Consumption>Energy consumption</Energy_Consumption>
+          <Transport>Transport</Transport>
+          <Industrial_Processes>Industrial processes</Industrial_Processes>
+          <Agriculture>Agriculture</Agriculture>
+          <LULUCF>Land use, land-use change and forestry</LULUCF>
+          <Waste>Waste management/waste</Waste>
+          <Cross-cutting>Cross-cutting</Cross-cutting>
+          <Other>Other Sectors</Other>
+          <null></null>
+        </shortlist>
+      </Sectors>
+      <GreenhouseGases>
+        <label>Greenhouse gas(es) affected</label>
+        <placeholder>Select Gas(es)</placeholder>
+        <list>
+          <CO2>Carbon dioxide (CO2)</CO2>
+          <CH4>Methane (CH4)</CH4>
+          <N2O>Nitrous oxide (N2O)</N2O>
+          <HFC>Hydrofluorocarbons (HFC)</HFC>
+          <PFC>Perfluorocarbons (PFC)</PFC>
+          <SF6>Sulphur hexafluoride (SF6)</SF6>
+          <NF3>Nitrogen trifluoride (NF3)</NF3>
+        </list>
+      </GreenhouseGases>
+      <Objective>
+        <label>Objective(s)</label>
+        <placeholder>Select Objective(s)</placeholder>
+        <select>Select Objective(s)</select>
+        <current>Objective(s)</current>
+        <emptySectors>You need to select at least one Sector to view and select Objectives</emptySectors>
+        <list>
+          <ES_renewable>Increase in renewable energy</ES_renewable>
+          <ES_Fuels_witch>Switch to less carbon-intensive fuels</ES_Fuels_witch>
+          <ES_nuclear>Enhanced non-renewable low carbon generation (nuclear)</ES_nuclear>
+          <ES_loss_reduction>Reduction of losses</ES_loss_reduction>
+          <ES_efficiency>Efficiency improvement in the energy and transformation sector</ES_efficiency>
+          <ES_CSS>Carbon capture and storage</ES_CSS>
+          <ES_fugitive_emissions>Control of fugitive emissions from energy production</ES_fugitive_emissions>
+          <ES_other>Other energy supply</ES_other>
+          <EC_efficiency_buildings>Efficiency improvements of buildings</EC_efficiency_buildings>
+          <EC_efficiency_appliances>Efficiency improvement of appliances</EC_efficiency_appliances>
+          <EC_efficiency_services>Efficiency improvement in services/ tertiary sector</EC_efficiency_services>
+          <EC_efficiency_industry>Efficiency improvement in industrial end-use sectors</EC_efficiency_industry>
+          <EC_demand_reduction>Demand management/reduction</EC_demand_reduction>
+          <EC_other>Other energy consumption</EC_other>
+          <TR_vehicle_efficiency>Efficiency improvements of vehicles</TR_vehicle_efficiency>
+          <TR_modal_shift>Modal shift to public transport or non-motorized transport</TR_modal_shift>
+          <TR_electric_cars>Low carbon fuels/electric cars</TR_electric_cars>
+          <TR_demand_reduction>Demand management/reduction</TR_demand_reduction>
+          <TR_improved_behaviour>Improved behaviour</TR_improved_behaviour>
+          <TR_improved_infrastructure>Improved transport infrastructure</TR_improved_infrastructure>
+          <TR_other>Other transport</TR_other>
+          <IP_abatement_technologies>Installation of abatement technologies</IP_abatement_technologies>
+          <IP_F-gas_reduction>Reduction of emissions of fluorinated gases</IP_F-gas_reduction>
+          <IP_F-gas_replacement>Replacement of fluorinated gases by other substances</IP_F-gas_replacement>
+          <IP_fugitive_emissions_control>Improved control of fugitive emissions from industrial processes</IP_fugitive_emissions_control>
+          <IP_other>Other industrial processes</IP_other>
+          <WA_demand_reduction>Demand management / reduction</WA_demand_reduction>
+          <WA_Recycling>Enhanced recycling</WA_Recycling>
+          <WA_Methane_collection>Enhanced CH4 collection and use</WA_Methane_collection>
+          <WA_improved_treatment>Improved treatment technologies</WA_improved_treatment>
+          <WA_improved_landfill_management>Improved landfill management</WA_improved_landfill_management>
+          <WA_waste_to_energy>Waste incineration with energy use</WA_waste_to_energy>
+          <WA_wastewater>Improved wastewater management systems</WA_wastewater>
+          <WA_reduced_landfilling>Reduced landfilling</WA_reduced_landfilling>
+          <WA_other>Other waste</WA_other>
+          <AG_Fertilizer_use>Reduction of fertilizer/manure use on cropland</AG_Fertilizer_use>
+          <AG_cropland_management>Other activities improving cropland management</AG_cropland_management>
+          <AG_livestock_management>Improved livestock management</AG_livestock_management>
+          <AG_animal_waste>Improved animal waste management systems</AG_animal_waste>
+          <AG_grazing_land_or_grassland>Activities improving grazing land or grassland management</AG_grazing_land_or_grassland>
+          <AG_organic_soils>Improved management of organic soils</AG_organic_soils>
+          <AG_other>Other agriculture</AG_other>
+          <LULUCF_afforestation_reforestation>Afforestation and reforestation</LULUCF_afforestation_reforestation>
+          <LULUCF_carbon_conservation>Conservation of carbon in existing forests</LULUCF_carbon_conservation>
+          <LULUCF_forest_production>Enhancing production in existing forests</LULUCF_forest_production>
+          <LULUCF_hwp_pool>Increasing the harvested wood products pool</LULUCF_hwp_pool>
+          <LULUCF_forest_management>Enhanced forest management</LULUCF_forest_management>
+          <LULUCF_deforestation_prevention>Prevention of deforestation</LULUCF_deforestation_prevention>
+          <LULUCF_protection_against_natural_disturbances>Strengthening protection against natural disturbances</LULUCF_protection_against_natural_disturbances>
+          <LULUCF_substitution_with_HWP>Substitution of GHG-intensive feedstocks and materials with harvested wood products</LULUCF_substitution_with_HWP>
+          <LULUCF_wetlands>Prevention of drainage or rewetting of wetlands</LULUCF_wetlands>
+          <LULUCF_degraded_lands>Restoration of degraded lands</LULUCF_degraded_lands>
+          <LULUCF_other>Other LULUCF</LULUCF_other>
+          <CC_framework>Framework policy</CC_framework>
+          <CC_multi-sectoral>Multi-sectoral policy</CC_multi-sectoral>
+          <CC_other>Other cross-cutting</CC_other>
+        </list>
+        <list_with_sectors>
+          <ES_renewable>Increase in renewable energy (Energy supply)</ES_renewable>
+          <ES_Fuels_witch>Switch to less carbon-intensive fuels (Energy supply)</ES_Fuels_witch>
+          <ES_nuclear>Enhanced non-renewable low carbon generation (nuclear) (Energy supply)</ES_nuclear>
+          <ES_loss_reduction>Reduction of losses (Energy supply)</ES_loss_reduction>
+          <ES_efficiency>Efficiency improvement in the energy and transformation sector (Energy supply)</ES_efficiency>
+          <ES_CSS>Carbon capture and storage (Energy supply)</ES_CSS>
+          <ES_fugitive_emissions>Control of fugitive emissions from energy production (Energy supply)</ES_fugitive_emissions>
+          <ES_other>Other energy supply</ES_other>
+          <EC_efficiency_buildings>Efficiency improvements of buildings (Energy consumption)</EC_efficiency_buildings>
+          <EC_efficiency_appliances>Efficiency improvement of appliances (Energy consumption)</EC_efficiency_appliances>
+          <EC_efficiency_services>Efficiency improvement in services/ tertiary sector (Energy consumption)</EC_efficiency_services>
+          <EC_efficiency_industry>Efficiency improvement in industrial end-use sectors (Energy consumption)</EC_efficiency_industry>
+          <EC_demand_reduction>Demand management/reduction (Energy consumption)</EC_demand_reduction>
+          <EC_other>Other energy consumption</EC_other>
+          <TR_vehicle_efficiency>Efficiency improvements of vehicles (Transport)</TR_vehicle_efficiency>
+          <TR_modal_shift>Modal shift to public transport or non-motorized transport (Transport)</TR_modal_shift>
+          <TR_electric_cars>Low carbon fuels/electric cars (Transport)</TR_electric_cars>
+          <TR_demand_reduction>Demand management/reduction (Transport)</TR_demand_reduction>
+          <TR_improved_behaviour>Improved behaviour (Transport)</TR_improved_behaviour>
+          <TR_improved_infrastructure>Improved transport infrastructure (Transport)</TR_improved_infrastructure>
+          <TR_other>Other transport</TR_other>
+          <IP_abatement_technologies>Installation of abatement technologies (Industrial processes)</IP_abatement_technologies>
+          <IP_F-gas_reduction>Reduction of emissions of fluorinated gases (Industrial processes)</IP_F-gas_reduction>
+          <IP_F-gas_replacement>Replacement of fluorinated gases by other substances (Industrial processes)</IP_F-gas_replacement>
+          <IP_fugitive_emissions_control>Improved control of fugitive emissions from industrial processes (Industrial processes)</IP_fugitive_emissions_control>
+          <IP_other>Other industrial processes</IP_other>
+          <WA_demand_reduction>Demand management / reduction (Waste)</WA_demand_reduction>
+          <WA_Recycling>Enhanced recycling (Waste)</WA_Recycling>
+          <WA_Methane_collection>Enhanced CH4 collection and use (Waste)</WA_Methane_collection>
+          <WA_improved_treatment>Improved treatment technologies (Waste)</WA_improved_treatment>
+          <WA_improved_landfill_management>Improved landfill management (Waste)</WA_improved_landfill_management>
+          <WA_waste_to_energy>Waste incineration with energy use (Waste)</WA_waste_to_energy>
+          <WA_wastewater>Improved wastewater management systems (Waste)</WA_wastewater>
+          <WA_reduced_landfilling>Reduced landfilling (Waste)</WA_reduced_landfilling>
+          <WA_other>Other waste</WA_other>
+          <AG_Fertilizer_use>Reduction of fertilizer/manure use on cropland (Agriculture)</AG_Fertilizer_use>
+          <AG_cropland_management>Other activities improving cropland management (Agriculture)</AG_cropland_management>
+          <AG_livestock_management>Improved livestock management (Agriculture)</AG_livestock_management>
+          <AG_animal_waste>Improved animal waste management systems (Agriculture)</AG_animal_waste>
+          <AG_grazing_land_or_grassland>Activities improving grazing land or grassland management (Agriculture)</AG_grazing_land_or_grassland>
+          <AG_organic_soils>Improved management of organic soils (Agriculture)</AG_organic_soils>
+          <AG_other>Other agriculture</AG_other>
+          <LULUCF_afforestation_reforestation>Afforestation and reforestation (LULUCF)</LULUCF_afforestation_reforestation>
+          <LULUCF_carbon_conservation>Conservation of carbon in existing forests (LULUCF)</LULUCF_carbon_conservation>
+          <LULUCF_forest_production>Enhancing production in existing forests (LULUCF)</LULUCF_forest_production>
+          <LULUCF_hwp_pool>Increasing the harvested wood products pool (LULUCF)</LULUCF_hwp_pool>
+          <LULUCF_forest_management>Enhanced forest management (LULUCF)</LULUCF_forest_management>
+          <LULUCF_deforestation_prevention>Prevention of deforestation (LULUCF)</LULUCF_deforestation_prevention>
+          <LULUCF_protection_against_natural_disturbances>Strengthening protection against natural disturbances (LULUCF)</LULUCF_protection_against_natural_disturbances>
+          <LULUCF_substitution_with_HWP>Substitution of GHG-intensive feedstocks and materials with harvested wood products (LULUCF)</LULUCF_substitution_with_HWP>
+          <LULUCF_wetlands>Prevention of drainage or rewetting of wetlands (LULUCF)</LULUCF_wetlands>
+          <LULUCF_degraded_lands>Restoration of degraded lands (LULUCF)</LULUCF_degraded_lands>
+          <LULUCF_other>Other LULUCF</LULUCF_other>
+          <CC_framework>Framework policy (Cross-cutting)</CC_framework>
+          <CC_multi-sectoral>Multi-sectoral policy (Cross-cutting)</CC_multi-sectoral>
+          <CC_other>Other cross-cutting (Cross-cutting)</CC_other>
+        </list_with_sectors>
+      </Objective>
+      <ObjectiveOther>
+        <label>Other Objective(s)</label>
+        <sectors>Select sector</sectors>
+        <text>Objective Name</text>
+      </ObjectiveOther>
+      <ObjectiveQuantified>
+        <label>Quantified Objective</label>
+        <placeholder>Quantified Objective</placeholder>
+      </ObjectiveQuantified>
+      <Description>
+        <label>Short description</label>
+        <placeholder>Type Description</placeholder>
+      </Description>
+      <isEnvisaged>
+        <label>Is the policy or measure envisaged with a view to limiting GHG emissions beyond the Member State commitments under Decision No 406/2009/EC?</label>
+        <list>
+          <yes>Yes</yes>
+          <no>No</no>
+        </list>
+      </isEnvisaged>
+      <PolicyInstrument>
+        <label>Type of policy Instrument</label>
+        <placeholder>Select Policy Instrument</placeholder>
+        <list>
+          <Economic>Economic</Economic>
+          <Fiscal>Fiscal</Fiscal>
+          <Voluntary>Voluntary/negotiated agreements</Voluntary>
+          <Regulatory>Regulatory</Regulatory>
+          <Information>Information</Information>
+          <Education>Education</Education>
+          <Research>Research</Research>
+          <Planning>Planning</Planning>
+          <Other>Other</Other>
+        </list>
+      </PolicyInstrument>
+      <UnionPolicyRelated>
+        <label>Is the policy or measure related to a Union policy</label>
+      </UnionPolicyRelated>
+      <UnionPolicy>
+        <label>Union policy which resulted in the implementation of the PaM</label>
+        <other>Other Union Policy</other>
+        <current>Current Union Policy list</current>
+        <placeholder>Select Union Policy/ies</placeholder>
+        <otherCurrent>Current Other Union Policy list</otherCurrent>
+        <related>Related</related>
+        <not_related>Non related</not_related>
+        <list>
+          <CAP_Health_Check_and_Set_aside>CAP “Health Check” 2008 and the “Set aside” regulation 73/2009</CAP_Health_Check_and_Set_aside>
+          <Cap_reform>CAP Reform 2013 regulations: Rural Development (1305/2013), 'Horizontal' issues (1306/2013), Direct payments (1307/2013) and Market measures (1308/2013)</Cap_reform>
+          <CAP_Reform>CAP Reform 2014-2020: Regulation 1305/2013; Regulation 1306/2013; Regulation 1307/2013 and Regulation 1308/2013, and their transitory measures for 2014 (Regulation 1310/2013, 2006/144/EC)
+          </CAP_Reform>
+          <Nitrate_Directive>Nitrate Directive 1991/676/EEC</Nitrate_Directive>
+          <Effort_Sharing_Decision>Effort Sharing Decision 406/2009/EC</Effort_Sharing_Decision>
+          <ESD_ANNUAL_EMISSION_ALLOCATION>ESD Annual Emission Allocation (AEA) Decision 2013/634/EU</ESD_ANNUAL_EMISSION_ALLOCATION>
+          <ETS_directive>EU ETS directive 2003/87/EC as amended by Directive 2008/101/EC and Directive 2009/29/EC and implementing legislation, in particular 2010/2/EU, 2011/278/EU, 2011/638/EU, 176/2014/EU, and Decision (EU) 2015/1814</ETS_directive>
+          <Cogeneration_Directive>Cogeneration Directive 2004/8/EC</Cogeneration_Directive>
+          <Internal_energy_market>Completion of the internal energy market (including provisions of the 3d package)</Internal_energy_market>
+          <End-use_and_energy_services>Directive 2006/32/EC on end-use energy efficiency and energy services</End-use_and_energy_services>
+          <Geological_storage>Directive on the geological storage of CO2 2009/31/EC</Geological_storage>
+          <Eco-design_Labelling_directives>Eco-design framework Directive 2009/125/EC, 2008/28/EC and its implementing Regulations, combined with Labelling Directive 2003/66/EC and 2010/30/EC</Eco-design_Labelling_directives>
+          <Energy_Efficiency_Directive>Energy Efficiency Directive 2012/27/EU</Energy_Efficiency_Directive>
+          <Energy_Star_Program>Energy Star Program</Energy_Star_Program>
+          <Energy_Taxation_Directive>Energy Taxation Directive 2003/96/EC</Energy_Taxation_Directive>
+          <Recast_of_EPBD>Recast of the Energy Performance of Buildings Directive (Directive 2010/31/EU)</Recast_of_EPBD>
+          <RES_directive>RES directive 2009/28/EC</RES_directive>
+          <Biofuels_directive>Biofuels directive 2003/30/EC</Biofuels_directive>
+          <Clean_and_Energy_Efficient_Vehicles>Directive on the Promotion of Clean and Energy Efficient Road Transport Vehicles 2009/33/EC</Clean_and_Energy_Efficient_Vehicles>
+          <Eurovignette_Directive>Eurovignette Directive on road infrastructure charging 2011/76/EU</Eurovignette_Directive>
+          <FQD>Fuel Quality Directive 2009/30/EC</FQD>
+          <Motor_Vehicles_Directive>Motor Vehicles Directive 2006/40/EC (Deprecated)</Motor_Vehicles_Directive>
+          <EURO_5_and_6>Regulation EURO 5 and 6 2007/715/EC</EURO_5_and_6>
+          <Euro_6_for_HDV>Regulation Euro VI for heavy duty vehicles 2009/595/EC</Euro_6_for_HDV>
+          <CO2_and_cars_and_vans_regulations>Regulation on CO2 from cars and vans (2009/443/EC, (EU) No 510/2011, (EU) No 397/2013, (EU) No 333/2014, (EU) No 253/2014, 2013/128/EU, (EU) No 396/2013, (EU) No 114/2013)</CO2_and_cars_and_vans_regulations>
+          <Fgas_regulation>F-gas Regulation 517/2014</Fgas_regulation>
+          <F-gas_Regulation>F-gas Regulation 2006/842/EC</F-gas_Regulation>
+          <MACs_Directive>Mobile Air-conditioning system (MACs) Directive 2006/40/EC</MACs_Directive>
+          <Landfill_Directive>Landfill Directive 1999/31/EC</Landfill_Directive>
+          <Waste_Directive>Waste Directive 2006/12/EC</Waste_Directive>
+          <Waste_incineration_Directive>Waste incineration Directive 2000/76/EC 2000/76/EC</Waste_incineration_Directive>
+          <Waste_Management_Framework_Directive>Waste Management Framework Directive 2008/98/EC</Waste_Management_Framework_Directive>
+          <LULUCF_Decision>LULUCF Decision No 529/2013/EU</LULUCF_Decision>
+          <NEC>Directive on national emissions' ceilings for certain pollutants 2001/81/EC</NEC>
+          <IED>Industrial emissions Directive 2010/75/EU (Recast of IPPC Directive 2008/1/EC and Large Combustion Plant Directive 2001/80/EC)</IED>
+          <Water_Framework>Water Framework Directive 2000/60/EC</Water_Framework>
+          <Other_EU>Other (Union policy not listed above or additional Union policy)</Other_EU>
+        </list>
+      </UnionPolicy>
+      <ImplementationStatus>
+        <label>Status of Implementation</label>
+        <list>
+          <Planned>Planned</Planned>
+          <Adopted>Adopted</Adopted>
+          <Implemented>Implemented</Implemented>
+          <Expired>Expired (only if the policy or measure has an effect, or is expected to continue to have an effect on greenhouse gas emissions)</Expired>
+        </list>
+        <shortlist>
+          <Planned>Planned</Planned>
+          <Adopted>Adopted</Adopted>
+          <Implemented>Implemented</Implemented>
+          <Expired>Expired</Expired>
+        </shortlist>
+      </ImplementationStatus>
+      <ImplementationPeriod>
+        <label>Implementation Period</label>
+        <start>Start</start>
+        <finish>Finish</finish>
+        <comments>Comment on Implementation Period</comments>
+      </ImplementationPeriod>
+      <ProjectionsScenario>
+        <label>Projections scenario in which the PaM is included</label>
+        <list>
+          <null></null>
+          <WEM>With existing measures</WEM>
+          <WAM>With additional measures</WAM>
+          <WOM>Without measures scenario</WOM>
+          <NIP>Not included in a projection scenario</NIP>
+        </list>
+      </ProjectionsScenario>
+      <Entities>
+        <label>Entities responsible for implementing the policy</label>
+        <placeholder>Select Type</placeholder>
+        <current>Current entity list</current>
+        <list>
+          <null></null>
+          <Government>National government</Government>
+          <Regional>Regional entities</Regional>
+          <Local>Local government</Local>
+          <Companies>Companies / businesses / industrial associations</Companies>
+          <Research>Research institutions</Research>
+          <Other>Others not listed</Other>
+        </list>
+      </Entities>
+      <Indicators>
+        <label>Indicators used to monitor and evaluate progress over time (ex-post or ex-ante)</label>
+        <current>Current Indicators list</current>
+        <desc>Description</desc>
+        <unit>Unit</unit>
+        <Year>Year {{num}}</Year>
+        <Value>Value {{num}}</Value>
+      </Indicators>
+      <Reference>
+        <label>Reference to assessments and underpinning technical reports</label>
+        <Text>Reference</Text>
+        <Url>URL</Url>
+      </Reference>
+      <Comments>
+        <label>General Comments</label>
+      </Comments>
+    </Table1>
+    <Table2>
+      <Tab>Table2</Tab>
+      <Asterisk>* Mandatory reporting requirements.</Asterisk>
+      <PAM>
+        <label>Group of policies and measures</label>
+      </PAM>
+      <PolicyImpact>
+        <label>Policy impacting EU ETS or ESD emissions</label>
+        <placeholder>Select Policy impacting EU ETS or ESD emissions</placeholder>
+        <EU_ETS>EU ETS</EU_ETS>
+        <ESD>ESD</ESD>
+        <LULUCF>Land use, land-use change and forestry</LULUCF>
+        <Total>Total</Total>
+      </PolicyImpact>
+      <Exante>
+        <Title>Ex-ante assessment</Title>
+      </Exante>
+      <ExanteEmissions>
+        <label>GHG emissions reductions for year {{year}} (kt CO2-equivalent per year)</label>
+      </ExanteEmissions>
+      <Expost>
+        <Title>Ex-post assessment</Title>
+        <Year>Year for which reduction applies</Year>
+        <Average>Average emission reduction</Average>
+      </Expost>
+      <ExpostEmissions>
+        <label>GHG emissions reductions (kt CO2-equivalent per year)</label>
+      </ExpostEmissions>
+      <BasisExplanation>
+        <label>Explanation of the basis for the mitigation estimates</label>
+      </BasisExplanation>
+      <AffectedFactors>
+        <label>Factors affected by PaM</label>
+      </AffectedFactors>
+      <Documentation>
+        <label>Documentation/ Source of estimation if available</label>
+        <Reference>Reference</Reference>
+        <Weblink>Weblink</Weblink>
+      </Documentation>
+    </Table2>
+    <Table3>
+      <Tab>Table3</Tab>
+      <PAM>
+        <label>Group of policies and measures</label>
+      </PAM>
+      <Costs>
+        <Projected>Projected costs and benefits</Projected>
+        <Realised>Realised costs and benefits</Realised>
+        <YearPlaceholder>Select Year</YearPlaceholder>
+        <CostType>Cost </CostType>
+        <BenefitType>Benefit </BenefitType>
+        <NetCostType>Net cost </NetCostType>
+        <CostReduced>Costs in EUR per tonne CO2eq reduced/ sequestered</CostReduced>
+        <Benefit>Benefits in EUR per tonne CO2eq reduced/ sequestered</Benefit>
+        <NetCost>Net costs in EUR per tonne CO2eq reduced/ sequestered</NetCost>
+        <CostPerYear>Absolute costs per year in EUR</CostPerYear>
+        <BenefitPerYear>Absolute benefit per year in EUR</BenefitPerYear>
+        <NetCostPerYear>Net Cost per year in EUR</NetCostPerYear>
+        <CostCalculatedYear>Year(s) for which cost has been calculated</CostCalculatedYear>
+        <BenefitCalculatedYear>Year(s) for which benefits has been calculated</BenefitCalculatedYear>
+        <NetCostCalculatedYear>Year(s) for which net cost has been calculated</NetCostCalculatedYear>
+        <CostReferenceYear>Price reference year</CostReferenceYear>
+        <CostDescription>Description of cost estimates (basis for cost estimate, what type of costs are included in the estimate, methodology)</CostDescription>
+        <CostDocumentation>
+          <label>Documentation/ Source of cost estimation</label>
+          <Reference>Reference</Reference>
+          <Weblink>Weblink</Weblink>
+        </CostDocumentation>
+        <BenefitDescription>Description of benefit estimates (basis for benefit estimate, what type of benefits are included in the estimate, methodology)</BenefitDescription>
+        <BenefitDocumentation>
+          <label>Documentation/ Source of benefit estimation</label>
+          <Reference>Reference</Reference>
+          <Weblink>Weblink</Weblink>
+        </BenefitDocumentation>
+      </Costs>
+    </Table3>
+    <Tooltip>
+      <MMR>Definitions and information on mandatory reporting requirements are stipulated in MMR Art. 13 and MMR implementing regulation Art. 22 and Annex XI.</MMR>
+      <Overview>Numeric values with decimals should be entered using a dot not a comma.</Overview>
+      <Group>A group of PaMs consists of other single PaMs.</Group>
+      <Table1>
+        <ID>Use this to order the PaMs to your convenience</ID>
+        <Title>Fill this table with PaMs and groups of PaMs</Title>
+        <isGroup>A group of PaMs consists of other single PaMs</isGroup>
+        <PolicyGroup>One PaM cannot be part of more than one group</PolicyGroup>
+        <Sectors>More than one sector can be selected</Sectors>
+        <GreenhouseGases>More than one GHG can be selected</GreenhouseGases>
+        <Objective>More than one objective can be selected, additional objectives could be added and specified under ‘other’</Objective>
+        <QuantifiedObjective>Include the figure(s) if the objective(s) is (are) quantified</QuantifiedObjective>
+        <UnionPolicy>Union policies are organised by sector that is most likely applicable. The selected ‘Sector(s) affected’ can differ from the sector(s) listed here. More than one Union policy can be selected, additional union policies could be added and specified under ‘other’. Sectors are not listed in alphabetical order.
+        </UnionPolicy>
+        <ImplementationStatus>Expired PaMs must be reported in the template only if they have an effect, or they are expected to continue to have an effect on GHG emissions</ImplementationStatus>
+        <ImplementationComments>Provide any remark on Implementation Period of the PaM</ImplementationComments>
+        <Entities>More than one entity can be selected</Entities>
+      </Table1>
+      <Table2>
+        <Title>Fill this table for all PaMs or groups of PaMs for which an ex-post or ex-ante assessment is available</Title>
+        <PolicyImpacting>More than one can be selected.</PolicyImpacting>
+      </Table2>
+      <Table3>
+        <Title>Fill this table for all PaMs or groups of PaMs for which such an assessment is available.</Title>
+        <CostCalculatedYear>Provide a year or a range of years (e.g 2000-2014)</CostCalculatedYear>
+        <CostDescription>Basis for cost estimate, what type of costs are included in the estimate, methodology.</CostDescription>
+        <BenefitDescription>Basis for benefit estimate, what type of benefits are included in the estimate, methodology.</BenefitDescription>
+      </Table3>
+    </Tooltip>
+    <Validation>
+      <empty>This field cannot be empty</empty>
+      <url>This field requires a valid url e.g http://www.europa.eu or www.europa.eu</url>
+      <range_number>This field requires a number between {{min}} and {{max}}</range_number>
+      <range_year>This field requires a year between {{min}} and {{max}}</range_year>
+      <range_years>This field requires a year or a range of years between {{min}} and {{max}}</range_years>
+      <positive>This field requires a number greater than zero</positive>
+      <negative>This field requires a number less than zero</negative>
+      <number>This field requires a number</number>
+      <unique>This field requires a unique value</unique>
+      <greater_equal_than>This field must be equal or greater than {{field}}</greater_equal_than>
+      <match_value>This field must match {{value}}</match_value>
+    </Validation>
+  </Labels>

@@ -1,0 +1,17 @@
+[
+    {
+       "id":"ammonium_nitrate_based_fertilisers",
+       "parent":"#",
+       "text":"replacing urea-based fertilisers by ammonium nitrate-based fertilisers"
+    },
+    {
+       "id":"methods_reduce_ammonia_emissions_30",
+       "parent":"#",
+       "text":"where urea-based fertilisers continue to be applied, using methods that have been shown to reduce ammonia emissions by at least 30 % compared with the use of the reference method, as specified in the Ammonia Guidance Document"
+    },
+    {
+       "id":"replacement_inorganic_fertilisers",
+       "parent":"#",
+       "text":"promoting the replacement of inorganic fertilisers by organic fertilisers and, where inorganic fertilisers continue to be applied"
+    }
+ ]
