@@ -2,11 +2,11 @@
     {
        "id":"SO2",
        "parent":"#",
-       "text":"Sulfur dioxide (SO2)",
+       "text":"Sulphur dioxide (SO2)",
        "mandatory": 1
     },
     {
-       "id":"NOX",
+       "id":"NOx",
        "parent":"#",
        "text":"Nitrogen oxides (NOx)",
        "mandatory": 1
@@ -26,13 +26,13 @@
     {
        "id":"PM2.5",
        "parent":"#",
-       "text":"Particulates (PM2.5)",
+       "text":"Fine particulate matter (PM2.5)",
        "mandatory": 1
     },
     {
        "id":"BC",
        "parent":"#",
-       "text":"BC as a component of PM2.5 (BC)",
+       "text":"Black Carbon (BC)",
        "mandatory": 0
     },
     {
@@ -42,31 +42,31 @@
        "mandatory": 0
     },
     {
-       "id":"CD",
+       "id":"Cd",
        "parent":"Other",
        "text":"Cadmium",
        "mandatory": 0
     },
     {
-       "id":"HG",
+       "id":"Hg",
        "parent":"Other",
        "text":"Mercury",
        "mandatory": 0
     },
     {
-       "id":"PB",
+       "id":"Pb",
        "parent":"Other",
        "text":"Lead",
        "mandatory": 0
     },
     {
-       "id":"PAHS",
+       "id":"PAHs",
        "parent":"Other",
        "text":"Polycyclic aromatic hydrocarbon",
        "mandatory": 0
     },
     {
-       "id":"PCBS",
+       "id":"PCBs",
        "parent":"Other",
        "text":"Polychlorinated biphenyl",
        "mandatory": 0
@@ -80,41 +80,41 @@
     {
        "id":"PM10",
        "parent":"Other",
-       "text":"Particulates (PM10)",
+       "text":"Fine particulate matter (PM10)",
        "mandatory": 0
     },
     {
-       "id":"AS",
+       "id":"As",
        "parent":"Other",
        "text":"Arsenic",
        "mandatory": 0
     },
     {
-       "id":"CR",
+       "id":"Cr",
        "parent":"Other",
        "text":"Chromium",
        "mandatory": 0
     },
     {
-       "id":"CU",
+       "id":"Cu",
        "parent":"Other",
        "text":"Copper",
        "mandatory": 0
     },
     {
-       "id":"NI",
+       "id":"Ni",
        "parent":"Other",
        "text":"Nikel",
        "mandatory": 0
     },
     {
-       "id":"SE",
+       "id":"Se",
        "parent":"Other",
        "text":"Selenium",
        "mandatory": 0
     },
     {
-       "id":"ZN",
+       "id":"Zn",
        "parent":"Other",
        "text":"Zinc",
        "mandatory": 0

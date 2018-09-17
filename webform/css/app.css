@@ -1160,8 +1160,10 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 /* line 990, ../scss/webform.scss */
 label {
   font-size: 13px;
-  padding-bottom: 5px;
-  padding-top: 5px; }
+  padding-bottom: 0px;
+  padding-left: 20px;
+  padding-top: 8px;
+}
 
 /* line 995, ../scss/webform.scss */
 .required:after {
@@ -1202,9 +1204,9 @@ select {
   width: 10.625rem;
   border: 1px solid #ccd9e1; }
 
-/* line 1027, ../scss/webform.scss */
+/* line 1027, ../scss/webform.scss background-color: #ffffff;*/
 input[type="radio"] {
-  background-color: #ffffff;
+  
   border-radius: 10px;
   cursor: pointer;
   display: inline-block;
@@ -1216,7 +1218,10 @@ input[type="radio"] {
   width: 21px;
   -webkit-appearance: none;
   box-shadow: none;
-  text-align: center; }
+  text-align: center; 
+  vertical-align: center;
+  vertical-align: -moz-middle-with-baseline;
+}
 
 /* line 1042, ../scss/webform.scss */
 input[type="radio"]:after {

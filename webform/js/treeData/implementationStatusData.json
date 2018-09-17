@@ -10,13 +10,13 @@
        "text":"Adopted"
     },
     {
-       "id":"Implemented",
+       "id":"Implementation-on-going",
        "parent":"#",
-       "text":"Implemented"
+       "text":"Implementation on-going"
     },
     {
        "id":"Expired",
        "parent":"#",
-       "text":"Expired (only if the policy or measure has an effect, or is expected to continue to have an effect on greenhouse gas emissions)"
+       "text":"Expired (only if the policy or measure has an effect, or is expected to continue to have an effect on air pollutant emissions)"
     }
 ]

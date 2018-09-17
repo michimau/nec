@@ -10,15 +10,15 @@
       "Add": "Add",
       "Remove": "Remove",
       "AddSingle": "Add Single",
-      "AddGroup": "Add Group",
+      "AddGroup": "Add Package",
       "Loading": "Loading...",
-      "Complete": "Complete PaM/Group",
-      "Group": "Group",
+      "Complete": "Complete PaM/Package",
+      "Group": "Package",
       "Single": "Single",
       "PleaseUpdate": "Please Update individual PaM field",      
       "Notes": "Notes",
       "Type": "Type",
-      "Name": "Name",
+      "Name": "Entity Name",
       "Yes": "Yes",
       "No": "No",
       "Sector": "Sector",
@@ -26,15 +26,13 @@
       "Print": "Print Preview",
       "Close": "Close Webform",
       "Table1": "Table 1",
-      "Table2": "Table 2",
-      "Table3": "Table 3",
       "Guidelines": "Reporting guidelines"
     },
     "Overview": {
       "label": "Overview",
       "heading": "Overview Table",
       "PamNumber": "PaM number",
-      "Group": "PaM or group of PaMs",
+      "Group": "PaM or package of PaMs",
       "Title": "Name of policy or measure",
       "new_table": "Create Table",
       "edit_table": "Edit Table",      
@@ -42,15 +40,20 @@
     },
     "Table1": {
       "Tab": "Table1",
-      "Id": "Name",
-      "TitleLocal": "Name in original language",
+      "Id": "PaM name",
+      "TitleLocal": "PaM name in original language",
       "Asterisk": "* Mandatory reporting requirements.",
+      "yes": "Yes",
+      "no": "No",
+      "BelongsToPackage": {
+        "label": "Is the PaM part of a package?"
+      },
       "isGroup": {
-        "label": "Single or a group of PaMs?",
+        "label": "Single or a package of PaMs?",
         "placeholder": "",
         "list": {
           "single": "Single",
-          "group": "Group"
+          "group": "Package"
         }
       },
       "PolicyGroup": {
@@ -64,109 +67,86 @@
         "label": "Affected NECD pollutant (M)"
       },
       "EmissionReductions": {
-        "label": "Quantified expected emission reductions (kt/Y)"
+        "label": "Estimation of Costs"
+      },
+
+      "InformationImpactAirQuality" : {
+        "label": "Are available information about impacts on air quality?"
+      },
+      "AdoptionPlannedYear": {
+        "label" : "Currently planned year of adoption"
       },
       "AirQualityImpact": {
-        "label": "Where appropriate, impacts on air quality (reference can also be made to reccomended air quality objectives by the WHO) and environment"
+        "label": "Where available, impacts on air quality (reference can also be made to reccomended air quality objectives by the WHO) and environment"
+      },
+      "AgriculturalRelated": {
+        "label": "Agricultural related?"
       },
       "Agriculture": {
-      "AgriculturalRelated": {
-        "label": "Agricultural related?",
-        "yes": "Yes",
-        "no": "No"
-      },
       "NationalAirPollutionControl": {
-        "label": "is the Pam included in the national air pollution control programme?",
-        "yes": "Yes",
-        "no": "No"
+        "label": "is the Pam included in the national air pollution control programme?"
       },
       "MeasuresControlAmmoniaEmissions": {
-        "label": "Measures to control ammonia emissions",
-        "yes": "Yes",
-        "no": "No",
+        "label": "A) Measures to control ammonia emissions",
         "exactly": {
-          "label": "Has the PaM been applied exactly?",
-          "yes": "yes",
-          "no": "no"
+          "label": "Has the PaM been applied exactly?"
         }
       },
       "AmmoniaEmissions": {
         "label": "Measures to control ammonia emissions",
-        "yes": "Yes",
-        "no": "No",
         "text": "Member States shall establish a national advisory code of good agricultural practice to control ammonia emissions, taking into account the UNECE Framework Code for Good Agricultural Practice for Reducing Ammonia Emissions of 2014, covering at least the following items",
         "page": "Indicate section/page number in programme",
         "exactly": {
-          "label": "Has the PaM been applied exactly?",
-          "yes": "yes",
-          "no": "no"
+          "label": "Has the PaM been applied exactly?"
         }
       },
       "AmmoniaEmissionsLivestock": {
         "label": "Measures to control ammonia emissions",
-        "yes": "Yes",
-        "no": "No",
         "text": "Member States shall establish a national advisory code of good agricultural practice to control ammonia emissions, taking into account the UNECE Framework Code for Good Agricultural Practice for Reducing Ammonia Emissions of 2014, covering at least the following items",
         "page": "Indicate section/page number in programme",
         "exactly": {
-          "label": "Has the PaM been applied exactly?",
-          "yes": "yes",
-          "no": "no"
+          "label": "Has the PaM been applied exactly?"
         }
       },
       "NationalNitrogenBudget": {
         "text": "Member States may establish a national nitrogen budget to monitor the changes in overall losses of reactive nitrogen from agriculture, including ammonia, nitrous oxide, ammonium, nitrates and nitrites, based on the principles set out in the UNECE Guidance Document on Nitrogen Budgets",
         "page": "Indicate section/page number in programme",
         "exactly": {
-          "label": "Has the PaM been applied exactly?",
-          "yes": "yes",
-          "no": "no"
+          "label": "Has the PaM been applied exactly?"
         }
       },
       "AmmoniumCarbonateFertilisers": {
         "text": "Member States shall prohibit the use of ammonium carbonate fertilisers and may reduce ammonia emissions from inorganic fertilisers by using the following approaches",
         "page": "Indicate section/page number in programme",
         "exactly": {
-          "label": "Has the PaM been applied exactly?",
-          "yes": "yes",
-          "no": "no"
+          "label": "Has the PaM been applied exactly?"
         }
       },
       "FineParticulateMatterEmissions": {
-        "label": "Emission reduction measures to control emissions of fine particulate matter (PM2.5) and black carbon",
-        "yes": "Yes",
-        "no": "No"
+        "label": "B) Emission reduction measures to control emissions of fine particulate matter (PM2.5) and black carbon"
       },
       "OpenFieldBurning": {
         "text": "Without prejudice to Annex II on cross-compliance of Regulation (EU) No 1306/2013 of the European Parliament and of the Council (1), Member States may ban open field burning of agricultural harvest residue and waste and forest residue. Member States shall monitor and enforce the implementation of any ban implemented in accordance with the first subparagraph. Any exemptions to such a ban shall be limited to preventive programmes to avoid uncontrolled wildfires, to control pest or to protect biodiversity",
         "page": "Indicate section/page number in programme",
         "exactly": {
-          "label": "Has the PaM been applied exactly?",
-          "yes": "yes",
-          "no": "no"
+          "label": "Has the PaM been applied exactly?"
         }
       },
       "NationalAdvisoryCode": {
         "text": "Member States shall monitor and enforce the implementation of any ban implemented in accordance with the first subparagraph. Any exemptions to such a ban shall be limited to preventive progra",
         "page": "Indicate section/page number in programme",
         "exactly": {
-          "label": "Has the PaM been applied exactly?",
-          "yes": "yes",
-          "no": "no"
+          "label": "Has the PaM been applied exactly?"
         }
       },
       "PreventingImpactsSmallFarms": {
-        "label": "Preventing impacts on small farms",
-        "yes": "Yes",
-        "no": "No"
+        "label": "C) Preventing impacts on small farms"
       },
       "ExemptSmallMicroFarms": {
         "text": "In taking the measures outlined in Sections A and B, Member States shall ensure that impacts on small and micro farms are fully taken into account. Member States may, for instance, exempt small and micro farms from those measures where possible and appropriate in view of the applicable reduction commitments",
         "page": "Indicate section/page number in programme",
         "exactly": {
-          "label": "Has the PaM been applied exactly?",
-          "yes": "yes",
-          "no": "no"
+          "label": "Has the PaM been applied exactly?"
         }
       }
       },
@@ -175,137 +155,7 @@
         "placeholder": "Select Objective(s)",
         "select": "Select Objective(s)",
         "current": "Objective(s)",
-        "emptySectors": "You need to select at least one Sector to view and select Objectives",
-        "list": {
-          "ES_renewable": "Increase in renewable energy",
-          "ES_Fuels_witch": "Switch to less carbon-intensive fuels",
-          "ES_nuclear": "Enhanced non-renewable low carbon generation (nuclear)",
-          "ES_loss_reduction": "Reduction of losses",
-          "ES_efficiency": "Efficiency improvement in the energy and transformation sector",
-          "ES_CSS": "Carbon capture and storage",
-          "ES_fugitive_emissions": "Control of fugitive emissions from energy production",
-          "ES_other": "Other energy supply",
-
-          "EC_efficiency_buildings": "Efficiency improvements of buildings",
-          "EC_efficiency_appliances": "Efficiency improvement of appliances",
-          "EC_efficiency_services": "Efficiency improvement in services/ tertiary sector",
-          "EC_efficiency_industry": "Efficiency improvement in industrial end-use sectors",
-          "EC_demand_reduction": "Demand management/reduction",
-          "EC_other": "Other energy consumption",
-
-          "TR_vehicle_efficiency": "Efficiency improvements of vehicles",
-          "TR_modal_shift": "Modal shift to public transport or non-motorized transport",
-          "TR_electric_cars": "Low carbon fuels/electric cars",
-          "TR_demand_reduction": "Demand management/reduction",
-          "TR_improved_behaviour": "Improved behaviour",
-          "TR_improved_infrastructure": "Improved transport infrastructure",
-          "TR_other": "Other transport",
-
-          "IP_abatement_technologies": "Installation of abatement technologies",
-          "IP_F-gas_reduction": "Reduction of emissions of fluorinated gases",
-          "IP_F-gas_replacement": "Replacement of fluorinated gases by other substances",
-          "IP_fugitive_emissions_control": "Improved control of fugitive emissions from industrial processes",
-          "IP_other": "Other industrial processes",
-
-          "WA_demand_reduction": "Demand management / reduction",
-          "WA_Recycling": "Enhanced recycling",
-          "WA_Methane_collection": "Enhanced CH4 collection and use",
-          "WA_improved_treatment": "Improved treatment technologies",
-          "WA_improved_landfill_management": "Improved landfill management",
-          "WA_waste_to_energy": "Waste incineration with energy use",
-          "WA_wastewater": "Improved wastewater management systems",
-          "WA_reduced_landfilling": "Reduced landfilling",
-          "WA_other": "Other waste",
-
-          "AG_Fertilizer_use": "Reduction of fertilizer/manure use on cropland",
-          "AG_cropland_management": "Other activities improving cropland management",
-          "AG_livestock_management": "Improved livestock management",
-          "AG_animal_waste": "Improved animal waste management systems",
-          "AG_grazing_land_or_grassland": "Activities improving grazing land or grassland management",
-          "AG_organic_soils": "Improved management of organic soils",
-          "AG_other": "Other agriculture",
-
-          "LULUCF_afforestation_reforestation": "Afforestation and reforestation",
-          "LULUCF_carbon_conservation": "Conservation of carbon in existing forests",
-          "LULUCF_forest_production": "Enhancing production in existing forests",
-          "LULUCF_hwp_pool": "Increasing the harvested wood products pool",
-          "LULUCF_forest_management": "Enhanced forest management",
-          "LULUCF_deforestation_prevention": "Prevention of deforestation",
-          "LULUCF_protection_against_natural_disturbances": "Strengthening protection against natural disturbances",
-          "LULUCF_substitution_with_HWP": "Substitution of GHG-intensive feedstocks and materials with harvested wood products",
-          "LULUCF_wetlands": "Prevention of drainage or rewetting of wetlands",
-          "LULUCF_degraded_lands": "Restoration of degraded lands",
-          "LULUCF_other": "Other LULUCF",
-
-          "CC_framework": "Framework policy",
-          "CC_multi-sectoral": "Multi-sectoral policy",
-          "CC_other": "Other cross-cutting"
-        },
-        "list_with_sectors": {
-          "ES_renewable": "Increase in renewable energy (Energy supply)",
-          "ES_Fuels_witch": "Switch to less carbon-intensive fuels (Energy supply)",
-          "ES_nuclear": "Enhanced non-renewable low carbon generation (nuclear) (Energy supply)",
-          "ES_loss_reduction": "Reduction of losses (Energy supply)",
-          "ES_efficiency": "Efficiency improvement in the energy and transformation sector (Energy supply)",
-          "ES_CSS": "Carbon capture and storage (Energy supply)",
-          "ES_fugitive_emissions": "Control of fugitive emissions from energy production (Energy supply)",
-          "ES_other": "Other energy supply",
-
-          "EC_efficiency_buildings": "Efficiency improvements of buildings (Energy consumption)",
-          "EC_efficiency_appliances": "Efficiency improvement of appliances (Energy consumption)",
-          "EC_efficiency_services": "Efficiency improvement in services/ tertiary sector (Energy consumption)",
-          "EC_efficiency_industry": "Efficiency improvement in industrial end-use sectors (Energy consumption)",
-          "EC_demand_reduction": "Demand management/reduction (Energy consumption)",
-          "EC_other": "Other energy consumption",
-
-          "TR_vehicle_efficiency": "Efficiency improvements of vehicles (Transport)",
-          "TR_modal_shift": "Modal shift to public transport or non-motorized transport (Transport)",
-          "TR_electric_cars": "Low carbon fuels/electric cars (Transport)",
-          "TR_demand_reduction": "Demand management/reduction (Transport)",
-          "TR_improved_behaviour": "Improved behaviour (Transport)",
-          "TR_improved_infrastructure": "Improved transport infrastructure (Transport)",
-          "TR_other": "Other transport",
-
-          "IP_abatement_technologies": "Installation of abatement technologies (Industrial processes)",
-          "IP_F-gas_reduction": "Reduction of emissions of fluorinated gases (Industrial processes)",
-          "IP_F-gas_replacement": "Replacement of fluorinated gases by other substances (Industrial processes)",
-          "IP_fugitive_emissions_control": "Improved control of fugitive emissions from industrial processes (Industrial processes)",
-          "IP_other": "Other industrial processes",
-
-          "WA_demand_reduction": "Demand management / reduction (Waste)",
-          "WA_Recycling": "Enhanced recycling (Waste)",
-          "WA_Methane_collection": "Enhanced CH4 collection and use (Waste)",
-          "WA_improved_treatment": "Improved treatment technologies (Waste)",
-          "WA_improved_landfill_management": "Improved landfill management (Waste)",
-          "WA_waste_to_energy": "Waste incineration with energy use (Waste)",
-          "WA_wastewater": "Improved wastewater management systems (Waste)",
-          "WA_reduced_landfilling": "Reduced landfilling (Waste)",
-          "WA_other": "Other waste",
-
-          "AG_Fertilizer_use": "Reduction of fertilizer/manure use on cropland (Agriculture)",
-          "AG_cropland_management": "Other activities improving cropland management (Agriculture)",
-          "AG_livestock_management": "Improved livestock management (Agriculture)",
-          "AG_animal_waste": "Improved animal waste management systems (Agriculture)",
-          "AG_grazing_land_or_grassland": "Activities improving grazing land or grassland management (Agriculture)",
-          "AG_organic_soils": "Improved management of organic soils (Agriculture)",
-          "AG_other": "Other agriculture",
-
-          "LULUCF_afforestation_reforestation": "Afforestation and reforestation (LULUCF)",
-          "LULUCF_carbon_conservation": "Conservation of carbon in existing forests (LULUCF)",
-          "LULUCF_forest_production": "Enhancing production in existing forests (LULUCF)",
-          "LULUCF_hwp_pool": "Increasing the harvested wood products pool (LULUCF)",
-          "LULUCF_forest_management": "Enhanced forest management (LULUCF)",
-          "LULUCF_deforestation_prevention": "Prevention of deforestation (LULUCF)",
-          "LULUCF_protection_against_natural_disturbances": "Strengthening protection against natural disturbances (LULUCF)",
-          "LULUCF_substitution_with_HWP": "Substitution of GHG-intensive feedstocks and materials with harvested wood products (LULUCF)",
-          "LULUCF_wetlands": "Prevention of drainage or rewetting of wetlands (LULUCF)",
-          "LULUCF_degraded_lands": "Restoration of degraded lands (LULUCF)",
-          "LULUCF_other": "Other LULUCF",
-
-          "CC_framework": "Framework policy (Cross-cutting)",
-          "CC_multi-sectoral": "Multi-sectoral policy (Cross-cutting)",
-          "CC_other": "Other cross-cutting (Cross-cutting)"
-        }
+        "emptySectors": "You need to select at least one Sector to view and select Objectives"
       },
       "ObjectiveOther": {
         "label": "Other Objective(s)",
@@ -324,12 +174,27 @@
         "label": "Qualitative description of uncertainties",
         "placeholder": ""
       },
+      "SelectedForAdoption": {
+        "label": "Is PaM selected for adoption?"
+      },
+      "ConsultationComments" : {
+        "label": "Relevant comments arising from consultation(s) in relation to the individual PaM or package of PaMs"
+      },
+      "ReviewTimetable" : {
+        "label": "Currently planned timetable for review (in case different from general update of the national air pollution control programme every four years) (M)"
+      },
+      "CoherenceQualityObjectives" : {
+        "label": "Coherence of the selected PaMs with air quality objectives at national level and, where appropriate, in neighbouring Member States (M)"
+      },
+      "CoherencePlansProgrammes" : {
+        "label": "Coherence of the selected PaMs with other relevant plans and programmes established by virtue of the requirements set out in national or Union legislation (e.g. national energy and climate plans) (M)"
+      },
       "Description": {
-        "label": "Short description",
+        "label": "Short description of PaM",
         "placeholder": "Type Description"
       },
       "PolicyInstrument": {
-        "label": "Type of policy Instrument",
+        "label": "Type of policy instrument",
         "placeholder": "Select Policy Instrument",
         "list": {
           "Economic": "Economic",
@@ -347,72 +212,25 @@
         "label": "Is the policy or measure related to a Union policy"
       },
       "UnionPolicy": {
-        "label": "Union policy which resulted in the implementation of the PaM",
+        "label": "The PaM results from the implementation of a Union Policy",
         "other": "Other Union Policy",
         "current": "Current Union Policy list",
-        "otherCurrent": "Current Other Union Policy list",
-        "related": "Related",
-        "not_related": "Non related",
-        "list": {
-          "CAP_Health_Check_and_Set_aside": "CAP “Health Check” 2008 and the “Set aside” regulation 73/2009",
-          "Cap_reform": "CAP Reform 2013 regulations: Rural Development (1305/2013), 'Horizontal' issues (1306/2013), Direct payments (1307/2013) and Market measures (1308/2013)",
-          "CAP_Reform": "CAP Reform 2014-2020: Regulation 1305/2013; Regulation 1306/2013; Regulation 1307/2013 and Regulation 1308/2013, and their transitory measures for 2014 (Regulation 1310/2013, 2006/144/EC)",
-          "Nitrate_Directive": "XNitrate Directive 1991/676/EEC",
-
-          "Effort_Sharing_Decision": "XEffort Sharing Decision 406/2009/EC",
-          "ESD_ANNUAL_EMISSION_ALLOCATION": "ESD Annual Emission Allocation (AEA) Decision 2013/634/EU",
-          "ETS_directive": "EU ETS directive 2003/87/EC as amended by Directive 2008/101/EC and Directive 2009/29/EC and implementing legislation, in particular 2010/2/EU, 2011/278/EU, 2011/638/EU, 176/2014/EU, and Decision (EU) 2015/1814",
-
-          "Cogeneration_Directive": "Cogeneration Directive 2004/8/EC",
-          "Internal_energy_market": "Completion of the internal energy market (including provisions of the 3d package)",
-          "End-use_and_energy_services": "Directive 2006/32/EC on end-use energy efficiency and energy services",
-          "Geological_storage": "Directive on the geological storage of CO2 2009/31/EC",
-          "Eco-design_Labelling_directives": "Eco-design framework Directive 2009/125/EC, 2008/28/EC and its implementing Regulations, combined with Labelling Directive 2003/66/EC and 2010/30/EC",
-          "Energy_Efficiency_Directive": "Energy Efficiency Directive 2012/27/EU",
-          "Energy_Star_Program": "Energy Star Program",
-          "Energy_Taxation_Directive": "Energy Taxation Directive 2003/96/EC",
-          "Recast_of_EPBD": "Recast of the Energy Performance of Buildings Directive (Directive 2010/31/EU)",
-          "RES_directive": "RES directive 2009/28/EC",
-
-          "Biofuels_directive": "Biofuels directive 2003/30/EC",
-          "Clean_and_Energy_Efficient_Vehicles": "Directive on the Promotion of Clean and Energy Efficient Road Transport Vehicles 2009/33/EC",
-          "Eurovignette_Directive": "Eurovignette Directive on road infrastructure charging 2011/76/EU",
-          "FQD": "Fuel Quality Directive 2009/30/EC",
-          "Motor_Vehicles_Directive": "Motor Vehicles Directive 2006/40/EC (Deprecated)",
-          "EURO_5_and_6": "Regulation EURO 5 and 6 2007/715/EC",
-          "Euro_6_for_HDV": "Regulation Euro VI for heavy duty vehicles 2009/595/EC",
-          "CO2_and_cars_and_vans_regulations": "Regulation on CO2 from cars and vans (2009/443/EC, (EU) No 510/2011, (EU) No 397/2013, (EU) No 333/2014, (EU) No 253/2014, 2013/128/EU, (EU) No 396/2013, (EU) No 114/2013)",
-
-          "Fgas_regulation": "F-gas Regulation 517/2014",
-          "F-gas_Regulation": "F-gas Regulation 2006/842/EC",
-          "MACs_Directive": "Mobile Air-conditioning system (MACs) Directive 2006/40/EC",
-
-          "Landfill_Directive": "Landfill Directive 1999/31/EC",
-          "Waste_Directive": "Waste Directive 2006/12/EC",
-          "Waste_incineration_Directive": "Waste incineration Directive 2000/76/EC 2000/76/EC",
-          "Waste_Management_Framework_Directive": "Waste Management Framework Directive 2008/98/EC",
-
-          "LULUCF_Decision": "LULUCF Decision No 529/2013/EU",
-
-          "NEC": "Directive on national emissions' ceilings for certain pollutants 2001/81/EC",
-          "IED": "Industrial emissions Directive 2010/75/EU (Recast of IPPC Directive 2008/1/EC and Large Combustion Plant Directive 2001/80/EC)",
-          "Water_Framework": "Water Framework Directive 2000/60/EC",
-          "Other_EU": "Other (Union policy not listed above or additional Union policy)"
-          }
+        "otherCurrent": "Current Other Union Policy list"
       },
       "ImplementationStatus": {
         "label": "Status of Implementation",
         "list": {
           "Planned": "Planned",
           "Adopted": "Adopted",
-          "Implemented": "Implemented",
+          "Implemented": "Implementation on-going",
           "Expired": "Expired (only if the policy or measure has an effect, or is expected to continue to have an effect on greenhouse gas emissions)"
         },
         "shortlist": {
           "Planned": "Planned",
           "Adopted": "Adopted",
-          "Implemented": "Implemented",
-          "Expired": "Expired"
+          "Implemented": "Implementation on-going",
+          "Expired": "Expired",
+          "null": ""
         }
       },
       "ImplementationPeriod": {
@@ -422,14 +240,7 @@
         "comments": "Comment on Implementation Period"
       },
       "ProjectionsScenario": {
-        "label": "Projections scenario in which the PaM is included",
-        "list": {
-          "null": "",
-          "WEM": "With existing measures",
-          "WAM": "With additional measures",
-          "WOM": "Without measures scenario",
-          "NIP": "Not included in a projection scenario"       
-        }
+        "label": "Projections scenario in which the PaM is included"
       },
       "Entities": {
         "label": "Entities responsible for implementing the policy",
@@ -450,92 +261,13 @@
         "current": "Current Indicators list",
         "desc": "Description",
         "unit": "Unit",
-        "Year": "Year {{num}}",
-        "Value": "Value {{num}}"
+        "InterimYearTarget": "Year {{num}}",
+        "InterimTarget": "Value {{num}}"
       },
       "Reference": {
         "label": "Reference to assessments and underpinning technical reports",
         "Text": "Reference",
         "Url": "URL"
-      },
-      "Comments": {
-        "label": "General Comments"
-      }
-    },
-    "Table2": {
-      "Tab": "Table2",
-      "Asterisk": "* Mandatory reporting requirements.",
-      "PAM": {
-        "label": "Group of policies and measures"
-      },
-      "PolicyImpact": {
-        "label": "Policy impacting EU ETS or ESD emissions",
-        "placeholder": "Select policy",
-        "EU_ETS": "EU ETS",
-        "ESD": "ESD",
-        "LULUCF": "Land use, land-use change and forestry",
-        "Total": "Total"
-      },
-      "Exante": {
-        "Title": "Ex-ante assessment"
-      },
-      "ExanteEmissions": {        
-        "label": "GHG emissions reductions for year {{year}} (kt CO2-equivalent per year)"
-      },
-      "Expost": {
-        "Title": "Ex-post assessment",
-        "Year": "Year for which reduction applies",
-        "Average": "Average emission reduction"        
-      },
-      "ExpostEmissions": {
-        "label": "GHG emissions reductions (kt CO2-equivalent per year)"
-      },
-      "BasisExplanation": {
-        "label": "Explanation of the basis for the mitigation estimates"
-      },
-      "AffectedFactors": {
-        "label": "Factors affected by PaM"
-      },
-      "Documentation": {
-        "label": "Documentation/ Source of estimation if available",
-        "Reference": "Reference",
-        "Weblink": "Weblink"
-      }
-    },
-    "Table3": {
-      "Tab": "Table3",
-      "PAM": {
-        "label": "Group of policies and measures"
-      },
-      "Costs": {
-        "Projected": "Projected costs and benefits",
-        "Realised": "Realised costs and benefits",
-        "YearPlaceholder": "Select Year",
-        "CostType": "Cost ",
-        "BenefitType": "Benefit ",
-        "NetCostType": "Net cost ",
-        "CostReduced": "Costs in EUR per tonne CO2eq reduced/ sequestered",
-        "Benefit": "Benefits in EUR per tonne CO2eq reduced/ sequestered",
-        "NetCost": "Net costs in EUR per tonne CO2eq reduced/ sequestered",
-        "CostPerYear": "Absolute costs per year in EUR",
-        "BenefitPerYear": "Absolute benefit per year in EUR",
-        "NetCostPerYear": "Net Cost per year in EUR",
-        "CostCalculatedYear": "Year(s) for which cost has been calculated",
-        "BenefitCalculatedYear": "Year(s) for which benefits has been calculated",
-        "NetCostCalculatedYear": "Year(s) for which net cost has been calculated",
-        "CostReferenceYear": "Price reference year",
-        "CostDescription": "Description of cost estimates (basis for cost estimate, what type of costs are included in the estimate, methodology)",
-        "CostDocumentation": {
-          "label": "Documentation/ Source of cost estimation",
-          "Reference": "Reference",
-          "Weblink": "Weblink"
-        },
-        "BenefitDescription": "Description of benefit estimates (basis for benefit estimate, what type of benefits are included in the estimate, methodology)",
-        "BenefitDocumentation": {
-          "label": "Documentation/ Source of benefit estimation",
-          "Reference": "Reference",
-          "Weblink": "Weblink"
-        }
       }
     },
     "Tooltip": {
@@ -555,16 +287,6 @@
         "ImplementationStatus": "Expired PaMs must be reported in the template only if they have an effect, or they are expected to continue to have an effect on GHG emissions",
         "ImplementationComments": "Provide any remark on Implementation Period of the PaM",
         "Entities": "More than one entity can be selected"
-      },
-      "Table2": {
-        "Title": "Fill this table for all PaMs or groups of PaMs for which an ex-post or ex-ante assessment is available",
-        "PolicyImpacting": "More than one can be selected."        
-      },
-      "Table3": {
-        "Title": "Fill this table for all PaMs or groups of PaMs for which such an assessment is available.",
-        "CostCalculatedYear": "Provide a year or a range of years (e.g 2000-2014)",        
-        "CostDescription": "Basis for cost estimate, what type of costs are included in the estimate, methodology.",
-        "BenefitDescription": "Basis for benefit estimate, what type of benefits are included in the estimate, methodology."
       }
     },
     "Validation": {
@@ -578,7 +300,8 @@
       "number": "This field requires a number",
       "unique": "This field requires a unique value",
       "greater_equal_than": "This field must be equal or greater than {{field}}",
-      "match_value": "This field must match {{value}}"
+      "match_value": "This field must match {{value}}",
+      "pollutant": "This field cannot be empty and a mandatory pollutant must be selected"
     }
   }
 }

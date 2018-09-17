@@ -8,117 +8,85 @@
       "TitleLocal" : "",
       "Table1" : {
         "isGroup" : "single",
-        "PolicyGroup" : null,
-        "Sectors" : [],
-        "Pollutants" : [],
-        "Objective" : [],
-        "ObjectiveQuantified" : null,
-        "Description" : null,
-        "PolicyInstruments" : [],
-        "UnionPolicy" : [],
-        "UnionPolicyRelated" : "no",
-        "Implementation" : [{
-          "Status" : null,
-          "Start" : null,
-          "Finish" : null
-        }],
-        "ProjectionsScenario" : [{
-          "Type" : null
-        }],
-        "Entities" : [{
-          "Type" : null,
-          "Name" : null
-        }],
-        "Indicators" : [{
-          "Description" : null,
-          "Unit" : null,
-          "Year1" : null,
-          "Value1" : null,
-          "Year2" : null,
-          "Value2" : null,
-          "Year3" : null,
-          "Value3" : null,
-          "Year4" : null,
-          "Value4" : null
-        }],
-        "Reference" : [{
-          "Text" : null,
-          "Url" : null
-        }],
-        "Comments" : null,
-        "Agriculture": [{
-          "AgriculturalRelated": "no",
-
+        "belongsToPackage" : "no",
+        "AgriculturalRelated": "no",
+        "AdoptionPlannedYear" : null,
+        "Agriculture": {
+          "id" : null,
           "MeasuresControlAmmoniaEmissions": "no",
-          "AmmoniaEmissions": [],
-          "AmmoniaEmissionsPage": "",
+          "AmmoniaEmissions": null,
+          "AmmoniaEmissionsPage": null,
           "AmmoniaEmissionsExactly": "yes",
-          "AmmoniaEmissionsExactlyReason": "",
-          
-          "NationalNitrogenBudgetPage": "",
+          "AmmoniaEmissionsExactlyReason": null,
+          "NationalNitrogenBudgetPage": null,
           "NationalNitrogenBudgetExactly": "yes",
-          "NationalNitrogenBudgetExactlyReason": "",
-          
-          "AmmoniumCarbonateFertilisers": [],
-          "AmmoniumCarbonateFertilisersPage": "",
+          "NationalNitrogenBudgetExactlyReason": null,
+          "AmmoniumCarbonateFertilisers": null,
+          "AmmoniumCarbonateFertilisersPage": null,
           "AmmoniumCarbonateFertilisersExactly": "yes",
-          "AmmoniumCarbonateFertilisersExactlyReason": "",
-          
-          "AmmoniaEmissionsLivestock": [],
-          "AmmoniaEmissionsLivestockPage": "",
+          "AmmoniumCarbonateFertilisersExactlyReason": null,
+          "AmmoniaEmissionsLivestock": null,
+          "AmmoniaEmissionsLivestockPage": null,
           "AmmoniaEmissionsLivestockExactly": "yes",
-          "AmmoniaEmissionsLivestockExactlyReason": "",
+          "AmmoniaEmissionsLivestockExactlyReason": null,
           
           "FineParticulateMatterEmissions": "no",
-          "OpenFieldBurning": [],
-          "OpenFieldBurningPage": "",
+          "OpenFieldBurning": null,
+          "OpenFieldBurningPage": null,
           "OpenFieldBurningExactly": "yes",
-          "OpenFieldBurningExactlyReason": "",
-          
-          "NationalAdvisoryCodePage": "",
+          "OpenFieldBurningExactlyReason": null,
+          "NationalAdvisoryCodePage": null,
           "NationalAdvisoryCodeExactly": "yes",
-          "NationalAdvisoryCodeExactlyReason": "",
+          "NationalAdvisoryCodeExactlyReason": null,
           
           "PreventingImpactsSmallFarms": "no",
-          "ExemptSmallMicroFarmsPage": "",
+          "ExemptSmallMicroFarmsPage": null,
           "ExemptSmallMicroFarmsPageExactly": "yes",
-          "ExemptSmallMicroFarmsPageExactlyReason": ""
-        }],
-        "PolicyImpact" : null,
-        "ExanteEmissions1" : {
-          "EU_ETS" : null,
-          "ESD" : null,
-          "Total" : null
+          "ExemptSmallMicroFarmsPageExactlyReason": null
         },
-        "ExanteEmissions2" : {
-          "EU_ETS" : null,
-          "ESD" : null,
-          "Total" : null
+        "PolicyGroup" : null,
+        "Pollutants" :  {
+          "Name" : null,
+          "Target2020" : null,
+          "Target2025" : null,
+          "Target2030" : null
         },
-        "ExanteEmissions3" : {
-          "EU_ETS" : null,
-          "ESD" : null,
-          "Total" : null
+        "Objective" : [],
+        "Description" : null,
+        "PolicyInstruments" : null,
+        "SelectedForAdoption" : "no",
+        "UnionPolicy" : null,
+        "UnionPolicyRelated" : "no",
+        "Implementation" : {
+          "Status" : null,
+          "Start" : null,
+          "Finish" : null,
+          "id" : null
         },
-        "ExanteEmissions4" : {
-          "EU_ETS" : null,
-          "ESD" : null,
-          "Total" : null
+        "ProjectionsScenario" : null,
+        "Entities" : {
+          "Type" : null,
+          "Name" : null
         },
-        "ExanteDocumentation" : {
-          "Reference" : null,
-          "Weblink" : null
+        "Indicators" : {
+          "Description" : null,
+          "Unit" : null,
+          "InterimYearTarget1" : null,
+          "InterimTarget1" : null,
+          "InterimYearTarget2" : null,
+          "InterimTarget2" : null,
+          "InterimYearTarget3" : null,
+          "InterimTarget3" : null,
+          "InterimYearTarget4" : null,
+          "InterimTarget4" : null
         },
-        "Expost" : {
-          "Year" : null,
-          "Average" : null
+        "AirQualityImpact" : null,
+        "InformationImpactAirQuality" : "no",
+        "Reference" : {
+          "Text" : null,
+          "Url" : null
         },
-        "BasisExplanation" : null,
-        "AffectedFactors" : null,
-        "ExpostDocumentation" : {
-          "Reference" : null,
-          "Weblink" : null
-        }
+        "BasisExplanation" : null
       }
     }
   }

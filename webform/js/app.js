@@ -24,6 +24,7 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
     $scope.showPams = false;
     $scope.showOverview = true;
     $scope.treeData = [{}];
+    $scope.mandatoryPollutant = 0;
 
     $scope.treeData.sectorsData = require('./treeData/sectorsData.json');
     $scope.treeData.unionPolicyData = require('./treeData/unionPolicyData.json');
@@ -38,7 +39,6 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
     $scope.treeData.openFieldBurningData = require('./treeData/openFieldBurningData.json');
 
     $scope.treeConfig = {
-        
         animation: false,
         core: {
             "multiple": true,
@@ -93,7 +93,7 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
     }
 
     $scope.emptyMeasuresControlAmmoniaEmissionsObjects = function() {
-      $scope.ammoniaEmissionsTreeInstance.jstree(true).uncheck_all();
+      if($scope.ammoniaEmissionsTreeInstance) {$scope.ammoniaEmissionsTreeInstance.jstree(true).uncheck_all()};
       $scope.current.PAM.Table1.Agriculture.AmmoniaEmissionsPage = '';
       $scope.current.PAM.Table1.Agriculture.AmmoniaEmissionsExactly = 'yes';
       $scope.current.PAM.Table1.Agriculture.AmmoniaEmissionsExactlyReason = '';
@@ -102,19 +102,19 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
       $scope.current.PAM.Table1.Agriculture.NationalNitrogenBudgetExactly = 'yes';
       $scope.current.PAM.Table1.Agriculture.NationalNitrogenBudgetExactlyReason = '';
 
-      $scope.ammoniumCarbonateFertilisersTreeInstance.jstree(true).uncheck_all();
+      if($scope.ammoniumCarbonateFertilisersTreeInstance) {$scope.ammoniumCarbonateFertilisersTreeInstance.jstree(true).uncheck_all()};
       $scope.current.PAM.Table1.Agriculture.AmmoniumCarbonateFertilisersPage = '';
       $scope.current.PAM.Table1.Agriculture.AmmoniumCarbonateFertilisersExactly = 'yes';
       $scope.current.PAM.Table1.Agriculture.AmmoniumCarbonateFertilisersExactlyReason = '';
 
-      $scope.ammoniaEmissionsLivestockTreeInstance.jstree(true).uncheck_all();
+      if ($scope.ammoniaEmissionsLivestockTreeInstance) {$scope.ammoniaEmissionsLivestockTreeInstance.jstree(true).uncheck_all()};
       $scope.current.PAM.Table1.Agriculture.AmmoniaEmissionsLivestockPage  = '';
       $scope.current.PAM.Table1.Agriculture.AmmoniaEmissionsLivestockExactly = 'yes';
       $scope.current.PAM.Table1.Agriculture.AmmoniaEmissionsLivestockExactlyReason = '';
     }
 
     $scope.emptyFineParticulateMatterEmissionsObjects = function() {
-      $scope.openFieldBurningTreeInstance.jstree(true).uncheck_all();
+      if ($scope.openFieldBurningTreeInstance) {$scope.openFieldBurningTreeInstance.jstree(true).uncheck_all()};
       $scope.current.PAM.Table1.Agriculture.OpenFieldBurningPage = '';
       $scope.current.PAM.Table1.Agriculture.OpenFieldBurningExactly = 'yes';
       $scope.current.PAM.Table1.Agriculture.OpenFieldBurningExactlyReason = "";
@@ -130,13 +130,11 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
     }
   
     $scope.nodePollutantChanged = function(node, selected, event) {
+      $scope.mandatoryPollutant = 0;
       var nodes = selected.selected;
-      //ng-show="current.PAM.Table1.Agriculture[0]. handle mandatory
-      //mandatoryPollutant to handle the error message display on/off
-      //$scope.current.treeDataClicked.mandatoryPollutant = 0;
       $scope.pollutantsTreeInstance.jstree(true).get_selected().forEach(function(node) {
-        if ($scope.pollutantsTreeInstance.jstree(true).get_node(node).original.mandatory == 1) { 
-          //$scope.current.treeDataClicked.mandatoryPollutant = 1;
+        if ($scope.pollutantsTreeInstance.jstree(true).get_node(node).original.mandatory == 1 && $scope.mandatoryPollutant !==1) { 
+          $scope.mandatoryPollutant = 1;
         }
       });
 
@@ -157,14 +155,16 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
       });
 
       //removing Pollutants not selected from object
-      $scope.current.PAM.Table1.Pollutants.forEach (function(pollutant) {
-        if (!( _.find(nodes, function(o) { return o === pollutant.Name; }) )) {
-        //if (!(nodes.find(o => o === pollutant.Name))) {
-          $scope.current.PAM.Table1.Pollutants = $scope.current.PAM.Table1.Pollutants.filter(function(el){
-            return el.Name !== pollutant.Name;
-          });
-        }
-      })
+      if ($scope.current.PAM.Table1.Pollutants) {
+        $scope.current.PAM.Table1.Pollutants.forEach (function(pollutant) {
+          if (!( _.find(nodes, function(o) { return o === pollutant.Name; }) )) {
+          //if (!(nodes.find(o => o === pollutant.Name))) {
+            $scope.current.PAM.Table1.Pollutants = $scope.current.PAM.Table1.Pollutants.filter(function(el){
+              return el.Name !== pollutant.Name;
+            });
+          }
+        })
+      }
 
       if (selected.node && selected.node.children.length > 0 && selected.selected.length > 0) {
         $scope.pollutantsTreeInstance.jstree(true).open_node(selected.node.id);  
@@ -173,20 +173,13 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
 
     $scope.nodeSectorChanged = function(node, selected, event) {
         var nodes = selected.selected;
-        var sector = {};
+        //var sector = {};
         var objective = {};
 
-        $scope.current.PAM.Table1.Sectors = [];
         nodes.forEach(function(node) {
-          if ($scope.sectorsTreeInstance.jstree(true).get_node(node).children.length !== 0) {
-            //consider to remove sectores from object
-            sector.Code = node;
-            sector.Description = $scope.sectorsTreeInstance.jstree(true).get_text(node);
-            $scope.current.PAM.Table1.Sectors.push(node);
-          } else {
+          if ($scope.sectorsTreeInstance.jstree(true).get_node(node).children.length == 0) {
             //if ($scope.current.PAM.Table1.Objective.length == 0 || !($scope.current.PAM.Table1.Objective.find(o => o.Objective === node))) {
             if ($scope.current.PAM.Table1.Objective.length == 0 || !(_.find($scope.current.PAM.Table1.Objective, function(o) { return o.Objective === node; }))) {
-              
               objective.Sector = $scope.sectorsTreeInstance.jstree(true).get_parent(node);
               objective.SectorDescription = $scope.sectorsTreeInstance.jstree(true).get_text($scope.sectorsTreeInstance.jstree(true).get_parent(node));
               objective.Objective = node;
@@ -213,6 +206,9 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
         if (selected.node && selected.node.children.length > 0 && selected.selected.length > 0) {
           $scope.sectorsTreeInstance.jstree(true).open_node(selected.node.id);  
         };
+
+        //console.log('$scope.current.PAM.Table1.Objective');
+        //console.log($scope.current.PAM.Table1.Objective);
     }
 
     $scope.nodePolicyInstrumentsChanged = function(node, selected, event) {
@@ -262,7 +258,7 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
     }
 
     $scope.nodeProjectionsScenarioChanged = function(node, selected, event) {
-      $scope.current.PAM.Table1.ProjectionsScenario = selected.selected;
+      $scope.current.PAM.Table1.ProjectionsScenario.Type = selected.selected;
     }
 
     $scope.nodeAmmoniaEmissionsChanged = function(node, selected, event) {
@@ -290,15 +286,14 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
         }
       });
     }
-    
-
 
     // Functions for model manipulation    
     var normalizeArray = function(obj, propertyName) {
-      console.log('normalizeArray propertyName: ' + propertyName);
-
+      
       var propertyValue = obj[propertyName];
-      console.log('normalizeArray propertyValue: ' + propertyValue);   
+      //console.log('normalizeArray propertyName: ' + propertyName);
+      //console.log('normalizeArray propertyValue: ' + propertyValue);   
+      
       if (angular.isArray(propertyValue)) {
           return;
       }        
@@ -319,81 +314,24 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
     // Add new row to ng-repeat
     $scope.addItem = function(path) {
         var tokens = path.split(".");
+        console.log('tokens');
+        console.log(tokens);
         var result = $scope.current.PAM;
         while(tokens.length) {
             result = result[tokens.shift()];
         }
+        console.log('result');
+        console.log(result);
         var copyOfEmptyInstance = angular.copy($scope.getInstanceByPath('emptyInstance.NEC_PAMs.NEC_PAM',path));      
-        result.push(copyOfEmptyInstance);              
+        //var copyOfEmptyInstance = angular.copy(emptyPam);
+        console.log('copyOfEmptyInstance');
+        console.log(copyOfEmptyInstance);
+        result.push(copyOfEmptyInstance);
     };      
     
-    /**
-     * Urgent update for fixing old schema XML 
-     * @param {type} path
-     * @param {type} index
-     * @returns {Boolean}
-     */
-    var performSchemaTransition = function(pam) {
-      console.log('pam');
-      console.log(pam);
-      /*if (angular.isArray(pam.Table1.ObjectiveOther)) {
-        pam.Table1.ObjectiveOther = {};
-      }
-      
-      if (angular.isDefined(pam.Table1.ObjectiveOther.Sector)) {
-        delete pam.Table1.ObjectiveOther.Sector;         
-      }
-      
-      if (angular.isDefined(pam.Table1.ObjectiveOther.Text)) {
-        delete pam.Table1.ObjectiveOther.Text;                      
-      }*/
-      
-      var unionPolicyRelated = pam.Table1.UnionPolicyRelated;
-      
-      if (!unionPolicyRelated) {
-        var unionPolicy = pam.Table1.UnionPolicy[0];
-        if (unionPolicy === 'Non_EU-related_PAM') { 
-          unionPolicyRelated = 'no';
-          pam.Table1.UnionPolicy = [];
-        }
-        else unionPolicyRelated = 'yes';
-      }
-      else {
-        delete pam.Table1.UnionPolicyRelated;
-      }
-      
-      //var propsToShiftDown = ['UnionPolicyOther', 'Implementation', 'ProjectionsScenario', 'Entities', 'Indicators', 'Reference', 'Comments'];
-      var propsToShiftDown = ['Implementation', 'ProjectionsScenario', 'Entities', 'Indicators', 'Reference', 'Comments'];
-      var valuesToShiftDown = [];
-      
-      angular.forEach(propsToShiftDown, function(propName) {
-        var value = pam.Table1[propName];
-        valuesToShiftDown.push(value);
-        
-        if (angular.isDefined(value)) {
-          delete pam.Table1[propName];
-        }
-      }); 
-
-      for (var i = 0; i < propsToShiftDown.length; i++) {
-        var prop = propsToShiftDown[i];
-        var value = valuesToShiftDown[i];
-        pam.Table1[prop] = value;
-      }
-    
-      for (var i = 0; i < pam.Table1.Entities.length; i++) {
-        if (!pam.Table1.Entities[i]) { 
-          pam.Table1.Entities.splice(i, 1);
-          i--;
-        }
-      }
-
-      $scope.setRadioButtons(pam);
-    };
-
     $scope.setRadioButtons = function(pam) { 
-      pam.Table1.UnionPolicyRelated = "no";
-      pam.Table1.Agriculture.AgriculturalRelated = "no";
+      if (!pam.Table1.UnionPolicyRelated) { pam.Table1.UnionPolicyRelated = "no" };
+      pam.Table1.AgriculturalRelated = "no";
       pam.Table1.Agriculture.NationalAirPollutionControl = "no";
 
       pam.Table1.Agriculture.MeasuresControlAmmoniaEmissions = "no";
@@ -409,6 +347,8 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
 
       pam.Table1.Agriculture.PreventingImpactsSmallFarms = "no";
       pam.Table1.Agriculture.ExemptSmallMicroFarmsPageExactly = "yes";
+
+      pam.Table1.SelectedForAdoption = "no";
     };
        
     /**
@@ -483,7 +423,7 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
     
     $scope.temp = {};
     $scope.defaultTempValues();
-    //ng-show="current.PAM.Table1.Agriculture[0].: Replace with modal functions
+    //ng-show="current.PAM.Table1.Agriculture.: Replace with modal functions
     $scope.alerts = [];
     
     $scope.emptyTables = {};
@@ -491,45 +431,49 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
     
     //Enable Validation by default
     $scope.ValidationEnabled = true;
+
+    $scope.DoNormalizeArray = function(instance, i) {
+        if ((!i) || i == null) {i = 0};
+        normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1,"PolicyGroup");          
+        //normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1,"Sectors");
+        normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1,"Pollutants");
+        normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1,"Objective");
+        normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1,"PolicyInstruments");
+        normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1,"UnionPolicy");
+        normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1,"Implementation");
+        normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1,"ProjectionsScenario");
+        normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1,"Entities");
+        normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1,"Indicators");
+        normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1,"Reference");
+        //normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1,"Agriculture");
+        //normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1,"PolicyImpact");
+        //normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1,"ExanteDocumentation");
+        //normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1,"Expost");          
+        //normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1,"ExpostDocumentation");
+        //normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table3.Projected,"CostDocumentation");
+        //normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table3.Realised,"CostDocumentation");
+        //nullToString(instance.NEC_PAMs.NEC_PAM[i],"Title");
         
+        //$scope.setRadioButtons(instance.NEC_PAMs.NEC_PAM[i]);
+    }
+
     dataRepository.getEmptyInstance()
             .error(function(){alert("Failed to read empty instance XML file."); })
             .success(function(instance) {                                                            
-              $scope.emptyInstance = instance;   
+              $scope.emptyInstance = instance;
             });
-    
+
     dataRepository.getInstance()
             .error(function(){alert("Failed to read instance XML file.");})
             .success(function(instance) {
             if (!angular.isDefined(instance)) { return; }
-
-              console.log('instance');
-              console.log(instance);
+            console.log('getInstance instance:');
+            console.log(instance);
+            normalizeArray(instance.NEC_PAMs,"NEC_PAM");
+            for (var i = 0;i < instance.NEC_PAMs.NEC_PAM.length;i++) {
               //Modify Object to use arrays properly
-              console.log('getInstance instance.NEC_PAMs');
-              console.log(instance.NEC_PAMs);   
-              normalizeArray(instance.NEC_PAMs,"NEC_PAM");
-              for (var i = 0;i < instance.NEC_PAMs.NEC_PAM.length;i++) {
-                normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1,"PolicyGroup");          
-                normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1,"Sectors");
-                normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1,"Pollutants");
-                normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1,"Objective");
-                normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1,"PolicyInstruments");
-                normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1,"UnionPolicy");
-                normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1,"Implementation");
-                normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1,"ProjectionsScenario");
-                normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1,"Entities");
-                normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1,"Indicators");
-                normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1,"Reference");
-                normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1,"PolicyImpact");
-                normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1,"ExanteDocumentation");
-                normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1,"Expost");          
-                normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1,"ExpostDocumentation");
-                //normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table3.Projected,"CostDocumentation");
-                //normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table3.Realised,"CostDocumentation");
-                //nullToString(instance.NEC_PAMs.NEC_PAM[i],"Title");
-                
-                //performSchemaTransition(instance.NEC_PAMs.NEC_PAM[i]);
+              $scope.DoNormalizeArray(instance, i);
+
             }
             $scope.instance = {};
             $scope.instance.NEC_PAMs = {};
@@ -549,9 +493,7 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
             $scope.instance.NEC_PAMs.NEC_PAM = instance.NEC_PAMs.NEC_PAM;            
             var labelLang = $scope.instance.NEC_PAMs['@labelLanguage'];
             $rootScope.currentLanguage = labelLang;
-            $timeout(function() { $scope.goOverview(); }, 100);
-            console.log('getInstance $scope.instance.NEC_PAMs');
-            console.log($scope.instance.NEC_PAMs);          
+            $timeout(function() { $scope.goOverview(); }, 100);       
     });
                            
 /*    $rootScope.$watch('currentLanguage', function(newValue, oldValue) {
@@ -618,44 +560,55 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
   //TODO
   $scope.setCurrentTreeData = function() {
 
-    //$scope.current.PAM
-    console.log('setCurrentTreeData $scope.current.PAM');
-    console.log($scope.current.PAM);
 
-    //$scope.current.PAM.Table1.Pollutants.Name
-
+    $scope.mandatoryPollutant = 0;
     if ($scope.current.PAM.Table1.Pollutants && $scope.current.PAM.Table1.Pollutants.len !== 0) {
       $scope.pollutantsTreeInstance.jstree(true).deselect_all(true);
+      if ($scope.current.PAM.Table1.Pollutants) {
       $scope.current.PAM.Table1.Pollutants.forEach (function(node) {
         $scope.pollutantsTreeInstance.jstree(true).select_node (node.Name , true, false);
+        if (($scope.pollutantsTreeInstance.jstree(true).get_node(node.Name).original) && $scope.pollutantsTreeInstance.jstree(true).get_node(node.Name).original.mandatory == 1 && $scope.mandatoryPollutant !==1) { 
+          $scope.mandatoryPollutant = 1;
+        }
       })
+    }
   
-      $scope.sectorsTreeInstance.jstree(true).deselect_all(true);
-      $scope.current.PAM.Table1.Objective.forEach (function(node) {
-        $scope.sectorsTreeInstance.jstree(true).select_node (node.Sector , true, false);
-        $scope.sectorsTreeInstance.jstree(true).select_node (node.Objective , true, false);
-      })
+    $scope.sectorsTreeInstance.jstree(true).deselect_all(true);
+      if ($scope.current.PAM.Table1.Objective) {
+        $scope.current.PAM.Table1.Objective.forEach (function(node) {
+          $scope.sectorsTreeInstance.jstree(true).select_node (node.Sector , true, false);
+          $scope.sectorsTreeInstance.jstree(true).select_node (node.Objective , true, false);
+        })
+      }
 
       $scope.policyInstrumentsTreeInstance.jstree(true).deselect_all(true);
-      $scope.current.PAM.Table1.PolicyInstruments.forEach (function(node) {
-        $scope.policyInstrumentsTreeInstance.jstree(true).select_node (node , true, false);
-      })
+      if ($scope.current.PAM.Table1.PolicyInstruments) {
+        $scope.current.PAM.Table1.PolicyInstruments.forEach (function(node) {
+          $scope.policyInstrumentsTreeInstance.jstree(true).select_node (node , true, false);
+        })
+      }
 
       $scope.implementationStatusTreeInstance.jstree(true).deselect_all(true);
-      $scope.current.PAM.Table1.Implementation.forEach (function(node) {
-        $scope.implementationStatusTreeInstance.jstree(true).select_node (node.Status , true, false);
-      })
+      if ($scope.current.PAM.Table1.Implementation) {
+        $scope.current.PAM.Table1.Implementation.forEach (function(node) {
+          $scope.implementationStatusTreeInstance.jstree(true).select_node (node.Status , true, false);
+        })
+      }
 
       $scope.unionPolicyTreeInstance.jstree(true).deselect_all(true);
-      $scope.current.PAM.Table1.UnionPolicy.forEach (function(node) {
-        $scope.unionPolicyTreeInstance.jstree(true).select_node (node.UnionPolicyType , true, false);
-        $scope.unionPolicyTreeInstance.jstree(true).select_node (node.UnionPolicy , true, false);
-      })
+      if ($scope.current.PAM.Table1.UnionPolicy) {
+        $scope.current.PAM.Table1.UnionPolicy.forEach (function(node) {
+          $scope.unionPolicyTreeInstance.jstree(true).select_node (node.UnionPolicyType , true, false);
+          $scope.unionPolicyTreeInstance.jstree(true).select_node (node.UnionPolicy , true, false);
+        })
+      }
 
       $scope.projectionsScenarioTreeInstance.jstree(true).deselect_all(true);
-      $scope.current.PAM.Table1.ProjectionsScenario.forEach (function(node) {
-        $scope.projectionsScenarioTreeInstance.jstree(true).select_node (node , true, false);
-      })
+      if ($scope.current.PAM.Table1.ProjectionsScenario) {
+        //$scope.current.PAM.Table1.ProjectionsScenario.forEach (function(node) {
+          $scope.projectionsScenarioTreeInstance.jstree(true).select_node ($scope.current.PAM.Table1.ProjectionsScenario.Type , true, false);
+        //})
+      }
 
       $scope.ammoniaEmissionsTreeInstance.jstree(true).deselect_all(true);
       $scope.ammoniaEmissionsTreeInstance.jstree(true).select_node ($scope.current.PAM.Table1.Agriculture.AmmoniaEmissions , true, false);
@@ -678,7 +631,8 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
    */
   $scope.setCurrentPam = function(id) {
     if (!$scope.instance.NEC_PAMs.NEC_PAM) { return; }
-  
+    console.log('$scope.instance.NEC_PAMs.NEC_PAM');
+    console.log($scope.instance.NEC_PAMs.NEC_PAM);
     for (var i = 0; i < $scope.instance.NEC_PAMs.NEC_PAM.length; i++) {
       if ($scope.instance.NEC_PAMs.NEC_PAM[i].internalId == id) {
         $scope.current.PAM = $scope.instance.NEC_PAMs.NEC_PAM[i];
@@ -686,6 +640,7 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
         if ($scope.current.PAM.Table1.isGroup == 'single') {
           $scope.setCurrentTreeData();
         };
+
 
         break;
       }
@@ -714,11 +669,7 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
   $scope.Overview = {};  
   $scope.Overview.Table = {};
   $scope.Overview.Table.empty1 = [];
-  $scope.Overview.Table.empty2 = [];
-  $scope.Overview.Table.empty3 = [];
   $scope.Overview.Table.text1 = [];
-  $scope.Overview.Table.text2 = [];
-  $scope.Overview.Table.text3 = [];
   // Functions for Groups
   $scope.Group = {};
 
@@ -778,119 +729,28 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
     return ids;
   };
 
-  //Function to get Grouped Sectors
-  $scope.Group.getSectors = function(tempGroup) {
-    var tmpSectors = [];
-    for (var i = 0; i < tempGroup.length;i++) {
-      var tmp = $filter('filter')($scope.instance.NEC_PAMs.NEC_PAM, {id: tempGroup[i]}, true)[0].Table1;
-      for (var j = 0;j < tmp.Sectors.length;j++) {    
-        tmpSectors.push(tmp.Sectors[j]);        
-      }        
-    }
-    $scope.current.PAM.Table1.Sectors = _.uniqWith(tmpSectors, _.isEqual);
-  };
-    
-  //Function to get Grouped Pollutants
-  $scope.Group.getPollutants = function(tempGroup) {
-    var tmpPollutants = [];
-    for (var i = 0;i < tempGroup.length;i++) {
-      var tmp = $filter('filter')($scope.instance.NEC_PAMs.NEC_PAM, {id: tempGroup[i]}, true)[0].Table1;
-      for (var j = 0;j < tmp.Pollutants.length;j++) {    
-        tmpPollutants.push(tmp.Pollutants[j]);        
-      }       
-    }
-    $scope.current.PAM.Table1.Pollutants = _.uniqWith(tmpPollutants, _.isEqual);
-    console.log('getObjectives $scope.current.PAM.Table1.Pollutants');
-    console.log($scope.current.PAM.Table1.Pollutants);
-  };
-    
-  //Function to get Grouped Objectives
-  $scope.Group.getObjectives = function(tempGroup) {
-    var tempObjective = [];
-    for (var i = 0;i < tempGroup.length;i++) {
-      var tmp = $filter('filter')($scope.instance.NEC_PAMs.NEC_PAM, {id: tempGroup[i]}, true)[0].Table1;
-      console.log('getObjectives tmp');
-      console.log(tmp);
-      for (var j = 0;j < tmp.Objective.length;j++) {
-        tempObjective.push(tmp.Objective[j]);
+   /**
+   * generalized function to get Grouped elements
+   * @param {Array} tempGroup
+   * @param {String} element
+   * @param {Boolean} unique
+   */
+    $scope.Group.getElementsForGroups = function(tempGroup, element, unique) {
+      var tmpObj = [];
+      for (var i = 0; i < tempGroup.length;i++) {
+        var tmp = $filter('filter')($scope.instance.NEC_PAMs.NEC_PAM, {id: tempGroup[i]}, true)[0].Table1;
+        for (var j = 0;j < tmp[element].length;j++) {
+          tmp[element][j].id = tempGroup[i];
+          tmpObj.push(tmp[element][j]);
+        } 
       }
-    }
-    $scope.current.PAM.Table1.Objective = _.uniqWith(tempObjective, _.isEqual);
-    console.log('getObjectives $scope.current.PAM.Table1');
-    console.log($scope.current.PAM.Table1);
-  };
-       
-  //Function to get Grouped Pollutants
-  $scope.Group.getPolicyInstrument = function(tempGroup) {
-    var tmpPolicyInstrument = [];
-    for (var i = 0;i < tempGroup.length;i++) {
-      var tmp = $filter('filter')($scope.instance.NEC_PAMs.NEC_PAM, {id: tempGroup[i]}, true)[0].Table1;
-      console.log('getObjectives tmp');
-      console.log(tmp);
-      if (angular.isDefined(tmp.PolicyInstrument)) {    
-        for (var j = 0;j < tmp.PolicyInstrument.length;j++) {
-          tmpPolicyInstrument.push(tmp.PolicyInstrument[j]);
-        }
-      }        
-    }
-    $scope.current.PAM.Table1.PolicyInstruments = _.uniqWith(tmpPolicyInstrument, _.isEqual);
-    console.log('PolicyInstrument $scope.current.PAM.Table1');
-    console.log($scope.current.PAM.Table1);
-  };
-
-  //Function to get Union Policies from individual PAMs
-  $scope.Group.getUnionPolicies = function(tempGroup) {
-    var tmpUnionPolicy = [];
-    for (var i = 0;i < tempGroup.length;i++) {
-      var tmp = $filter('filter')($scope.instance.NEC_PAMs.NEC_PAM, {id: tempGroup[i]}, true)[0].Table1;
-      console.log('getObjectives tmp');
-      console.log(tmp);
-      for (var j = 0;j < tmp.UnionPolicy.length;j++) {
-        tmpUnionPolicy.push(tmp.UnionPolicy[j]);
-      }        
-    }
-    $scope.current.PAM.Table1.UnionPolicy = _.uniqWith(tmpUnionPolicy, _.isEqual);
-    console.log('UnionPolicy $scope.current.PAM.Table1');
-    console.log($scope.current.PAM.Table1);
-  };
-    
-  //Function to get Implementation Status and Period from individual PAMs
-  $scope.Group.getImplementation = function(tempGroup) {      
-    $scope.current.PAM.Table1.Implementation = [];
-    var tempGroup = $scope.current.PAM.Table1.PolicyGroup;
-    var tmpImplementation = [];
-    var tmpObject = {};
-    for (var i=0; i < tempGroup.length;i++) {
-      var tmp = $filter('filter')($scope.instance.NEC_PAMs.NEC_PAM, {id: tempGroup[i]}, true)[0].Table1;
-      if (angular.isDefined(tmp.Implementation)) {     
-        tmpObject = angular.copy(tmp.Implementation[0]);
-        tmpObject.id = tempGroup[i];
-        if (!$scope.isNullEmpty(tmpObject.Status)) {
-          tmpImplementation.push(tmpObject);   
-        }
+      if (unique == true) {
+        $scope.current.PAM.Table1[element] = _.uniqWith(tmpObj, _.isEqual);
+      } else {
+        $scope.current.PAM.Table1[element] = tmpObj;
       }
-    }
-    $scope.current.PAM.Table1.Implementation = tmpImplementation;
-
-  };
-    
-  //Function to get Policy Impacting for individual PAMs
-  $scope.Group.getPolicyImpact = function() {
-    var tempGroup = $scope.current.PAM.Table1.PolicyGroup;
-    var tmpPolicyImpact = [];
-    for (var i = 0; i < tempGroup.length;i++) {
-      var tmp = $filter('filter')($scope.instance.NEC_PAMs.NEC_PAM, {id: tempGroup[i]}, true)[0].Table2;
-      if (angular.isDefined(tmp.PolicyImpact)) {
-        for (var j = 0; j < tmp.PolicyImpact.length;j++) {            
-          if (tmpPolicyImpact.indexOf(tmp.PolicyImpact[j]) === -1 && !$scope.isNullEmpty(tmp.PolicyImpact[j])) {
-            tmpPolicyImpact.push(tmp.PolicyImpact[j]);
-          }
-        }
-      }        
-    }      
-    //$scope.current.PAM.Table2.PolicyImpact = tmpPolicyImpact;
-  };
-    
+    };
+   
   //Function to get Entities from individual PAMs
   $scope.Group.getEntities = function() {      
     var tempGroup = $scope.current.PAM.Table1.PolicyGroup;
@@ -908,72 +768,6 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
     if (!tmpEntities.length) { tmpEntities.push(emptyPam.Table1.Entities[0]); }
     $scope.current.PAM.Table1.Entities = tmpEntities;      
   };
-    
-  //Function to get Projections Scenarios from individual PAMs
-  $scope.Group.getScenarios = function() {      
-    $scope.current.PAM.Table1.ProjectionsScenario = [];
-    var tempGroup = $scope.current.PAM.Table1.PolicyGroup;
-    var tmpScenario = [];
-    var tmpObject = {};
-    for (var i = 0; i < tempGroup.length;i++) {
-      var tmp = $filter('filter')($scope.instance.NEC_PAMs.NEC_PAM, {id: tempGroup[i]}, true)[0].Table1;
-      if (tmp.ProjectionsScenario[0].Type) {     
-        tmpObject = angular.copy(tmp.ProjectionsScenario[0]);
-        tmpObject.id = tempGroup[i];
-        tmpScenario.push(tmpObject);            
-      }
-    }
-    $scope.current.PAM.Table1.ProjectionsScenario = tmpScenario;
-  
-  };
-
-  //Handle different format of union policies list for sectorsFind
-//  $scope.sectorsFindPolicies = function(item) {      
-//    return $scope.sectorsFind(item.group + item.value);
-//  }
-    
-  //Function for GroupBy feature of Select-UI
-  //Energy_Generic is for grouping energy related union policies into one group for simplicity
-/*  $scope.sectorsFind = function(item) {      
-    var inverseSectorsMap = {
-      "ES":"Energy_Supply",
-      "EC":"Energy_Consumption",
-      "TR":"Transport",
-      "IP":"Industrial_Processes",
-      "AG": "Agriculture", 
-      "LULUCF":"LULUCF", 
-      "WA":"Waste",
-      "CC":"Cross-cutting",
-      "OT": "Other"
-    };
-    var expression = /^[A-Z]+\_/;
-    var res = item.match(expression);
-    var result = undefined;
-    result = $translate.instant("Labels.Table1.Sectors.list." + inverseSectorsMap[res[0].slice(0,-1)]);
-    return result;
-  };*/
-    
-  //Function for Group Objectives to return sector of individual objective
-  /*$scope.Group.shortSectorsFind = function(item) {
-    if (!item) { return "empty"; }
-    var inverseSectorsMap = {
-      "ES":"Energy_Supply",
-      "EC":"Energy_Consumption",
-      "TR":"Transport",
-      "IP":"Industrial_Processes",
-      "AG": "Agriculture", 
-      "LULUCF":"LULUCF", 
-      "WA":"Waste",
-      "CC":"Cross-cutting",
-      "OT": "Other"
-    };
-
-    var expression = /^[A-Z]+\_/;
-    var res = item.match(expression);
-    var result = undefined;
-    result = $translate.instant("Labels.Table1.Sectors.shortlist." + inverseSectorsMap[res[0].slice(0,-1)]);                  
-    return result;
-  };       */         
     
   /**
    * Checks if PAM is active
@@ -1010,41 +804,36 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
       return maxId;
     }
   };
-      
-  // Function to add a new Single PAM
-  $scope.addSingle = function(goEdit) {
+  
+  // Function to add a new PAM
+  $scope.addPAM = function(goEdit, type) {
     if (!$scope.instance) { return; }
-    
     var clonedEmptyPaM = angular.copy(emptyPam);
     clonedEmptyPaM.id = $scope.getNextId();
+    clonedEmptyPaM.Table1.Objective = [];
+    //clonedEmptyPaM.Table1.Reference = [];
+    normalizeArray(clonedEmptyPaM.Table1,"Reference");
+    
+    console.log('clonedEmptyPaM');
+    console.log(clonedEmptyPaM);
     $scope.setRadioButtons(clonedEmptyPaM);
+    clonedEmptyPaM.Table1.isGroup = type;
 
     $scope.instance.NEC_PAMs.NEC_PAM.push(clonedEmptyPaM);
-
+  
     $timeout(function() {                      
       $scope.OverviewValidate();
       if (goEdit === true) {
         $scope.editTable(clonedEmptyPaM.internalId,1);
       }        
     },0);
-
   };
 
-  // Function to add a new Group
-  $scope.addGroup = function(goEdit) {
-    if (!$scope.instance) { return; }
-    var clonedEmptyPaM = angular.copy(emptyPam);
-    clonedEmptyPaM.id = $scope.getNextId();
-    clonedEmptyPaM.Table1.isGroup = 'group';
-    $scope.instance.NEC_PAMs.NEC_PAM.push(clonedEmptyPaM);
-
-    $timeout(function() {
-      $scope.OverviewValidate();
-      if (goEdit === true) {
-        $scope.editTable(clonedEmptyPaM.internalId,1);
-      }        
-    },0);
-  };
+  $scope.inizializePAM = function(pam) {
+    console.log('pam');
+    console.log(pam);
+    pam.Table1.Objective = [];
+  }
 
   // Function to get year ::ToBeEdited::
   $scope.getFutureYear = function(multi) {      
@@ -1125,18 +914,10 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
     $scope.OverviewCalculate = function() {
       $scope.Overview.Table = {};
       $scope.Overview.Table.empty1 = [];
-      $scope.Overview.Table.empty2 = [];
-      $scope.Overview.Table.empty3 = [];
       $scope.Overview.Table.text1 = [];
-      //$scope.Overview.Table.text2 = [];
-      //$scope.Overview.Table.text3 = [];
       for (var i = 0; i < $scope.instance.NEC_PAMs.NEC_PAM.length;i++) {
         $scope.Overview.Table.empty1[i] = $scope.isEmpty(i,1);
-        $scope.Overview.Table.empty2[i] = $scope.isEmpty(i,2);
-        $scope.Overview.Table.empty3[i] = $scope.isEmpty(i,3);
         $scope.Overview.Table.text1[i] = $scope.Overview.Table.empty1[i] === true ? 'Labels.Overview.new_table' : 'Labels.Overview.edit_table';
-        //$scope.Overview.Table.text2[i] = $scope.Overview.Table.empty2[i] === true ? 'Labels.Overview.new_table' : 'Labels.Overview.edit_table';
-        //$scope.Overview.Table.text3[i] = $scope.Overview.Table.empty3[i] === true ? 'Labels.Overview.new_table' : 'Labels.Overview.edit_table';                                                               
       }
     };
 
@@ -1144,41 +925,64 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
      * Validates all fields for Overview Table and Save functionality
      *
      */
+    
     $scope.OverviewValidate = function() {
       $scope.temp.Validation = {};      
       var tmp = $scope.instance.NEC_PAMs.NEC_PAM;
       for (var i = 0; i < tmp.length;i++) { 
         var valid = true;
         var PAM = tmp[i];
+        //TODO
         //Table1 Validation
-        if ($scope.isNullEmpty(PAM.Title) || $scope.isNullEmpty(PAM.Table1.Description) || $scope.isNull(PAM.Table1.isGroup)
+        /*if ($scope.isNullEmpty(PAM.Title) || $scope.isNullEmpty(PAM.Table1.Description) || $scope.isNull(PAM.Table1.isGroup)
                 || $scope.isNullEmpty(PAM.Table1.Sectors) || $scope.isNullEmpty(PAM.Table1.Pollutants) || $scope.isNullEmpty(PAM.Table1.Objective)
                 || $scope.isNullEmpty(PAM.Table1.PolicyInstrument) || $scope.isNullEmpty(PAM.Table1.Implementation[0].Status)
                 || $scope.isNullNumber(PAM.Table1.Implementation[0].Start) || $scope.isNullEmpty(PAM.Table1.ProjectionsScenario[0].Type)
-                ) valid = false;   
+                ) valid = false;   */
+        /*if (
+          $scope.isNullEmpty(PAM.Title) || 
+          $scope.isNullEmpty(PAM.Table1.Description) || 
+          $scope.isNull(PAM.Table1.isGroup) || 
+          $scope.isNullEmpty(PAM.Table1.Pollutants) || 
+          $scope.isNullEmpty(PAM.Table1.Objective) ||
+          $scope.isNullEmpty(PAM.Table1.PolicyInstrument) || 
+          $scope.isNullEmpty(PAM.Table1.Implementation[0].Status) || 
+          $scope.isNullNumber(PAM.Table1.Implementation[0].Start) || 
+          $scope.isNullEmpty(PAM.Table1.ProjectionsScenario)
+        ) valid = false;
+        console.log('big validations block: ' + valid);*/
+
+        if (
+          $scope.isNullEmpty(PAM.Title) || 
+          $scope.isNullEmpty(PAM.Table1.Description) || 
+          $scope.isNull(PAM.Table1.isGroup) || 
+          $scope.isNullEmpty(PAM.Table1.Pollutants) || 
+          $scope.isNullEmpty(PAM.Table1.Objective) ||
+          $scope.isNullEmpty(PAM.Table1.PolicyInstruments) || 
+          $scope.isNullEmpty(PAM.Table1.Implementation[0].Status) || 
+          $scope.isNullNumber(PAM.Table1.Implementation[0].Start) //|| 
+          //$scope.isNullEmpty(PAM.Table1.ProjectionsScenario[0].type)
+          
+        ) valid = false;
+        console.log('big validations block: ' + valid);
+
         //Table1 Other Union Policies Validation
         if (PAM.Table1.UnionPolicyRelated === 'yes'){
           if ($scope.isNullEmpty(PAM.Table1.UnionPolicy)) valid = false;
-          //else if (PAM.Table1.UnionPolicy.indexOf('Other_EU') !== -1) {
-           //for (var j = 0; j < PAM.Table1.UnionPolicyOther; i++) {
-           //  if ($scope.isNullEmpty(PAM.Table1.UnionPolicyOther[j].Name)) valid = false;
-           //}
-          //}
-        }        
+        }
+        console.log('UnionPolicyRelated: ' + valid);
         //Table1 Array Object Validation 
         for (var j = 0 ;j < PAM.Table1.Entities.length;j++) {
           if ($scope.isNull(PAM.Table1.Entities[j].Type) || $scope.isNull(PAM.Table1.Entities[j].Name)) valid = false;
         }
+        console.log('Entities: ' + valid);
         //Table1 Group Validation
         if (PAM.Table1.isGroup === 'group') {
           if ($scope.isNullEmpty(PAM.Table1.PolicyGroup)) valid = false;
         }
+        console.log('isGroup: ' + valid);
         $scope.temp.Validation['ID' + PAM.internalId] = {};
         $scope.temp.Validation['ID' + PAM.internalId]['Table1'] = valid;
-        //Table2 Validation
-        //$scope.temp.Validation['ID' + PAM.internalId]['Table2'] = true;        
-        //Table3 Validation
-        //$scope.temp.Validation['ID' + PAM.internalId]['Table3'] = true;
       }      
     };
 
@@ -1193,13 +997,23 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
       }
       return false;
     };
+
+
+    function stringIsNumber(obj) {
+      var x = +obj; // made cast obvious for demonstration
+      return x.toString() === obj;
+    }
+
     /**
      * Checks if object is null or not a number
      * @param {type} obj
      * @returns {Boolean} true if object is null or not a number
      */
     $scope.isNullNumber = function(obj) {
-      if (!obj || !angular.isNumber(obj)) {
+      console.log('isNullNumber obj');
+      console.log(obj);
+
+      if (!obj || !angular.isNumber(obj) || stringIsNumber(obj) == false) {
         return true;
       }
       return false;
@@ -1211,23 +1025,19 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
      */
     $scope.isValid = function() {
      $scope.OverviewValidate();
+
      var tmp = Object.keys($scope.temp.Validation);
+     console.log('tmp object');
+     console.log(tmp);
      var isValid = true;
      for (var i = 0; i < tmp.length;i++) {
         console.log('$scope.temp.Validation[tmp[i]]');
         console.log($scope.temp.Validation[tmp[i]]);
         if (!$scope.temp.Validation[tmp[i]]['Table1']) {
           isValid = false;
+          //reenablebreak!!
           break;
         }     
-        //if (!$scope.temp.Validation[tmp[i]]['Table2']) { 
-        //  isValid = false;
-        //  break;
-        //}
-        //if (!$scope.temp.Validation[tmp[i]]['Table3']) { 
-        //  isValid = false;
-        //  break;
-        //}    
      }
      return isValid;
     };
@@ -1260,14 +1070,7 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
         //clear policies if not related
         if (tmpScope.NEC_PAMs.NEC_PAM[i].Table1.UnionPolicyRelated === "no") {
           tmpScope.NEC_PAMs.NEC_PAM[i].Table1.UnionPolicy = [];
-          //tmpScope.NEC_PAMs.NEC_PAM[i].Table1.UnionPolicyOther = [];
-          //tmpScope.NEC_PAMs.NEC_PAM[i].Table1.UnionPolicyOther.push(emptyPam.Table1.UnionPolicyOther[0]);
         }
-        //Clear any other policies if 'Other' is not selected in the main list
-        //if (tmpScope.NEC_PAMs.NEC_PAM[i].Table1.UnionPolicy.indexOf("Other_EU") === -1) {
-          //tmpScope.NEC_PAMs.NEC_PAM[i].Table1.UnionPolicyOther = [];
-          //tmpScope.NEC_PAMs.NEC_PAM[i].Table1.UnionPolicyOther.push(emptyPam.Table1.UnionPolicyOther[0]);
-        //}
       }
       //Sort the PaMs before saving, so they are properly ordered in the xml-file for viewing in print-preview etc. 
       tmpScope.NEC_PAMs.NEC_PAM = $filter('orderBy')(tmpScope.NEC_PAMs.NEC_PAM, 'id');
@@ -1358,8 +1161,6 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
         
     //temp scope variables
     $scope.temp.overview = [{}];
-    //$scope.temp.ObjectiveOtherSector = null;
-    //$scope.temp.ObjectiveOtherText = null;
     $scope.temp.overview[0].empty = false;
     $scope.temp.PolicyGroup = [];            
     $scope.temp.Entity = {};
@@ -1372,18 +1173,21 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
     $scope.current.reportingYear = date.getFullYear();    
     
     $scope.current.webqUrl = dataRepository.getCloseUrl();
-    $scope.addSingle(false);
+    $scope.addPAM(false, 'single');
     $scope.setCurrentPam(1);
-        
+    $scope.hideAgricultureObjects();
+    console.log('$scope.current.PAM');
+    console.log($scope.current.PAM);
+
     // Watch empty instance
     $scope.$watch('emptyInstance', function(newValue, oldValue) {
       if (!angular.isDefined(newValue)) { return; }
       if (!angular.isDefined(newValue.NEC_PAMs)) { return; }              
     });
     
-    $scope.Table1ClearUnionPolicy = function() {
+    /*$scope.Table1ClearUnionPolicy = function() {
       $timeout(function() { $scope.current.PAM.Table1.UnionPolicy = []; },0);
-    };
+    };*/
 
 
     // Clear list of other union policies when "Other (Union policy not listed above or additional Union policy)" is not selected 
@@ -1415,24 +1219,33 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
       }
     });
 
-    //ng-show="current.PAM.Table1.Agriculture[0].
+    //ng-show="current.PAM.Table1.Agriculture.
     //Function to calculate group values and change instance file
     $scope.Group.calculateGroup = function() {  
       if ($scope.current.PAM.Table1.isGroup !== 'group') { return; }
-      $scope.Group.getSectors($scope.current.PAM.Table1.PolicyGroup);
-      $scope.Group.getPollutants($scope.current.PAM.Table1.PolicyGroup);
-      $scope.Group.getObjectives($scope.current.PAM.Table1.PolicyGroup);
-      $scope.Group.getPolicyInstrument($scope.current.PAM.Table1.PolicyGroup);
-      $scope.Group.getUnionPolicies($scope.current.PAM.Table1.PolicyGroup);
-      $scope.Group.getImplementation($scope.current.PAM.Table1.PolicyGroup);
-      //$scope.Group.getEnvisaged();
-      //$scope.Group.getPolicyImpact();
-      $scope.Group.getEntities($scope.current.PAM.Table1.PolicyGroup);
-      $scope.Group.getScenarios($scope.current.PAM.Table1.PolicyGroup);
+      if ($scope.current.PAM.Table1.PolicyGroup) {
+        //$scope.Group.getSectors($scope.current.PAM.Table1.PolicyGroup);
+        $scope.Group.getElementsForGroups($scope.current.PAM.Table1.PolicyGroup, 'Pollutants', true);
+        $scope.Group.getElementsForGroups($scope.current.PAM.Table1.PolicyGroup, 'Objective', true);
+        $scope.Group.getElementsForGroups($scope.current.PAM.Table1.PolicyGroup, 'PolicyInstruments', true);
+        $scope.Group.getElementsForGroups($scope.current.PAM.Table1.PolicyGroup, 'UnionPolicy', true);
+        $scope.Group.getElementsForGroups($scope.current.PAM.Table1.PolicyGroup, 'Implementation', false);
+        $scope.Group.getElementsForGroups($scope.current.PAM.Table1.PolicyGroup, 'ProjectionsScenario', false);
+        //$scope.Group.getPollutants($scope.current.PAM.Table1.PolicyGroup);
+        //$scope.Group.getObjectives($scope.current.PAM.Table1.PolicyGroup);
+        //$scope.Group.getPolicyInstrument($scope.current.PAM.Table1.PolicyGroup);
+        //$scope.Group.getUnionPolicies($scope.current.PAM.Table1.PolicyGroup);
+        //$scope.Group.getImplementation($scope.current.PAM.Table1.PolicyGroup);
+        //$scope.Group.getEnvisaged();
+        //$scope.Group.getPolicyImpact();
+        $scope.Group.getEntities($scope.current.PAM.Table1.PolicyGroup);
+        //$scope.Group.getScenarios($scope.current.PAM.Table1.PolicyGroup);
+        //$scope.Group.getAgriculture($scope.current.PAM.Table1.PolicyGroup);
+      }
     };
     
     //Function to run Group Calculations for every PAM in Webform
-    $scope.Group.calculateAll = function() {      
+/*    $scope.Group.calculateAll = function() {      
       var currentPam = $scope.current.PAM;
       for (var i = 0;i < $scope.instance.NEC_PAMs.NEC_PAM.length;i++) {                         
           $scope.current.PAM = $scope.instance.NEC_PAMs.NEC_PAM[i];
@@ -1443,7 +1256,7 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
           else $scope.temp.isGroup = false;
       }
       $scope.current.PAM = currentPam;
-    };
+    };*/
       
     // Watch Collection to recreate ID's on PAM add or removal
     $scope.$watchCollection('instance.NEC_PAMs.NEC_PAM', function(newPAMs,oldPAMs) {
@@ -1451,11 +1264,7 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
         for (var i = 0; i < newPAMs.length;i++) {
           if (!angular.isDefined($scope.Overview.Table.empty1[i])) {
             $scope.Overview.Table.empty1[i] = true;
-            $scope.Overview.Table.empty2[i] = true;
-            $scope.Overview.Table.empty3[i] = true;
             $scope.Overview.Table.text1[i] = 'Labels.Overview.new_table';
-            //$scope.Overview.Table.text2[i] = 'Labels.Overview.new_table';
-            //$scope.Overview.Table.text3[i] = 'Labels.Overview.new_table';          
           }
         }
       }
@@ -1584,7 +1393,7 @@ webform.factory('dataRepository', ['$rootScope', '$http', '$location', 'promiseT
       getInstance: function() {
           var url = null;
           if (fileId){
-              url = getWebQUrl("/download/converted_user_file");                        
+              url = getWebQUrl("/download/user_file"); 
           } else{
               // testing on localhost
               url = "instance-empty.json";
