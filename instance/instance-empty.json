@@ -8,49 +8,61 @@
       "TitleLocal" : "",
       "Table1" : {
         "isGroup" : "single",
-        "belongsToPackage" : "no",
+        "BelongsToPackage" : "no",
         "AgriculturalRelated": "no",
         "AdoptionPlannedYear" : null,
         "Agriculture": {
           "id" : null,
-          "MeasuresControlAmmoniaEmissions": "no",
-          "AmmoniaEmissions": null,
-          "AmmoniaEmissionsPage": null,
-          "AmmoniaEmissionsExactly": "yes",
-          "AmmoniaEmissionsExactlyReason": null,
-          "NationalNitrogenBudgetPage": null,
-          "NationalNitrogenBudgetExactly": "yes",
-          "NationalNitrogenBudgetExactlyReason": null,
-          "AmmoniumCarbonateFertilisers": null,
-          "AmmoniumCarbonateFertilisersPage": null,
-          "AmmoniumCarbonateFertilisersExactly": "yes",
-          "AmmoniumCarbonateFertilisersExactlyReason": null,
+          "MeasuresAmmoniaControlQuestion": "no",
+          
+          "AmmoniaEmissionsControlPracticesQuestion": "no",
+          "AmmoniaEmissionsControlPractices": null,
+          "AmmoniaEmissionsControlPracticesPage": null,
+          "AmmoniaEmissionsControlPracticesExactly": "yes",
+          "AmmoniaEmissionsControlPracticesExactlyReason": null,
+          
+          "NationalNitrogenBudgetQuestion": "no",
+          
+          "AmmoniumCarbonateFertilisersQuestion": "no",
+
+          "InorganicFertilisersQuestion": "no",
+          "InorganicFertilisers": null,
+          "InorganicFertilisersPage": null,
+          "InorganicFertilisersExactly": "yes",
+          "InorganicFertilisersExactlyReason": null,
+          
+          "AmmoniaEmissionsLivestockQuestion": "no",
           "AmmoniaEmissionsLivestock": null,
           "AmmoniaEmissionsLivestockPage": null,
           "AmmoniaEmissionsLivestockExactly": "yes",
           "AmmoniaEmissionsLivestockExactlyReason": null,
           
-          "FineParticulateMatterEmissions": "no",
+          "FineParticulateMatterEmissionsQuestion": "no",
+    
+          "FineParticulateMatterEmissionsBanMonitoredQuestion": "no",
+    
+          "FineParticulateMatterEmissionsBanExemptionsQuestion": "no",
+
+          "OpenFieldBurningQuestion": "no",
+          "OpenFieldBurningBanEnforced": "no",
+          "OpenFieldBurningBanExemptions": "no",
           "OpenFieldBurning": null,
           "OpenFieldBurningPage": null,
           "OpenFieldBurningExactly": "yes",
           "OpenFieldBurningExactlyReason": null,
+
+          "NationalAdvisoryCodeQuestion": "no",
+          "NationalAdvisoryCode": null,
           "NationalAdvisoryCodePage": null,
           "NationalAdvisoryCodeExactly": "yes",
           "NationalAdvisoryCodeExactlyReason": null,
           
-          "PreventingImpactsSmallFarms": "no",
-          "ExemptSmallMicroFarmsPage": null,
-          "ExemptSmallMicroFarmsPageExactly": "yes",
-          "ExemptSmallMicroFarmsPageExactlyReason": null
+          "PreventingImpactsSmallFarmsQuestion": "no",
+          "SmallMicroFarmsFullAccountQuestion": "no",
+          "SmallMicroFarmsExemptionsQuestion": "no"
         },
         "PolicyGroup" : null,
-        "Pollutants" :  {
-          "Name" : null,
-          "Target2020" : null,
-          "Target2025" : null,
-          "Target2030" : null
-        },
+        "Pollutants" :  null,
         "Objective" : [],
         "Description" : null,
         "PolicyInstruments" : null,
@@ -59,6 +71,11 @@
         "UnionPolicyRelated" : "no",
         "Implementation" : {
           "Status" : null,
+          "Start" : null,
+          "Finish" : null,
+          "id" : null
+        },
+        "ReviewTimetable" : {
           "Start" : null,
           "Finish" : null,
           "id" : null

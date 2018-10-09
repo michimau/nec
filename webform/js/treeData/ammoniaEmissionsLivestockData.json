@@ -48,5 +48,10 @@
        "id":"reducing_emissions_manure",
        "parent":"#",
        "text":"reducing emissions from manure, by using low protein feeding strategies which have been shown to reduce ammonia emissions by at least 10 % compared with the reference method described in the Ammonia Guidance Document"
+    },
+    {
+        "id":"other",
+        "parent":"#",
+        "text":"Other"
     }
  ]

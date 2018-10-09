@@ -33,10 +33,10 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
     $scope.treeData.policyInstrumentsData = require('./treeData/policyInstrumentsData.json');
     $scope.treeData.implementationStatusData = require('./treeData/implementationStatusData.json');
     $scope.treeData.projectionsScenarioData = require('./treeData/projectionsScenarioData.json');
-    $scope.treeData.ammoniaEmissionsData = require('./treeData/ammoniaEmissionsData.json');
-    $scope.treeData.ammoniumCarbonateFertilisersData = require('./treeData/ammoniumCarbonateFertilisersData.json');
+    $scope.treeData.ammoniaEmissionsControlPracticesData = require('./treeData/ammoniaEmissionsControlPracticesData.json');
+    $scope.treeData.inorganicFertilisersData = require('./treeData/inorganicFertilisersData.json');
     $scope.treeData.ammoniaEmissionsLivestockData = require('./treeData/ammoniaEmissionsLivestockData.json');
-    $scope.treeData.openFieldBurningData = require('./treeData/openFieldBurningData.json');
+    $scope.treeData.nationalAdvisoryCodeData = require('./treeData/nationalAdvisoryCodeData.json');
 
     $scope.treeConfig = {
         animation: false,
@@ -73,10 +73,10 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
       $scope.policyInstrumentsTreeInstance.jstree(true).hide_icons();
       $scope.implementationStatusTreeInstance.jstree(true).hide_icons();
       $scope.projectionsScenarioTreeInstance.jstree(true).hide_icons();
-      $scope.ammoniaEmissionsTreeInstance.jstree(true).hide_icons();
-      $scope.ammoniumCarbonateFertilisersTreeInstance.jstree(true).hide_icons();
+      $scope.ammoniaEmissionsControlPracticesTreeInstance.jstree(true).hide_icons();
+      $scope.inorganicFertilisersTreeInstance.jstree(true).hide_icons();
       $scope.ammoniaEmissionsLivestockTreeInstance.jstree(true).hide_icons();
-      $scope.openFieldBurningTreeInstance.jstree(true).hide_icons();
+      $scope.nationalAdvisoryCodeTreeInstance.jstree(true).hide_icons();
     }
 
     $scope.emptyUnionPolicyTreeInstance = function(node, selected, event) {
@@ -84,37 +84,37 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
     }
 
     $scope.hideAgricultureObjects = function() {
-      $scope.current.PAM.Table1.Agriculture.MeasuresControlAmmoniaEmissions = 'no';
-      $scope.emptyMeasuresControlAmmoniaEmissionsObjects();
+      $scope.current.PAM.Table1.Agriculture.MeasuresAmmoniaControlQuestion = 'no';
+      $scope.emptyMeasuresAmmoniaControlQuestionObjects();
       $scope.current.PAM.Table1.Agriculture.FineParticulateMatterEmissions = 'no';
       $scope.emptyFineParticulateMatterEmissionsObjects();
       $scope.current.PAM.Table1.Agriculture.PreventingImpactsSmallFarms = 'no';
       $scope.emptyPreventingImpactsSmallFarmsObjects();
     }
 
-    $scope.emptyMeasuresControlAmmoniaEmissionsObjects = function() {
-      if($scope.ammoniaEmissionsTreeInstance) {$scope.ammoniaEmissionsTreeInstance.jstree(true).uncheck_all()};
-      $scope.current.PAM.Table1.Agriculture.AmmoniaEmissionsPage = '';
-      $scope.current.PAM.Table1.Agriculture.AmmoniaEmissionsExactly = 'yes';
-      $scope.current.PAM.Table1.Agriculture.AmmoniaEmissionsExactlyReason = '';
+    $scope.emptyMeasuresAmmoniaControlQuestionObjects = function() {
+      if($scope.ammoniaEmissionsControlPracticesTreeInstance) {$scope.ammoniaEmissionsControlPracticesTreeInstance.jstree(true).uncheck_all()};
+      $scope.current.PAM.Table1.Agriculture.AmmoniaEmissionsControlPracticesPage = '';
+      $scope.current.PAM.Table1.Agriculture.AmmoniaEmissionsControlPracticesExactly = 'yes';
+      $scope.current.PAM.Table1.Agriculture.AmmoniaEmissionsControlPracticesExactlyReason = '';
 
       $scope.current.PAM.Table1.Agriculture.NationalNitrogenBudgetPage = '';
       $scope.current.PAM.Table1.Agriculture.NationalNitrogenBudgetExactly = 'yes';
       $scope.current.PAM.Table1.Agriculture.NationalNitrogenBudgetExactlyReason = '';
 
-      if($scope.ammoniumCarbonateFertilisersTreeInstance) {$scope.ammoniumCarbonateFertilisersTreeInstance.jstree(true).uncheck_all()};
-      $scope.current.PAM.Table1.Agriculture.AmmoniumCarbonateFertilisersPage = '';
-      $scope.current.PAM.Table1.Agriculture.AmmoniumCarbonateFertilisersExactly = 'yes';
-      $scope.current.PAM.Table1.Agriculture.AmmoniumCarbonateFertilisersExactlyReason = '';
+      if($scope.inorganicFertilisersTreeInstance) {$scope.inorganicFertilisersTreeInstance.jstree(true).uncheck_all()};
+      $scope.current.PAM.Table1.Agriculture.InorganicFertilizersPage = '';
+      $scope.current.PAM.Table1.Agriculture.InorganicFertilizersExactly = 'yes';
+      $scope.current.PAM.Table1.Agriculture.InorganicFertilizersExactlyReason = '';
 
-      if ($scope.ammoniaEmissionsLivestockTreeInstance) {$scope.ammoniaEmissionsLivestockTreeInstance.jstree(true).uncheck_all()};
+      /*if ($scope.ammoniaEmissionsLivestockTreeInstance) {$scope.ammoniaEmissionsLivestockTreeInstance.jstree(true).uncheck_all()};
       $scope.current.PAM.Table1.Agriculture.AmmoniaEmissionsLivestockPage  = '';
       $scope.current.PAM.Table1.Agriculture.AmmoniaEmissionsLivestockExactly = 'yes';
-      $scope.current.PAM.Table1.Agriculture.AmmoniaEmissionsLivestockExactlyReason = '';
+      $scope.current.PAM.Table1.Agriculture.AmmoniaEmissionsLivestockExactlyReason = '';*/
     }
 
     $scope.emptyFineParticulateMatterEmissionsObjects = function() {
-      if ($scope.openFieldBurningTreeInstance) {$scope.openFieldBurningTreeInstance.jstree(true).uncheck_all()};
+      if ($scope.nationalAdvisoryCodeTreeInstance) {$scope.nationalAdvisoryCodeTreeInstance.jstree(true).uncheck_all()};
       $scope.current.PAM.Table1.Agriculture.OpenFieldBurningPage = '';
       $scope.current.PAM.Table1.Agriculture.OpenFieldBurningExactly = 'yes';
       $scope.current.PAM.Table1.Agriculture.OpenFieldBurningExactlyReason = "";
@@ -148,6 +148,7 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
             pollutant.Target2020 = null;
             pollutant.Target2025 = null;
             pollutant.Target2030 = null;
+            pollutant.TargetUnit = 'kt/year';
             $scope.current.PAM.Table1.Pollutants.push(pollutant);
           }
         }
@@ -261,20 +262,20 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
       $scope.current.PAM.Table1.ProjectionsScenario.Type = selected.selected;
     }
 
-    $scope.nodeAmmoniaEmissionsChanged = function(node, selected, event) {
+    $scope.nodeAmmoniaEmissionsControlPracticesChanged = function(node, selected, event) {
       console.log(selected.selected);
-      $scope.current.PAM.Table1.Agriculture.AmmoniaEmissions = selected.selected;
+      $scope.current.PAM.Table1.Agriculture.AmmoniaEmissionsControlPractices = selected.selected;
     }
 
-    $scope.nodeAmmoniumCarbonateFertilisersChanged = function(node, selected, event) {
+    $scope.nodeInorganicFertilisersChanged = function(node, selected, event) {
       console.log(selected.selected);
-      $scope.current.PAM.Table1.Agriculture.AmmoniumCarbonateFertilisers = selected.selected;
+      $scope.current.PAM.Table1.Agriculture.InorganicFertilisers = selected.selected;
     }
 
 
-    $scope.nodeOpenFieldBurningChanged = function(node, selected, event) {
+    $scope.nodeNationalAdvisoryCodeChanged = function(node, selected, event) {
       console.log(selected.selected);
-      $scope.current.PAM.Table1.Agriculture.OpenFieldBurning = selected.selected;
+      $scope.current.PAM.Table1.Agriculture.NationalAdvisoryCode = selected.selected;
     }
 
     $scope.nodeAmmoniaEmissionsLivestockChanged = function(node, selected, event) {
@@ -333,13 +334,24 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
       if (!pam.Table1.UnionPolicyRelated) { pam.Table1.UnionPolicyRelated = "no" };
       pam.Table1.AgriculturalRelated = "no";
       pam.Table1.Agriculture.NationalAirPollutionControl = "no";
+      pam.Table1.Agriculture.NationalAdvisoryCode = "no";
 
       pam.Table1.Agriculture.MeasuresControlAmmoniaEmissions = "no";
-      pam.Table1.Agriculture.AmmoniaEmissionsExactly = "yes";
-      pam.Table1.Agriculture.MeasuresControlAmmoniaEmissionsExactly = "yes";
+
+      pam.Table1.Agriculture.AmmoniaEmissionsControlPracticesQuestion = "no";
+      pam.Table1.Agriculture.AmmoniaEmissionsControlPracticesExactly = "yes";
+
+      //pam.Table1.Agriculture.MeasuresControlAmmoniaEmissionsExactly = "yes";
+
+      pam.Table1.Agriculture.NationalNitrogenBudgetQuestion = "no";
       pam.Table1.Agriculture.NationalNitrogenBudgetExactly = "yes";
-      pam.Table1.Agriculture.AmmoniumCarbonateFertilisersExactly = "yes";
+
+      pam.Table1.Agriculture.InorganicFertilisersQuestion = "yes";
+      pam.Table1.Agriculture.InorganicFertilizersExactly = "yes";
+
       pam.Table1.Agriculture.AmmoniaEmissionsLivestockExactly = "yes"
+
+      pam.Table1.Agriculture.InorganicFertilisers = "no";
 
       pam.Table1.Agriculture.FineParticulateMatterEmissions = "no";
       pam.Table1.Agriculture.OpenFieldBurningExactly = "yes";
@@ -541,6 +553,16 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
     else return false;    
    };
 
+   $scope.isNumberKey =  function(evt) {
+    
+    var iKeyCode = (evt.which) ? evt.which : evt.keyCode
+    console.log(iKeyCode);
+    if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
+        return false;
+
+    return true;
+   } 
+
   /**
    * Returns true if Indicator has wrong year values
    * @param {Number} index
@@ -610,17 +632,17 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
         //})
       }
 
-      $scope.ammoniaEmissionsTreeInstance.jstree(true).deselect_all(true);
-      $scope.ammoniaEmissionsTreeInstance.jstree(true).select_node ($scope.current.PAM.Table1.Agriculture.AmmoniaEmissions , true, false);
+      $scope.ammoniaEmissionsControlPracticesTreeInstance.jstree(true).deselect_all(true);
+      $scope.ammoniaEmissionsControlPracticesTreeInstance.jstree(true).select_node ($scope.current.PAM.Table1.Agriculture.AmmoniaEmissionsControlPractices , true, false);
       
-      $scope.ammoniumCarbonateFertilisersTreeInstance.jstree(true).deselect_all(true);
-      $scope.ammoniumCarbonateFertilisersTreeInstance.jstree(true).select_node ($scope.current.PAM.Table1.Agriculture.AmmoniumCarbonateFertilisers , true, false);
+      $scope.inorganicFertilisersTreeInstance.jstree(true).deselect_all(true);
+      $scope.inorganicFertilisersTreeInstance.jstree(true).select_node ($scope.current.PAM.Table1.Agriculture.InorganicFertilisers , true, false);
       
       $scope.ammoniaEmissionsLivestockTreeInstance.jstree(true).deselect_all(true);
       $scope.ammoniaEmissionsLivestockTreeInstance.jstree(true).select_node ($scope.current.PAM.Table1.Agriculture.AmmoniaEmissionsLivestock , true, false);
           
-      $scope.openFieldBurningTreeInstance.jstree(true).deselect_all(true);
-      $scope.openFieldBurningTreeInstance.jstree(true).select_node ($scope.current.PAM.Table1.Agriculture.OpenFieldBurning , true, false);
+      $scope.nationalAdvisoryCodeTreeInstance.jstree(true).deselect_all(true);
+      $scope.nationalAdvisoryCodeTreeInstance.jstree(true).select_node ($scope.current.PAM.Table1.Agriculture.OpenFieldBurning , true, false);
     }
   };
 
@@ -818,9 +840,10 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
     console.log(clonedEmptyPaM);
     $scope.setRadioButtons(clonedEmptyPaM);
     clonedEmptyPaM.Table1.isGroup = type;
+    clonedEmptyPaM.Table1.Pollutants.TargetUnit = "kt/year";
 
     $scope.instance.NEC_PAMs.NEC_PAM.push(clonedEmptyPaM);
-  
+    
     $timeout(function() {                      
       $scope.OverviewValidate();
       if (goEdit === true) {

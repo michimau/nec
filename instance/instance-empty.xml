@@ -5,42 +5,74 @@
             <AgriculturalRelated>no</AgriculturalRelated>
             <Agriculture>
 			<id/>
-                  <AmmoniaEmissions/>
-                  <AmmoniaEmissionsExactly>yes</AmmoniaEmissionsExactly>
-                  <AmmoniaEmissionsExactlyReason/>
+
+                  <MeasuresAmmoniaControlQuestion>no</MeasuresAmmoniaControlQuestion>
+
+                  <AmmoniaEmissionsControlPracticesQuestion>no</AmmoniaEmissionsControlPracticesQuestion>
+                  <AmmoniaEmissionsControlPractices/>
+                  <AmmoniaEmissionsControlPracticesPage/>
+                  <AmmoniaEmissionsControlPracticesExactly/>
+                  <AmmoniaEmissionsControlPracticesExactlyReason/>
+                  
+                  <AmmoniaEmissionsLivestockQuestion>no</AmmoniaEmissionsLivestockQuestion>
+
                   <AmmoniaEmissionsLivestock/>
                   <AmmoniaEmissionsLivestockExactly>yes</AmmoniaEmissionsLivestockExactly>
                   <AmmoniaEmissionsLivestockExactlyReason/>
                   <AmmoniaEmissionsLivestockPage/>
-                  <AmmoniaEmissionsPage/>
-                  <AmmoniumCarbonateFertilisers/>
-                  <AmmoniumCarbonateFertilisersExactly>yes</AmmoniumCarbonateFertilisersExactly>
-                  <AmmoniumCarbonateFertilisersExactlyReason/>
-                  <AmmoniumCarbonateFertilisersPage/>
+                  
+                  <FineParticulateMatterEmissionsQuestion>no</FineParticulateMatterEmissionsQuestion>
+
+                  <FineParticulateMatterEmissionsBanMonitoredQuestion>no</FineParticulateMatterEmissionsBanMonitoredQuestion>
+
+                  <FineParticulateMatterEmissionsBanExemptionsQuestion>no</FineParticulateMatterEmissionsBanExemptionsQuestion>
+
+                  <AmmoniumCarbonateFertilisersQuestion>no</AmmoniumCarbonateFertilisersQuestion>
+
+                  <InorganicFertilisers/>
+                  <InorganicFertilisersQuestion>no</InorganicFertilisersQuestion>
+                  <InorganicFertilisersExactly>yes</InorganicFertilisersExactly>
+                  <InorganicFertilisersExactlyReason/>
+                  <InorganicFertilisersPage/>
+
                   <ExemptSmallMicroFarmsPage/>
                   <ExemptSmallMicroFarmsPageExactly>yes</ExemptSmallMicroFarmsPageExactly>
                   <ExemptSmallMicroFarmsPageExactlyReason/>
-                  <FineParticulateMatterEmissions>no</FineParticulateMatterEmissions>
-                  <MeasuresControlAmmoniaEmissions>no</MeasuresControlAmmoniaEmissions>
+                  
+                  <NationalAdvisoryCodeQuestion>no</NationalAdvisoryCodeQuestion>
+                  <NationalAdvisoryCode/>
                   <NationalAdvisoryCodeExactly>yes</NationalAdvisoryCodeExactly>
                   <NationalAdvisoryCodeExactlyReason/>
                   <NationalAdvisoryCodePage/>
-                  <NationalNitrogenBudgetExactly>yes</NationalNitrogenBudgetExactly>
-                  <NationalNitrogenBudgetExactlyReason/>
-                  <NationalNitrogenBudgetPage/>
+                  <NationalNitrogenBudgetQuestion/>
+                  
+                  <OpenFieldBurningQuestion>yes</OpenFieldBurningQuestion>
+                  <OpenFieldBurningBanEnforced>no</OpenFieldBurningBanEnforced>
+                  <OpenFieldBurningBanExemptions>no</OpenFieldBurningBanExemptions>
+
                   <OpenFieldBurning/>
                   <OpenFieldBurningExactly>yes</OpenFieldBurningExactly>
                   <OpenFieldBurningExactlyReason/>
                   <OpenFieldBurningPage/>
-                  <PreventingImpactsSmallFarms>no</PreventingImpactsSmallFarms>
+                  
+                  <PreventingImpactsSmallFarmsQuestion>no</PreventingImpactsSmallFarmsQuestion>
+                  <SmallMicroFarmsFullAccountQuestion>no</SmallMicroFarmsFullAccountQuestion>
+                  <SmallMicroFarmsExemptionsQuestion>no</SmallMicroFarmsExemptionsQuestion>
+
             </Agriculture>
             <BasisExplanation/>
             <ConsultationComments/>
+            
             <Description/>
             <Entities>
                   <Name/>
                   <Type/>
             </Entities>
+            <ReviewTimetable>
+                  <Finish/>
+                  <Start/>
+			<id/>
+            </ReviewTimetable>
             <Implementation>
                   <Finish/>
                   <Start/>

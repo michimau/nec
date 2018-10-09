@@ -67,9 +67,11 @@
         "label": "Affected NECD pollutant (M)"
       },
       "EmissionReductions": {
-        "label": "Estimation of Costs"
+        "label": "Estimation of Costs (if the PaM is part of a package and no estimations of reduction is available please report 0)"
       },
-
+      "QuantifiedEmissionReductions": {
+        "label": "Quantified emission reductions"
+      },
       "InformationImpactAirQuality" : {
         "label": "Are available information about impacts on air quality?"
       },
@@ -86,54 +88,83 @@
       "NationalAirPollutionControl": {
         "label": "is the Pam included in the national air pollution control programme?"
       },
-      "MeasuresControlAmmoniaEmissions": {
+      "MeasuresAmmoniaControlQuestion": {
         "label": "A) Measures to control ammonia emissions",
         "exactly": {
           "label": "Has the PaM been applied exactly?"
         }
       },
-      "AmmoniaEmissions": {
+      "AmmoniaEmissionsControlPractices": {
         "label": "Measures to control ammonia emissions",
-        "text": "Member States shall establish a national advisory code of good agricultural practice to control ammonia emissions, taking into account the UNECE Framework Code for Good Agricultural Practice for Reducing Ammonia Emissions of 2014, covering at least the following items",
+        "text": "Does the PAM include the establishment of a national advisory code of good agricultural practices to control ammonia, taking into account the UNECE Framework Code for Good Agricultural Practice for Reducing Ammonia Emissions of 2014, covering at least the following items?",
         "page": "Indicate section/page number in programme",
         "exactly": {
           "label": "Has the PaM been applied exactly?"
         }
       },
-      "AmmoniaEmissionsLivestock": {
+      "AmmoniaEmissionsLivestockQuestion": {
         "label": "Measures to control ammonia emissions",
-        "text": "Member States shall establish a national advisory code of good agricultural practice to control ammonia emissions, taking into account the UNECE Framework Code for Good Agricultural Practice for Reducing Ammonia Emissions of 2014, covering at least the following items",
+        "text": "Does the PAM reduce ammonia emissions from livestock manure?",
         "page": "Indicate section/page number in programme",
         "exactly": {
           "label": "Has the PaM been applied exactly?"
         }
       },
-      "NationalNitrogenBudget": {
-        "text": "Member States may establish a national nitrogen budget to monitor the changes in overall losses of reactive nitrogen from agriculture, including ammonia, nitrous oxide, ammonium, nitrates and nitrites, based on the principles set out in the UNECE Guidance Document on Nitrogen Budgets",
+      "AmmoniaEmissionsLivestockBanMonitoredQuestion": {
+        "label": "Measures to control ammonia emissions",
+        "text": "Is the ban monitored and enforced?",
         "page": "Indicate section/page number in programme",
         "exactly": {
           "label": "Has the PaM been applied exactly?"
         }
       },
-      "AmmoniumCarbonateFertilisers": {
-        "text": "Member States shall prohibit the use of ammonium carbonate fertilisers and may reduce ammonia emissions from inorganic fertilisers by using the following approaches",
+      "AmmoniaEmissionsLivestockBanExemptionsQuestion": {
+        "label": "Measures to control ammonia emissions",
+        "text": "Are any exemptions to this ban limited to preventive programmes to avoid uncontrolled wildfires, to control pest or to protect biodiversity?",
         "page": "Indicate section/page number in programme",
         "exactly": {
           "label": "Has the PaM been applied exactly?"
         }
       },
-      "FineParticulateMatterEmissions": {
+      "NationalNitrogenBudgetQuestion": {
+        "text": "Does the PAM include the establishment of a national nitrogen budget to monitor the changes in overall losses of reactive nitrogen from agriculture, including ammonia, nitrous oxide, ammonium, nitrates and nitrites, based on the principles set out in the UNECE Guidance Document on Nitrogen Budgets?",
+        "page": "Indicate section/page number in programme",
+        "exactly": {
+          "label": "Has the PaM been applied exactly?"
+        }
+      },
+      "InorganicFertilisersQuestion": {
+        "text": "Does the PAM reduce ammonia emissions from inorganic fertilisers?",
+        "page": "Indicate section/page number in programme",
+        "exactly": {
+          "label": "Has the PaM been applied exactly?"
+        }
+      },
+      "AmmoniumCarbonateFertilisersQuestion": {
+        "text": "Does the PAM prohibit the use of ammonium carbonate fertilisers?",
+        "page": "Indicate section/page number in programme",
+        "exactly": {
+          "label": "Has the PaM been applied exactly?"
+        }
+      },
+      "FineParticulateMatterEmissionsQuestion": {
         "label": "B) Emission reduction measures to control emissions of fine particulate matter (PM2.5) and black carbon"
       },
-      "OpenFieldBurning": {
-        "text": "Without prejudice to Annex II on cross-compliance of Regulation (EU) No 1306/2013 of the European Parliament and of the Council (1), Member States may ban open field burning of agricultural harvest residue and waste and forest residue. Member States shall monitor and enforce the implementation of any ban implemented in accordance with the first subparagraph. Any exemptions to such a ban shall be limited to preventive programmes to avoid uncontrolled wildfires, to control pest or to protect biodiversity",
+      "OpenFieldBurningQuestion": {
+        "text": "Does the PAM ban open field burning of agricultural harvest residue and waste and forest residue?",
         "page": "Indicate section/page number in programme",
         "exactly": {
           "label": "Has the PaM been applied exactly?"
         }
       },
-      "NationalAdvisoryCode": {
-        "text": "Member States shall monitor and enforce the implementation of any ban implemented in accordance with the first subparagraph. Any exemptions to such a ban shall be limited to preventive progra",
+      "OpenFieldBurningBanEnforced": {
+        "text": "Is the ban monitored and enforced?"
+      },
+      "OpenFieldBurningBanExemptions": {
+        "text": "Are any exemptions to this ban limited to preventive programmes to avoid uncontrolled wildfires, to control pest or to protect biodiversity?"
+      },
+      "NationalAdvisoryCodeQuestion": {
+        "text": "Does the PAM include the establishment of a national advisory code of good agricultural practices for the proper management of harvest residue?",
         "page": "Indicate section/page number in programme",
         "exactly": {
           "label": "Has the PaM been applied exactly?"
@@ -142,12 +173,14 @@
       "PreventingImpactsSmallFarms": {
         "label": "C) Preventing impacts on small farms"
       },
-      "ExemptSmallMicroFarms": {
-        "text": "In taking the measures outlined in Sections A and B, Member States shall ensure that impacts on small and micro farms are fully taken into account. Member States may, for instance, exempt small and micro farms from those measures where possible and appropriate in view of the applicable reduction commitments",
-        "page": "Indicate section/page number in programme",
-        "exactly": {
-          "label": "Has the PaM been applied exactly?"
-        }
+      "PreventingImpactsSmallFarmsQuestion": {
+        "label": "In taking the measures outlined in Sections A and B, Member States shall ensure that impacts on small and micro farms are fully taken into account. Member States may, for instance, exempt small and micro farms from those measures where possible and appropriate in view of the applicable reduction commitments"
+      },
+      "SmallMicroFarmsFullAccountQuestion": {
+        "text": "Does the PAM ensure that impacts on small and micro farms are fully taken into account?"
+      },
+      "SmallMicroFarmsExemptionsQuestion": {
+        "text": "Are small and micro farms exempted from the PAM?"
       }
       },
       "Objective": {
@@ -181,7 +214,9 @@
         "label": "Relevant comments arising from consultation(s) in relation to the individual PaM or package of PaMs"
       },
       "ReviewTimetable" : {
-        "label": "Currently planned timetable for review (in case different from general update of the national air pollution control programme every four years) (M)"
+        "label": "Currently planned timetable for review (in case different from general update of the national air pollution control programme every four years) (M)",
+        "start": "Start",
+        "finish": "Finish"
       },
       "CoherenceQualityObjectives" : {
         "label": "Coherence of the selected PaMs with air quality objectives at national level and, where appropriate, in neighbouring Member States (M)"
