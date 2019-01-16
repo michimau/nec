@@ -1,0 +1,140 @@
+<NEC_PAMs>
+   <NEC_PAM>
+      <id>1</id>
+      <Title/>
+      <TitleLocal/>
+         
+         <Table1>
+            <isGroup>single</isGroup>
+            <Description/>
+            <BelongsToPackage>no</BelongsToPackage>
+            <ReportedAlready/>
+            <AgriculturalRelated>no</AgriculturalRelated>
+            <PolicyGroup/>
+            <SelectedForAdoption>no</SelectedForAdoption>
+            <T261>
+                  <Objectives/>
+                  <PolicyInstruments/>
+                  <Implementation>
+                        <Start/>
+                        <Status/>
+                        <Comment/>
+                  </Implementation>
+                  <Entities>
+                        <Name/>
+                        <Type/>
+                  </Entities>
+                  <DetailsMethodology/>
+                  
+                  <UnionPolicyRelated>no</UnionPolicyRelated>
+                  <UnionPolicy/>
+                  <ProjectionsScenario/>
+                  <id/>
+            </T261>
+
+            <T261p>
+                  <Pollutants>
+                        <Name/>
+                        <Target2020/>
+                        <Target2025/>
+                        <Target2030/>
+                        <TargetUnit>kt/year</TargetUnit>
+                  </Pollutants>
+                  <QualitativeDescriptionUncertainties/>
+            </T261p>
+
+            <T262>
+                  <AirQualityImpact/>
+                  <InformationImpactAirQuality>no</InformationImpactAirQuality>
+            </T262>
+
+            <T264>
+                  <MeasuresAmmoniaControlQuestion>no</MeasuresAmmoniaControlQuestion>
+
+                  <AmmoniaEmissionsControlPracticesQuestion>no</AmmoniaEmissionsControlPracticesQuestion>
+                  <AmmoniaEmissionsControlPractices/>
+                  <AmmoniaEmissionsControlPracticesPage/>
+                  <AmmoniaEmissionsControlPracticesExactly>yes</AmmoniaEmissionsControlPracticesExactly>
+                  <AmmoniaEmissionsControlPracticesExactlyReason/>
+                  
+                  <AmmoniaEmissionsLivestockQuestion>no</AmmoniaEmissionsLivestockQuestion>
+
+                  <AmmoniaEmissionsLivestock/>
+                  <AmmoniaEmissionsLivestockExactly>yes</AmmoniaEmissionsLivestockExactly>
+                  <AmmoniaEmissionsLivestockExactlyReason/>
+                  <AmmoniaEmissionsLivestockPage/>
+                  
+                  <FineParticulateMatterEmissionsQuestion>no</FineParticulateMatterEmissionsQuestion>
+
+                  <FineParticulateMatterEmissionsBanMonitoredQuestion>no</FineParticulateMatterEmissionsBanMonitoredQuestion>
+
+                  <FineParticulateMatterEmissionsBanExemptionsQuestion>no</FineParticulateMatterEmissionsBanExemptionsQuestion>
+
+                  <NationalNitrogenBudgetQuestion>no</NationalNitrogenBudgetQuestion>
+
+                  <AmmoniumCarbonateFertilisersQuestion>no</AmmoniumCarbonateFertilisersQuestion>
+
+                  <InorganicFertilisers/>
+                  <InorganicFertilisersQuestion>no</InorganicFertilisersQuestion>
+                  <InorganicFertilisersExactly>yes</InorganicFertilisersExactly>
+                  <InorganicFertilisersExactlyReason/>
+                  <InorganicFertilisersPage/>
+
+                  <ExemptSmallMicroFarmsPage/>
+                  <ExemptSmallMicroFarmsPageExactly>yes</ExemptSmallMicroFarmsPageExactly>
+                  <ExemptSmallMicroFarmsPageExactlyReason/>
+                  
+                  <NationalAdvisoryCodeQuestion>no</NationalAdvisoryCodeQuestion>
+                  <NationalAdvisoryCode/>
+                  <NationalAdvisoryCodeOther/>
+                  
+                  <OpenFieldBurningQuestion>no</OpenFieldBurningQuestion>
+                  <OpenFieldBurningBanEnforced>no</OpenFieldBurningBanEnforced>
+                  <OpenFieldBurningBanExemptions>no</OpenFieldBurningBanExemptions>
+
+                  <OpenFieldBurning/>
+                  <OpenFieldBurningExactly>yes</OpenFieldBurningExactly>
+                  <OpenFieldBurningExactlyReason/>
+                  <OpenFieldBurningPage/>
+                  
+                  <PreventingImpactsSmallFarmsQuestion>no</PreventingImpactsSmallFarmsQuestion>
+                  <SmallMicroFarmsFullAccountQuestion>no</SmallMicroFarmsFullAccountQuestion>
+                  <SmallMicroFarmsExemptionsQuestion>no</SmallMicroFarmsExemptionsQuestion>
+      
+            </T264>
+
+            <T27>
+                  <AdoptionPlannedYear/>
+                  <ReviewTimetable>
+                        <Finish/>
+                        <Start/>
+                  </ReviewTimetable>
+
+                  <CoherenceQualityObjectives/>
+                  <CoherencePlansProgrammes/>
+            </T27>
+            <T27p>
+                  <ConsultationComments/>
+                  <Indicators>
+                        <Description/>
+                        <InterimTarget1/>
+                        <InterimTarget2/>
+                        <InterimTarget3/>
+                        <InterimTarget4/>
+                        <InterimYearTarget1/>
+                        <InterimYearTarget2/>
+                        <InterimYearTarget3/>
+                        <InterimYearTarget4/>
+                        <Unit/>
+                  </Indicators>
+
+                  <Reference>
+                        <Text/>
+                        <Url/>
+                  </Reference>
+            </T27p>
+           
+         </Table1>
+
+      </NEC_PAM>
+   </NEC_PAMs>

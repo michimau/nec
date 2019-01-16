@@ -10,7 +10,7 @@ Build for development
 ====================================
 
 - Run "npm run build-dev" to build the project (to "/dist") and start the webpack development webserver pointing to that directory
-- Open "http://localhost:8080/index.html" in your browser to view the webform just built
+- Open "http://localhost:8085/index.html" in your browser to view the webform just built
 
 
 Build for deployment to test (webq2test)

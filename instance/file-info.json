@@ -4,16 +4,6 @@
       "description" : "Print preview",
       "resultType" : "HTML",
       "basic" : true
-    }, {
-      "id" : "565",
-      "description" : "MS Excel (full export)",
-      "resultType" : "ODS",
-      "basic" : true
-    }, {
-      "id" : "558",
-      "description" : "MS Excel (UNFCCC BR)",
-      "resultType" : "ODS",
-      "basic" : true
     }
   ],
   "created" : "27 Sep 2017 08:39:16",
