@@ -9,7 +9,7 @@ Setup for development
 Build for development
 ====================================
 
-- Run "npm build-dev" to build the project (to "/dist") and start the webpack development webserver pointing to that directory
+- Run "npm run build-dev" to build the project (to "/dist") and start the webpack development webserver pointing to that directory
 - Open "http://localhost:8080/index.html" in your browser to view the webform just built
 
 

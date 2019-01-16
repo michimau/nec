@@ -67,16 +67,31 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
       if($scope.ammoniaEmissionsControlPracticesTreeInstance) {$scope.ammoniaEmissionsControlPracticesTreeInstance.jstree(true).uncheck_all()};
       $scope.current.PAM.Table1.T264[0].AmmoniaEmissionsControlPracticesPage = '';
       $scope.current.PAM.Table1.T264[0].AmmoniaEmissionsControlPracticesExactly = 'yes';
-      $scope.current.PAM.Table1.T264[0].AmmoniaEmissionsControlPracticesExactlyReason = '';
+      //$scope.current.PAM.Table1.T264[0].AmmoniaEmissionsControlPracticesExactlyReason = '';
+      $scope.emptyAmmoniaEmissionsControlPracticesExactlyReason();
 
       $scope.current.PAM.Table1.T264[0].NationalNitrogenBudgetPage = '';
       $scope.current.PAM.Table1.T264[0].NationalNitrogenBudgetExactly = 'yes';
-      $scope.current.PAM.Table1.T264[0].NationalNitrogenBudgetExactlyReason = '';
+      //$scope.current.PAM.Table1.T264[0].NationalNitrogenBudgetExactlyReason = '';
+      $scope.emptyNationalNitrogenBudgetExactlyReason();
 
       if($scope.inorganicFertilisersTreeInstance) {$scope.inorganicFertilisersTreeInstance.jstree(true).uncheck_all()};
       $scope.current.PAM.Table1.T264[0].InorganicFertilizersPage = '';
-      $scope.cur  /////////////////////////////////////////////////END RADIO BUTTONS CONTROL/////////////////////////////////////////////////rent.PAM.Table1.T264[0].InorganicFertilizersExactly = 'yes';
+      $scope.current.PAM.Table1.T264[0].InorganicFertilizersExactly = 'yes';
+      $scope.emptyInorganicFertilizersExactlyReason()
+      //$scope.current.PAM.Table1.T264[0].InorganicFertilizersExactlyReason = '';
+    }
+    
+    $scope.emptyNationalNitrogenBudgetExactlyReason = function() {
+      $scope.current.PAM.Table1.T264[0].NationalNitrogenBudgetExactlyReason = '';
+    }
+
+    $scope.emptyInorganicFertilizersExactlyReason = function() {
       $scope.current.PAM.Table1.T264[0].InorganicFertilizersExactlyReason = '';
+    }
+
+    $scope.emptyAmmoniaEmissionsControlPracticesExactlyReason = function() {
+      $scope.current.PAM.Table1.T264[0].AmmoniaEmissionsControlPracticesExactlyReason = '';
     }
 
     $scope.emptyMeasuresAmmoniaControlObjects = function() {
@@ -127,6 +142,12 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
       $scope.current.PAM.Table1.T264[0].InorganicFertilisersOther = '';
       $scope.current.PAM.Table1.T264[0].InorganicFertilisersPage = '';
       $scope.current.PAM.Table1.T264[0].InorganicFertilisersExactly = 'yes';
+      //$scope.current.PAM.Table1.T264[0].InorganicFertilisersExactlyReason = '';
+      $scope.emptyInorganicFertilisersExactlyReason();
+    }
+
+    $scope.emptyInorganicFertilisersExactlyReason = function() {
+      console.log('InorganicFertilisersExactlyReason!');
       $scope.current.PAM.Table1.T264[0].InorganicFertilisersExactlyReason = '';
     }
 
@@ -135,6 +156,12 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
       $scope.current.PAM.Table1.T264[0].AmmoniaEmissionsLivestockOther = '';
       $scope.current.PAM.Table1.T264[0].AmmoniaEmissionsLivestockPage = '';
       $scope.current.PAM.Table1.T264[0].AmmoniaEmissionsLivestockExactly = 'yes';
+      //$scope.current.PAM.Table1.T264[0].AmmoniaEmissionsLivestockExactlyReason = '';
+      $scope.emptyAmmoniaEmissionsLivestockExactlyReason();
+    }
+
+    $scope.emptyAmmoniaEmissionsLivestockExactlyReason = function() {
+      console.log('AmmoniaEmissionsLivestockExactlyReason!');
       $scope.current.PAM.Table1.T264[0].AmmoniaEmissionsLivestockExactlyReason = '';
     }
 
@@ -170,6 +197,8 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
       pam.Table1.T264.ExemptSmallMicroFarmsPageExactly = "yes";
 
       pam.Table1.SelectedForAdoption = "no";
+
+      pam.Table1.T261.QualitativeDescriptionUncertaintiesQuestion = "no";
     };
 
   /////////////////////////////////////////////////END RADIO BUTTONS CONTROL/////////////////////////////////////////////////
@@ -236,6 +265,7 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
             pollutant.Target2025 = null;
             pollutant.Target2030 = null;
             pollutant.TargetUnit = 'kt/year';
+            console.log('pushing ' + pollutant.Name);
             $scope.current.PAM.Table1.T261p.Pollutants.push(pollutant);
           }
         }
@@ -264,10 +294,10 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
         nodes.forEach(function(node) {
           if ($scope.sectorsTreeInstance.jstree(true).get_node(node).children.length == 0) {
             if ($scope.current.PAM.Table1.T261[0].Objectives.length == 0 || !(_.find($scope.current.PAM.Table1.T261[0].Objectives, function(o) { return o.Objective === node; }))) {
-              objective.Sector = $scope.sectorsTreeInstance.jstree(true).get_parent(node);
-              objective.SectorDescription = $scope.sectorsTreeInstance.jstree(true).get_text($scope.sectorsTreeInstance.jstree(true).get_parent(node));
+              //objective.Sector = $scope.sectorsTreeInstance.jstree(true).get_parent(node);
+              //objective.SectorDescription = $scope.sectorsTreeInstance.jstree(true).get_text($scope.sectorsTreeInstance.jstree(true).get_parent(node));
               objective.Objective = node;
-              objective.ObjectiveDescription = $scope.sectorsTreeInstance.jstree(true).get_text(node);
+              //objective.ObjectiveDescription = $scope.sectorsTreeInstance.jstree(true).get_text(node);
               if (node.includes("_other")) {
                 objective.ObjectiveDescription = '';
               }
@@ -288,6 +318,9 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
         if (selected.node && selected.node.children.length > 0 && selected.selected.length > 0) {
           $scope.sectorsTreeInstance.jstree(true).open_node(selected.node.id);  
         };
+
+        console.log('$scope.current.PAM');
+        console.log($scope.current.PAM);
     }
 
     $scope.nodePolicyInstrumentsChanged = function(node, selected, event) {
@@ -300,30 +333,27 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
 
     $scope.nodeUnionPolicyChanged = function(node, selected, event) {
       var nodes = selected.selected;
-      var unionPolicyType = {};
-      var unionPolicy = {};
+      //var unionPolicyType = {};
+      var unionPolicies = {};
 
       nodes.forEach(function(node) {
         if ($scope.unionPolicyTreeInstance.jstree(true).get_node(node).children.length == 0) {
-          if ($scope.current.PAM.Table1.T261[0].UnionPolicy.length == 0 || !(  _.find($scope.current.PAM.Table1.T261[0].UnionPolicy, function(o) { return o.UnionPolicy === node; })  )) {
-            unionPolicy.UnionPolicyType = $scope.unionPolicyTreeInstance.jstree(true).get_parent(node);
-            unionPolicy.UnionPolicyTypeDescription = $scope.unionPolicyTreeInstance.jstree(true).get_text($scope.unionPolicyTreeInstance.jstree(true).get_parent(node));
-            unionPolicy.UnionPolicy = node;
-            unionPolicy.UnionPolicyDescription = $scope.unionPolicyTreeInstance.jstree(true).get_text(node);
+          if ($scope.current.PAM.Table1.T261[0].UnionPolicies.length == 0 || !(  _.find($scope.current.PAM.Table1.T261[0].UnionPolicies, function(o) { return o.UnionPolicy === node; })  )) {
+            unionPolicies.UnionPolicy = node;
             if (node.includes("_other")) {
-              unionPolicy.UnionPolicyDescription = '';
+              unionPolicies.UnionPolicyDescription = '';
             }
-            $scope.current.PAM.Table1.T261[0].UnionPolicy.push(unionPolicy);
+            $scope.current.PAM.Table1.T261[0].UnionPolicies.push(unionPolicies);
           }
         }
-        unionPolicy = {};
+        unionPolicies = {};
       });
 
       //removing UnionPolicy not selected from object
-      $scope.current.PAM.Table1.T261[0].UnionPolicy.forEach (function(unionPolicy) {
-        if (!( _.find(nodes, function(o) { return o === unionPolicy.UnionPolicy; }) )) {
-          $scope.current.PAM.Table1.T261[0].UnionPolicy = $scope.current.PAM.Table1.T261[0].UnionPolicy.filter(function(el){
-            return el.UnionPolicy !== unionPolicy.UnionPolicy;
+      $scope.current.PAM.Table1.T261[0].UnionPolicies.forEach (function(UnionPolicies) {
+        if (!( _.find(nodes, function(o) { return o === UnionPolicies.UnionPolicy; }) )) {
+          $scope.current.PAM.Table1.T261[0].UnionPolicies = $scope.current.PAM.Table1.T261[0].UnionPolicies.filter(function(el){
+            return el.UnionPolicy !== UnionPolicies.UnionPolicy;
           });
         }
       })      
@@ -333,10 +363,14 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
           $scope.unionPolicyTreeInstance.jstree(true).open_node(selected.node.id);  
         };
       };
+
+      console.log('$scope.current.PAM');
+      console.log($scope.current.PAM);
     }
 
     $scope.nodeProjectionsScenarioChanged = function(node, selected, event) {
-      $scope.current.PAM.Table1.T261[0].ProjectionsScenario.Type = selected.selected;
+      //$scope.current.PAM.Table1.T261[0].ProjectionsScenario.Type = selected.selected;
+      $scope.current.PAM.Table1.T261[0].ProjectionsScenario = selected.selected;
     }
 
     $scope.nodeAmmoniaEmissionsControlPracticesChanged = function(node, selected, event) {
@@ -403,8 +437,8 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
   
         $scope.unionPolicyTreeInstance.jstree(true).deselect_all(true);
         $scope.unionPolicyTreeInstance.jstree('close_all');
-        if ($scope.current.PAM.Table1.T261[0].UnionPolicy) {
-          $scope.current.PAM.Table1.T261[0].UnionPolicy.forEach (function(node) {
+        if ($scope.current.PAM.Table1.T261[0].UnionPolicies) {
+          $scope.current.PAM.Table1.T261[0].UnionPolicies.forEach (function(node) {
             $scope.unionPolicyTreeInstance.jstree(true).select_node (node.UnionPolicyType , true, false);
             $scope.unionPolicyTreeInstance.jstree(true).select_node (node.UnionPolicy , true, false);
           })
@@ -412,31 +446,39 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
   
         $scope.projectionsScenarioTreeInstance.jstree(true).deselect_all(true);
         if ($scope.current.PAM.Table1.T261[0].ProjectionsScenario) {
-            $scope.projectionsScenarioTreeInstance.jstree(true).select_node ($scope.current.PAM.Table1.T261[0].ProjectionsScenario.Type , true, false);
+            //$scope.projectionsScenarioTreeInstance.jstree(true).select_node ($scope.current.PAM.Table1.T261[0].ProjectionsScenario.Type , true, false);
+            $scope.projectionsScenarioTreeInstance.jstree(true).select_node ($scope.current.PAM.Table1.T261[0].ProjectionsScenario , true, false);
         }
   
-        if ($scope.current.PAM.Table1.AmmoniaEmissionsControlPractices) {
+        if ($scope.current.PAM.Table1.T264[0].AmmoniaEmissionsControlPractices) {
           $scope.ammoniaEmissionsControlPracticesTreeInstance.jstree(true).deselect_all(true);
           $scope.ammoniaEmissionsControlPracticesTreeInstance.jstree('close_all');
           $scope.ammoniaEmissionsControlPracticesTreeInstance.jstree(true).select_node ($scope.current.PAM.Table1.T264[0].AmmoniaEmissionsControlPractices , true, false);
         }
   
-        if ($scope.current.PAM.Table1.InorganicFertilisers) {
+        if ($scope.current.PAM.Table1.T264[0].InorganicFertilisers) {
           $scope.inorganicFertilisersTreeInstance.jstree(true).deselect_all(true);
           $scope.inorganicFertilisersTreeInstance.jstree(true).select_node ($scope.current.PAM.Table1.T264[0].InorganicFertilisers , true, false);
         }
   
-        if ($scope.current.PAM.Table1.AmmoniaEmissionsLivestock) {
+        if ($scope.current.PAM.Table1.T264[0].AmmoniaEmissionsLivestock) {
           $scope.ammoniaEmissionsLivestockTreeInstance.jstree(true).deselect_all(true);
           $scope.ammoniaEmissionsLivestockTreeInstance.jstree('close_all');
           $scope.ammoniaEmissionsLivestockTreeInstance.jstree(true).select_node ($scope.current.PAM.Table1.T264[0].AmmoniaEmissionsLivestock , true, false);
         }
   
-        if ($scope.current.PAM.Table1.OpenFieldBurning) {
+        
+        if ($scope.current.PAM.Table1.T264[0].NationalAdvisoryCode) {
+          $scope.nationalAdvisoryCodeTreeInstance.jstree(true).deselect_all(true);
+          $scope.nationalAdvisoryCodeTreeInstance.jstree('close_all');
+          $scope.nationalAdvisoryCodeTreeInstance.jstree(true).select_node ($scope.current.PAM.Table1.T264[0].NationalAdvisoryCode , true, false);
+        }
+
+        /*if ($scope.current.PAM.Table1.T264[0].OpenFieldBurning) {
           $scope.nationalAdvisoryCodeTreeInstance.jstree(true).deselect_all(true);
           $scope.nationalAdvisoryCodeTreeInstance.jstree('close_all');
           $scope.nationalAdvisoryCodeTreeInstance.jstree(true).select_node ($scope.current.PAM.Table1.T264[0].OpenFieldBurning , true, false);
-        }
+        }*/
       }
     };
 
@@ -566,7 +608,7 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
     $scope.defaultTempValues();
     $scope.alerts = [];
     
-    $scope.emptyTables = {};
+    //$scope.emptyTables = {};
     $scope.current = {};    
     
     //Enable Validation by default
@@ -582,7 +624,7 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
       normalizeArray(instance.Table1,"T261");
       normalizeArray(instance.Table1.T261[0],"Objectives");
       normalizeArray(instance.Table1.T261[0],"PolicyInstruments");
-      normalizeArray(instance.Table1.T261[0],"UnionPolicy");
+      normalizeArray(instance.Table1.T261[0],"UnionPolicies");
       //normalizeArray(instance.Table1.T261[0],"Implementation");
       normalizeArray(instance.Table1.T261[0],"ProjectionsScenario");
       normalizeArray(instance.Table1.T261[0],"Entities");
@@ -606,7 +648,7 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
         normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1,"T261");
         normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1.T261[0],"Objectives");
         normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1.T261[0],"PolicyInstruments");
-        normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1.T261[0],"UnionPolicy");
+        normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1.T261[0],"UnionPolicies");
         //normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1.T261[0],"Implementation");
         normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1.T261[0],"ProjectionsScenario");
         normalizeArray(instance.NEC_PAMs.NEC_PAM[i].Table1.T261[0],"Entities");
@@ -675,7 +717,7 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
     */
    $scope.goOverview = function() { 
       $scope.OverviewCalculate();
-      $scope.OverviewValidate();
+      //$scope.OverviewValidate();
       
       $scope.showPams = false;
       $scope.showOverview = true;
@@ -688,7 +730,7 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
     * @param {Number} num Table
     * @returns {Boolean}
     */
-   $scope.isEmpty = function(index,num) {
+/*   $scope.isEmpty = function(index,num) {
     if (!$scope.instance || !$scope.emptyInstance || index < 0) { return true; }     
     var tmpSingle = angular.copy(emptyTables['emptyTable' + num]);
     var tmpGroup = angular.copy(emptyTables['emptyTable' + num]);   
@@ -698,17 +740,7 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
     }
     if (angular.equals(tmpTable,tmpSingle) || angular.equals(tmpTable,tmpGroup)) { return true; }
     else return false;    
-   };
-
-   $scope.isNumberKey =  function(evt) {
-    
-    var iKeyCode = (evt.which) ? evt.which : evt.keyCode
-    console.log(iKeyCode);
-    if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
-        return false;
-
-    return true;
-   } 
+   };*/
 
   /**
    * Returns true if Indicator has wrong year values
@@ -733,8 +765,12 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
    */
   $scope.setCurrentPam = function(id) {
     if (!$scope.instance.NEC_PAMs.NEC_PAM) { return; }
-    console.log('$scope.instance.NEC_PAMs.NEC_PAM');
-    console.log($scope.instance.NEC_PAMs.NEC_PAM);
+
+    /*$scope.current.PAM = _.filter($scope.instance.NEC_PAMs.NEC_PAM, { 'id': id });
+       if ($scope.current.PAM.Table1.isGroup == 'single') {
+      $scope.setCurrentTreeData();
+    };*/
+
     for (var i = 0; i < $scope.instance.NEC_PAMs.NEC_PAM.length; i++) {
       if ($scope.instance.NEC_PAMs.NEC_PAM[i].internalId == id) {
         $scope.current.PAM = $scope.instance.NEC_PAMs.NEC_PAM[i];
@@ -750,7 +786,7 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
     }
     $scope.defaultTempValues();
     $timeout(function() { $scope.Webform.$setPristine(true); },0);
-    $scope.OverviewValidate()
+    //$scope.OverviewValidate()
   };
 
   /**
@@ -840,32 +876,49 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
       });
     });
 
-    pam.Table1.T261p.Pollutants.forEach (function(pollutant) {
-      tmpObjFromPackage.push(pollutant.Name); 
-    });
+    //if (pam.Table1.T261p.Pollutants.length > 1) {
+      pam.Table1.T261p.Pollutants.forEach (function(pollutant) {
+        tmpObjFromPackage.push(pollutant.Name);
+      });
+    //}
 
-    var tmpObjToPush = angular.copy($scope.getInstanceByPath('emptyInstance.NEC_PAMs.NEC_PAM.Table1','T261p.Pollutants'));
-    _.difference(_.uniq(tmpObjFromSingle), _.uniq(tmpObjFromPackage)).forEach (function(pollutant) {
+    /*console.log('tmpObjFromSingle');
+    console.log(tmpObjFromSingle);
+
+    console.log('tmpObjFromPackage');
+    console.log(tmpObjFromPackage);*/
+
+    var tmpObjToPush;
+    console.log('pollutant'); //TODO
+    _.uniq(_.difference(_.uniq(tmpObjFromSingle), _.uniq(tmpObjFromPackage))).forEach (function(pollutant) {
+      tmpObjToPush = angular.copy($scope.getInstanceByPath('emptyInstance.NEC_PAMs.NEC_PAM.Table1','T261p.Pollutants')); 
+      console.log('tmpObjToPush');
+      console.log(tmpObjToPush);
+      console.log('inserting: ' + pollutant);
       tmpObjToPush.Name = pollutant;
       /*tmpObjToPush.Target2020 = null;
       tmpObjToPush.Target2025 = null;
-      tmpObjToPush.Target2030 = null;
-      tmpObjToPush.TargetUnit = 'kt/year';*/
+      tmpObjToPush.Target2030 = null;*/
+      tmpObjToPush.TargetUnit = 'kt/year';
       pam.Table1.T261p.Pollutants.push(tmpObjToPush);
     });
 
     _.difference(_.uniq(tmpObjFromPackage), _.uniq(tmpObjFromSingle)).forEach (function(pollutant) {
-       _.remove(pam.Table1.T261p.Pollutants, {Name: pollutant});
+      console.log('removing: ' + pollutant);
+      _.remove(pam.Table1.T261p.Pollutants, {Name: pollutant});
     });
+
+    /*console.log('pam.Table1.T261p.Pollutants');
+    console.log(pam.Table1.T261p.Pollutants);*/
   }
 
   $scope.copyFromSingle = function (pam, tempGroup, element) {
-    console.log('pam');
+    /*console.log('pam');
     console.log(pam);
     console.log('tempGroup');
     console.log(tempGroup);
     console.log('element');
-    console.log(element);
+    console.log(element);*/
     var tmpObj = [];
     for (var i = 0; i < tempGroup.length;i++) {
       var tmp = $filter('filter')($scope.instance.NEC_PAMs.NEC_PAM, {id: tempGroup[i]}, true)[0].Table1;
@@ -992,22 +1045,32 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
     if (!$scope.instance) { return; }
     var clonedEmptyPaM = angular.copy(emptyPam);
     clonedEmptyPaM.id = $scope.getNextId();
+    
+
     //clonedEmptyPaM.Table1.T261[0].Objectives = [];
     //normalizeArray(clonedEmptyPaM.T27p,"Reference");
     
     console.log('clonedEmptyPaM');
     console.log(clonedEmptyPaM);
+    clonedEmptyPaM.Table1.isGroup = type;
+    if (type === 'group') {
+      clonedEmptyPaM.Table1.T261p = {};
+      clonedEmptyPaM.Table1.T27p = {};
+    }
+    
     $scope.setRadioButtons(clonedEmptyPaM);
     $scope.DoNormalizeArrayEmpty(clonedEmptyPaM);
-    clonedEmptyPaM.Table1.isGroup = type;
+    
     //clonedEmptyPaM.Table1.T261p.Pollutants.TargetUnit = "kt/year";
 
     $scope.instance.NEC_PAMs.NEC_PAM.push(clonedEmptyPaM);
     
     $timeout(function() {                      
-      $scope.OverviewValidate();
+      //$scope.OverviewValidate();
       if (goEdit === true) {
+        console.log(1);
         $scope.editTable(clonedEmptyPaM.internalId,1);
+        console.log(2);
       }        
     },0);
   };
@@ -1100,7 +1163,7 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
       $scope.Overview.Table.empty1 = [];
       $scope.Overview.Table.text1 = [];
       for (var i = 0; i < $scope.instance.NEC_PAMs.NEC_PAM.length;i++) {
-        $scope.Overview.Table.empty1[i] = $scope.isEmpty(i,1);
+        //$scope.Overview.Table.empty1[i] = $scope.isEmpty(i,1);
         $scope.Overview.Table.text1[i] = $scope.Overview.Table.empty1[i] === true ? 'Labels.Overview.new_table' : 'Labels.Overview.edit_table';
       }
     };
@@ -1113,31 +1176,40 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
     $scope.OverviewValidate = function() {
       $scope.temp.Validation = {};      
       var tmp = $scope.instance.NEC_PAMs.NEC_PAM;
-      for (var i = 0; i < tmp.length;i++) { 
+      for (var i = 0; i < tmp.length;i++) {
+        
         var valid = true;
         var PAM = tmp[i];
+
+        $scope.Group.calculateGroup(PAM);
+        console.log('PAM');
+        console.log(PAM);
 
         if (
           $scope.isNullEmpty(PAM.Title) || 
           $scope.isNullEmpty(PAM.Table1.Description) || 
-          $scope.isNull(PAM.Table1.isGroup) || 
-          $scope.isNullEmpty(PAM.Table1.T261p.Pollutants) || 
+          $scope.isNull(PAM.Table1.isGroup) ||
+          $scope.isNullEmpty(PAM.Table1.T261p.Pollutants) ||
           $scope.isNullEmpty(PAM.Table1.T261[0].Objectives) ||
           $scope.isNullEmpty(PAM.Table1.T261[0].PolicyInstruments) ||
           $scope.isNullEmpty(PAM.Table1.T261[0].Entities) ||
-          $scope.isNullEmpty(PAM.Table1.T261[0].DetailsMethodology) ||
-          $scope.isNullEmpty(PAM.Table1.T261p.QualitativeDescriptionUncertainties)
+          $scope.isNullEmpty(PAM.Table1.T261[0].DetailsMethodology) 
         ) { valid = false; }
-        //console.log('1 ' + valid);
-          
+        console.log('1 ' + valid);
+        
+        if (PAM.Table1.T261[0].QualitativeDescriptionUncertaintiesQuestion == 'yes' && 
+            $scope.isNullEmpty(PAM.Table1.T261[0].QualitativeDescriptionUncertainties)
+        ) { valid = false; }
+        console.log('1b ' + valid);
+
         if (
           (PAM.Table1.T261[0].Implementation.Start > PAM.Table1.T261[0].Implementation.Finish ||
             PAM.Table1.T261[0].Implementation.Start < 1990 ||
             PAM.Table1.T261[0].Implementation.Start > 2050 ||
             PAM.Table1.T261[0].Implementation.Finish < 1990 ||
-            PAM.Table1.T261[0].Implementation.Finish > 2050)
+            PAM.Table1.T261[0].Implementation.Finish > 9999)
         ) { valid = false; }
-        //console.log('2 ' + valid);
+        console.log('2 ' + valid);
 
         if (PAM.Table1.SelectedForAdoption == 'yes') {
           if (
@@ -1158,7 +1230,7 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
             ) { valid = false; }
           }
         }
-        //console.log('3 ' + valid);
+        console.log('3 ' + valid);
 
         //loop over Pollutants
         if (!$scope.isNullEmpty(PAM.Table1.T261p.Pollutants)) {
@@ -1172,21 +1244,30 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
             }
           })
         }
-        //console.log('4 ' + valid);
+        console.log('4 ' + valid);
 
         //loop over Objectives
         if (!$scope.isNullEmpty(PAM.Table1.T261[0].Objectives)) {
           PAM.Table1.T261[0].Objectives.forEach(function(objective) {
-            if ($scope.isNullEmpty(objective.Sector) || 
+            /*if ($scope.isNullEmpty(objective.Sector) || 
                 $scope.isNullEmpty(objective.SectorDescription) || 
                 $scope.isNullEmpty(objective.Objective) || 
                 $scope.isNullEmpty(objective.ObjectiveDescription)
                 ) {
               valid = false;
+            }*/
+            if ($scope.isNullEmpty(objective.Objective) 
+                ) {
+              valid = false;
+            }
+
+            if (!$scope.isNullEmpty(objective.Objective) && objective.Objective.includes("_other") && $scope.isNullEmpty(objective.ObjectiveDescription)
+                ) {
+              valid = false;
             }
           })
         }
-        //console.log('5 ' + valid);
+        console.log('5 ' + valid);
 
         //loop over Entities to test Type and Name
         if (!$scope.isNullEmpty(PAM.Table1.T261[0].Entities)) {
@@ -1196,7 +1277,7 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
             }
           })
         }
-        //console.log('6 ' + valid);
+        console.log('6 ' + valid);
 
         if (PAM.Table1.T261[0].UnionPolicyRelated == 'yes') {
           if ($scope.isNullEmpty(PAM.Table1.T261[0].UnionPolicy)) { 
@@ -1204,17 +1285,17 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
           } 
           else {
             //loop over UnionPolicy to test all object
-            PAM.Table1.T261[0].UnionPolicy.forEach(function(UnionPolicy) {
+            PAM.Table1.T261[0].UnionPolicies.forEach(function(UnionPolicy) {
               if (
-                $scope.isNullEmpty(UnionPolicy.UnionPolicyType) ||
-                $scope.isNullEmpty(UnionPolicy.UnionPolicyTypeDescription) ||
-                $scope.isNullEmpty(UnionPolicy.UnionPolicy) ||
-                $scope.isNullEmpty(UnionPolicy.UnionPolicyDescription) 
+                //$scope.isNullEmpty(UnionPolicies.UnionPolicyType) ||
+                //$scope.isNullEmpty(UnionPolicies.UnionPolicyTypeDescription) ||
+                $scope.isNullEmpty(UnionPolicies.UnionPolicy) ||
+                $scope.isNullEmpty(UnionPolicies.UnionPolicyDescription) 
               ) { valid = false; }
             })
           }
         }
-        //console.log('7 ' + valid);
+        console.log('7 ' + valid);
         
         //Agriculture is a mess :-)
         if(PAM.Table1.T264[0].AmmoniaEmissionsControlPracticesQuestion == 'yes') {
@@ -1229,7 +1310,7 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
             }
           }
         }
-        //console.log('8 ' + valid);
+        console.log('8 ' + valid);
 
         if(PAM.Table1.T264[0].InorganicFertilisersQuestion == 'yes') {
           if (
@@ -1243,28 +1324,30 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
             }
           }
         }
-        //console.log('9 ' + valid);
-        
+        console.log('9 ' + valid);
+       
         if(PAM.Table1.T264[0].AmmoniaEmissionsLivestockQuestion == 'yes') {
           if (
               $scope.isNullEmpty(PAM.Table1.T264[0].AmmoniaEmissionsLivestock) ||
               $scope.isNullEmpty(PAM.Table1.T264[0].AmmoniaEmissionsLivestockPage)
             ) { valid = false; }
 
+            console.log('10a ' + valid);
           if ($scope.isNullEmpty(PAM.Table1.T264[0].AmmoniaEmissionsLivestockExactly) == 'no') {
             if ($scope.isNullEmpty(PAM.Table1.T264[0].AmmoniaEmissionsLivestockExactlyReason)) {
               valid = false;
             }
           }
+          console.log('10b ' + valid);
         }
-        //console.log('10 ' + valid);
+        console.log('10 ' + valid);
 
         if(PAM.Table1.T264[0].NationalAdvisoryCodeQuestion == 'yes') {
           if (
               $scope.isNullEmpty(PAM.Table1.T264[0].NationalAdvisoryCode)
             ) { valid = false; }
         }
-        //console.log('11 ' + valid);
+        console.log('11 ' + valid);
 
         $scope.temp.Validation['ID' + PAM.internalId] = {};
         $scope.temp.Validation['ID' + PAM.internalId]['Table1'] = valid;
@@ -1305,7 +1388,7 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
      * 
      */
     $scope.isValid = function() {
-     $scope.OverviewValidate();
+      $scope.OverviewValidate();
 
       console.log('$scope.temp.Validation');
       console.log($scope.temp.Validation);
@@ -1349,7 +1432,7 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
         delete tmpScope.NEC_PAMs.NEC_PAM[i].internalId;
         //clear policies if not related
         if (tmpScope.NEC_PAMs.NEC_PAM[i].Table1.UnionPolicyRelated === "no") {
-          tmpScope.NEC_PAMs.NEC_PAM[i].Table1.UnionPolicy = [];
+          tmpScope.NEC_PAMs.NEC_PAM[i].Table1.UnionPolicies = [];
         }
       }
       //Sort the PaMs before saving, so they are properly ordered in the xml-file for viewing in print-preview etc. 
@@ -1424,9 +1507,9 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
     
     var emptyPam = require('./emptyPam.json');
     
-    var emptyTables = {
-      emptyTable1: emptyPam.Table1
-    };       
+    //var emptyTables = {
+    //  emptyTable1: emptyPam.Table1
+    //};       
     // disable function for select fields 
     $scope.searchEnabled = false;
         
@@ -1456,13 +1539,13 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
     });
     
     /*$scope.Table1ClearUnionPolicy = function() {
-      $timeout(function() { $scope.current.PAM.Table1.T261[0].UnionPolicy = []; },0);
+      $timeout(function() { $scope.current.PAM.Table1.T261[0].UnionPolicies = []; },0);
     };*/
 
 
     // Clear list of other union policies when "Other (Union policy not listed above or additional Union policy)" is not selected 
     /*$scope.UpdateOtherPolicies = function() {
-      if ($scope.current.PAM.Table1.T261[0].UnionPolicy.indexOf("Other_EU") === -1 && $scope.current.PAM.Table1.T261[0].UnionPolicyOther.length > 0 && $scope.current.PAM.Table1.T261[0].UnionPolicyOther[0].Name != null) {
+      if ($scope.current.PAM.Table1.T261[0].UnionPolicies.indexOf("Other_EU") === -1 && $scope.current.PAM.Table1.T261[0].UnionPolicyOther.length > 0 && $scope.current.PAM.Table1.T261[0].UnionPolicyOther[0].Name != null) {
         $scope.current.PAM.Table1.T261[0].UnionPolicyOther.length = 0; //Clear array
         $scope.addItem('Table1.UnionPolicyOther');
       }
@@ -1494,16 +1577,22 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
 
     // Model manipulation watchers for single or group
 
-    //when single BelongsToPackage == 'yes' and assigned to package, but suddently set 
+    //when single BelongsToPackage == 'yes' and assigned to package, but suddenly set 
     // BelongsToPackage == 'no', it must be removed from the package
     $scope.$watch('current.PAM.Table1.BelongsToPackage', function(newValue, oldValue) {   
-      var myArr = [];
+      //var myArr = [];
       if ($scope.temp.disableWatchers) { return; }
       if (newValue === 'no') {
-        myArr = $scope.getGroupPam($scope.instance.NEC_PAMs.NEC_PAM);
-        myArr.forEach (function(pam) {
+        //myArr = $scope.getGroupPam($scope.instance.NEC_PAMs.NEC_PAM);
+        //myArr.forEach (function(pam) {
+        $scope.getGroupPam($scope.instance.NEC_PAMs.NEC_PAM).forEach (function(pam) {
           pam.Table1.PolicyGroup = _.remove(pam.Table1.PolicyGroup, function(n) { return n != $scope.current.PAM.id; });
-          $scope.Group.calculateGroup(pam, pam.Table1.PolicyGroup);
+          //$scope.Group.calculateGroup(pam, pam.Table1.PolicyGroup);
+          if (pam.Table1.PolicyGroup) {
+            $scope.setSelectedForAdoptionFromSingle(pam, pam.Table1.PolicyGroup);
+          }
+          $scope.copyPollutantsFromSingle(pam, pam.Table1.PolicyGroup);
+          $scope.copyFromSingle(pam, $scope.current.PAM.Table1.PolicyGroup, 'T261', true);
         });
       }
     });
@@ -1513,7 +1602,15 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
       if ($scope.temp.disableWatchers) { return; }
       if ($scope.temp.SaveDisabled) { return; }
       console.log('newValue: ' + newValue);
-      $scope.Group.calculateGroup($scope.current.PAM, newValue);
+      //$scope.Group.calculateGroup($scope.current.PAM, newValue);
+      console.log('$scope.current.PAM');
+      console.log($scope.current.PAM);
+      if ($scope.current.PAM.Table1.isGroup == 'group' && $scope.current.PAM.Table1.PolicyGroup) {
+        $scope.setSelectedForAdoptionFromSingle($scope.current.PAM, $scope.current.PAM.Table1.PolicyGroup);
+        $scope.copyPollutantsFromSingle($scope.current.PAM, $scope.current.PAM.Table1.PolicyGroup);
+        $scope.copyFromSingle($scope.current.PAM, $scope.current.PAM.Table1.PolicyGroup, 'T261', true);
+      }
+      
       /*if (!$scope.isNullEmpty(newValue)) {
         $scope.Group.calculateGroup(newValue);
       }*/
@@ -1550,28 +1647,32 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
 
     //TODO
     $scope.Group.calculateGroup = function(pam, PolicyGroup) {
-      console.log('calculateGroup');
+
+
+      /*console.log('calculateGroup');
       console.log('pam');
       console.log(pam);
       console.log('PolicyGroup');
-      console.log(PolicyGroup);
+      console.log(PolicyGroup);*/
       if (pam.Table1.isGroup !== 'group') { return; }
       if (pam.Table1.PolicyGroup) {
         //$scope.Group.getSectors($scope.current.PAM.Table1.PolicyGroup);
         //$scope.Group.getElementsForGroups($scope.current.PAM.Table1.PolicyGroup, 'T261p', 'Pollutants', true);
         /*$scope.Group.getElementsForGroups($scope.current.PAM.Table1.PolicyGroup, 'T261[0]', 'Objectives', true);
         $scope.Group.getElementsForGroups($scope.current.PAM.Table1.PolicyGroup, 'T261[0]', 'PolicyInstruments', true);
-        $scope.Group.getElementsForGroups($scope.current.PAM.Table1.PolicyGroup, 'T261[0]', 'UnionPolicy', true);
+        $scope.Group.getElementsForGroups($scope.current.PAM.Table1.PolicyGroup, 'T261[0]', 'UnionPolicies', true);
         $scope.Group.getElementsForGroups($scope.current.PAM.Table1.PolicyGroup, 'T261[0]', 'Implementation', false);
         $scope.Group.getElementsForGroups($scope.current.PAM.Table1.PolicyGroup, 'T261[0]', 'ProjectionsScenario', false);*/
         //$scope.Group.getElementsForGroups($scope.current.PAM.Table1.PolicyGroup, 'T261[0]', true);
+        
+        //redundant
         $scope.copyFromSingle(pam, pam.Table1.PolicyGroup, 'T261', true);
 
         $scope.copyFromSingle(pam, pam.Table1.PolicyGroup, 'T264', true);
 
         $scope.copyFromSingle(pam, pam.Table1.PolicyGroup, 'T27', true);
 
-        $scope.setSelectedForAdoptionFromSingle(pam, pam.Table1.PolicyGroup);
+        //$scope.setSelectedForAdoptionFromSingle(pam, pam.Table1.PolicyGroup);
         //$scope.Group.getPollutants($scope.current.PAM.Table1.PolicyGroup);
         //$scope.Group.getObjectives($scope.current.PAM.Table1.PolicyGroup);
         //$scope.Group.getPolicyInstrument($scope.current.PAM.Table1.PolicyGroup);
@@ -1583,7 +1684,7 @@ webform.controller('NECsCtrl', ['$scope', '$rootScope', '$location', 'dataReposi
         //$scope.Group.getScenarios($scope.current.PAM.Table1.PolicyGroup);
         //$scope.Group.getAgriculture($scope.current.PAM.Table1.PolicyGroup);
       }
-      $scope.copyPollutantsFromSingle(pam, pam.Table1.PolicyGroup);
+      //$scope.copyPollutantsFromSingle(pam, pam.Table1.PolicyGroup);
     };
     
     //Function to run Group Calculations for every PAM in Webform

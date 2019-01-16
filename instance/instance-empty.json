@@ -8,11 +8,46 @@
       "TitleLocal" : "",
       "Table1" : {
         "isGroup" : "single",
+        "Description" : null,
         "BelongsToPackage" : "no",
+        "ReportedAlready": null,
         "AgriculturalRelated": "no",
-        "AdoptionPlannedYear" : null,
-        "Agriculture": {
-          "id" : null,
+        "PolicyGroup" : null,
+        "SelectedForAdoption" : "no",
+        "T261": {
+          "Objectives" : [],
+          "PolicyInstruments" : null,
+          "Implementation" : {
+            "Start" : null,
+            "Finish" : null,
+            "Comment" : null
+          },
+          "Entities" : {
+            "Type" : null,
+            "Name" : null
+          },
+          "DetailsMethodology": null,
+          "UnionPolicyRelated" : "no",
+          "UnionPolicies" : null,
+          "ProjectionsScenario" : null,
+          "QualitativeDescriptionUncertaintiesQuestion": "no",
+          "QualitativeDescriptionUncertainties": null,
+          "id": null
+        },
+        "T261p": {
+          "Pollutants" : {
+            "Name": null,
+            "Target2020": null,
+            "Target2025" : null,
+            "Target2030" : null,
+            "TargetUnit" : "kt/year"
+          }
+        },
+        "T262": {
+          "AirQualityImpact" : null,
+          "InformationImpactAirQuality" : "no"
+        },
+        "T264": {
           "MeasuresAmmoniaControlQuestion": "no",
           
           "AmmoniaEmissionsControlPracticesQuestion": "no",
@@ -53,57 +88,42 @@
 
           "NationalAdvisoryCodeQuestion": "no",
           "NationalAdvisoryCode": null,
-          "NationalAdvisoryCodePage": null,
-          "NationalAdvisoryCodeExactly": "yes",
-          "NationalAdvisoryCodeExactlyReason": null,
+          "NationalAdvisoryCodeOther": null,
           
           "PreventingImpactsSmallFarmsQuestion": "no",
           "SmallMicroFarmsFullAccountQuestion": "no",
-          "SmallMicroFarmsExemptionsQuestion": "no"
+          "SmallMicroFarmsExemptionsQuestion": "no",
+          "id": null
         },
-        "PolicyGroup" : null,
-        "Pollutants" :  null,
-        "Objective" : [],
-        "Description" : null,
-        "PolicyInstruments" : null,
-        "SelectedForAdoption" : "no",
-        "UnionPolicy" : null,
-        "UnionPolicyRelated" : "no",
-        "Implementation" : {
-          "Status" : null,
-          "Start" : null,
-          "Finish" : null,
-          "id" : null
+        "T27": {
+          "AdoptionPlannedYear" : null,
+          "ReviewTimetable" : {
+            "Start" : null,
+            "Finish" : null
+          },
+          "CoherenceQualityObjectives" : null,
+          "CoherencePlansProgrammes" : null,
+          "id": null 
         },
-        "ReviewTimetable" : {
-          "Start" : null,
-          "Finish" : null,
-          "id" : null
-        },
-        "ProjectionsScenario" : null,
-        "Entities" : {
-          "Type" : null,
-          "Name" : null
-        },
-        "Indicators" : {
-          "Description" : null,
-          "Unit" : null,
-          "InterimYearTarget1" : null,
-          "InterimTarget1" : null,
-          "InterimYearTarget2" : null,
-          "InterimTarget2" : null,
-          "InterimYearTarget3" : null,
-          "InterimTarget3" : null,
-          "InterimYearTarget4" : null,
-          "InterimTarget4" : null
-        },
-        "AirQualityImpact" : null,
-        "InformationImpactAirQuality" : "no",
-        "Reference" : {
-          "Text" : null,
-          "Url" : null
-        },
-        "BasisExplanation" : null
+        "T27p": {
+          "ConsultationComments" : null,
+          "Indicators" : {
+            "Description" : null,
+            "Unit" : null,
+            "InterimYearTarget1" : null,
+            "InterimTarget1" : null,
+            "InterimYearTarget2" : null,
+            "InterimTarget2" : null,
+            "InterimYearTarget3" : null,
+            "InterimTarget3" : null,
+            "InterimYearTarget4" : null,
+            "InterimTarget4" : null
+          },
+          "Reference" : {
+            "Text" : null,
+            "Url" : null
+          }
+        }
       }
     }
   }

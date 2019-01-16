@@ -41,6 +41,15 @@
 
                 return true;
             }
+
+            function isNumberPoundDashKey (event){
+                var iKeyCode = (event.which) ? event.which : event.keyCode
+                console.log(iKeyCode);
+                if (iKeyCode != 46 && iKeyCode != 35 && iKeyCode != 45 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
+                    return false;
+
+                return true;
+            }
         </script>
     <div ng-class="{loadingTracker: $parent.loadingTracker.active()}" ng-show="$parent.loadingTracker.active()">
         <span us-spinner></span>
@@ -142,7 +151,7 @@
                 <form name="Table1" class="my-tabs">
                     <div class="rcorners">
                         <h1>
-                              <span>PaM identification</span>
+                              <span>PaM identification - Table 2.6.1</span>
                            </h1>
                         <table>
                             <tbody>
@@ -252,7 +261,7 @@
                                         <ui-select-match></ui-select-match>
                                         <ui-select-choices repeat="item in current.PAM.Table1.T261[0].Objectives track by $index"></ui-select-choices>
                                     </ui-select>
-                                    <!-- END temporary solution to keep validation functional -->
+                                   <!--  END temporary solution to keep validation functional -->
                                     <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_Sectors.$error.required">
                                         <span translate="Labels.Validation.empty"></span>
                                     </div>
@@ -298,17 +307,7 @@
                             </tr>
                             <!-- Status of implementation -->
                             <tr class="row" ng-hide="temp.isGroup">                                
-                                <!-- SelectedForAdoption -->
-                                <td class="small-2 columns">
-                                    <label translate="Labels.Table1.SelectedForAdoption.label"></label>
-                                </td>
-                                <td class="small-10 columns and">
-                                    <span translate="Labels.Table1.yes"></span>
-                                    <input id='SelectedForAdoption1' name='SelectedForAdoption' type='radio' ng-model='current.PAM.Table1.SelectedForAdoption' value='yes' />
-                                    <span translate="Labels.Table1.no"></span>
-                                    <input id='SelectedForAdoption2' name='SelectedForAdoption' type='radio' ng-model='current.PAM.Table1.SelectedForAdoption' value='no' checked="checked" />
-                                    <br><br>
-                                </td>
+                                
                                 <!--</tr>
                                     <tr class="row" ng-hide="temp.isGroup">-->
                                 <!--Implementation Period -->
@@ -332,9 +331,12 @@
                                         </div>
                                         <div class="small-2 columns">
                                             <label translate="Labels.Table1.ImplementationPeriod.finish"></label>
-                                            <input placeholder="" name="table1_ImplementationPeriodFinish" type="number" onkeypress="javascript:return isNumberKey(event);" min="2000" max="2050" ng-model="current.PAM.Table1.T261[0].Implementation.Finish" greater-equal-than="{{current.PAM.Table1.T261[0].Implementation.Start}}" />
+                                            <input name="table1_ImplementationPeriodFinish" type="number" onkeypress="javascript:return isNumberKey(event);" min="2000" max="9999" ng-required="true" ng-model="current.PAM.Table1.T261[0].Implementation.Finish" greater-equal-than="{{current.PAM.Table1.T261[0].Implementation.Start}}" />
+                                            <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_ImplementationPeriodFinish.$error.required">
+                                                <span translate="Labels.Validation.empty"></span>
+                                            </div>
                                             <div class="invalid-wrap" ng-show="ValidationEnabled && (Table1.table1_ImplementationPeriodFinish.$error.min || Table1.table1_ImplementationPeriodFinish.$error.max)">
-                                                <span translate="Labels.Validation.range_year" translate-values="{ min: '2000', max: '2050'}"></span>
+                                                <span translate="Labels.Validation.range_year" translate-values="{ min: '2000', max: '9999'}"></span>
                                             </div>
                                             <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_ImplementationPeriodFinish.$error.greaterEqualThan">
                                                 <span translate="Labels.Validation.greater_equal_than" translate-values="{ field:'{{'Labels.Table1.ImplementationPeriod.start' | translate}}'}"></span>
@@ -442,7 +444,7 @@
                                                     <label>2020</label>
                                                 </div>
                                                 <div class="small-2 columns">
-                                                    <input type="number" onkeypress="javascript:return isNumberKey(event);" name="table1_target2020{{$index}}" ng-model="Pollutant.Target2020" ng-required="current.PAM.Table1.Pollutant.Target2020.indexOf({{$index}}) !== -1">
+                                                    <input type="text" onkeypress="javascript:return isNumberPoundDashKey(event);" name="table1_target2020{{$index}}" ng-model="Pollutant.Target2020" ng-required="current.PAM.Table1.Pollutant.Target2020.indexOf({{$index}}) !== -1">
                                                     <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_target2020{{$index}}.$error.required">
                                                         <span translate="Labels.Validation.empty"></span>
                                                     </div>
@@ -451,7 +453,7 @@
                                                     <label>2025</label>
                                                 </div>
                                                 <div class="small-2 columns">
-                                                    <input type="number" onkeypress="javascript:return isNumberKey(event);" name="table1_target2025{{$index}}" ng-model="Pollutant.Target2025" ng-required="current.PAM.Table1.Pollutant.Target2025.indexOf({{$index}}) !== -1">
+                                                    <input type="text" onkeypress="javascript:return isNumberPoundDashKey(event);" name="table1_target2025{{$index}}" ng-model="Pollutant.Target2025" ng-required="current.PAM.Table1.Pollutant.Target2025.indexOf({{$index}}) !== -1">
                                                     <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_target2025{{$index}}.$error.required">
                                                         <span translate="Labels.Validation.empty"></span>
                                                     </div>
@@ -460,7 +462,7 @@
                                                     <label>2030</label>
                                                 </div>
                                                 <div class="small-2 columns end">
-                                                    <input type="number" onkeypress="javascript:return isNumberKey(event);" name="table1_target2030{{$index}}" ng-model="Pollutant.Target2030" ng-required="current.PAM.Table1.Pollutant.Target2030.indexOf({{$index}}) !== -1">
+                                                    <input type="text" onkeypress="javascript:return isNumberPoundDashKey(event);" name="table1_target2030{{$index}}" ng-model="Pollutant.Target2030" ng-required="current.PAM.Table1.Pollutant.Target2030.indexOf({{$index}}) !== -1">
                                                     <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_target2030{{$index}}.$error.required">
                                                         <span translate="Labels.Validation.empty"></span>
                                                     </div>
@@ -485,13 +487,21 @@
                                 </td>
                             </tr>
                             <tr class="row" ng-hide="temp.isGroup">
-                                <!-- Qualitative Description of Uncertainties -->
+                                <!-- Qualitative Description of Uncertainties TODO -->
                                 <td class="small-2 columns">
-                                    <label  for="table1_QualitativeDescriptionUncertainties" translate="Labels.Table1.QualitativeDescriptionUncertainties.label"></label>
+                                    <label class="my-inline" translate="Labels.Table1.QualitativeDescriptionUncertaintiesQuestion.label"></label>
                                 </td>
-                                <td class="small-10 columns">
-                                    <textarea rows="5" ng-model="current.PAM.Table1.T261p.QualitativeDescriptionUncertainties" id="table1_QualitativeDescriptionUncertainties" name="table1_QualitativeDescriptionUncertainties" type="text" required></textarea>
-                                    <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_QualitativeDescriptionUncertainties.$error.required">
+                                <td class="small-10 columns" ng-hide="temp.isGroup">
+                                    <div class="row small-padding">
+                                        <div class="small-12 columns">
+                                            <span translate="Labels.Table1.yes"></span>
+                                            <input id='QualitativeDescriptionUncertaintiesQuestion1' name='QualitativeDescriptionUncertaintiesQuestion' type='radio' ng-model='current.PAM.Table1.T261[0].QualitativeDescriptionUncertaintiesQuestion' value='yes' ng-required='!current.PAM.QualitativeDescriptionUncertaintiesQuestion' />
+                                            <span translate="Labels.Table1.no"></span>
+                                            <input id='QualitativeDescriptionUncertaintiesQuestion2' name='QualitativeDescriptionUncertaintiesQuestion' type='radio' ng-model='current.PAM.Table1.T261[0].QualitativeDescriptionUncertaintiesQuestion' value='no' ng-required='!current.PAM.QualitativeDescriptionUncertaintiesQuestion' />
+                                        </div>
+                                    </div>
+                                    <textarea rows="5" ng-show="current.PAM.Table1.T261[0].QualitativeDescriptionUncertaintiesQuestion === 'yes'" ng-model="current.PAM.Table1.T261[0].QualitativeDescriptionUncertainties" id="table1_QualitativeDescriptionUncertainties" name="table1_QualitativeDescriptionUncertainties" type="text" required></textarea>
+                                    <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_QualitativeDescriptionUncertainties.$error.required && current.PAM.Table1.T261[0].QualitativeDescriptionUncertaintiesQuestion === 'yes'">
                                         <span translate="Labels.Validation.empty"></span>
                                     </div>
                                 </td>
@@ -532,7 +542,7 @@
                                                 <label>Description</label>
                                             </div>
                                             <div class="small-8 columns end">
-                                                <input type="text" name="table1_OtherUnionPolicy{{$index}}" ng-model="entry.UnionPolicyDescription" ng-required="current.PAM.Table1.T261[0].UnionPolicy.UnionPolicyDescription.indexOf({{$index}}) !== -1">
+                                                <input type="text" name="table1_OtherUnionPolicy{{$index}}" ng-model="entry.UnionPolicyDescription" ng-required="current.PAM.Table1.T261[0].UnionPolicies.UnionPolicyDescription.indexOf({{$index}}) !== -1">
                                                 <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_OtherUnionPolicy{{$index}}.$error.required">
                                                     <span translate="Labels.Validation.empty"></span>
                                                 </div>
@@ -540,12 +550,12 @@
                                         </div>
                                     </div>
                                 </td>
-                                <div ng-show="current.PAM.Table1.T261[0].UnionPolicyRelated === 'yes' && current.PAM.Table1.T261[0].UnionPolicy.indexOf('Other_EU') !== -1">
+                                <div ng-show="current.PAM.Table1.T261[0].UnionPolicyRelated === 'yes' && current.PAM.Table1.T261[0].UnionPolicies.indexOf('Other_EU') !== -1">
                                     <div class="rcorners-inner" ng-repeat="unionpolicy in current.PAM.Table1.T261[0].UnionPolicyOther track by $index">
                                         <h1><span>Other union policy {{$index + 1}}</span></h1>
                                         <div class="row">
                                             <div class="small-9 columns">
-                                                <input type="text" name="table1_OtherUnionPolicy{{$index}}" ng-model="unionpolicy.Name" ng-required="current.PAM.Table1.T261[0].UnionPolicy.indexOf('Other_EU') !== -1" />
+                                                <input type="text" name="table1_OtherUnionPolicy{{$index}}" ng-model="unionpolicy.Name" ng-required="current.PAM.Table1.T261[0].UnionPolicies.indexOf('Other_EU') !== -1" />
                                                 <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_OtherUnionPolicy{{$index}}.$error.required">
                                                     <span translate="Labels.Validation.empty"></span>
                                                 </div>
@@ -559,9 +569,9 @@
                                 </div>
                                 <td class="small-10 columns" ng-show="temp.isGroup">
                                     <ul>
-                                        <li ng-repeat="i in current.PAM.Table1.T261[0].UnionPolicy track by $index">{{'Labels.Table1.UnionPolicy.list.' + current.PAM.Table1.T261[0].UnionPolicy[$index] | translate}}</li>
+                                        <li ng-repeat="i in current.PAM.Table1.T261[0].UnionPolicy track by $index">{{'Labels.Table1.UnionPolicy.list.' + current.PAM.Table1.T261[0].UnionPolicies[$index] | translate}}</li>
                                     </ul>
-                                    <div ng-show="current.PAM.Table1.T261[0].UnionPolicy.indexOf('Other_EU') !== -1">
+                                    <div ng-show="current.PAM.Table1.T261[0].UnionPolicies.indexOf('Other_EU') !== -1">
                                         <p translate="Labels.Table1.UnionPolicy.otherCurrent"></p>
                                         <ul>
                                             <li ng-repeat="policy in current.PAM.Table1.T261[0].UnionPolicyOther">{{policy.Name}}</li>
@@ -577,11 +587,11 @@
                                 </td>
                                 <td class="small-10 columns">
                                     <div js-tree="treeConfig" id="table1_ProjectionsScenario" should-apply="ac()" required ng-click="blurr($event)" tree="projectionsScenarioTreeInstance" ng-model="treeData.projectionsScenarioData" tree-events="changed:nodeProjectionsScenarioChanged;ready:readyCB"></div>
-                                    <!-- BEGIN temporary solution to keep validation functional ng-hide="true" 
-                                       <ui-select ng-hide="true" name="table1_ProjectionsScenario" multiple ng-model="current.PAM.Table1.T261[0].ProjectionsScenario[0].Type">
+                                    <!-- BEGIN temporary solution to keep validation functional ng-hide="true"
+                                       <ui-select ng-hide="true" name="table1_ProjectionsScenario" multiple ng-model="current.PAM.Table1.T261[0].ProjectionsScenario.Type">
                                        <ui-select-match></ui-select-match>
                                        <ui-select-choices repeat="item in treeData.projectionsScenarioData track by $index"></ui-select-choices>
-                                       </ui-select>-->
+                                       </ui-select> -->
                                     <!-- END temporary solution to keep validation functional -->
                                 </td>
                             </tr>
@@ -774,14 +784,14 @@
                                                             <br>
                                                             <br>
                                                             <span translate="Labels.Table1.yes"></span>
-                                                            <input id='AmmoniaEmissionsControlPracticesExactly1' name='AmmoniaEmissionsControlPracticesExactly' type='radio' ng-model='current.PAM.Table1.T264[0].AmmoniaEmissionsControlPracticesExactly' value='yes' ng-required='!current.PAM.Agriculture.AmmoniaEmissionsControlPracticesExactly' />
+                                                            <input id='AmmoniaEmissionsControlPracticesExactly1' name='AmmoniaEmissionsControlPracticesExactly' type='radio' ng-model='current.PAM.Table1.T264[0].AmmoniaEmissionsControlPracticesExactly' ng-change='emptyAmmoniaEmissionsControlPracticesExactlyReason()' value='yes' ng-required='!current.PAM.Agriculture.AmmoniaEmissionsControlPracticesExactly' />
                                                             <span translate="Labels.Table1.no"></span>
                                                             <input id='AmmoniaEmissionsControlPracticesExactly2' name='AmmoniaEmissionsControlPracticesExactly' type='radio' ng-model='current.PAM.Table1.T264[0].AmmoniaEmissionsControlPracticesExactly' value='no' ng-required='!current.PAM.Agriculture.AmmoniaEmissionsControlPracticesExactly' />
                                                         </div>
                                                         <div class="small-8 columns end" ng-show="current.PAM.Table1.T264[0].AmmoniaEmissionsControlPracticesExactly === 'no'">
                                                             <label class="my-inline">describe the modifications that have been made</label>
-                                                            <textarea ng-model="current.PAM.Table1.T264[0].AmmoniaEmissionsControlPracticesExactlyReason" name="table1_AmmoniaEmissionsControlPracticesExactlyReason" rows="2" required></textarea>
-                                                            <div class="invalid-wrap" ng-show="ValidationEnabled && current.PAM.Table1.T264[0].AmmoniaEmissionsControlPracticesExactlyReason === 'no' && Table1.table1_AmmoniaEmissionsControlPracticesExactlyReason.$error.required">
+                                                            <textarea ng-model="current.PAM.Table1.T264[0].AmmoniaEmissionsControlPracticesExactlyReason" name="table1_AmmoniaEmissionsControlPracticesExactlyReason" rows="2" required ng-required="true"></textarea>
+                                                            <div class="invalid-wrap" ng-show="ValidationEnabled && current.PAM.Table1.T264[0].AmmoniaEmissionsControlPracticesExactly === 'no' && Table1.table1_AmmoniaEmissionsControlPracticesExactlyReason.$error.required">
                                                                 <span translate="Labels.Validation.empty"></span>
                                                             </div>
                                                         </div>
@@ -875,7 +885,7 @@
                                                             <br>
                                                             <br>
                                                             <span translate="Labels.Table1.yes"></span>
-                                                            <input id='InorganicFertilisersExactly1' name='InorganicFertilisersExactly' type='radio' ng-model='current.PAM.Table1.T264[0].InorganicFertilisersExactly' value='yes' ng-required='!current.PAM.MeasuresControlAmmoniaEmissionsExactly' />
+                                                            <input id='InorganicFertilisersExactly1' name='InorganicFertilisersExactly' type='radio' ng-model='current.PAM.Table1.T264[0].InorganicFertilisersExactly' value='yes' ng-change='emptyInorganicFertilisersExactlyReason()' ng-required='!current.PAM.MeasuresControlAmmoniaEmissionsExactly' />
                                                             <span translate="Labels.Table1.no"></span>
                                                             <input id='InorganicFertilisersExactly2' name='InorganicFertilisersExactly' type='radio' ng-model='current.PAM.Table1.T264[0].InorganicFertilisersExactly' value='no' ng-required='!current.PAM.MeasuresControlAmmoniaEmissionsExactly' />
                                                         </div>
@@ -943,7 +953,7 @@
                                                         <div class="small-2 columns end" ng-show="current.PAM.Table1.T264[0].MeasuresAmmoniaControlQuestion === 'yes'">
                                                             <label class="my-inline" translate="Labels.Table1.Agriculture.AmmoniaEmissionsLivestockQuestion.exactly.label"></label>
                                                             <span translate="Labels.Table1.yes"></span>
-                                                            <input id='AmmoniaEmissionsLivestockExactly1' name='table1_AmmoniaEmissionsLivestockExactly' type='radio' ng-model='current.PAM.Table1.T264[0].AmmoniaEmissionsLivestockExactly' value='yes' ng-required='!current.PAM.Agriculture.AmmoniaEmissionsLivestockExactly' />
+                                                            <input id='AmmoniaEmissionsLivestockExactly1' name='table1_AmmoniaEmissionsLivestockExactly' type='radio' ng-model='current.PAM.Table1.T264[0].AmmoniaEmissionsLivestockExactly' value='yes' ng-change='emptyAmmoniaEmissionsLivestockExactlyReason()' ng-required='!current.PAM.Agriculture.AmmoniaEmissionsLivestockExactly' />
                                                             <span translate="Labels.Table1.no"></span>
                                                             <input id='AmmoniaEmissionsLivestockExactly2' name='table1_AmmoniaEmissionsLivestockExactly' type='radio' ng-model='current.PAM.Table1.T264[0].AmmoniaEmissionsLivestockExactly' value='no' ng-required='!current.PAM.Agriculture.AmmoniaEmissionsLivestockExactly' />
                                                         </div>
@@ -1111,12 +1121,24 @@
                                     </tr>
                                 </table>
                                 </div>
-                                <div class="rcorners" ng-hide="current.PAM.Table1.SelectedForAdoption == 'no'">
+                                <div class="rcorners">
                                     <h1>
                                  <span>Selected for adoptions - Table 2.7</span>
-                              </h1>
+                                    </h1>
                                     <table>
-                                        <tr class="row" ng-hide="temp.isGroup">
+                                    <!-- SelectedForAdoption -->
+                                    <td class="small-2 columns">
+                                        <label translate="Labels.Table1.SelectedForAdoption.label"></label>
+                                    </td>
+                                    <td class="small-10 columns and">
+                                        <span translate="Labels.Table1.yes"></span>
+                                        <input id='SelectedForAdoption1' name='SelectedForAdoption' type='radio' ng-model='current.PAM.Table1.SelectedForAdoption' value='yes' />
+                                        <span translate="Labels.Table1.no"></span>
+                                        <input id='SelectedForAdoption2' name='SelectedForAdoption' type='radio' ng-model='current.PAM.Table1.SelectedForAdoption' value='no' checked="checked" />
+                                        <br><br>
+                                    </td>
+                                   
+                                        <tr class="row" ng-hide="current.PAM.Table1.SelectedForAdoption == 'no'">
                                             <td class="small-2 columns">
                                                 <label translate="Labels.Table1.AdoptionPlannedYear.label"></label>
                                             </td>
@@ -1131,7 +1153,7 @@
                                             </td>
                                         </tr>
                                         <!-- Consultation Comments -->
-                                        <tr class="row">
+                                        <tr class="row" ng-hide="current.PAM.Table1.SelectedForAdoption == 'no'">
                                             <td class="small-2 columns">
                                                 <label translate="Labels.Table1.ConsultationComments.label"></label>
                                             </td>
@@ -1139,7 +1161,7 @@
                                                 <textarea rows="5" ng-model="current.PAM.Table1.T27p.ConsultationComments"></textarea>
                                             </td>
                                         </tr>
-                                        <tr class="row">
+                                        <tr class="row" ng-hide="current.PAM.Table1.SelectedForAdoption == 'no'">
                                             <!-- Indicators used to monitor -->
                                             <td class="small-2 columns">
                                                 <label translate="Labels.Table1.Indicators.label"></label>
@@ -1148,7 +1170,7 @@
                                                 <div class="rcorners-inner" ng-repeat="indicator in current.PAM.Table1.T27p.Indicators track by $index">
                                                     <h1>
                                              <span>Indicator {{$index + 1}}</span>
-                                          </h1>
+                                             </h1>
                                                     <div class="row">
                                                         <div class="small-7 columns">
                                                             <label translate="Labels.Table1.Indicators.desc"></label>
@@ -1216,7 +1238,7 @@
                                             </td>
                                         </tr>
                                         <!-- Reference to assessments -->
-                                        <tr class="row">
+                                        <tr class="row" ng-hide="current.PAM.Table1.SelectedForAdoption == 'no'">
                                             <td class="small-2 columns">
                                                 <label translate="Labels.Table1.Reference.label"></label>
                                                 <td class="small-10 columns">
@@ -1253,7 +1275,7 @@
                                                 </td>
                                         </tr>
                                         <!-- Review Timetable -->
-                                        <tr class="row" ng-hide="temp.isGroup">
+                                        <tr class="row" ng-hide="current.PAM.Table1.SelectedForAdoption == 'no'">
                                             <td class="small-2 columns">
                                                 <label translate="Labels.Table1.ReviewTimetable.label"></label>
                                             </td>
@@ -1269,10 +1291,10 @@
                                             </td>
                                             <td class="small-2 columns end" end>
                                                 <label translate="Labels.Table1.ReviewTimetable.finish"></label>
-                                                <input placeholder="" name="table1_ReviewTimetableFinish" type="number" onkeypress="javascript:return isNumberKey(event);" min="1990" max="2050" ng-required="true" ng-model="current.PAM.Table1.T27[0].ReviewTimetable.Finish" greater-equal-than="{{current.PAM.Table1.T27[0].ReviewTimetable.Start}}" />
-                                                <div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_ReviewTimetableFinish.$error.required">
+                                                <input placeholder="" name="table1_ReviewTimetableFinish" type="number" onkeypress="javascript:return isNumberKey(event);" min="1990" max="2050" ng-model="current.PAM.Table1.T27[0].ReviewTimetable.Finish" greater-equal-than="{{current.PAM.Table1.T27[0].ReviewTimetable.Start}}" />
+                                                <!--<div class="invalid-wrap" ng-show="ValidationEnabled && Table1.table1_ReviewTimetableFinish.$error.required">
                                                     <span translate="Labels.Validation.empty"></span>
-                                                </div>
+                                                </div>-->
                                                 <div class="invalid-wrap" ng-show="ValidationEnabled && (Table1.table1_ReviewTimetableFinish.$error.min || Table1.table1_ReviewTimetableFinish.$error.max)">
                                                     <span translate="Labels.Validation.range_year" translate-values="{ min: '1990', max: '2050'}"></span>
                                                 </div>
@@ -1282,7 +1304,7 @@
                                             </td>
                                         </tr>
                                         <!-- CoherenceQualityObjectives -->
-                                        <tr class="row" ng-hide="temp.isGroup">
+                                        <tr class="row" ng-hide="current.PAM.Table1.SelectedForAdoption == 'no'">
                                             <td class="small-2 columns">
                                                 <label translate="Labels.Table1.CoherenceQualityObjectives.label"></label>
                                             </td>
@@ -1291,7 +1313,7 @@
                                             </td>
                                         </tr>
                                         <!-- CoherencePlansProgrammes -->
-                                        <tr class="row" ng-hide="temp.isGroup">
+                                        <tr class="row" ng-hide="current.PAM.Table1.SelectedForAdoption == 'no'">
                                             <td class="small-2 columns">
                                                 <label translate="Labels.Table1.CoherencePlansProgrammes.label"></label>
                                             </td>

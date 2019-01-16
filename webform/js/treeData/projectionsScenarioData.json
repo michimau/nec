@@ -2,17 +2,12 @@
     {
        "id":"WEM",
        "parent":"#",
-       "text":"With existing measures"
+       "text":"With Measures"
     },
     {
        "id":"WAM",
        "parent":"#",
        "text":"With additional measures"
-    },
-    {
-       "id":"WOM",
-       "parent":"#",
-       "text":"Without measures scenario"
     },
     {
        "id":"NIP",

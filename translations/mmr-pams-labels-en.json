@@ -3,7 +3,7 @@
     "Webform": {
       "PamNumber": "PaM number",
       "CreatePam": "Create new PaM",
-      "Title": "Questionnaire for reporting on Policies and Measures under the Monitoring Mechanism Regulation",
+      "Title": "Questionnaire for reporting on Policies and Measures under the Directive (EU) 2016/2284 of the European Parliament and of the Council on the reduction of national emission of certain atmospheric pollutants (NEC Directive)",
       "FormTitle": "Policies and Measures (PaMs)",
       "TitlePlaceholder": "Enter Title",
       "Annex": "ANNEX XI",
@@ -40,7 +40,7 @@
     },
     "Table1": {
       "Tab": "Table1",
-      "Id": "PaM name",
+      "Id": "PaM name (M)",
       "TitleLocal": "PaM name in original language",
       "Asterisk": "* Mandatory reporting requirements.",
       "yes": "Yes",
@@ -60,8 +60,11 @@
         "label": "Which policies or measures does it cover?",
         "Single_PAM": "Single PaM"
       },
+      "ReportedAlready": {
+        "label": "Does the PaM relate to other policies?"
+      },
       "Sectors": {
-        "label": "Sector/objective affected"
+        "label": "Sector/objective affected (M)"
       },
       "Pollutants": {
         "label": "Affected NECD pollutant (M)"
@@ -70,13 +73,13 @@
         "label": "Estimation of Costs (if the PaM is part of a package and no estimations of reduction is available please report 0)"
       },
       "QuantifiedEmissionReductions": {
-        "label": "Quantified emission reductions"
+        "label": "Quantified emission reductions (M): (if the PaM is part of a package and no estimations of reduction is available please report 0)"
       },
       "InformationImpactAirQuality" : {
-        "label": "Are available information about impacts on air quality?"
+        "label": "Is information about impacts on air quality available?"
       },
       "AdoptionPlannedYear": {
-        "label" : "Currently planned year of adoption"
+        "label" : "Currently planned year of adoption (M)"
       },
       "AirQualityImpact": {
         "label": "Where available, impacts on air quality (reference can also be made to reccomended air quality objectives by the WHO) and environment"
@@ -174,7 +177,7 @@
         "label": "C) Preventing impacts on small farms"
       },
       "PreventingImpactsSmallFarmsQuestion": {
-        "label": "In taking the measures outlined in Sections A and B, Member States shall ensure that impacts on small and micro farms are fully taken into account. Member States may, for instance, exempt small and micro farms from those measures where possible and appropriate in view of the applicable reduction commitments"
+        "label": "C) In taking the measures outlined in Sections A and B, Member States shall ensure that impacts on small and micro farms are fully taken into account. Member States may, for instance, exempt small and micro farms from those measures where possible and appropriate in view of the applicable reduction commitments"
       },
       "SmallMicroFarmsFullAccountQuestion": {
         "text": "Does the PAM ensure that impacts on small and micro farms are fully taken into account?"
@@ -200,11 +203,15 @@
         "placeholder": ""
       },
       "DetailsMethodology": {
-        "label": "Details of the methodology used for analysis",
+        "label": "Details of the methodology used for analysis (M)",
+        "placeholder": ""
+      },
+      "QualitativeDescriptionUncertaintiesQuestion": {
+        "label": "Is a qualitative description of uncertainties available?",
         "placeholder": ""
       },
       "QualitativeDescriptionUncertainties": {
-        "label": "Qualitative description of uncertainties",
+        "label": "Qualitative description of uncertainties (M)",
         "placeholder": ""
       },
       "SelectedForAdoption": {
@@ -225,11 +232,11 @@
         "label": "Coherence of the selected PaMs with other relevant plans and programmes established by virtue of the requirements set out in national or Union legislation (e.g. national energy and climate plans) (M)"
       },
       "Description": {
-        "label": "Short description of PaM",
+        "label": "Short description of PaM (M)",
         "placeholder": "Type Description"
       },
       "PolicyInstrument": {
-        "label": "Type of policy instrument",
+        "label": "Type of policy instrument (M)",
         "placeholder": "Select Policy Instrument",
         "list": {
           "Economic": "Economic",
@@ -269,7 +276,7 @@
         }
       },
       "ImplementationPeriod": {
-        "label": "Implementation Period",
+        "label": "Implementation Period (M)",
         "start": "Start",
         "finish": "Finish",
         "comments": "Comment on Implementation Period"
@@ -278,7 +285,7 @@
         "label": "Projections scenario in which the PaM is included"
       },
       "Entities": {
-        "label": "Entities responsible for implementing the policy",
+        "label": "Entities responsible for implementing the policy (M)",
         "placeholder": "Select Type",
         "current": "Current entity list",
         "list": {

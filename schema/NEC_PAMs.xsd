@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2009/01/xml.xsd"/>
+  <xs:element name="NEC_PAMs" type="NEC_PAMsType"/>
+  <xs:complexType name="ObjectivesType">
+    <xs:sequence>
+      <xs:element name="Objective">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="ES_renewable"/>
+            <xs:enumeration value="ES_fuels_witch"/>
+            <xs:enumeration value="ES_nuclear"/>
+            <xs:enumeration value="ES_loss_reduction"/>
+            <xs:enumeration value="ES_efficiency"/>
+            <xs:enumeration value="ES_abatement"/>
+            <xs:enumeration value="ES_other"/>
+            <xs:enumeration value="EC_efficiency_buildings"/>
+            <xs:enumeration value="EC_efficiency_appliances"/>
+            <xs:enumeration value="EC_efficiency_services"/>
+            <xs:enumeration value="EC_efficiency_industry"/>
+            <xs:enumeration value="EC_demand_reduction"/>
+            <xs:enumeration value="EC_other"/>
+            <xs:enumeration value="TR_abatement_technology"/>
+            <xs:enumeration value="TR_vehicle_efficiency"/>
+            <xs:enumeration value="TR_modal_shift"/>
+            <xs:enumeration value="TR_alternative_fuels"/>
+            <xs:enumeration value="TR_demand_transport_reduction"/>
+            <xs:enumeration value="TR_improved_behaviour"/>
+            <xs:enumeration value="TR_improved_infrastructure"/>
+            <xs:enumeration value="TR_other"/>
+            <xs:enumeration value="IP_abatement_technologies"/>
+            <xs:enumeration value="IP_fugitive_emissions_control"/>
+            <xs:enumeration value="IP_other"/>
+            <xs:enumeration value="WA_demand_reduction"/>
+            <xs:enumeration value="WA_recycling"/>
+            <xs:enumeration value="WA_improved_treatment"/>
+            <xs:enumeration value="WA_improved_landfill_management"/>
+            <xs:enumeration value="WA_waste_incineration"/>
+            <xs:enumeration value="WA_waste_water"/>
+            <xs:enumeration value="WA_landfill_reduce"/>
+            <xs:enumeration value="WA_other"/>
+            <xs:enumeration value="AG_fertilizer_application"/>
+            <xs:enumeration value="AG_cropland_management"/>
+            <xs:enumeration value="AG_livestock_management"/>
+            <xs:enumeration value="AG_animal_waste"/>
+            <xs:enumeration value="AG_other"/>
+            <xs:enumeration value="CC"/>
+            <xs:enumeration value="CC_framework"/>
+            <xs:enumeration value="CC_multi-sectoral"/>
+            <xs:enumeration value="CC_other"/>
+            <xs:enumeration value="OO_other"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ObjectiveDescription" type="xs:string" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ImplementationType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="Start"/>
+      <xs:element type="xs:string" name="Status"/>
+      <xs:element type="xs:string" name="Comment"/>
+      <xs:element type="xs:string" name="Finish"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EntitiesType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="Name"/>
+      <xs:element name="Type">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Government"/>
+            <xs:enumeration value="Regional"/>
+            <xs:enumeration value="Local"/>
+            <xs:enumeration value="Companies"/>
+            <xs:enumeration value="Research"/>
+            <xs:enumeration value="Other"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UnionPoliciesType">
+    <xs:sequence>
+      <xs:element name="UnionPolicy">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          <xs:enumeration value="AP_NECD"/>
+          <xs:enumeration value="AP_AAQD"/>
+          <xs:enumeration value="CM_Effort_Sharing_Decision"/>
+          <xs:enumeration value="CM_ETS_directive"/>
+          <xs:enumeration value="CM_Energy_union"/>
+          <xs:enumeration value="ES_Eco_design"/>
+          <xs:enumeration value="ES_Energy_efficiency"/>
+          <xs:enumeration value="ES_Building_Performance_Directive"/>
+          <xs:enumeration value="ES_Energy_Taxation_Directive"/>
+          <xs:enumeration value="TR_FQD"/>
+          <xs:enumeration value="TR_Stage1"/>
+          <xs:enumeration value="TR_Stage2"/>
+          <xs:enumeration value="TR_Sulphur_Directive"/>
+          <xs:enumeration value="TR_Clean_and_Energy_Efficient_Vehicles"/>
+          <xs:enumeration value="TR_Eurovignette_Directive"/>
+          <xs:enumeration value="TR_Motor_Vehicles_Regulation"/>
+          <xs:enumeration value="TR_EURO_5_and_6"/>
+          <xs:enumeration value="TR_Market_wheels"/>
+          <xs:enumeration value="TR_Euro_6_for_HDV"/>
+          <xs:enumeration value="TR_CO2_and_cars_and_vans_regulations"/>
+          <xs:enumeration value="TR_PM_limit"/>
+          <xs:enumeration value="TR_Agricultural_forestry_vehicle"/>
+          <xs:enumeration value="TR_Recreational"/>
+          <xs:enumeration value="IP_IED"/>
+          <xs:enumeration value="IP_Medium_Combustion"/>
+          <xs:enumeration value="IP_Paint_Directive"/>
+          <xs:enumeration value="AG_CAP_Reform_2014_2020"/>
+          <xs:enumeration value="AG_Nitrate_Directive"/>
+          <xs:enumeration value="AG_NEC_Directive"/>
+          <xs:enumeration value="WS_Landfill_Directive"/>
+          <xs:enumeration value="WS_Waste_Directive"/>
+          <xs:enumeration value="WS_Landfill_Directive"/>
+          <xs:enumeration value="WS_Waste_Management_Framework_Directive"/>
+          <xs:enumeration value="WS_Water_Treatment_Directive"/>
+          <xs:enumeration value="EU_other"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="UnionPolicyDescription" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="T261Type">
+    <xs:sequence>
+      <xs:element type="ObjectivesType" name="Objectives" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="PolicyInstruments" maxOccurs="unbounded" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Economic"/>
+            <xs:enumeration value="Fiscal"/>
+            <xs:enumeration value="Voluntary"/>
+            <xs:enumeration value="Regulatory"/>
+            <xs:enumeration value="Information"/>
+            <xs:enumeration value="Education"/>
+            <xs:enumeration value="Research"/>
+            <xs:enumeration value="Planning"/>
+            <xs:enumeration value="SourceBased"/>
+            <xs:enumeration value="Other"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="ImplementationType" name="Implementation"/>
+      <xs:element type="EntitiesType" name="Entities" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="xs:string" name="DetailsMethodology"/>
+      <xs:element type="xs:string" name="UnionPolicyRelated"/>
+      <xs:element type="UnionPoliciesType" name="UnionPolicies" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="ProjectionsScenario" maxOccurs="unbounded" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="WEM"/>
+            <xs:enumeration value="WAM"/>
+            <xs:enumeration value="NIP"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="QualitativeDescriptionUncertainties"/>
+      <xs:element type="xs:string" name="QualitativeDescriptionUncertaintiesQuestion"/>
+      <xs:element type="xs:string" name="id"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PollutantsType">
+    <xs:choice maxOccurs="unbounded" minOccurs="0">
+      <xs:element name="Name">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="SO2"/>
+            <xs:enumeration value="NOx"/>
+            <xs:enumeration value="NMVOC"/>
+            <xs:enumeration value="NH3"/>
+            <xs:enumeration value="PM2.5"/>
+            <xs:enumeration value="BC"/>
+            <xs:enumeration value="Other"/>
+            <xs:enumeration value="Cd"/>
+            <xs:enumeration value="Hg"/>
+            <xs:enumeration value="Pb"/>
+            <xs:enumeration value="PAHs"/>
+            <xs:enumeration value="PCBs"/>
+            <xs:enumeration value="HCB"/>
+            <xs:enumeration value="PM10"/>
+            <xs:enumeration value="As"/>
+            <xs:enumeration value="Cr"/>
+            <xs:enumeration value="Cu"/>
+            <xs:enumeration value="Ni"/>
+            <xs:enumeration value="Se"/>
+            <xs:enumeration value="Zn"/>
+            <xs:enumeration value="GHG"/>
+            <xs:enumeration value="CO2"/>
+            <xs:enumeration value="CH4"/>
+            <xs:enumeration value="N2O"/>
+            <xs:enumeration value="HFC"/>
+            <xs:enumeration value="PFC"/>
+            <xs:enumeration value="SF6"/>
+            <xs:enumeration value="NF3"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="Target2020"/>
+      <xs:element type="xs:string" name="Target2025"/>
+      <xs:element type="xs:string" name="Target2030"/>
+      <xs:element name="TargetUnit">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="range from WM scenario"/>
+            <xs:enumeration value="kt/year"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:integer" name="CostAbated"/>
+      <xs:element type="xs:integer" name="AbsoluteCost"/>
+      <xs:element type="xs:integer" name="AbsoluteBenefit"/>
+      <xs:element type="xs:integer" name="CostBenefitRatio"/>
+      <xs:element type="xs:integer" name="PriceYear"/>
+      <xs:element type="xs:string" name="QualitativeDescription"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="T261pType">
+    <xs:sequence>
+      <xs:element type="PollutantsType" name="Pollutants" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="T262Type">
+    <xs:sequence>
+      <xs:element type="xs:string" name="AirQualityImpact"/>
+      <xs:element type="xs:string" name="InformationImpactAirQuality"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="T264Type">
+    <xs:sequence>
+      <xs:element name="MeasuresAmmoniaControlQuestion">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="AmmoniaEmissionsControlPracticesQuestion">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="AmmoniaEmissionsControlPractices" maxOccurs="unbounded" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="nitrogen_management"/>
+            <xs:enumeration value="livestock_feeding_strategies"/>
+            <xs:enumeration value="low_emission_spreading_techniques"/>
+            <xs:enumeration value="low_emission_storage_systems"/>
+            <xs:enumeration value="low_emission_housing_systems"/>
+            <xs:enumeration value="limiting_ammonia_emissions"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="AmmoniaEmissionsControlPracticesPage"/>
+      <xs:element name="AmmoniaEmissionsControlPracticesExactly">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="no"/>
+            <xs:enumeration value="yes"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="AmmoniaEmissionsControlPracticesExactlyReason"/>
+      <xs:element name="AmmoniaEmissionsLivestockQuestion">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="AmmoniaEmissionsLivestock" maxOccurs="unbounded" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="spreading"/>
+            <xs:enumeration value="not_spreading"/>
+            <xs:enumeration value="incorporating_manures"/>
+            <xs:enumeration value="low_emission_storage_systems"/>
+            <xs:enumeration value="covering_stores"/>
+            <xs:enumeration value="sufficient_manure_storage"/>
+            <xs:enumeration value="reducing_emissions_animal_housing"/>
+            <xs:enumeration value="reducing_emissions_manure"/>
+            <xs:enumeration value="other"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="AmmoniaEmissionsLivestockExactly">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="AmmoniaEmissionsLivestockExactlyReason"/>
+      <xs:element type="xs:string" name="AmmoniaEmissionsLivestockPage"/>
+      <xs:element name="FineParticulateMatterEmissionsQuestion">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+        <xs:element name="FineParticulateMatterEmissionsBanMonitoredQuestion">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="FineParticulateMatterEmissionsBanExemptionsQuestion">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="NationalNitrogenBudgetQuestion">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="AmmoniumCarbonateFertilisersQuestion">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="InorganicFertilisers" maxOccurs="unbounded" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="ammonium_nitrate_based_fertilisers"/>
+            <xs:enumeration value="methods_reduce_ammonia_emissions_30"/>
+            <xs:enumeration value="replacement_inorganic_fertilisers"/>
+            <xs:enumeration value="other"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="InorganicFertilisersQuestion">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="InorganicFertilisersExactly">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="InorganicFertilisersExactlyReason"/>
+      <xs:element type="xs:string" name="InorganicFertilisersPage"/>
+      <xs:element name="NationalAdvisoryCodeQuestion">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="NationalAdvisoryCode" maxOccurs="unbounded" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="improvement_soil_structure"/>
+            <xs:enumeration value="improved_techniques"/>
+            <xs:enumeration value="low_protein_feeding"/>
+            <xs:enumeration value="avoiding_burning_manure"/>
+            <xs:enumeration value="other"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="NationalAdvisoryCodeOther"/>
+      <xs:element name="OpenFieldBurningQuestion">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="OpenFieldBurningBanEnforced">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="OpenFieldBurningBanExemptions">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="OpenFieldBurning"/>
+      <xs:element name="OpenFieldBurningExactly">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="OpenFieldBurningExactlyReason"/>
+      <xs:element type="xs:string" name="OpenFieldBurningPage"/>
+      <xs:element name="PreventingImpactsSmallFarmsQuestion">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="SmallMicroFarmsFullAccountQuestion">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="SmallMicroFarmsExemptionsQuestion">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="InorganicFertilisersOther"/>
+      <xs:element type="xs:string" name="AmmoniaEmissionsLivestockOther"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReviewTimetableType">
+    <xs:sequence>
+      <xs:element name="Finish">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1990"/>
+            <xs:maxInclusive value="2050"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element> 
+      <xs:element name="Start">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1990"/>
+            <xs:maxInclusive value="2050"/>
+          </xs:restriction> 
+        </xs:simpleType>
+      </xs:element> 
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="T27Type">
+    <xs:sequence>
+      <xs:element name="AdoptionPlannedYear">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1990"/>
+            <xs:maxInclusive value="2050"/>
+          </xs:restriction> 
+        </xs:simpleType>
+      </xs:element> 
+      <xs:element type="ReviewTimetableType" name="ReviewTimetable"/>
+      <xs:element type="xs:string" name="CoherenceQualityObjectives"/>
+      <xs:element type="xs:string" name="CoherencePlansProgrammes"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReferenceType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="Text"/>
+      <xs:element type="xs:string" name="Url"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="IndicatorsType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="Description"/>
+      <xs:element type="xs:string" name="Unit"/>
+      <xs:element name="InterimYearTarget1">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1990"/>
+            <xs:maxInclusive value="2050"/>
+          </xs:restriction> 
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:integer" name="InterimTarget1"/>
+      <xs:element name="InterimYearTarget2">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1990"/>
+            <xs:maxInclusive value="2050"/>
+          </xs:restriction> 
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:integer" name="InterimTarget2"/>
+      <xs:element name="InterimYearTarget3">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1990"/>
+            <xs:maxInclusive value="2050"/>
+          </xs:restriction> 
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:integer" name="InterimTarget3"/>
+      <xs:element name="InterimYearTarget4">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1990"/>
+            <xs:maxInclusive value="2050"/>
+          </xs:restriction> 
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:integer" name="InterimTarget4"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="T27pType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="ConsultationComments"/>
+      <xs:element type="ReferenceType" name="Reference" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="IndicatorsType" name="Indicators" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Table1Type">
+    <xs:sequence>
+      <xs:element type="xs:string" name="isGroup"/>
+      <xs:element type="xs:string" name="Description"/>
+      <xs:element type="xs:string" name="BelongsToPackage"/>
+      <xs:element name="ReportedAlready" maxOccurs="unbounded" minOccurs="0">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="airQuality"/>
+            <xs:enumeration value="mmr"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="AgriculturalRelated"/>
+      <xs:element type="xs:string" name="PolicyGroup"/>
+      <xs:element name="SelectedForAdoption">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="T261Type" name="T261"/>
+      <xs:element type="T261pType" name="T261p"/>
+      <xs:element type="T262Type" name="T262"/>
+      <xs:element type="T264Type" name="T264"/>
+      <xs:element type="T27Type" name="T27"/>
+      <xs:element type="T27pType" name="T27p"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NEC_PAMType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="id"/>
+      <xs:element type="xs:string" name="Title"/>
+      <xs:element type="xs:string" name="TitleLocal"/>
+      <xs:element type="Table1Type" name="Table1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NEC_PAMsType">
+    <xs:sequence>
+      <xs:element type="NEC_PAMType" name="NEC_PAM"/>
+    </xs:sequence>
+    <xs:attribute ref="xml:lang"/>
+    <xs:attribute type="xs:string" name="labelLanguage"/>
+  </xs:complexType>
+</xs:schema>

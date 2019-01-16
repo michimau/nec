@@ -24,8 +24,10 @@
       },
       "DetailsMethodology": null,
       "UnionPolicyRelated" : "no",
-      "UnionPolicy" : null,
+      "UnionPolicies" : null,
       "ProjectionsScenario" : null,
+      "QualitativeDescriptionUncertaintiesQuestion": "no",
+      "QualitativeDescriptionUncertainties": null,
       "id": null
     },
     "T261p": {
@@ -35,8 +37,7 @@
           "Target2025" : null,
           "Target2030" : null,
           "TargetUnit" : "kt/year"
-      },
-      "QualitativeDescriptionUncertainties": null
+      }
     },
     "T262": {
       "AirQualityImpact" : null,

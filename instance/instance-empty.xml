@@ -1,17 +1,61 @@
-   <NEC_PAMs>
-      <NEC_PAM>
+<NEC_PAMs>
+   <NEC_PAM>
+      <id>1</id>
+      <Title/>
+      <TitleLocal/>
+         
          <Table1>
-            <AdoptionPlannedYear/>
+            <isGroup>single</isGroup>
+            <Description/>
+            <BelongsToPackage>no</BelongsToPackage>
+            <ReportedAlready/>
             <AgriculturalRelated>no</AgriculturalRelated>
-            <Agriculture>
-			<id/>
+            <PolicyGroup/>
+            <SelectedForAdoption>no</SelectedForAdoption>
+            <T261>
+                  <Objectives/>
+                  <PolicyInstruments/>
+                  <Implementation>
+                        <Start/>
+                        <Status/>
+                        <Comment/>
+                  </Implementation>
+                  <Entities>
+                        <Name/>
+                        <Type/>
+                  </Entities>
+                  <DetailsMethodology/>
+                  
+                  <UnionPolicyRelated>no</UnionPolicyRelated>
+                  <UnionPolicies/>
+                  <ProjectionsScenario/>
+                  <QualitativeDescriptionUncertainties/>
+                  <QualitativeDescriptionUncertaintiesQuestion>no</QualitativeDescriptionUncertaintiesQuestion>
+                  <id/>
+            </T261>
 
+            <T261p>
+                  <Pollutants>
+                        <Name/>
+                        <Target2020/>
+                        <Target2025/>
+                        <Target2030/>
+                        <TargetUnit/>
+                  </Pollutants>
+            </T261p>
+
+            <T262>
+                  <AirQualityImpact/>
+                  <InformationImpactAirQuality>no</InformationImpactAirQuality>
+            </T262>
+
+            <T264>
                   <MeasuresAmmoniaControlQuestion>no</MeasuresAmmoniaControlQuestion>
 
                   <AmmoniaEmissionsControlPracticesQuestion>no</AmmoniaEmissionsControlPracticesQuestion>
                   <AmmoniaEmissionsControlPractices/>
                   <AmmoniaEmissionsControlPracticesPage/>
-                  <AmmoniaEmissionsControlPracticesExactly/>
+                  <AmmoniaEmissionsControlPracticesExactly>yes</AmmoniaEmissionsControlPracticesExactly>
                   <AmmoniaEmissionsControlPracticesExactlyReason/>
                   
                   <AmmoniaEmissionsLivestockQuestion>no</AmmoniaEmissionsLivestockQuestion>
@@ -27,6 +71,8 @@
 
                   <FineParticulateMatterEmissionsBanExemptionsQuestion>no</FineParticulateMatterEmissionsBanExemptionsQuestion>
 
+                  <NationalNitrogenBudgetQuestion>no</NationalNitrogenBudgetQuestion>
+
                   <AmmoniumCarbonateFertilisersQuestion>no</AmmoniumCarbonateFertilisersQuestion>
 
                   <InorganicFertilisers/>
@@ -34,19 +80,12 @@
                   <InorganicFertilisersExactly>yes</InorganicFertilisersExactly>
                   <InorganicFertilisersExactlyReason/>
                   <InorganicFertilisersPage/>
-
-                  <ExemptSmallMicroFarmsPage/>
-                  <ExemptSmallMicroFarmsPageExactly>yes</ExemptSmallMicroFarmsPageExactly>
-                  <ExemptSmallMicroFarmsPageExactlyReason/>
                   
                   <NationalAdvisoryCodeQuestion>no</NationalAdvisoryCodeQuestion>
                   <NationalAdvisoryCode/>
-                  <NationalAdvisoryCodeExactly>yes</NationalAdvisoryCodeExactly>
-                  <NationalAdvisoryCodeExactlyReason/>
-                  <NationalAdvisoryCodePage/>
-                  <NationalNitrogenBudgetQuestion/>
+                  <NationalAdvisoryCodeOther/>
                   
-                  <OpenFieldBurningQuestion>yes</OpenFieldBurningQuestion>
+                  <OpenFieldBurningQuestion>no</OpenFieldBurningQuestion>
                   <OpenFieldBurningBanEnforced>no</OpenFieldBurningBanEnforced>
                   <OpenFieldBurningBanExemptions>no</OpenFieldBurningBanExemptions>
 
@@ -58,58 +97,42 @@
                   <PreventingImpactsSmallFarmsQuestion>no</PreventingImpactsSmallFarmsQuestion>
                   <SmallMicroFarmsFullAccountQuestion>no</SmallMicroFarmsFullAccountQuestion>
                   <SmallMicroFarmsExemptionsQuestion>no</SmallMicroFarmsExemptionsQuestion>
+      
+            </T264>
 
-            </Agriculture>
-            <BasisExplanation/>
-            <ConsultationComments/>
-            
-            <Description/>
-            <Entities>
-                  <Name/>
-                  <Type/>
-            </Entities>
-            <ReviewTimetable>
-                  <Finish/>
-                  <Start/>
-			<id/>
-            </ReviewTimetable>
-            <Implementation>
-                  <Finish/>
-                  <Start/>
-                  <Status/>
-			<id/>
-            </Implementation>
-            <Indicators>
-                  <Description/>
-                  <InterimTarget1/>
-                  <InterimTarget2/>
-                  <InterimTarget3/>
-                  <InterimTarget4/>
-                  <InterimYearTarget1/>
-                  <InterimYearTarget2/>
-                  <InterimYearTarget3/>
-                  <InterimYearTarget4/>
-                  <Unit/>
-            </Indicators>
-            <Objective/>
-            <PolicyGroup/>
-            <PolicyInstruments/>
-            <Pollutants/>
-            <ProjectionsScenario/>
-            <Reference>
-               <Text/>
-               <Url/>
-            </Reference>
-            <SelectedForAdoption>no</SelectedForAdoption>
-            <UnionPolicy/>
-            <UnionPolicyRelated>no</UnionPolicyRelated>
-            <isGroup>single</isGroup>
-            <BelongsToPackage>no</BelongsToPackage>
-            <AirQualityImpact/>
-            <InformationImpactAirQuality>no</InformationImpactAirQuality>
+            <T27>
+                  <AdoptionPlannedYear/>
+                  <ReviewTimetable>
+                        <Finish/>
+                        <Start/>
+                  </ReviewTimetable>
+
+                  <CoherenceQualityObjectives/>
+                  <CoherencePlansProgrammes/>
+            </T27>
+            <T27p>
+                  <ConsultationComments/>
+
+                  <Indicators>
+                        <Description/>
+                        <Unit/>
+                        <InterimYearTarget1/>
+                        <InterimTarget1/>
+                        <InterimYearTarget2/>
+                        <InterimTarget2/>
+                        <InterimYearTarget3/>
+                        <InterimTarget3/>
+                        <InterimYearTarget4/>
+                        <InterimTarget4/>
+                  </Indicators>
+
+                  <Reference>
+                        <Text/>
+                        <Url/>
+                  </Reference>
+            </T27p>
+           
          </Table1>
-         <Title/>
-         <TitleLocal/>
-         <id>1</id>
+
       </NEC_PAM>
    </NEC_PAMs>

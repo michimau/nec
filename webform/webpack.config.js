@@ -66,6 +66,7 @@ module.exports = function (env = {}) {
         { from: './index.html' },
         { from: './../instance', ignore: ['*test*'] },
         { from: './../translations/mmr-pams-labels-en.json' },
+        { from: './../schema/NEC_PAMs.xsd' },
       ]),
       // new CompressionPlugin({
       //   asset: "[path].gz[query]",
